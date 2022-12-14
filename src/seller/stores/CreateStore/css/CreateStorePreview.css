@@ -1,0 +1,23 @@
+.create-store-preview-pictures{
+    display: flex;
+    align-items: center;
+    width: 90%;
+    border: 1px solid gray;
+    overflow-x: scroll;
+}
+
+.create-store-preview-categories{
+    display: flex;
+    align-items: center;
+    border: 1px solid gray;
+    width: 90%;
+    overflow-x: scroll;
+}
+
+.create-store-preview-categories div {
+    margin: 15px;
+}
+
+.create-store-preview-places p {
+    margin: 15px;
+}

@@ -1,21 +1,25 @@
 import React from 'react';
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
+import { addStoreNames } from '../../../redux/stores/createStoreReducer';
 
 const StoreName = (props) => {
   const dispatch = useDispatch();
   
   const submitStoreName = (e) => {
+    e.preventDefault();
     const storeNameData = {
-        name: e.target.name,
-        description: e.target.description,
-        city: e.target.city,
-        country: e.target.country,
+        name: e.target.name.value,
+        description: e.target.description.value,
+        city: e.target.city.value,
+        country: e.target.country.value,
     }
-    dispatch(storeNameData);
+    dispatch(addStoreNames(storeNameData));
   }
 
   return (
-    <div>
+    <div
+      style={props.progress === 1? {display: 'grid'}: {display: 'none'}}
+    >
         <form className='form-create-store-name' onSubmit={submitStoreName}>
             <input type='text' name='name' placeholder='name'/>
             <input type='text' name='country' placeholder='country'/>

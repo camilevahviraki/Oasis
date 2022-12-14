@@ -1,0 +1,43 @@
+{
+    "pictures": [
+        {
+            "description": "qwerty1",
+            "images": [
+                {}
+            ],
+            "type": "image"
+        },
+        {
+            "description": "qazerty2",
+            "images": [
+                {},
+                {},
+                {},
+                {}
+            ],
+            "type": "image"
+        },
+        {
+            "description": "viedo loop3",
+            "images": [
+                {}
+            ],
+            "type": "video"
+        }
+    ],
+    "types": [
+        "Chemical",
+        "Pharmacie",
+        "Electronic",
+        "Mechanic",
+        "Food"
+    ],
+    "places": [],
+    "details": {
+        "name": "Vitron Store",
+        "description": "Just like how you were able to center the image horizontally with the display-flex method, you can also do the same vertically.\n\nBut this time around, you won’t need to use the justify-content property. Rather you'll use the align-items property",
+        "city": "Miami",
+        "country": "Florida"
+    },
+    "progress": 5
+}
