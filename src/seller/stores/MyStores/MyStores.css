@@ -1,0 +1,57 @@
+.my-stores-container {
+    width: 100vw;
+    min-height: 100vh;
+    padding-top: 100px;
+    align-items: center;
+}
+
+.my-store-wrapper {
+    width: 90%;
+    min-height: 300px;
+    border: 1px solid gray;
+    margin-top: 24px;
+    display: flex;
+    align-items: center;
+    text-align: start;
+}
+
+.my-store-picture-container {
+    width: 30%;
+    height: 300px;
+    border: 1px solid gray;
+}
+
+.my-store-details {
+    display: flex;
+    flex-direction: column;
+    border: 1px solid gray;
+    min-height: 300px;
+    margin-left: 3%;
+    width: 67%;
+}
+
+.my-store-location {
+    display: flex;
+}
+
+.my-store-categories-wrapper {
+    display: flex;
+}
+
+.my-store-categories-wrapper p {
+    padding: 8px;
+    background-color: gray;
+    margin-right: 10px;
+}
+
+.my-store-create-new {
+    position: absolute;
+    right: 5%;
+    margin-bottom: 20px;
+}
+
+.my-store-name {
+    font-weight: 700;
+    text-transform: capitalize;
+    font-size: 20px;
+}
