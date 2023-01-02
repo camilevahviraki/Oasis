@@ -6,6 +6,9 @@ const ADD_STORES_PLACES = "/redux/ADD_STORE_PLACES";
 const ADD_STORES_TYPES = "/redux/ADD_STORE_TYPES";
 const ADD_STORES_PICTURES = "/redux/ADD_STORE_PICTURES";
 const SET_STORES_SUMMARY = "/redux/SET_STORE_SUMMARY";
+const BACK_TO_PREVIOUS_PROGRESS = "/redux/BACK_TO_PREVIOUS_PROGRESS";
+const SET_PROGRESS = "/redux/SET_PROGRESs";
+
 
 const createStoresReducer = (
   state = {
@@ -54,6 +57,24 @@ const createStoresReducer = (
       const newState = { pictures, types, places, details, progress };
       return newState;
     }
+    case BACK_TO_PREVIOUS_PROGRESS: {
+      const pictures = state.pictures;
+      const types = state.types;
+      const places = state.places;
+      const details = state.details;
+      const progress = state.progress - 1;
+      const newState = { pictures, types, places, details, progress };
+      return newState;
+    }
+    case SET_PROGRESS: {
+      const pictures = state.pictures;
+      const types = state.types;
+      const places = state.places;
+      const details = state.details;
+      const progress = action.data;
+      const newState = { pictures, types, places, details, progress };
+      return newState;
+    }
     case SET_STORES_SUMMARY: {
       return state;
     }
@@ -81,6 +102,16 @@ export const addStorePictures = (pictures) => ({
     type: ADD_STORES_PLACES,
     data: places,
   });
+
+  export const createStoreProgress = () => ({
+    type: BACK_TO_PREVIOUS_PROGRESS,
+  });
+
+  export const createStoreSetProgress = (data) => ({
+    type: SET_PROGRESS,
+    data
+  });
+
 
 // export const removeMotorcycle = (id, token) => (dispatch) => {
 //   axios.delete(`${linkURL}/api/v1/motorcycle/${id}`,
