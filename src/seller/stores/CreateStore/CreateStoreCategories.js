@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { useDispatch } from "react-redux";
-import { addStoreTypes } from "../../../redux/stores/createStoreReducer";
+import { addStoreTypes, createStoreProgress } from "../../../redux/stores/createStoreReducer";
 
 const CreateStoreCategories = (props) => {
   const [selected, setSelected] = useState([]);
@@ -39,8 +39,9 @@ const CreateStoreCategories = (props) => {
   return (
     <div 
       className="create-store-categories" 
-      style={props.progress === 2? {display: 'grid'}: {display: 'none'}}
+      style={props.progress === 2? {display: 'block'}: {display: 'none'}}
     >
+      <h2>Select store categories</h2>
       {categories.map((category, index) => (
         <div key={category.id} onClick={() => addCategory(category.name)}>
           <h4
@@ -55,6 +56,7 @@ const CreateStoreCategories = (props) => {
         </div>
       ))}
       <div>
+        <button type="button" onClick={() => dispatch(createStoreProgress())}>{'<'}Back</button>
         <button type="button" onClick={SubmitCategories}>
           Next{">"}
         </button>

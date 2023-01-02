@@ -14,6 +14,15 @@
     width: 70%;
 }
 
+.create-store-categories h4 {
+    margin: 5px;
+    padding: 10px;
+}
+
+.create-store-main{
+    width: 90%;
+}
+
 .store-type {
     border-bottom: 1px solid gray;
 }
@@ -22,3 +31,21 @@
     background-color: green;
 }
 
+.InputCreateStore{
+    border: 1px solid rgba(128, 128, 128, 0.377);
+    margin: 8px 0;
+    padding: 8px;
+}
+
+.TextAreaCreateStore {
+    height: 120px;
+    border: 1px solid rgba(128, 128, 128, 0.377);
+}
+
+.create-store-submit {
+    position: absolute;
+    top: 90vh;
+    padding: 8px 15px;
+    background-color: rgba(5, 18, 27, 0.705);
+    color: white;
+}

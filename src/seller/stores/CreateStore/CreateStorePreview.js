@@ -1,8 +1,11 @@
 import React from "react";
 import { useSelector, useDispatch } from "react-redux";
+import { createStoreProgress } from "../../../redux/stores/createStoreReducer";
+import locationIcon from '../../../images/location_icon.png';
 import "./css/CreateStorePreview.css";
 
 const CreateStorePreview = (props) => {
+  const dispatch = useDispatch();
   const createStoreData = useSelector((state) => state.createStoresReducer);
   const { details, pictures, types, places, progress } = createStoreData;
   return (
@@ -10,8 +13,9 @@ const CreateStorePreview = (props) => {
       style={props.progress === 5 ? { display: "grid" } : { display: "none" }}
     >
       <div className="create-store-preview-description">
-        <h3>{details.name}</h3>
+        <h3>Store details</h3>
         <div className="create-store-preview-description-location">
+          <h4>Name: {details.name}</h4>  
           <h4>Location:</h4>
           <p>
             {details.city}, {details.country}
@@ -58,11 +62,24 @@ const CreateStorePreview = (props) => {
       <div className="create-store-preview-places-container">
         <h3>Others Locations</h3>
         <div className="create-store-preview-places row">
-            <p>Washington DC, USA</p>
-            <p>Casablanca, Morroco</p>
-            <p>Kinshasa, DRC</p>
-            <p>Malibu, </p>
+            <div>
+                <img src={locationIcon} alt='' className="location-icon icon"/>
+                Washington DC, USA
+            </div>
+            <div>
+            <img src={locationIcon} alt='' className="location-icon icon"/>
+                Casablanca, Morroco</div>
+            <div>
+            <img src={locationIcon} alt='' className="location-icon icon"/>
+                Kinshasa, DRC</div>
+            <div>
+              <img src={locationIcon} alt='' className="location-icon icon"/>
+                Bucharest, Romania </div>
         </div>
+      </div>
+      <div className="create-store-preview-submit-container row">
+        <button type="button" onClick={() => dispatch(createStoreProgress())}>{'<'}Back</button>
+        <button type="button">Create Store {'>'}</button>
       </div>
     </div>
   );

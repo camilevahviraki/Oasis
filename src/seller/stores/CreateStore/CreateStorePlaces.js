@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
-import { addStorePlaces } from '../../../redux/stores/createStoreReducer';
+import { addStorePlaces, createStoreProgress } from '../../../redux/stores/createStoreReducer';
 
 const CreateStorePlaces = (props) => {
     const dispatch = useDispatch();
@@ -16,7 +16,11 @@ const CreateStorePlaces = (props) => {
       {display: 'grid'}: {display: 'none'}}
     >
         <h2>CreateStorePlaces</h2>
-    <button type='button' onClick={savePlaces}>Next</button>
+    <div className='row'>
+      <button type="button" onClick={() => dispatch(createStoreProgress())}>{'<'}Back</button>    
+      <button type='button' onClick={savePlaces}>Next</button>
+    </div>    
+    
     </div>
     
   )

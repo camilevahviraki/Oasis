@@ -1,6 +1,9 @@
 import React, { useState } from "react";
 import { useDispatch } from "react-redux";
-import { addStorePictures } from "../../../redux/stores/createStoreReducer";
+import {
+  addStorePictures,
+  createStoreProgress,
+} from "../../../redux/stores/createStoreReducer";
 import "./css/CreateStorePictures.css";
 
 const CreateStorePictures = (props) => {
@@ -44,45 +47,49 @@ const CreateStorePictures = (props) => {
     setCurrentDescription("");
     setChoosenFiles([
       ...choosenFiles,
-      { description: currentDescription, images: currentFiles , type: fyleType},
+      { description: currentDescription, images: currentFiles, type: fyleType },
     ]);
   };
 
   const removeImageSet = (description) => {
-     const newChoosenFiles = choosenFiles.filter((files) => files.description !== description);
-     setChoosenFiles(newChoosenFiles);
-  }
+    const newChoosenFiles = choosenFiles.filter(
+      (files) => files.description !== description
+    );
+    setChoosenFiles(newChoosenFiles);
+  };
 
   return (
-    <div 
+    <div
       className="create-store-pictures"
-      style={props.progress === 3? {display: 'grid'}: {display: 'none'}}
+      style={props.progress === 3 ? { display: "grid" } : { display: "none" }}
     >
       <div>
-        {choosenFiles.map((files) =>(
-        <div className="create-store-images-preview">
-            
-         { files.type === 'image'?
-             (Object.keys(files.images).map((keyName, i) => (
-                <div className="create-store-image-preview-container small">
-                  <img
-                    src={URL.createObjectURL(files.images[keyName])}
-                    alt=""
-                    className="create-store-image-preview"
-                  />
-                </div>
-              ))):
-              (Object.keys(files.images).map((keyName, i) => (
-                <video width="200px" controls>
-                  <source src={URL.createObjectURL(files.images[keyName])} />
-                </video>
-              )))
-         }
-         <h5>{files.description}</h5>
-         <button type="button" onClick={() => removeImageSet(files.description)}>Remove</button>
-          
-        </div>)
-        )}
+        {choosenFiles.map((files) => (
+          <div className="create-store-images-preview">
+            {files.type === "image"
+              ? Object.keys(files.images).map((keyName, i) => (
+                  <div className="create-store-image-preview-container small">
+                    <img
+                      src={URL.createObjectURL(files.images[keyName])}
+                      alt=""
+                      className="create-store-image-preview"
+                    />
+                  </div>
+                ))
+              : Object.keys(files.images).map((keyName, i) => (
+                  <video width="200px" controls>
+                    <source src={URL.createObjectURL(files.images[keyName])} />
+                  </video>
+                ))}
+            <h5>{files.description}</h5>
+            <button
+              type="button"
+              onClick={() => removeImageSet(files.description)}
+            >
+              Remove
+            </button>
+          </div>
+        ))}
         <div className="create-store-images-preview">
           {fyleType === "image"
             ? Object.keys(gallery).map((keyName, i) => (
@@ -138,7 +145,16 @@ const CreateStorePictures = (props) => {
           <button type="button" onClick={saveSelectedImages}>
             More pictures
           </button>
-          <input type="submit" value="Next" />
+
+          <div className="row">
+            <button
+              type="button"
+              onClick={() => dispatch(createStoreProgress())}
+            >
+              {"<"}Back
+            </button>
+            <input type="submit" value="Next" />
+          </div>
         </div>
       </form>
     </div>

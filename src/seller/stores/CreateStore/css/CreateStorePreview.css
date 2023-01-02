@@ -18,6 +18,18 @@
     margin: 15px;
 }
 
-.create-store-preview-places p {
+.create-store-preview-places {
+    border: 1px solid gray;
+    width: 90%;
+}
+
+.create-store-preview-places div {
     margin: 15px;
+}
+
+.create-store-preview-submit-container button {
+   padding: 12px;
+   background-color: green;
+   font-size: 18px;
+   border: none;
 }
