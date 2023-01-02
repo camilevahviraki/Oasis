@@ -1,0 +1,41 @@
+.Menu {
+    border: 1px solid gray;
+    position: fixed;
+    height: 90vh;
+    top: 10vh;
+    right: 0;
+    z-index: 10;
+    background-color: #fff;
+}
+
+.menu-user-details {
+    border: 1px solid gray;
+    height: 20%;
+}
+
+.hide-menu {
+    position: absolute;
+    right: 20px;
+}
+
+.menu-links-wrapper div {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    text-align: start;
+}
+
+.menu-links-wrapper img {
+    margin: 8px 15px;
+    margin-left: 10%;
+}
+
+.menu-links-wrapper a {
+   width: 60%;
+   padding-top: 10px;
+   padding-bottom: 10px;
+}
+
+.menu-links-wrapper div:hover {
+    background-color: rgba(31, 38, 43, 0.356);
+}
