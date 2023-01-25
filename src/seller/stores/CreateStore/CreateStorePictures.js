@@ -1,24 +1,44 @@
 import React, { useState } from "react";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
+import Upload from "../../../redux/upload";
+import UploadProgress from "../../../reusable/upload-progress/UploadProgress";
 import {
   addStorePictures,
   createStoreProgress,
+  getStoreId
 } from "../../../redux/stores/createStoreReducer";
 import "./css/CreateStorePictures.css";
 
 const CreateStorePictures = (props) => {
-  const [choosenFiles, setChoosenFiles] = useState([]);
   const [currentDescription, setCurrentDescription] = useState("");
-  const [currentFiles, setCurrentFiles] = useState([]);
-  const [gallery, setGallery] = useState({});
+  const [gallery, setGallery] = useState([]);
   const [fyleType, setFileType] = useState("image");
   const [multiple, setMultiple] = useState(false);
+  const [progress, setProgress] = useState(0);
   const dispatch = useDispatch();
 
+  const getProgress = (prog) => {
+    setProgress(prog);
+  }
+
+  const storeData = useSelector(state => state.createStoresReducer)
   const handleSubmit = (e) => {
     e.preventDefault();
-
-    dispatch(addStorePictures(choosenFiles));
+    
+    let formData = new FormData()
+    gallery.forEach(img => {
+      formData.append("images[]", img)
+    })
+    formData.append("step", 3)
+    formData.append('store_id', storeData.storeId.store_id)
+    formData.append('fyle_type', fyleType);
+    Upload({
+      endPoint: 'api_stores',
+      data: formData,
+      dispatchResponse: (sent) => dispatch(getStoreId(sent)),
+      getProgress: (prog) => getProgress(prog)
+    })
+    dispatch(addStorePictures(formData));
   };
 
   const handleSelect = (e) => {
@@ -37,25 +57,7 @@ const CreateStorePictures = (props) => {
   };
 
   const handlePreview = (e) => {
-    const currentImage = Array.prototype.slice.call(e.target.files);
-    setGallery(e.target.files);
-    setCurrentFiles(currentImage);
-  };
-
-  const saveSelectedImages = () => {
-    setGallery([]);
-    setCurrentDescription("");
-    setChoosenFiles([
-      ...choosenFiles,
-      { description: currentDescription, images: currentFiles, type: fyleType },
-    ]);
-  };
-
-  const removeImageSet = (description) => {
-    const newChoosenFiles = choosenFiles.filter(
-      (files) => files.description !== description
-    );
-    setChoosenFiles(newChoosenFiles);
+    setGallery(Array.prototype.slice.call(e.target.files));
   };
 
   return (
@@ -64,32 +66,6 @@ const CreateStorePictures = (props) => {
       style={props.progress === 3 ? { display: "grid" } : { display: "none" }}
     >
       <div>
-        {choosenFiles.map((files) => (
-          <div className="create-store-images-preview">
-            {files.type === "image"
-              ? Object.keys(files.images).map((keyName, i) => (
-                  <div className="create-store-image-preview-container small">
-                    <img
-                      src={URL.createObjectURL(files.images[keyName])}
-                      alt=""
-                      className="create-store-image-preview"
-                    />
-                  </div>
-                ))
-              : Object.keys(files.images).map((keyName, i) => (
-                  <video width="200px" controls>
-                    <source src={URL.createObjectURL(files.images[keyName])} />
-                  </video>
-                ))}
-            <h5>{files.description}</h5>
-            <button
-              type="button"
-              onClick={() => removeImageSet(files.description)}
-            >
-              Remove
-            </button>
-          </div>
-        ))}
         <div className="create-store-images-preview">
           {fyleType === "image"
             ? Object.keys(gallery).map((keyName, i) => (
@@ -106,6 +82,9 @@ const CreateStorePictures = (props) => {
                   <source src={URL.createObjectURL(gallery[keyName])} />
                 </video>
               ))}
+        </div>
+        <div style={{width: '300px'}}>
+          <UploadProgress progress={progress}/>
         </div>
       </div>
 
@@ -142,10 +121,7 @@ const CreateStorePictures = (props) => {
         />
 
         <div>
-          <button type="button" onClick={saveSelectedImages}>
-            More pictures
-          </button>
-
+    
           <div className="row">
             <button
               type="button"

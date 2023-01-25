@@ -1,13 +1,15 @@
 import React, { useState } from 'react';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { addStorePlaces, createStoreProgress } from '../../../redux/stores/createStoreReducer';
 
 const CreateStorePlaces = (props) => {
     const dispatch = useDispatch();
+    const storeData = useSelector(state => state.createStoresReducer);
     const [selectedPlaces, setPlaces] = useState([]);
-
+  
     const savePlaces = () => {
-        dispatch(addStorePlaces(selectedPlaces));
+
+        dispatch(addStorePlaces({places: selectedPlaces, step: 4, store_id: storeData.storeId.store_id}));
     }
 
   return (

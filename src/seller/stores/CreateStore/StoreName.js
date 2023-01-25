@@ -13,6 +13,7 @@ const StoreName = (props) => {
         description: e.target.description.value,
         city: e.target.city.value,
         country: e.target.country.value,
+        step: 1,
     }
     dispatch(addStoreNames(storeNameData));
   }

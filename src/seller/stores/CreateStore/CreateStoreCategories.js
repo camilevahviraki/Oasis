@@ -1,10 +1,10 @@
 import React, { useState } from "react";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { addStoreTypes, createStoreProgress } from "../../../redux/stores/createStoreReducer";
 
 const CreateStoreCategories = (props) => {
   const [selected, setSelected] = useState([]);
-
+  const storeData = useSelector(state => state.createStoresReducer)
   const dispatch = useDispatch();
 
   const categories = [
@@ -23,17 +23,21 @@ const CreateStoreCategories = (props) => {
   ];
 
   const addCategory = (category) => {
-    if(selected.includes(category)){
-        const newSelected =  selected.filter((item) => item !== category);
+    if(selected.some(e => e.name === category.name)){
+        const newSelected =  selected.filter((item) => item.name !== category.name);
         setSelected(newSelected);
     }else{
         setSelected([...selected, category]);
     }
-    
   };
 
   const SubmitCategories = () => {
-    dispatch(addStoreTypes(selected));
+    let formData = new FormData();
+    categories.forEach((category) => {
+      formData.append("categories[]", category);
+    });
+
+    dispatch(addStoreTypes({categories: selected, step: 2, store_id: storeData.storeId.store_id}));
   };
 
   return (
@@ -43,10 +47,10 @@ const CreateStoreCategories = (props) => {
     >
       <h2>Select store categories</h2>
       {categories.map((category, index) => (
-        <div key={category.id} onClick={() => addCategory(category.name)}>
+        <div key={category.id} onClick={() => {addCategory(category); console.log('category =>', category, 'selected =>', selected)}}>
           <h4
             className={
-              selected.includes(category.name)
+              selected.some(e => e.name === category.name)
                 ? "store-type selected-type"
                 : "store-type"
             }

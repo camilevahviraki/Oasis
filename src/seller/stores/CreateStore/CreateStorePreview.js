@@ -1,5 +1,6 @@
 import React from "react";
 import { useSelector, useDispatch } from "react-redux";
+import { postStoreToServer } from "../../../redux/stores/createStoreReducer";
 import { createStoreProgress } from "../../../redux/stores/createStoreReducer";
 import locationIcon from '../../../images/location_icon.png';
 import "./css/CreateStorePreview.css";
@@ -28,7 +29,7 @@ const CreateStorePreview = (props) => {
       <div className="create-store-preview-pictures-container">
         <h3>Store Views</h3>
         <div className="create-store-preview-pictures">
-          {pictures.map((gallery, key) => (
+          {/* {pictures.map((gallery, key) => (
             <div className="create-store-preview-pictures-gallery row">
               {gallery.type === "image" ? (
                 <div className="create-store-image-preview-container">
@@ -44,19 +45,19 @@ const CreateStorePreview = (props) => {
                 </video>
               )}
             </div>
-          ))}
+          ))} */}
         </div>
       </div>
       <div className="create-store-preview-categories-container">
            <h3>Item's Categories</h3>
            <div className="create-store-preview-categories row">
-               {
+               {/* {
                  types.map((category) => (
                     <div>
-                        <h5>{category}</h5>
+                        <h5>{category.name}</h5>
                     </div>
                  ))
-               }
+               } */}
            </div>
       </div>
       <div className="create-store-preview-places-container">
@@ -79,7 +80,7 @@ const CreateStorePreview = (props) => {
       </div>
       <div className="create-store-preview-submit-container row">
         <button type="button" onClick={() => dispatch(createStoreProgress())}>{'<'}Back</button>
-        <button type="button">Create Store {'>'}</button>
+        <button type="button" onClick={() => dispatch(postStoreToServer(createStoreData))}>Create Store {'>'}</button>
       </div>
     </div>
   );
