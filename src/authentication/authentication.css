@@ -1,0 +1,93 @@
+.user-authentication-form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    max-width: 600px;
+    min-width: 50%;
+}
+
+.user-authentication-form-input {
+    border: 1px solid rgba(128, 128, 128, 0.445);
+    padding: 8px;
+    padding-left: 8px;
+    width: 100%;
+}
+
+.user-authentication-form-button {
+    background-color: rgba(4, 97, 104, 0.74);
+    padding: 8px 20px;
+    margin-top: 10px;
+}
+
+.user-auth-image-wrap {
+    width: 140px;
+    height: 140px;
+    border-radius: 50%;
+    border: 1px solid gray;
+    overflow: hidden;
+}
+
+.user-image-preview {
+    max-width: 100%;
+    max-height: 100%;
+    height: auto;
+    width: auto;
+}
+
+.image-pop-up-container {
+    position: absolute;
+    top: 70px;
+    width: 50vw;
+    height: calc(100vh - 70px);
+    border: 1px solid gray;
+    background-color: rgb(255, 255, 255);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.image-pop-up-container button {
+    position: absolute;
+    right: 20px;
+}
+
+.image-pop-up-wrap {
+    width: 80%;
+    height: 90%;
+    margin-top: 10%;
+}
+
+.user-authentication-input-file {
+    background-color: #fff;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.image-pop-up {
+    max-width: 100%;
+    max-height: 100%;
+    height: auto;
+    width: auto;
+}
+
+.formR-input-wrap {
+    width: 100%;
+    position: relative;
+    display: flex;
+    align-items: center;
+    margin-top: 10px;
+}
+
+.error-input-show {
+    width: 14px;
+    height: 14px;
+    border-radius: 50%;
+    background-color: rgba(172, 100, 7, 0.884);
+    position: absolute;
+    right: -20px;
+}
+
+.authentication-title {
+    font-weight: 600;
+    font-size: 20px;
+}
+
