@@ -124,34 +124,34 @@ export const getStoreId = (storeId) => (
    }
 )
 
-export const addStoreNames = (details) => (dispatch) => {
+export const addStoreNames = (details, token) => (dispatch) => {
   dispatch({
     type: ADD_STORES_NAMES,
     data: details,
   })
-  Upload({data: details, endPoint: 'api_stores', dispatchResponse: (data) => dispatch(getStoreId(data))})
+  Upload({data: details, endPoint: 'api_stores', dispatchResponse: (data) => dispatch(getStoreId(data)), token})
 
 };
 
-export const addStorePictures = (pictures) => (dispatch) => {
-  // Upload({data: pictures, endPoint: 'api_stores', dispatchResponse: (data) => dispatch(getStoreId(data))})
+export const addStorePictures = (pictures, token) => (dispatch) => {
+  // Upload({data: pictures, endPoint: 'api_stores', dispatchResponse: (data) => dispatch(getStoreId(data)), token})
   dispatch({
     type: ADD_STORES_PICTURES,
     data: pictures,
   })
 };
 
-  export const addStoreTypes = (data) => (dispatch) => {
+  export const addStoreTypes = (data, token) => (dispatch) => {
 
-    Upload({data: data, endPoint: 'api_stores', dispatchResponse: (body) => dispatch(getStoreId(body))})
+    Upload({data: data, endPoint: 'api_stores', dispatchResponse: (body) => dispatch(getStoreId(body)), token})
     dispatch({
       type: ADD_STORES_TYPES,
       data: data,
     })
   };
 
-  export const addStorePlaces = (places) => (dispatch) => {
-    Upload({data: places, endPoint: 'api_stores', dispatchResponse: (data) => dispatch(getStoreId(data))})
+  export const addStorePlaces = (places, token) => (dispatch) => {
+    Upload({data: places, endPoint: 'api_stores', dispatchResponse: (data) => dispatch(getStoreId(data), token)})
     dispatch({
       type: ADD_STORES_PLACES,
       data: places,

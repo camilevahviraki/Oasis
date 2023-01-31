@@ -5,22 +5,23 @@ const GET_STORES_LIST = 'redux/store/getStoresReducer/GET_STORES_LIST';
 
 
 const getStoresReducer = (state = [], action) => {
-    switch (action.state) {
-        case GET_STORES_LIST: 
+    switch (action.type) {
+        case GET_STORES_LIST: {
            return action.data;
-        default:
+        }default:
             return state
     }
 } 
 
-export const getStoresList = (data, token) => (dispatch) => {
-    axios.get(`${linkURL}/api_stores`)
-      .then((response) => dispatch(
+export const getStoresList = (userId, token) => (dispatch) => {
+    axios.get(`${linkURL}/store/${userId}/api_stores`)
+      .then((response) => {dispatch(
         {
           type: GET_STORES_LIST,
           data: response.data,
         },
-      ));
+      )
+    });
 }
 
 export default getStoresReducer;
