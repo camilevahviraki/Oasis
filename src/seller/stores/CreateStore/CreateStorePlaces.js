@@ -5,11 +5,18 @@ import { addStorePlaces, createStoreProgress } from '../../../redux/stores/creat
 const CreateStorePlaces = (props) => {
     const dispatch = useDispatch();
     const storeData = useSelector(state => state.createStoresReducer);
+    const userData = useSelector(state => state.authenticationReducer); 
+    const token = userData.token;
+
     const [selectedPlaces, setPlaces] = useState([]);
   
     const savePlaces = () => {
-
-        dispatch(addStorePlaces({places: selectedPlaces, step: 4, store_id: storeData.storeId.store_id}));
+        dispatch(addStorePlaces({
+          places: selectedPlaces,
+          step: 4,
+          store_id: storeData.storeId.store_id,
+          user_id: userData.user.id,
+        }, token));
     }
 
   return (

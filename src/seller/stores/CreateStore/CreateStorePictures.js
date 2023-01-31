@@ -21,7 +21,10 @@ const CreateStorePictures = (props) => {
     setProgress(prog);
   }
 
-  const storeData = useSelector(state => state.createStoresReducer)
+  const userData = useSelector(state => state.authenticationReducer); 
+  const storeData = useSelector(state => state.createStoresReducer);
+  const token = userData.token;
+
   const handleSubmit = (e) => {
     e.preventDefault();
     
@@ -32,13 +35,14 @@ const CreateStorePictures = (props) => {
     formData.append("step", 3)
     formData.append('store_id', storeData.storeId.store_id)
     formData.append('fyle_type', fyleType);
+    formData.append('user_id', userData.user.id);
     Upload({
       endPoint: 'api_stores',
       data: formData,
       dispatchResponse: (sent) => dispatch(getStoreId(sent)),
       getProgress: (prog) => getProgress(prog)
     })
-    dispatch(addStorePictures(formData));
+    dispatch(addStorePictures(formData, token));
   };
 
   const handleSelect = (e) => {

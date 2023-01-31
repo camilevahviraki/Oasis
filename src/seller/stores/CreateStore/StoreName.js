@@ -1,11 +1,14 @@
 import React from 'react';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { addStoreNames } from '../../../redux/stores/createStoreReducer';
 import FormR from '../../../reusable/form/FormR';
 
 const StoreName = (props) => {
   const dispatch = useDispatch();
-  
+  const userData = useSelector(state => state.authenticationReducer); 
+  const token = userData.token;
+
+
   const submitStoreName = (e) => {
     e.preventDefault();
     const storeNameData = {
@@ -14,8 +17,9 @@ const StoreName = (props) => {
         city: e.target.city.value,
         country: e.target.country.value,
         step: 1,
+        user_id: userData.user.id,
     }
-    dispatch(addStoreNames(storeNameData));
+    dispatch(addStoreNames(storeNameData, token));
   }
 
   const formValues = [

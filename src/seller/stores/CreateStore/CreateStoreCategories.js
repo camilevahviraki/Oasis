@@ -4,7 +4,9 @@ import { addStoreTypes, createStoreProgress } from "../../../redux/stores/create
 
 const CreateStoreCategories = (props) => {
   const [selected, setSelected] = useState([]);
-  const storeData = useSelector(state => state.createStoresReducer)
+  const storeData = useSelector(state => state.createStoresReducer);
+  const userData = useSelector(state => state.authenticationReducer);
+  const token = userData.token;
   const dispatch = useDispatch();
 
   const categories = [
@@ -37,7 +39,12 @@ const CreateStoreCategories = (props) => {
       formData.append("categories[]", category);
     });
 
-    dispatch(addStoreTypes({categories: selected, step: 2, store_id: storeData.storeId.store_id}));
+    dispatch(addStoreTypes({
+      categories: selected,
+      step: 2,
+      store_id: storeData.storeId.store_id,
+      user_id: userData.user.id,
+    }, token));
   };
 
   return (
