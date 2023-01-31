@@ -1,0 +1,38 @@
+.store-show-details {
+    border: 1px solid gray;
+    width: 90%;
+    display: flex;
+}
+
+.store-show-image-wrap {
+    width: 30vw;
+    height: 30vw;
+    border: 1px solid gray;
+    position: relative;
+    display: block;
+}
+
+.store-show-image {
+    max-width: 100%;
+    max-height: 100%;
+    width: auto;
+    height: auto;
+    margin: auto;
+}
+
+.store-show-details-description {
+    border: 1px solid gray;
+    width: 66%;
+    margin-left: 4%;
+    text-align: start;
+    position: relative;
+}
+
+.store-show-container-search-wrap {
+    width: 100%;
+    padding: 10px;
+}
+
+.my-store-categories-wrapper {
+    margin-top: 16px;
+}
