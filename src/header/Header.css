@@ -5,12 +5,27 @@ header {
     align-items: center;
     z-index: 10;
     background-color: #fff;
+    top: 0;
 }
 
 .header-icons img {
     width: 30px;
     height: auto;
     margin-right: 30px;
+}
+
+.user-Icon-wrap {
+    width: 30px;
+    height: 30px;
+    margin-left: 30px;
+    border-radius: 50%;
+    overflow: hidden;
+}
+
+.user-Icon-r {
+    max-width: 100%;
+    width: auto;
+    height: auto;
 }
 
 .user-Icon {

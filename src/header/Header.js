@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
+import { useSelector } from 'react-redux';
 import Menu from './menu';
+import CheckValidImage from '../reusable/check-image/checkValidImage';
 import searchIcon from '../images/search-icon1.png';
 import chatIcon from '../images/icons/chat-icon-f.png';
 import placesIcon from '../images/icons/travel_explore_FILL0_wght400_GRAD0_opsz48.png';
@@ -14,6 +16,9 @@ import './Header.css';
 const Header = () => {
   const [showMenu, setShowMenu] = useState(false);
   const [searchValue, setSearchValue] = useState('');
+  const userData = useSelector(state => state.authenticationReducer);
+  const userNames = userData.user.first_name + '-' + userData.user.last_name;
+  const userImage = userData.user.avatar_url;
   const hideMenu = () => {
     setShowMenu(false);
   }
@@ -45,13 +50,15 @@ const Header = () => {
        </div>
        <div className='right-icons-wrap flex align-center'>
         <Link to='cart'>
-          <img src={cartIcon} alt='' className='user-Icon'/>
+            <img src={cartIcon} alt='' className='user-Icon'/>
         </Link>
         <Link to='chat'>
           <img src={chatIcon} alt='' className='user-Icon'/>
         </Link>
-        <Link to='user'>
-          <img src={userIcon} alt='' className='user-Icon'/>
+        <Link to={userNames}>
+          <div className='user-Icon-wrap'>
+            <img src={CheckValidImage({avartarUrl: userImage,defaultImg: userIcon})} alt='' className='user-Icon-r'/>
+          </div>
         </Link>
         <button type='button' onClick={() => setShowMenu(true)}>
           <img src={hamburger} alt='' className='user-Icon'/>
