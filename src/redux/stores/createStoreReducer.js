@@ -1,5 +1,3 @@
-import axios from "axios";
-import linkURL from '../link';
 import Upload from "../upload";
 
 const ADD_STORES_NAMES = "/redux/ADD_STORE_NAMES";
@@ -106,8 +104,15 @@ const createStoresReducer = (
       return newState;
     }
     case POST_STORE_TO_SERVER: {
-      console.log(action.store);
-      return state;
+      const newState = {
+        details: {},
+        pictures: [],
+        types: [],
+        places: [],
+        storeId: {step: 1},
+      }
+      localStorage.removeItem('createStoreData');
+      return newState;
     }
     default:
       const savedData = JSON.parse(localStorage.getItem('createStoreData'));
@@ -134,7 +139,6 @@ export const addStoreNames = (details, token) => (dispatch) => {
 };
 
 export const addStorePictures = (pictures, token) => (dispatch) => {
-  // Upload({data: pictures, endPoint: 'api_stores', dispatchResponse: (data) => dispatch(getStoreId(data)), token})
   dispatch({
     type: ADD_STORES_PICTURES,
     data: pictures,
@@ -167,29 +171,9 @@ export const addStorePictures = (pictures, token) => (dispatch) => {
     data
   });
 
-export const postStoreToServer = (data, token) => (dispatch) => {
-  const pictures = data.pictures;
-  const types = data.types;
-  const places = data.places;
-  const details = data.details;
-
-  const newState = { pictures, types, places, details };
-  console.log('new state =>', pictures);
-  
-  axios.post(`${linkURL}/api_stores`,
-  {create_store: newState},
-  {
-    headers: {
-      'Content-Type': 'multipart/form-data'
-    }
-  })
-    .then((response) => dispatch(
-      {
-        type: POST_STORE_TO_SERVER,
-        store: response.data,
-      },
-    ));
-};
+  export const postStoreToServer = () => ({
+    type: POST_STORE_TO_SERVER, 
+  });
 
 const saveToStorage = (data) => {
   localStorage.setItem('createStoreData', JSON.stringify(data));
