@@ -18,21 +18,22 @@ const CreateStorePlaces = (props) => {
           user_id: userData.user.id,
         }, token));
     }
+  
+  if(props.progress === 4){
+    return (
+      <div className='create-store-places'>
+          <h2>Others Locations</h2>
+      <div className='row'>    
+        <button type='button' onClick={savePlaces} className="create-store-submit">Next</button>
+      </div>    
+      
+      </div>
+      
+    )
+  }else {
+     return <></>
+  } 
 
-  return (
-    <div
-      style={props.progress === 4?
-      {display: 'grid'}: {display: 'none'}}
-    >
-        <h2>CreateStorePlaces</h2>
-    <div className='row'>
-      <button type="button" onClick={() => dispatch(createStoreProgress())}>{'<'}Back</button>    
-      <button type='button' onClick={savePlaces}>Next</button>
-    </div>    
-    
-    </div>
-    
-  )
 }
 
 export default CreateStorePlaces

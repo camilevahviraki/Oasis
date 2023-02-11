@@ -7,7 +7,6 @@ import CreateStorePictures from './CreateStorePictures';
 import CreateStorePreview from './CreateStorePreview';
 import ProgressBar from '../../../reusable/progress-bar/progressBar';
 import { createStoreSetProgress } from '../../../redux/stores/createStoreReducer';
-// import UsePrevious from '../../../reusable/usePrevious/UsePrevious';
 import './css/CreateStore.css';
 
 function CreateStore() {
@@ -31,8 +30,8 @@ function CreateStore() {
 
   console.log(createStoreData);
   return (
-    <div className='flex flex-col w-screen items-center'>
-      <h3 className='text-4xl font-bold '>Create Store</h3>
+    <div className='flex flex-col w-screen create_store_main_container'>
+      <h3 className='text-4xl font-bold '>{step === 5? 'Store Preview':'Create Store'}</h3>
       <ProgressBar
          steps = {stepsProgress}
          currentStep = {step}
@@ -42,7 +41,9 @@ function CreateStore() {
       <CreateStoreCategories progress = {step}/>
       <CreateStorePlaces progress = {step}/>
       <CreateStorePictures progress = {step}/>
-      <CreateStorePreview progress = {step}/>
+      {
+        step === 5? <CreateStorePreview progress = {step}/>:<></>
+      } 
     </div>
   )
 }

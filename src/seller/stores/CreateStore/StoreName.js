@@ -2,6 +2,7 @@ import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { addStoreNames } from '../../../redux/stores/createStoreReducer';
 import FormR from '../../../reusable/form/FormR';
+import './css/CreateStoreNames.css';
 
 const StoreName = (props) => {
   const dispatch = useDispatch();
@@ -29,22 +30,23 @@ const StoreName = (props) => {
     { type:'textarea', name: 'description', placeholder: 'description', classInput: 'TextAreaCreateStore'},
   ]
 
-  const classForm = 'flex flex-col align-center w-full mt-10'
+  const classForm = 'form-create-store-names'
 
-  return (
-    <div
-      style={props.progress === 1? {display: 'grid'}: {display: 'none'}}
-      className='flex flex-col align-center w-10/12 md:w-6/12 lg:w-5/12 sm:w-5/6 h-8/12'
-    >
-        <FormR
-          classForm={classForm}
-          inputsArray={formValues}
-          submitFunction={submitStoreName}
-          submitButton={'Next'}
-          submitClass={'create-store-submit'}
-        />
-    </div>
-  )
+  if(props.progress === 1){
+    return (
+      <div className='create-store-names'>
+          <FormR
+            classForm={classForm}
+            inputsArray={formValues}
+            submitFunction={submitStoreName}
+            submitButton={'Next'}
+            submitClass={'create-store-submit'}
+          />
+      </div>
+    )
+  }else {
+    return <></>
+  }
 }
 
 export default StoreName

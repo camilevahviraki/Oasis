@@ -1,35 +1,36 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { addStoreTypes, createStoreProgress } from "../../../redux/stores/createStoreReducer";
+import {
+  addStoreTypes,
+  createStoreProgress,
+} from "../../../redux/stores/createStoreReducer";
+import { getCategories } from "../../../redux/stores_categories/stores_categories_reducer";
+import Loader from "../../../reusable/loader/Loader";
+import checkMark from '../../../images/icons/check-mark.png';
+import removeMark from '../../../images/icons/remove-mark.png';
 
 const CreateStoreCategories = (props) => {
   const [selected, setSelected] = useState([]);
-  const storeData = useSelector(state => state.createStoresReducer);
-  const userData = useSelector(state => state.authenticationReducer);
+  const [showLoader, setLoader] = useState(false);
+
+  const storeData = useSelector((state) => state.createStoresReducer);
+  const userData = useSelector((state) => state.authenticationReducer);
+  const categories = useSelector((state) => state.storeCategoriesReducer);
   const token = userData.token;
   const dispatch = useDispatch();
 
-  const categories = [
-    { id: 0, name: "Chemical" },
-    { id: 1, name: "Pharmacie" },
-    { id: 2, name: "Electronic" },
-    { id: 3, name: "Mechanic" },
-    { id: 4, name: "Clothes" },
-    { id: 5, name: "Construction" },
-    { id: 6, name: "Food" },
-    { id: 7, name: "Restaurent" },
-    { id: 8, name: "Hotel" },
-    { id: 9, name: "Banks" },
-    { id: 10, name: "Telecom" },
-    { id: 11, name: "Others" },
-  ];
+  useEffect(() => {
+    dispatch(getCategories());
+  }, []);
 
   const addCategory = (category) => {
-    if(selected.some(e => e.name === category.name)){
-        const newSelected =  selected.filter((item) => item.name !== category.name);
-        setSelected(newSelected);
-    }else{
-        setSelected([...selected, category]);
+    if (selected.some((e) => e.name === category.name)) {
+      const newSelected = selected.filter(
+        (item) => item.name !== category.name
+      );
+      setSelected(newSelected);
+    } else {
+      setSelected([...selected, category]);
     }
   };
 
@@ -39,41 +40,73 @@ const CreateStoreCategories = (props) => {
       formData.append("categories[]", category);
     });
 
-    dispatch(addStoreTypes({
-      categories: selected,
-      step: 2,
-      store_id: storeData.storeId.store_id,
-      user_id: userData.user.id,
-    }, token));
+    dispatch(
+      addStoreTypes(
+        {
+          categories: selected,
+          step: 2,
+          store_id: storeData.storeId.store_id,
+          user_id: userData.user.id,
+        },
+        token
+      )
+    );
+
+    setLoader(true);
   };
 
-  return (
-    <div 
-      className="create-store-categories" 
-      style={props.progress === 2? {display: 'block'}: {display: 'none'}}
-    >
-      <h2>Select store categories</h2>
-      {categories.map((category, index) => (
-        <div key={category.id} onClick={() => {addCategory(category); console.log('category =>', category, 'selected =>', selected)}}>
-          <h4
-            className={
-              selected.some(e => e.name === category.name)
-                ? "store-type selected-type"
-                : "store-type"
-            }
-          >
-            {category.name}
-          </h4>
+  if (props.progress === 2) {
+    return (
+      <div className="create-store-categories">
+        {showLoader && props.progress === 2 ? <Loader /> : <></>}
+        <div className="categories_list_container">
+          <h2 className="categories_list_container_title">Select store categories</h2>
+          <div className="categories_list_wrapper">
+            {categories.map((category, index) => ( 
+              <div
+                key={category.id}
+                onClick={() => {
+                  addCategory(category);
+                }}
+                className="create-store-selected-type-wrap"
+              >
+                <h4>{category.name}</h4>
+                {
+                  selected.some((e) => e.name === category.name)?
+                  <img src={checkMark} alt="" className="icon absolut"/>:<></>
+                }
+              </div>
+            ))}
+          </div>
         </div>
-      ))}
-      <div>
-        <button type="button" onClick={() => dispatch(createStoreProgress())}>{'<'}Back</button>
-        <button type="button" onClick={SubmitCategories}>
-          Next{">"}
-        </button>
+        <div className="categories_list_selected_container">
+          <h2 className="categories_list_container_title">Selected categories</h2>
+          <div className="categories_list_wrapper_selected">
+          {selected.map((category, index) => (
+              <div
+                key={category.id}
+                onClick={() => {
+                  addCategory(category);
+                  console.log("category =>", category, "selected =>", selected);
+                }}
+              >
+                <h4 className="create-store-selected-type">
+                  {category.name}
+                </h4>
+              </div>
+            ))}
+          </div>
+          <div className="create-store-categories-submit-container">
+            <button type="button" onClick={SubmitCategories}>
+              Next{">"}
+            </button>
+          </div>
+        </div>
       </div>
-    </div>
-  );
+    );
+  } else {
+    return <></>;
+  }
 };
 
 export default CreateStoreCategories;

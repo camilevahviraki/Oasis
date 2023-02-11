@@ -1,0 +1,10 @@
+.create-store-names {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+}
+
+.form-create-store-names {
+    width: 60%;
+}

@@ -6,6 +6,11 @@
     overflow-x: scroll;
 }
 
+.create_store_preview_container {
+    width: 100vw;
+    overflow-x: hidden;
+}
+
 .create-store-preview-categories{
     display: flex;
     align-items: center;
@@ -27,9 +32,30 @@
     margin: 15px;
 }
 
+.create-store-preview-submit-container {
+    width: 100%;
+    position: relative;
+    margin: 40px 0;
+}
+
 .create-store-preview-submit-container button {
-   padding: 12px;
-   background-color: green;
+   padding: 8px 12px;
+   background-color: rgb(10, 42, 48);
+   color: #fff;
    font-size: 18px;
    border: none;
+   position: absolute;
+   right: 10%;
+   border-radius: 4px;
 }
+
+.create-store-preview-submit-container a {
+    padding: 8px 12px;
+    background-color: rgb(10, 42, 48);
+    color: #fff;
+    font-size: 18px;
+    border: none;
+    position: absolute;
+    right: 10%;
+    border-radius: 4px;
+ }
