@@ -14,7 +14,7 @@ const FormR = (props) => {
   } = props;
     
   return (
-    <form className={classForm} onSubmit={submitFunction}>
+    <form className={classForm} onSubmit={submitFunction} id={classForm}>
         {inputsArray.map((inputObj, key) => (<>
           {
             inputObj.type === 'textarea'?
