@@ -9,6 +9,7 @@ const Upload = (props) => {
       dispatchResponse,
       getProgress,
       dispatcthAuthResponse,
+      sendData,
       method,
       token,
     } = props
@@ -41,9 +42,16 @@ const Upload = (props) => {
         dispatcthAuthResponse(response.data);
       }
 
+      if(sendData){
+        sendData(response.data);
+      }
+
         console.log('response =>', response.data);
       }).catch((err) => {
         console.log('error =>', err);
+        if(sendData){
+          sendData('error');
+        }
       })
       
 }
