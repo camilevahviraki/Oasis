@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import Menu from './menu';
+import Currency from './currencies/Currency';
 import CheckValidImage from '../reusable/check-image/checkValidImage';
 import searchIcon from '../images/search-icon1.png';
 import chatIcon from '../images/icons/chat-icon-f.png';
@@ -49,6 +50,9 @@ const Header = () => {
           ))}
        </div>
        <div className='right-icons-wrap flex align-center'>
+        {/* ////////////////// Currencies */}
+        <Currency/>
+
         <Link to='cart'>
             <img src={cartIcon} alt='' className='user-Icon'/>
         </Link>

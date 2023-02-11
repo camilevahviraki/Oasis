@@ -23,23 +23,23 @@ const Menu = (props) => {
       <div className="menu-links-wrapper flex flex-col">
         <div>
           <img src={storesIcon} alt="" className="icon"/>
-          <Link to="my-stores">My Stores</Link>
+          <Link to="my-stores" onClick={props.hideMenu}>My Stores</Link>
         </div>
         <div>
           <img src={cartIcon} alt="" className="icon"/>
-          <Link to="cart">Cart</Link>
+          <Link to="cart" onClick={props.hideMenu}>Cart</Link>
         </div>
         <div>
           <img src={orderIcon} alt="" className="icon"/>
-          <Link to="order">Orders</Link>
+          <Link to="order" onClick={props.hideMenu}>Orders</Link>
         </div>
         <div>
           <img src={userIcon} alt="" className="icon"/>
-          <Link to="my-account-">My account</Link>
+          <Link to="my-account-" onClick={props.hideMenu}>My account</Link>
         </div>
         <div>
           <img src={settingIcon} alt="" className="icon"/>
-          <Link to="settings">Settings</Link>
+          <Link to="settings" onClick={props.hideMenu}>Settings</Link>
         </div>
 
       </div>
