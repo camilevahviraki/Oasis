@@ -39,7 +39,12 @@ const UserAccount = () => {
           </button>
         </div>
         <div className='user-account-avatar-wrap'>
-          <img src={CheckValidImage({avartarUrl: avatar_url,defaultImg: defaultAvatar})} alt='' className='user-account-avatar'/>
+          <img
+            src={CheckValidImage({avartarUrl: avatar_url,defaultImg: defaultAvatar})}
+            alt=''
+            className='user-account-avatar'
+            style={{ backgroundImage: `url(${avatar_url})`}}
+          />
         </div>
         <div className='user-account-edit-image'>
            <Link to={`../${userNames}/edit-image`}>Edit image</Link>
