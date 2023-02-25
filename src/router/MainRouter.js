@@ -18,6 +18,7 @@ const MainRouter = () => {
         user.token? 
         <>
           <Header/>
+          <ClientRouter/>
           <SellerRouter/>
           <UserRoutes/>
         </>:
