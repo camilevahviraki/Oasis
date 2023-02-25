@@ -100,7 +100,6 @@ const createStoresReducer = (
       const storeId = action.storeId;
       const newState = { pictures, types, places, details, storeId };
       saveToStorage(newState);
-      console.log('response data =>', storeId)
       return newState;
     }
     case POST_STORE_TO_SERVER: {
