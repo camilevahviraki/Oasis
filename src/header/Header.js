@@ -2,9 +2,9 @@ import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import Menu from './menu';
+import linkName from '../reusable/remove-blanck-space/linkName';
 import Currency from './currencies/Currency';
 import CheckValidImage from '../reusable/check-image/checkValidImage';
-import searchIcon from '../images/search-icon1.png';
 import chatIcon from '../images/icons/chat-icon-f.png';
 import placesIcon from '../images/icons/travel_explore_FILL0_wght400_GRAD0_opsz48.png';
 import homeIcon from '../images/home-icon.png';
@@ -35,13 +35,8 @@ const Header = () => {
   return (
     <header className='flex align-center w-full'>
       <div className='logo-wrap'>
-        <h7>CAEZAR</h7>
+        <h7>OASIS</h7>
       </div>
-       <div className='search-wrapper'>
-         <input type='search' placeholder='Search...' name='search-bar' onChange={changeSearchValue}/>
-         <img src={searchIcon} alt='' className='searchIcon' />
-       </div>
-
        <div className='flex align-center header-icons'>
           {links.map((link) => (
             <Link to={link.link}>
@@ -59,7 +54,7 @@ const Header = () => {
         <Link to='chat'>
           <img src={chatIcon} alt='' className='user-Icon'/>
         </Link>
-        <Link to={userNames}>
+        <Link to={`../account/${linkName(userNames)}`}>
           <div className='user-Icon-wrap'>
             <img src={CheckValidImage({avartarUrl: userImage,defaultImg: userIcon})} alt='' className='user-Icon-r'/>
           </div>

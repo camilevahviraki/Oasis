@@ -1,5 +1,7 @@
 import React from "react";
+import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
+import linkName from "../reusable/remove-blanck-space/linkName";
 import closeIcon from '../images/icons/close-icon.png';
 import userIcon from '../images/icons/account_circle_FILL0_wght400_GRAD0_opsz48.png';
 import settingIcon from '../images/icons/settings_FILL0_wght400_GRAD0_opsz48.png';
@@ -9,6 +11,10 @@ import orderIcon from '../images/icons/order-icon.png';
 import './menu.css'
 
 const Menu = (props) => {
+
+  const userData = useSelector(state => state.authenticationReducer);
+  const userNames = userData.user.first_name + '-' + userData.user.last_name;
+
   return (
     <div className="Menu sm:w-9/12 lg:w-6/12 xl:w-4/12">
       <div className="hide-menu" onClick={props.hideMenu}>
@@ -35,7 +41,7 @@ const Menu = (props) => {
         </div>
         <div>
           <img src={userIcon} alt="" className="icon"/>
-          <Link to="my-account-" onClick={props.hideMenu}>My account</Link>
+          <Link to={`../account/${linkName(userNames)}`} onClick={props.hideMenu}>My account</Link>
         </div>
         <div>
           <img src={settingIcon} alt="" className="icon"/>
