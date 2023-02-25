@@ -1,10 +1,15 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { useDispatch } from 'react-redux';
 import ImageSilder from '../../../../reusable/images_slider/ImageSilder';
+import linkName from '../../../../reusable/remove-blanck-space/linkName';
+import { setStoreFieldToUpdate } from '../../../../redux/stores/updateStoreReducer';
 import locationIcon from "../../../../images/icons/location_on_FILL0_wght400_GRAD0_opsz48.png";
 import './__my_store.css';
 
 const MyStore = (props) => {
+
+  const dispatch = useDispatch();
 
    const {
     categories,
@@ -20,6 +25,10 @@ const MyStore = (props) => {
    const goToItemsList = (category) => {
      
    }
+
+   const goToUpdateFieldPage = (field) => {
+     dispatch(setStoreFieldToUpdate(field));
+   }
     
   return (
     <div className='my_store_container'>
@@ -29,12 +38,23 @@ const MyStore = (props) => {
           <ImageSilder imagesArray={images_url} freeze={false}/>
         </div>
         <div className='my_store_details_wrap'>
-          <Link to={`../store/edit_name?store_id=${id}`}>
+          <Link
+            to={`../store/${linkName(name)}/update?field=name`}
+            onClick={() => goToUpdateFieldPage('name')}
+          >
             <h3 className='my_store_categories_title_name'>{name}</h3>
           </Link>
           <div className='my_store_details_location'>
             <p className='my_store_details_location_icon'>Location<img src={locationIcon} alt="" className="icon" />: </p>
-            <Link to={`../store/${id}/edit_location`}><p>{location}, {country}</p></Link>
+            <Link 
+              to={`../store/${linkName(name)}/update?field=location`}
+              onClick={() => goToUpdateFieldPage('location')}
+            >
+              <p>
+                {location},
+                {country ? country.name: null}
+              </p>
+            </Link>
           </div>
           <div className='my_store_details_description'>
              <p>
@@ -43,7 +63,8 @@ const MyStore = (props) => {
           </div>
         </div>
         <Link
-          to={`../store/edit_name?store_id=${id}`}
+          to={`../store/${linkName(name)}/update?field=description`}
+          onClick={() => goToUpdateFieldPage('description')}
           className="edit-link"
         >
           Edit
@@ -69,7 +90,8 @@ const MyStore = (props) => {
            ))}
           </div>
           <Link
-            to={`../store/edit_categories?store_id=${id}`}
+            to={`../store/${linkName(name)}/update?field=categories`}
+            onClick={() => goToUpdateFieldPage('categories')}
             className="edit-link"
           >
             Edit
@@ -95,7 +117,8 @@ const MyStore = (props) => {
         </div>
 
         <Link
-          to={`../store/edit_places?store_id=${id}`}
+          to={`../store/${linkName(name)}/update?field=others_locations`}
+          onClick={() => goToUpdateFieldPage('others_location')}
           className="edit-link"
         >
           Edit

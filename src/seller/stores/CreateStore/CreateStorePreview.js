@@ -3,6 +3,7 @@ import { useSelector, useDispatch } from "react-redux";
 import { Link } from "react-router-dom";
 import { postStoreToServer } from "../../../redux/stores/createStoreReducer";
 import { getStoresShow } from "../../../redux/stores/getStoreShowReducer";
+import linkName from "../../../reusable/remove-blanck-space/linkName";
 import MyStore from "../EditStore/__my_store_reusable/__my_store";
 import { setStoreLink } from "../../../redux/storeLink/storeLinkReducer";
 import "./css/CreateStorePreview.css";
@@ -26,7 +27,7 @@ const CreateStorePreview = (props) => {
 
   const saveStoreLink = (link, id) => {
     localStorage.setItem('storeLink', JSON.stringify({link, store_id: id}));
-    dispatch(setStoreLink({link, store_id: id}));
+    dispatch(setStoreLink({link: linkName(link), store_id: id}));
   }
 
   console.log(storeData)
@@ -39,7 +40,7 @@ const CreateStorePreview = (props) => {
         <MyStore storeData={storeData}/>
         <div className="create-store-preview-submit-container row">
           <Link
-            to={`my-stores/${storeData.name}`}
+            to={`store/${linkName(storeData.name)}`}
             onClick={() => {
               dispatch(postStoreToServer());
               saveStoreLink(storeData.name, storeData.id);

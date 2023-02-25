@@ -16,10 +16,18 @@ const CreateStorePictures = (props) => {
   const [gallery, setGallery] = useState([]);
   const [progress, setProgress] = useState(0);
   const [showLoader, setLoader] = useState(false);
+  const [message, setMessage] = useState('');
   const dispatch = useDispatch();
 
   const getProgress = (prog) => {
     setProgress(prog);
+  }
+
+  const getUploadResponse = (res) => {
+    if(!res.store_id){
+      setLoader(false);
+      setMessage('Error while uploading images!Please reupload again.')
+    }
   }
 
   const userData = useSelector(state => state.authenticationReducer); 
@@ -41,6 +49,7 @@ const CreateStorePictures = (props) => {
       endPoint: 'api_stores',
       data: formData,
       dispatchResponse: (sent) => dispatch(getStoreId(sent)),
+      sendData: (res) => dispatch(getUploadResponse(res)),
       getProgress: (prog) => getProgress(prog)
     })
     dispatch(addStorePictures(formData, token));
@@ -116,6 +125,7 @@ const CreateStorePictures = (props) => {
           />
   
           <div>
+            <p>{message}</p>
           <input type="submit" value="Next" className="create-store-submit"/>
           </div>
         </form>

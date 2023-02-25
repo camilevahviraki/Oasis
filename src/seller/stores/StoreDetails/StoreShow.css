@@ -36,3 +36,141 @@
 .my-store-categories-wrapper {
     margin-top: 16px;
 }
+
+.store-show-image-container {
+    position: relative;
+}
+
+.store-contact-icons {
+    position: absolute;
+    bottom: 20px;
+    right: 20px;
+    display: flex;
+}
+
+.store-contacts-icon {
+    margin-left: 20px;
+}
+
+.store-show-image-container {
+    width: 100vw;
+    height: 200px;
+}
+
+.store-banner-container {
+    position: absolute;
+    bottom: -85px;
+    left: 30px;
+    display: flex;
+    align-items: center;
+}
+
+.store-banner-wrapper {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    border: 1px solid gray;
+    display: block;
+    margin-right: 12px;
+}
+
+.store-banner {
+    max-width: 100%;
+    max-height: 100%;
+    margin: auto;
+}
+
+.store-name {
+    font-weight: 700;
+    font-size: 20px;
+}
+
+.store-location-wrapper {
+    display: flex;
+    align-items: center;
+}
+
+.store-categories-wrapper {
+    display: flex;
+    margin-top: 90px;
+    align-items: baseline;
+    width: 100%;
+    border-bottom: 1px solid gray;
+}
+
+.store-category-name {
+    text-transform: uppercase;
+    padding: 6px 10px;
+    color: gray;
+    font-weight: 700;
+    width: 120px;
+}
+
+.store-category-name:hover {
+    color: rgb(61, 61, 61);
+}
+
+.store-add-new-item {
+    width: 100%;
+    position: relative;
+}
+
+.store-add-new-item a {
+    position: absolute;
+    right: 30px;
+    display: flex;
+    align-items: center;
+    padding: 8px 10px;
+}
+
+.store-more-icon {
+    margin-right: 10px;
+}
+
+.current-category {
+    color: rgb(61, 61, 61);
+    border-bottom: 3px solid rgb(61, 61, 61);
+}
+
+.store-add-item-title {
+    font-weight: 700;
+    font-size: 18px;
+}
+
+.store-show-container {
+    min-height: calc(100vh - 70px);
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.search-wrapper-store {
+    position: absolute;
+    right: 30px;
+    display: flex;
+    align-items: center;
+    height: 30px;
+    width: 30vw;
+    border-radius: 15px;
+    border: 1px solid rgba(167, 167, 167, 0.473);
+    background-color: rgba(167, 167, 167, 0.473);
+    margin-top: 12px;
+}
+
+.search-wrapper-store input {
+    width: 90%;
+    border: none;
+    height: 100%;
+    margin: 0;
+    margin-right: 2%;
+    border-radius: 15px;
+    padding-left: 15px;
+}
+
+.store-show-edit-link-wrapp {
+    position: absolute;
+    right: 30px;
+    bottom: -90px;
+    font-weight: 700;
+}

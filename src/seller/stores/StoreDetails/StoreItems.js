@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import {useDispatch, useSelector} from 'react-redux';
-import MyItem from './item/MyItem';
+import MyItem from '../EditStore/item/MyItem';
 import { getItems } from '../../../redux/item/getItem';
 import createNewIcon from "../../../images/icons/more-icon.png";
 import './StoreItem.css';
