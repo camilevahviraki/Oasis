@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import nextIcon from "../../images/next-more-icon.png";
+import CheckValidImage from "../check-image/checkValidImage";
 import storeImage from "../../images/store-image-holder.png";
 import "./ImageSlider.css";
 
@@ -37,12 +38,20 @@ const ImageSilder = (props) => {
           {arrangedImages[imageShown].includes("video/upload") ? (
             <div className="image-slider-video-wrap">
               <video width="100%" height="45%" controls>
-                <source src={arrangedImages[imageShown]} type="video/mp4" />
+                <source src={
+                  CheckValidImage({
+                    avartarUrl: arrangedImages[imageShown],
+                    defaultImg: storeImage
+                  })} type="video/mp4" />
               </video>
             </div>
           ) : (
             <img
-              src={arrangedImages[imageShown]}
+              src={
+                CheckValidImage({
+                avartarUrl: arrangedImages[imageShown],
+                defaultImg: storeImage
+              })}
               alt=""
               className="my_store_image"
             />
