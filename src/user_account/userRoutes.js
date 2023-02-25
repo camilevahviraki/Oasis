@@ -1,6 +1,7 @@
 import React from 'react';
 import { Route, Routes } from 'react-router';
 import { useSelector } from 'react-redux';
+import linkName from '../reusable/remove-blanck-space/linkName';
 import UserAccount from './userAccount';
 import UserEditAccount from './userEditAccount';
 
@@ -11,7 +12,7 @@ const UserRoutes = () => {
     
   return (
     <Routes>
-        <Route path={userNames} element={(<UserAccount/>)}/>
+        <Route path={`account/${linkName(userNames)}`} element={(<UserAccount/>)}/>
         <Route path={`${userNames}/account-edit`} element={(<UserEditAccount/>)}/>
     </Routes>
   )
