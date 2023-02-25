@@ -78,6 +78,14 @@
     margin-top: 10px;
 }
 
+.formR-input-wrap label {
+    width: 140px;
+    border: 1px solid gray;
+    border-radius: 8px;
+    margin-right: 12px;
+    padding: 7px;
+}
+
 .error-input-show {
     width: 14px;
     height: 14px;
