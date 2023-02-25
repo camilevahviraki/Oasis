@@ -1,0 +1,2002 @@
+[
+  {
+    "id": 45,
+    "name": "United States",
+    "country_code": "+1 317 278 3981",
+    "currency_name": "Dollar",
+    "currency_symbol": "USD",
+    "exchange": "$9.85",
+    "latitude": 39.67,
+    "longitude": -86.19
+  },
+  {
+    "id": 16,
+    "name": "China",
+    "country_code": "+86 228 180 0329",
+    "currency_name": "Yuan Renminbi",
+    "currency_symbol": "CNY",
+    "exchange": "$1.83",
+    "latitude": 35.580996,
+    "longitude": 116.986503
+  },
+  {
+    "id": 21,
+    "name": "China",
+    "country_code": "+86 385 116 1831",
+    "currency_name": "Yuan Renminbi",
+    "currency_symbol": "CNY",
+    "exchange": "$3.98",
+    "latitude": 40.97465,
+    "longitude": 117.943348
+  },
+  {
+    "id": 6,
+    "name": "New Zealand",
+    "country_code": "+64 415 977 1721",
+    "currency_name": "Dollar",
+    "currency_symbol": "NZD",
+    "exchange": "$6.57",
+    "latitude": -36.8537995,
+    "longitude": 174.7573811
+  },
+  {
+    "id": 12,
+    "name": "Croatia",
+    "country_code": "+385 225 659 8157",
+    "currency_name": "Kuna",
+    "currency_symbol": "HRK",
+    "exchange": "$5.64",
+    "latitude": 45.4835641,
+    "longitude": 18.7768698
+  },
+  {
+    "id": 92,
+    "name": "Japan",
+    "country_code": "+81 893 379 5725",
+    "currency_name": "Yen",
+    "currency_symbol": "JPY",
+    "exchange": "$4.93",
+    "latitude": 36.1473783,
+    "longitude": 136.1682227
+  },
+  {
+    "id": 69,
+    "name": "France",
+    "country_code": "+33 319 420 2628",
+    "currency_name": "Euro",
+    "currency_symbol": "EUR",
+    "exchange": "$6.17",
+    "latitude": 44.8855006,
+    "longitude": 1.2172257
+  },
+  {
+    "id": 92,
+    "name": "China",
+    "country_code": "+86 262 911 6576",
+    "currency_name": "Yuan Renminbi",
+    "currency_symbol": "CNY",
+    "exchange": "$5.10",
+    "latitude": 52.3716937,
+    "longitude": 4.8925949
+  },
+  {
+    "id": 73,
+    "name": "China",
+    "country_code": "+86 645 240 0869",
+    "currency_name": "Yuan Renminbi",
+    "currency_symbol": "CNY",
+    "exchange": "$5.36",
+    "latitude": 30.368126,
+    "longitude": 102.814531
+  },
+  {
+    "id": 82,
+    "name": "Kazakhstan",
+    "country_code": "+7 792 464 0977",
+    "currency_name": "Tenge",
+    "currency_symbol": "KZT",
+    "exchange": "$5.61",
+    "latitude": 46.9554271,
+    "longitude": 79.6785264
+  },
+  {
+    "id": 41,
+    "name": "France",
+    "country_code": "+33 956 191 5073",
+    "currency_name": "Euro",
+    "currency_symbol": "EUR",
+    "exchange": "$0.16",
+    "latitude": 47.3752386,
+    "longitude": -0.8453268
+  },
+  {
+    "id": 81,
+    "name": "Philippines",
+    "country_code": "+63 385 414 1286",
+    "currency_name": "Peso",
+    "currency_symbol": "PHP",
+    "exchange": "$9.65",
+    "latitude": 14.3679657,
+    "longitude": 121.0504535
+  },
+  {
+    "id": 95,
+    "name": "Indonesia",
+    "country_code": "+62 403 761 1600",
+    "currency_name": "Rupiah",
+    "currency_symbol": "IDR",
+    "exchange": "$2.43",
+    "latitude": -8.681907,
+    "longitude": 117.2440957
+  },
+  {
+    "id": 82,
+    "name": "Japan",
+    "country_code": "+81 343 304 9431",
+    "currency_name": "Yen",
+    "currency_symbol": "JPY",
+    "exchange": "$8.87",
+    "latitude": 35.4693091,
+    "longitude": 134.7938651
+  },
+  {
+    "id": 67,
+    "name": "Qatar",
+    "country_code": "+974 866 992 3982",
+    "currency_name": "Rial",
+    "currency_symbol": "QAR",
+    "exchange": "$4.67",
+    "latitude": 24.9909255,
+    "longitude": 51.5493483
+  },
+  {
+    "id": 62,
+    "name": "France",
+    "country_code": "+33 467 551 0077",
+    "currency_name": "Euro",
+    "currency_symbol": "EUR",
+    "exchange": "$8.23",
+    "latitude": 45.4726625,
+    "longitude": 4.3812793
+  },
+  {
+    "id": 2,
+    "name": "Slovenia",
+    "country_code": "+386 644 933 8692",
+    "currency_name": "Euro",
+    "currency_symbol": "EUR",
+    "exchange": "$1.11",
+    "latitude": 46.6063814,
+    "longitude": 15.7861748
+  },
+  {
+    "id": 63,
+    "name": "China",
+    "country_code": "+86 424 699 6896",
+    "currency_name": "Yuan Renminbi",
+    "currency_symbol": "CNY",
+    "exchange": "$4.11",
+    "latitude": 27.756339,
+    "longitude": 112.555087
+  },
+  {
+    "id": 23,
+    "name": "Brazil",
+    "country_code": "+55 194 847 2988",
+    "currency_name": "Real",
+    "currency_symbol": "BRL",
+    "exchange": "$3.44",
+    "latitude": -22.3595631,
+    "longitude": -47.3853435
+  },
+  {
+    "id": 85,
+    "name": "Poland",
+    "country_code": "+48 878 269 9069",
+    "currency_name": "Zloty",
+    "currency_symbol": "PLN",
+    "exchange": "$0.95",
+    "latitude": 50.1028869,
+    "longitude": 22.558021
+  },
+  {
+    "id": 44,
+    "name": "China",
+    "country_code": "+86 554 502 5726",
+    "currency_name": "Yuan Renminbi",
+    "currency_symbol": "CNY",
+    "exchange": "$0.20",
+    "latitude": 30.750211,
+    "longitude": 121.134569
+  },
+  {
+    "id": 42,
+    "name": "Nigeria",
+    "country_code": "+234 139 353 3580",
+    "currency_name": "Naira",
+    "currency_symbol": "NGN",
+    "exchange": "$4.14",
+    "latitude": 12.2257507,
+    "longitude": 4.3822109
+  },
+  {
+    "id": 77,
+    "name": "Belarus",
+    "country_code": "+375 985 920 3315",
+    "currency_name": "Ruble",
+    "currency_symbol": "BYR",
+    "exchange": "$7.58",
+    "latitude": 53.6040518,
+    "longitude": 24.741899
+  },
+  {
+    "id": 20,
+    "name": "Croatia",
+    "country_code": "+385 502 874 5443",
+    "currency_name": "Kuna",
+    "currency_symbol": "HRK",
+    "exchange": "$3.52",
+    "latitude": 45.8800176,
+    "longitude": 15.8550922
+  },
+  {
+    "id": 36,
+    "name": "China",
+    "country_code": "+86 243 853 8257",
+    "currency_name": "Yuan Renminbi",
+    "currency_symbol": "CNY",
+    "exchange": "$4.75",
+    "latitude": 44.2484,
+    "longitude": 111.73948
+  },
+  {
+    "id": 24,
+    "name": "Sweden",
+    "country_code": "+46 494 996 7845",
+    "currency_name": "Krona",
+    "currency_symbol": "SEK",
+    "exchange": "$8.65",
+    "latitude": 57.7550378,
+    "longitude": 11.814933
+  },
+  {
+    "id": 59,
+    "name": "Philippines",
+    "country_code": "+63 826 259 4610",
+    "currency_name": "Peso",
+    "currency_symbol": "PHP",
+    "exchange": "$4.97",
+    "latitude": 13.8811133,
+    "longitude": 123.6886104
+  },
+  {
+    "id": 98,
+    "name": "Indonesia",
+    "country_code": "+62 382 730 5487",
+    "currency_name": "Rupiah",
+    "currency_symbol": "IDR",
+    "exchange": "$6.76",
+    "latitude": 3.5005598,
+    "longitude": 98.8942082
+  },
+  {
+    "id": 35,
+    "name": "China",
+    "country_code": "+86 508 511 6421",
+    "currency_name": "Yuan Renminbi",
+    "currency_symbol": "CNY",
+    "exchange": "$9.14",
+    "latitude": 43.61812,
+    "longitude": 118.05545
+  },
+  {
+    "id": 34,
+    "name": "Poland",
+    "country_code": "+48 766 465 5543",
+    "currency_name": "Zloty",
+    "currency_symbol": "PLN",
+    "exchange": "$0.04",
+    "latitude": 50.7592361,
+    "longitude": 17.6835478
+  },
+  {
+    "id": 23,
+    "name": "Philippines",
+    "country_code": "+63 627 377 1985",
+    "currency_name": "Peso",
+    "currency_symbol": "PHP",
+    "exchange": "$7.86",
+    "latitude": 14.5346437,
+    "longitude": 121.0133007
+  },
+  {
+    "id": 22,
+    "name": "Yemen",
+    "country_code": "+967 138 199 8228",
+    "currency_name": "Rial",
+    "currency_symbol": "YER",
+    "exchange": "$0.75",
+    "latitude": 17.76999,
+    "longitude": 52.48925
+  },
+  {
+    "id": 89,
+    "name": "Finland",
+    "country_code": "+358 628 716 3339",
+    "currency_name": "Euro",
+    "currency_symbol": "EUR",
+    "exchange": "$5.19",
+    "latitude": 63.3767052,
+    "longitude": 23.472317
+  },
+  {
+    "id": 29,
+    "name": "Norway",
+    "country_code": "+47 574 222 3329",
+    "currency_name": "Krone",
+    "currency_symbol": "NOK",
+    "exchange": "$0.40",
+    "latitude": 59.412262,
+    "longitude": 5.2978064
+  },
+  {
+    "id": 52,
+    "name": "Argentina",
+    "country_code": "+54 333 393 6306",
+    "currency_name": "Peso",
+    "currency_symbol": "ARS",
+    "exchange": "$8.12",
+    "latitude": -34.5377407,
+    "longitude": -58.5521828
+  },
+  {
+    "id": 46,
+    "name": "Iran",
+    "country_code": "+98 378 201 9704",
+    "currency_name": "Rial",
+    "currency_symbol": "IRR",
+    "exchange": "$5.84",
+    "latitude": 35.7017899,
+    "longitude": 59.8468432
+  },
+  {
+    "id": 43,
+    "name": "China",
+    "country_code": "+86 761 151 2801",
+    "currency_name": "Yuan Renminbi",
+    "currency_symbol": "CNY",
+    "exchange": "$0.06",
+    "latitude": 27.0874564,
+    "longitude": 114.9042208
+  },
+  {
+    "id": 37,
+    "name": "Portugal",
+    "country_code": "+351 571 110 3637",
+    "currency_name": "Euro",
+    "currency_symbol": "EUR",
+    "exchange": "$5.66",
+    "latitude": 39.3253135,
+    "longitude": -9.232542
+  },
+  {
+    "id": 30,
+    "name": "Jamaica",
+    "country_code": "+1 877 195 2260",
+    "currency_name": "Dollar",
+    "currency_symbol": "JMD",
+    "exchange": "$8.99",
+    "latitude": 17.9678128,
+    "longitude": -77.6936948
+  },
+  {
+    "id": 81,
+    "name": "Poland",
+    "country_code": "+48 648 916 0032",
+    "currency_name": "Zloty",
+    "currency_symbol": "PLN",
+    "exchange": "$9.45",
+    "latitude": 49.83347,
+    "longitude": 19.93965
+  },
+  {
+    "id": 94,
+    "name": "Malaysia",
+    "country_code": "+60 933 252 1231",
+    "currency_name": "Ringgit",
+    "currency_symbol": "MYR",
+    "exchange": "$6.50",
+    "latitude": 5.329576,
+    "longitude": 103.1369108
+  },
+  {
+    "id": 6,
+    "name": "Armenia",
+    "country_code": "+374 816 868 9369",
+    "currency_name": "Dram",
+    "currency_symbol": "AMD",
+    "exchange": "$2.67",
+    "latitude": 40.24739,
+    "longitude": 44.53511
+  },
+  {
+    "id": 3,
+    "name": "Russia",
+    "country_code": "+7 446 683 5193",
+    "currency_name": "Ruble",
+    "currency_symbol": "RUB",
+    "exchange": "$3.29",
+    "latitude": 46.1114451,
+    "longitude": 48.0744772
+  },
+  {
+    "id": 24,
+    "name": "Estonia",
+    "country_code": "+372 484 379 6234",
+    "currency_name": "Euro",
+    "currency_symbol": "EUR",
+    "exchange": "$3.87",
+    "latitude": 59.4520561,
+    "longitude": 26.8687946
+  },
+  {
+    "id": 79,
+    "name": "Japan",
+    "country_code": "+81 326 999 6973",
+    "currency_name": "Yen",
+    "currency_symbol": "JPY",
+    "exchange": "$8.22",
+    "latitude": 35.7911456,
+    "longitude": 139.4574047
+  },
+  {
+    "id": 18,
+    "name": "Mongolia",
+    "country_code": "+976 481 998 3978",
+    "currency_name": "Tugrik",
+    "currency_symbol": "MNT",
+    "exchange": "$0.77",
+    "latitude": 47.35,
+    "longitude": 103.4166669
+  },
+  {
+    "id": 32,
+    "name": "China",
+    "country_code": "+86 628 710 6516",
+    "currency_name": "Yuan Renminbi",
+    "currency_symbol": "CNY",
+    "exchange": "$8.22",
+    "latitude": 19.543278,
+    "longitude": 110.797759
+  },
+  {
+    "id": 11,
+    "name": "Burkina Faso",
+    "country_code": "+226 582 999 2107",
+    "currency_name": "Franc",
+    "currency_symbol": "XOF",
+    "exchange": "$5.45",
+    "latitude": 13.768042,
+    "longitude": -2.072648
+  },
+  {
+    "id": 51,
+    "name": "United States",
+    "country_code": "+1 254 114 8794",
+    "currency_name": "Dollar",
+    "currency_symbol": "USD",
+    "exchange": "$2.66",
+    "latitude": 31.5140575,
+    "longitude": -97.1520926
+  },
+  {
+    "id": 18,
+    "name": "Serbia",
+    "country_code": "+381 988 194 6503",
+    "currency_name": "Dinar",
+    "currency_symbol": "RSD",
+    "exchange": "$9.93",
+    "latitude": 44.6380305,
+    "longitude": 21.6773447
+  },
+  {
+    "id": 63,
+    "name": "Vietnam",
+    "country_code": "+84 736 875 7280",
+    "currency_name": "Dong",
+    "currency_symbol": "VND",
+    "exchange": "$6.72",
+    "latitude": 21.3057815,
+    "longitude": 106.3846459
+  },
+  {
+    "id": 78,
+    "name": "China",
+    "country_code": "+86 261 331 5082",
+    "currency_name": "Yuan Renminbi",
+    "currency_symbol": "CNY",
+    "exchange": "$3.70",
+    "latitude": 27.718295,
+    "longitude": 119.394148
+  },
+  {
+    "id": 69,
+    "name": "Turkmenistan",
+    "country_code": "+993 734 143 4904",
+    "currency_name": "Manat",
+    "currency_symbol": "TMT",
+    "exchange": "$7.55",
+    "latitude": 41.8368737,
+    "longitude": 59.9651904
+  },
+  {
+    "id": 32,
+    "name": "Norway",
+    "country_code": "+47 595 291 0897",
+    "currency_name": "Krone",
+    "currency_symbol": "NOK",
+    "exchange": "$7.06",
+    "latitude": 59.925824,
+    "longitude": 10.6614716
+  },
+  {
+    "id": 49,
+    "name": "Vietnam",
+    "country_code": "+84 830 770 6366",
+    "currency_name": "Dong",
+    "currency_symbol": "VND",
+    "exchange": "$6.56",
+    "latitude": 22.6925394,
+    "longitude": 106.4420595
+  },
+  {
+    "id": 50,
+    "name": "China",
+    "country_code": "+86 264 240 1130",
+    "currency_name": "Yuan Renminbi",
+    "currency_symbol": "CNY",
+    "exchange": "$7.44",
+    "latitude": 20.019055,
+    "longitude": 110.2889917
+  },
+  {
+    "id": 11,
+    "name": "Sierra Leone",
+    "country_code": "+232 818 389 9699",
+    "currency_name": "Leone",
+    "currency_symbol": "SLL",
+    "exchange": "$0.15",
+    "latitude": 8.1620514,
+    "longitude": -12.4351923
+  },
+  {
+    "id": 8,
+    "name": "Estonia",
+    "country_code": "+372 584 224 1087",
+    "currency_name": "Euro",
+    "currency_symbol": "EUR",
+    "exchange": "$5.65",
+    "latitude": 58.1483629,
+    "longitude": 24.9513595
+  },
+  {
+    "id": 47,
+    "name": "Sweden",
+    "country_code": "+46 794 262 6996",
+    "currency_name": "Krona",
+    "currency_symbol": "SEK",
+    "exchange": "$0.62",
+    "latitude": 56.2614625,
+    "longitude": 15.6058647
+  },
+  {
+    "id": 52,
+    "name": "Czech Republic",
+    "country_code": "+420 428 609 5495",
+    "currency_name": "Koruna",
+    "currency_symbol": "CZK",
+    "exchange": "$3.08",
+    "latitude": 49.8599769,
+    "longitude": 17.3111016
+  },
+  {
+    "id": 7,
+    "name": "Indonesia",
+    "country_code": "+62 150 652 6978",
+    "currency_name": "Rupiah",
+    "currency_symbol": "IDR",
+    "exchange": "$7.99",
+    "latitude": -7.6965,
+    "longitude": 107.8826
+  },
+  {
+    "id": 98,
+    "name": "Canada",
+    "country_code": "+1 962 792 8094",
+    "currency_name": "Dollar",
+    "currency_symbol": "CAD",
+    "exchange": "$1.76",
+    "latitude": 45.5787215,
+    "longitude": -72.001055
+  },
+  {
+    "id": 48,
+    "name": "Ethiopia",
+    "country_code": "+251 760 799 1005",
+    "currency_name": "Birr",
+    "currency_symbol": "ETB",
+    "exchange": "$1.29",
+    "latitude": 11.1270398,
+    "longitude": 39.6363314
+  },
+  {
+    "id": 87,
+    "name": "Papua New Guinea",
+    "country_code": "+675 126 188 0266",
+    "currency_name": "Kina",
+    "currency_symbol": "PGK",
+    "exchange": "$6.29",
+    "latitude": -6.308009,
+    "longitude": 155.477221
+  },
+  {
+    "id": 56,
+    "name": "Portugal",
+    "country_code": "+351 693 555 1565",
+    "currency_name": "Euro",
+    "currency_symbol": "EUR",
+    "exchange": "$4.52",
+    "latitude": 37.1356467,
+    "longitude": -8.5174744
+  },
+  {
+    "id": 33,
+    "name": "United States",
+    "country_code": "+1 907 273 0662",
+    "currency_name": "Dollar",
+    "currency_symbol": "USD",
+    "exchange": "$1.66",
+    "latitude": 64.8377778,
+    "longitude": -147.7163888
+  },
+  {
+    "id": 89,
+    "name": "China",
+    "country_code": "+86 162 784 4231",
+    "currency_name": "Yuan Renminbi",
+    "currency_symbol": "CNY",
+    "exchange": "$5.08",
+    "latitude": 29.689847,
+    "longitude": 121.28259
+  },
+  {
+    "id": 54,
+    "name": "Vietnam",
+    "country_code": "+84 593 171 1006",
+    "currency_name": "Dong",
+    "currency_symbol": "VND",
+    "exchange": "$8.57",
+    "latitude": 20.995464,
+    "longitude": 106.3346061
+  },
+  {
+    "id": 12,
+    "name": "China",
+    "country_code": "+86 604 648 8090",
+    "currency_name": "Yuan Renminbi",
+    "currency_symbol": "CNY",
+    "exchange": "$3.18",
+    "latitude": 39.6288756,
+    "longitude": -8.6708785
+  },
+  {
+    "id": 85,
+    "name": "Portugal",
+    "country_code": "+351 966 775 3729",
+    "currency_name": "Euro",
+    "currency_symbol": "EUR",
+    "exchange": "$8.88",
+    "latitude": 41.2789558,
+    "longitude": -7.2217804
+  },
+  {
+    "id": 91,
+    "name": "Jamaica",
+    "country_code": "+1 983 483 6627",
+    "currency_name": "Dollar",
+    "currency_symbol": "JMD",
+    "exchange": "$1.17",
+    "latitude": 18.1741581,
+    "longitude": -78.0295273
+  },
+  {
+    "id": 30,
+    "name": "Latvia",
+    "country_code": "+371 617 137 1987",
+    "currency_name": "Euro",
+    "currency_symbol": "EUR",
+    "exchange": "$7.18",
+    "latitude": 56.450936,
+    "longitude": 23.353057
+  },
+  {
+    "id": 44,
+    "name": "Ukraine",
+    "country_code": "+380 146 142 8021",
+    "currency_name": "Hryvnia",
+    "currency_symbol": "UAH",
+    "exchange": "$7.51",
+    "latitude": 47.0602152,
+    "longitude": 37.3087599
+  },
+  {
+    "id": 19,
+    "name": "China",
+    "country_code": "+86 515 783 6417",
+    "currency_name": "Yuan Renminbi",
+    "currency_symbol": "CNY",
+    "exchange": "$0.32",
+    "latitude": 36.25745,
+    "longitude": 112.891275
+  },
+  {
+    "id": 10,
+    "name": "Peru",
+    "country_code": "+51 417 563 5349",
+    "currency_name": "Sol",
+    "currency_symbol": "PEN",
+    "exchange": "$5.73",
+    "latitude": -8.0884404,
+    "longitude": -79.0872788
+  },
+  {
+    "id": 69,
+    "name": "South Korea",
+    "country_code": "+82 335 903 2130",
+    "currency_name": "Won",
+    "currency_symbol": "KRW",
+    "exchange": "$4.60",
+    "latitude": 36.2429169,
+    "longitude": 128.2989526
+  },
+  {
+    "id": 10,
+    "name": "Philippines",
+    "country_code": "+63 804 837 0227",
+    "currency_name": "Peso",
+    "currency_symbol": "PHP",
+    "exchange": "$2.60",
+    "latitude": 14.6131569,
+    "longitude": 120.998941
+  },
+  {
+    "id": 63,
+    "name": "Sudan",
+    "country_code": "+249 193 302 4031",
+    "currency_name": "Pound",
+    "currency_symbol": "SDG",
+    "exchange": "$8.51",
+    "latitude": 13.60375,
+    "longitude": 26.68413
+  },
+  {
+    "id": 20,
+    "name": "Pakistan",
+    "country_code": "+92 325 619 5564",
+    "currency_name": "Rupee",
+    "currency_symbol": "PKR",
+    "exchange": "$2.43",
+    "latitude": 32.4210287,
+    "longitude": 73.8218835
+  },
+  {
+    "id": 35,
+    "name": "Indonesia",
+    "country_code": "+62 605 451 8887",
+    "currency_name": "Rupiah",
+    "currency_symbol": "IDR",
+    "exchange": "$5.41",
+    "latitude": -6.155077,
+    "longitude": 106.817744
+  },
+  {
+    "id": 58,
+    "name": "Indonesia",
+    "country_code": "+62 632 603 7167",
+    "currency_name": "Rupiah",
+    "currency_symbol": "IDR",
+    "exchange": "$7.07",
+    "latitude": 5.1970659,
+    "longitude": 96.5076426
+  },
+  {
+    "id": 29,
+    "name": "Russia",
+    "country_code": "+7 243 980 9624",
+    "currency_name": "Ruble",
+    "currency_symbol": "RUB",
+    "exchange": "$2.26",
+    "latitude": 56.0446874,
+    "longitude": 99.5285704
+  },
+  {
+    "id": 81,
+    "name": "China",
+    "country_code": "+86 717 190 7241",
+    "currency_name": "Yuan Renminbi",
+    "currency_symbol": "CNY",
+    "exchange": "$5.10",
+    "latitude": 22.251924,
+    "longitude": 112.794065
+  },
+  {
+    "id": 29,
+    "name": "Germany",
+    "country_code": "+49 867 981 1450",
+    "currency_name": "Euro",
+    "currency_symbol": "EUR",
+    "exchange": "$9.36",
+    "latitude": 53.0903178,
+    "longitude": 8.9354031
+  },
+  {
+    "id": 97,
+    "name": "Sweden",
+    "country_code": "+46 149 421 3547",
+    "currency_name": "Krona",
+    "currency_symbol": "SEK",
+    "exchange": "$2.27",
+    "latitude": 57.9104452,
+    "longitude": 12.0732915
+  },
+  {
+    "id": 74,
+    "name": "Chad",
+    "country_code": "+235 416 963 4736",
+    "currency_name": "Franc",
+    "currency_symbol": "XAF",
+    "exchange": "$7.96",
+    "latitude": 12.1862546,
+    "longitude": 18.6917922
+  },
+  {
+    "id": 22,
+    "name": "United States",
+    "country_code": "+1 913 318 5313",
+    "currency_name": "Dollar",
+    "currency_symbol": "USD",
+    "exchange": "$6.26",
+    "latitude": 38.9048517,
+    "longitude": -94.6864991
+  },
+  {
+    "id": 58,
+    "name": "Indonesia",
+    "country_code": "+62 631 542 8050",
+    "currency_name": "Rupiah",
+    "currency_symbol": "IDR",
+    "exchange": "$4.28",
+    "latitude": -8.7394711,
+    "longitude": 121.918866
+  },
+  {
+    "id": 46,
+    "name": "Philippines",
+    "country_code": "+63 553 396 8492",
+    "currency_name": "Peso",
+    "currency_symbol": "PHP",
+    "exchange": "$7.82",
+    "latitude": 10.0342937,
+    "longitude": 126.0415372
+  },
+  {
+    "id": 56,
+    "name": "Ireland",
+    "country_code": "+353 597 599 0484",
+    "currency_name": "Euro",
+    "currency_symbol": "EUR",
+    "exchange": "$2.80",
+    "latitude": 51.848898,
+    "longitude": -8.298942
+  },
+  {
+    "id": 84,
+    "name": "China",
+    "country_code": "+86 178 788 7393",
+    "currency_name": "Yuan Renminbi",
+    "currency_symbol": "CNY",
+    "exchange": "$9.67",
+    "latitude": 30.229314,
+    "longitude": 120.643023
+  },
+  {
+    "id": 58,
+    "name": "Portugal",
+    "country_code": "+351 496 542 7517",
+    "currency_name": "Euro",
+    "currency_symbol": "EUR",
+    "exchange": "$3.54",
+    "latitude": 41.4619291,
+    "longitude": -8.0178037
+  },
+  {
+    "id": 24,
+    "name": "Philippines",
+    "country_code": "+63 497 813 1870",
+    "currency_name": "Peso",
+    "currency_symbol": "PHP",
+    "exchange": "$8.19",
+    "latitude": 18.0506,
+    "longitude": 121.819
+  },
+  {
+    "id": 98,
+    "name": "Sri Lanka",
+    "country_code": "+94 234 827 7001",
+    "currency_name": "Rupee",
+    "currency_symbol": "LKR",
+    "exchange": "$7.64",
+    "latitude": 7.1801552,
+    "longitude": 79.8842521
+  },
+  {
+    "id": 60,
+    "name": "Indonesia",
+    "country_code": "+62 980 111 8743",
+    "currency_name": "Rupiah",
+    "currency_symbol": "IDR",
+    "exchange": "$9.28",
+    "latitude": -7.0116198,
+    "longitude": 113.8510375
+  },
+  {
+    "id": 33,
+    "name": "Poland",
+    "country_code": "+48 585 300 7415",
+    "currency_name": "Zloty",
+    "currency_symbol": "PLN",
+    "exchange": "$8.58",
+    "latitude": 52.1469857,
+    "longitude": 21.7379077
+  },
+  {
+    "id": 15,
+    "name": "Poland",
+    "country_code": "+48 748 552 3903",
+    "currency_name": "Zloty",
+    "currency_symbol": "PLN",
+    "exchange": "$5.34",
+    "latitude": 54.5412717,
+    "longitude": 18.0936055
+  },
+  {
+    "id": 41,
+    "name": "Venezuela",
+    "country_code": "+58 524 523 8697",
+    "currency_name": "Bolivar",
+    "currency_symbol": "VEF",
+    "exchange": "$7.55",
+    "latitude": 8.3663119,
+    "longitude": -62.6496813
+  },
+  {
+    "id": 91,
+    "name": "China",
+    "country_code": "+86 923 171 5185",
+    "currency_name": "Yuan Renminbi",
+    "currency_symbol": "CNY",
+    "exchange": "$2.65",
+    "latitude": 24.287534,
+    "longitude": 102.753733
+  },
+  {
+    "id": 45,
+    "name": "Kazakhstan",
+    "country_code": "+7 354 650 6648",
+    "currency_name": "Tenge",
+    "currency_symbol": "KZT",
+    "exchange": "$5.31",
+    "latitude": 53.45,
+    "longitude": 62.9833329
+  },
+  {
+    "id": 31,
+    "name": "Ireland",
+    "country_code": "+353 145 563 1596",
+    "currency_name": "Euro",
+    "currency_symbol": "EUR",
+    "exchange": "$5.30",
+    "latitude": 52.6638144,
+    "longitude": -8.6340751
+  },
+  {
+    "id": 71,
+    "name": "Brazil",
+    "country_code": "+55 645 476 4455",
+    "currency_name": "Real",
+    "currency_symbol": "BRL",
+    "exchange": "$3.99",
+    "latitude": -21.7668575,
+    "longitude": -52.1096427
+  },
+  {
+    "id": 66,
+    "name": "Comoros",
+    "country_code": "+269 366 616 8269",
+    "currency_name": "Franc",
+    "currency_symbol": "KMF",
+    "exchange": "$0.60",
+    "latitude": -12.2695779,
+    "longitude": 44.4789279
+  },
+  {
+    "id": 2,
+    "name": "Russia",
+    "country_code": "+7 463 525 6293",
+    "currency_name": "Ruble",
+    "currency_symbol": "RUB",
+    "exchange": "$5.02",
+    "latitude": 55.7,
+    "longitude": 37.75
+  },
+  {
+    "id": 93,
+    "name": "Cuba",
+    "country_code": "+53 348 938 7152",
+    "currency_name": "Peso",
+    "currency_symbol": "CUP",
+    "exchange": "$1.23",
+    "latitude": 22.8564518,
+    "longitude": -82.4211025
+  },
+  {
+    "id": 55,
+    "name": "China",
+    "country_code": "+86 903 858 9108",
+    "currency_name": "Yuan Renminbi",
+    "currency_symbol": "CNY",
+    "exchange": "$7.14",
+    "latitude": 15.8800584,
+    "longitude": 108.3380469
+  },
+  {
+    "id": 70,
+    "name": "Egypt",
+    "country_code": "+20 140 311 0848",
+    "currency_name": "Pound",
+    "currency_symbol": "EGP",
+    "exchange": "$3.97",
+    "latitude": 26.0488019,
+    "longitude": 32.2403107
+  },
+  {
+    "id": 71,
+    "name": "Greece",
+    "country_code": "+30 738 938 0853",
+    "currency_name": "Euro",
+    "currency_symbol": "EUR",
+    "exchange": "$3.90",
+    "latitude": 39.1582421,
+    "longitude": 20.9876839
+  },
+  {
+    "id": 23,
+    "name": "Indonesia",
+    "country_code": "+62 706 195 8587",
+    "currency_name": "Rupiah",
+    "currency_symbol": "IDR",
+    "exchange": "$2.51",
+    "latitude": -9.5295,
+    "longitude": 119.2674
+  },
+  {
+    "id": 23,
+    "name": "Venezuela",
+    "country_code": "+58 645 837 1803",
+    "currency_name": "Bolivar",
+    "currency_symbol": "VEF",
+    "exchange": "$3.92",
+    "latitude": 9.9126704,
+    "longitude": -67.3614586
+  },
+  {
+    "id": 67,
+    "name": "Slovenia",
+    "country_code": "+386 118 356 6321",
+    "currency_name": "Euro",
+    "currency_symbol": "EUR",
+    "exchange": "$9.81",
+    "latitude": 46.3856393,
+    "longitude": 16.0470768
+  },
+  {
+    "id": 85,
+    "name": "Sweden",
+    "country_code": "+46 942 219 3809",
+    "currency_name": "Krona",
+    "currency_symbol": "SEK",
+    "exchange": "$7.62",
+    "latitude": 59.1866631,
+    "longitude": 17.622548
+  },
+  {
+    "id": 72,
+    "name": "Switzerland",
+    "country_code": "+41 418 155 0989",
+    "currency_name": "Franc",
+    "currency_symbol": "CHF",
+    "exchange": "$1.59",
+    "latitude": 47.4978346,
+    "longitude": 7.5961692
+  },
+  {
+    "id": 91,
+    "name": "Azerbaijan",
+    "country_code": "+994 755 874 0416",
+    "currency_name": "Manat",
+    "currency_symbol": "AZN",
+    "exchange": "$2.74",
+    "latitude": 40.6196638,
+    "longitude": 47.1500324
+  },
+  {
+    "id": 71,
+    "name": "China",
+    "country_code": "+86 590 394 7736",
+    "currency_name": "Yuan Renminbi",
+    "currency_symbol": "CNY",
+    "exchange": "$2.21",
+    "latitude": 22.517585,
+    "longitude": 113.39277
+  },
+  {
+    "id": 88,
+    "name": "United States",
+    "country_code": "+1 817 451 0372",
+    "currency_name": "Dollar",
+    "currency_symbol": "USD",
+    "exchange": "$0.94",
+    "latitude": 32.7311729,
+    "longitude": -97.4508426
+  },
+  {
+    "id": 80,
+    "name": "China",
+    "country_code": "+86 653 553 7640",
+    "currency_name": "Yuan Renminbi",
+    "currency_symbol": "CNY",
+    "exchange": "$6.64",
+    "latitude": 28.97844,
+    "longitude": 117.151796
+  },
+  {
+    "id": 78,
+    "name": "Greece",
+    "country_code": "+30 974 820 5882",
+    "currency_name": "Euro",
+    "currency_symbol": "EUR",
+    "exchange": "$9.89",
+    "latitude": 40.9292486,
+    "longitude": 23.1765232
+  },
+  {
+    "id": 67,
+    "name": "Ukraine",
+    "country_code": "+380 661 162 8676",
+    "currency_name": "Hryvnia",
+    "currency_symbol": "UAH",
+    "exchange": "$9.13",
+    "latitude": 48.5177572,
+    "longitude": 24.6447745
+  },
+  {
+    "id": 14,
+    "name": "Ukraine",
+    "country_code": "+380 163 103 6918",
+    "currency_name": "Hryvnia",
+    "currency_symbol": "UAH",
+    "exchange": "$2.77",
+    "latitude": 51.524571,
+    "longitude": 32.5004914
+  },
+  {
+    "id": 8,
+    "name": "Latvia",
+    "country_code": "+371 946 912 1219",
+    "currency_name": "Euro",
+    "currency_symbol": "EUR",
+    "exchange": "$4.62",
+    "latitude": 57.3690549,
+    "longitude": 22.591118
+  },
+  {
+    "id": 25,
+    "name": "Russia",
+    "country_code": "+7 237 126 0529",
+    "currency_name": "Ruble",
+    "currency_symbol": "RUB",
+    "exchange": "$3.27",
+    "latitude": 57.995662,
+    "longitude": 114.2615751
+  },
+  {
+    "id": 96,
+    "name": "China",
+    "country_code": "+86 808 106 5009",
+    "currency_name": "Yuan Renminbi",
+    "currency_symbol": "CNY",
+    "exchange": "$4.09",
+    "latitude": 26.170171,
+    "longitude": 118.190467
+  },
+  {
+    "id": 55,
+    "name": "Tanzania",
+    "country_code": "+255 919 114 1596",
+    "currency_name": "Shilling",
+    "currency_symbol": "TZS",
+    "exchange": "$8.74",
+    "latitude": -10.8416198,
+    "longitude": 39.6285874
+  },
+  {
+    "id": 23,
+    "name": "Cuba",
+    "country_code": "+53 608 450 1363",
+    "currency_name": "Peso",
+    "currency_symbol": "CUP",
+    "exchange": "$7.23",
+    "latitude": 22.1466556,
+    "longitude": -79.9780178
+  },
+  {
+    "id": 52,
+    "name": "China",
+    "country_code": "+86 808 552 6951",
+    "currency_name": "Yuan Renminbi",
+    "currency_symbol": "CNY",
+    "exchange": "$5.67",
+    "latitude": 22.996513,
+    "longitude": 113.823603
+  },
+  {
+    "id": 42,
+    "name": "Philippines",
+    "country_code": "+63 297 307 5142",
+    "currency_name": "Peso",
+    "currency_symbol": "PHP",
+    "exchange": "$5.27",
+    "latitude": 14.5697565,
+    "longitude": 121.0247172
+  },
+  {
+    "id": 87,
+    "name": "Portugal",
+    "country_code": "+351 813 809 4826",
+    "currency_name": "Euro",
+    "currency_symbol": "EUR",
+    "exchange": "$7.84",
+    "latitude": 41.5023719,
+    "longitude": -8.5818392
+  },
+  {
+    "id": 56,
+    "name": "Portugal",
+    "country_code": "+351 243 369 6815",
+    "currency_name": "Euro",
+    "currency_symbol": "EUR",
+    "exchange": "$6.44",
+    "latitude": 39.2471607,
+    "longitude": -9.2641519
+  },
+  {
+    "id": 54,
+    "name": "Philippines",
+    "country_code": "+63 672 683 3681",
+    "currency_name": "Peso",
+    "currency_symbol": "PHP",
+    "exchange": "$5.53",
+    "latitude": 15.8136606,
+    "longitude": 119.934653
+  },
+  {
+    "id": 87,
+    "name": "China",
+    "country_code": "+86 348 211 4463",
+    "currency_name": "Yuan Renminbi",
+    "currency_symbol": "CNY",
+    "exchange": "$8.57",
+    "latitude": 25.495241,
+    "longitude": 103.805012
+  },
+  {
+    "id": 100,
+    "name": "Indonesia",
+    "country_code": "+62 495 334 4203",
+    "currency_name": "Rupiah",
+    "currency_symbol": "IDR",
+    "exchange": "$2.32",
+    "latitude": -6.3874037,
+    "longitude": 106.8620891
+  },
+  {
+    "id": 19,
+    "name": "Indonesia",
+    "country_code": "+62 841 875 2850",
+    "currency_name": "Rupiah",
+    "currency_symbol": "IDR",
+    "exchange": "$2.99",
+    "latitude": -7.9955024,
+    "longitude": 111.7048262
+  },
+  {
+    "id": 30,
+    "name": "China",
+    "country_code": "+86 706 177 8928",
+    "currency_name": "Yuan Renminbi",
+    "currency_symbol": "CNY",
+    "exchange": "$4.12",
+    "latitude": 27.602752,
+    "longitude": 107.709916
+  },
+  {
+    "id": 60,
+    "name": "Japan",
+    "country_code": "+81 500 836 6971",
+    "currency_name": "Yen",
+    "currency_symbol": "JPY",
+    "exchange": "$9.77",
+    "latitude": 36.1008689,
+    "longitude": 139.5772452
+  },
+  {
+    "id": 13,
+    "name": "United States",
+    "country_code": "+1 206 700 4156",
+    "currency_name": "Dollar",
+    "currency_symbol": "USD",
+    "exchange": "$0.41",
+    "latitude": 47.6060781,
+    "longitude": -122.3329957
+  },
+  {
+    "id": 65,
+    "name": "China",
+    "country_code": "+86 860 476 1490",
+    "currency_name": "Yuan Renminbi",
+    "currency_symbol": "CNY",
+    "exchange": "$1.96",
+    "latitude": 43.635681,
+    "longitude": 125.5851039
+  },
+  {
+    "id": 77,
+    "name": "Denmark",
+    "country_code": "+45 561 196 9046",
+    "currency_name": "Krone",
+    "currency_symbol": "DKK",
+    "exchange": "$1.16",
+    "latitude": 55.6649287,
+    "longitude": 12.5504728
+  },
+  {
+    "id": 53,
+    "name": "Indonesia",
+    "country_code": "+62 442 595 5893",
+    "currency_name": "Rupiah",
+    "currency_symbol": "IDR",
+    "exchange": "$1.55",
+    "latitude": -8.6282191,
+    "longitude": 116.4636472
+  },
+  {
+    "id": 98,
+    "name": "Japan",
+    "country_code": "+81 492 448 4571",
+    "currency_name": "Yen",
+    "currency_symbol": "JPY",
+    "exchange": "$3.13",
+    "latitude": 38.1162631,
+    "longitude": 140.8585745
+  },
+  {
+    "id": 9,
+    "name": "Czech Republic",
+    "country_code": "+420 959 200 0199",
+    "currency_name": "Koruna",
+    "currency_symbol": "CZK",
+    "exchange": "$9.46",
+    "latitude": 49.0998215,
+    "longitude": 17.757483
+  },
+  {
+    "id": 96,
+    "name": "Nigeria",
+    "country_code": "+234 217 617 9515",
+    "currency_name": "Naira",
+    "currency_symbol": "NGN",
+    "exchange": "$2.28",
+    "latitude": 8.8469761,
+    "longitude": 7.0605998
+  },
+  {
+    "id": 30,
+    "name": "Micronesia",
+    "country_code": "+691 361 249 1101",
+    "currency_name": "Dollar",
+    "currency_symbol": "USD",
+    "exchange": "$1.91",
+    "latitude": 5.5775857,
+    "longitude": 153.5799639
+  },
+  {
+    "id": 95,
+    "name": "Finland",
+    "country_code": "+358 596 882 4901",
+    "currency_name": "Euro",
+    "currency_symbol": "EUR",
+    "exchange": "$5.87",
+    "latitude": 62.3316244,
+    "longitude": 27.7461577
+  },
+  {
+    "id": 45,
+    "name": "China",
+    "country_code": "+86 619 106 2110",
+    "currency_name": "Yuan Renminbi",
+    "currency_symbol": "CNY",
+    "exchange": "$9.94",
+    "latitude": 24.479833,
+    "longitude": 118.089425
+  },
+  {
+    "id": 24,
+    "name": "Iran",
+    "country_code": "+98 234 149 4126",
+    "currency_name": "Rial",
+    "currency_symbol": "IRR",
+    "exchange": "$6.37",
+    "latitude": 27.1832216,
+    "longitude": 56.2666455
+  },
+  {
+    "id": 62,
+    "name": "Macedonia",
+    "country_code": "+389 370 539 3312",
+    "currency_name": "Denar",
+    "currency_symbol": "MKD",
+    "exchange": "$0.93",
+    "latitude": 41.30278,
+    "longitude": 20.83028
+  },
+  {
+    "id": 63,
+    "name": "Indonesia",
+    "country_code": "+62 923 355 2162",
+    "currency_name": "Rupiah",
+    "currency_symbol": "IDR",
+    "exchange": "$2.23",
+    "latitude": -9.8691816,
+    "longitude": 124.6662951
+  },
+  {
+    "id": 94,
+    "name": "Venezuela",
+    "country_code": "+58 157 606 2385",
+    "currency_name": "Bolivar",
+    "currency_symbol": "VEF",
+    "exchange": "$6.47",
+    "latitude": 9.997591,
+    "longitude": -66.9511459
+  },
+  {
+    "id": 78,
+    "name": "South Africa",
+    "country_code": "+27 352 580 4698",
+    "currency_name": "Rand",
+    "currency_symbol": "ZAR",
+    "exchange": "$8.73",
+    "latitude": -24.9250707,
+    "longitude": 27.6170798
+  },
+  {
+    "id": 81,
+    "name": "Philippines",
+    "country_code": "+63 374 561 0229",
+    "currency_name": "Peso",
+    "currency_symbol": "PHP",
+    "exchange": "$1.51",
+    "latitude": 11.321347,
+    "longitude": 122.619095
+  },
+  {
+    "id": 37,
+    "name": "Philippines",
+    "country_code": "+63 621 565 3311",
+    "currency_name": "Peso",
+    "currency_symbol": "PHP",
+    "exchange": "$8.80",
+    "latitude": 11.0068891,
+    "longitude": 123.9185105
+  },
+  {
+    "id": 96,
+    "name": "Spain",
+    "country_code": "+34 669 493 6591",
+    "currency_name": "Euro",
+    "currency_symbol": "EUR",
+    "exchange": "$8.61",
+    "latitude": 36.5052612,
+    "longitude": -6.2761016
+  },
+  {
+    "id": 16,
+    "name": "France",
+    "country_code": "+33 806 140 2436",
+    "currency_name": "Euro",
+    "currency_symbol": "EUR",
+    "exchange": "$7.54",
+    "latitude": 47.931513,
+    "longitude": 1.920754
+  },
+  {
+    "id": 97,
+    "name": "Zambia",
+    "country_code": "+260 458 583 8247",
+    "currency_name": "Kwacha",
+    "currency_symbol": "ZMW",
+    "exchange": "$2.44",
+    "latitude": -16.2803207,
+    "longitude": 27.4732571
+  },
+  {
+    "id": 53,
+    "name": "China",
+    "country_code": "+86 272 176 4296",
+    "currency_name": "Yuan Renminbi",
+    "currency_symbol": "CNY",
+    "exchange": "$3.20",
+    "latitude": 28.801077,
+    "longitude": 108.102703
+  },
+  {
+    "id": 85,
+    "name": "Cyprus",
+    "country_code": "+357 964 818 6317",
+    "currency_name": "Euro",
+    "currency_symbol": "EUR",
+    "exchange": "$9.24",
+    "latitude": 34.6919356,
+    "longitude": 32.9184086
+  },
+  {
+    "id": 91,
+    "name": "Palestinian Territory",
+    "country_code": "+970 336 117 4751",
+    "currency_name": "Shekel",
+    "currency_symbol": "ILS",
+    "exchange": "$0.18",
+    "latitude": 32.261548,
+    "longitude": 35.13028
+  },
+  {
+    "id": 44,
+    "name": "Honduras",
+    "country_code": "+504 728 530 4367",
+    "currency_name": "Lempira",
+    "currency_symbol": "HNL",
+    "exchange": "$5.77",
+    "latitude": 14.2054868,
+    "longitude": -86.6069287
+  },
+  {
+    "id": 13,
+    "name": "Poland",
+    "country_code": "+48 142 864 2665",
+    "currency_name": "Zloty",
+    "currency_symbol": "PLN",
+    "exchange": "$8.96",
+    "latitude": 53.7558642,
+    "longitude": 19.2045339
+  },
+  {
+    "id": 33,
+    "name": "Portugal",
+    "country_code": "+351 375 657 1058",
+    "currency_name": "Euro",
+    "currency_symbol": "EUR",
+    "exchange": "$8.18",
+    "latitude": 39.4365442,
+    "longitude": -9.2134149
+  },
+  {
+    "id": 66,
+    "name": "Peru",
+    "country_code": "+51 931 759 4471",
+    "currency_name": "Sol",
+    "currency_symbol": "PEN",
+    "exchange": "$0.70",
+    "latitude": -14.12,
+    "longitude": -71.47278
+  },
+  {
+    "id": 84,
+    "name": "Indonesia",
+    "country_code": "+62 782 228 9602",
+    "currency_name": "Rupiah",
+    "currency_symbol": "IDR",
+    "exchange": "$8.69",
+    "latitude": -6.59278,
+    "longitude": 106.51306
+  },
+  {
+    "id": 61,
+    "name": "Bosnia and Herzegovina",
+    "country_code": "+387 252 294 7093",
+    "currency_name": "Marka",
+    "currency_symbol": "BAM",
+    "exchange": "$8.92",
+    "latitude": 43.1097139,
+    "longitude": 17.7192104
+  },
+  {
+    "id": 100,
+    "name": "Peru",
+    "country_code": "+51 356 567 9192",
+    "currency_name": "Sol",
+    "currency_symbol": "PEN",
+    "exchange": "$4.85",
+    "latitude": -12.67442,
+    "longitude": -75.325157
+  },
+  {
+    "id": 51,
+    "name": "Iran",
+    "country_code": "+98 301 111 8195",
+    "currency_name": "Rial",
+    "currency_symbol": "IRR",
+    "exchange": "$4.68",
+    "latitude": 34.7120892,
+    "longitude": 46.6512998
+  },
+  {
+    "id": 86,
+    "name": "Brazil",
+    "country_code": "+55 890 455 8220",
+    "currency_name": "Real",
+    "currency_symbol": "BRL",
+    "exchange": "$1.50",
+    "latitude": -21.7300823,
+    "longitude": -48.0605108
+  },
+  {
+    "id": 5,
+    "name": "Colombia",
+    "country_code": "+57 280 248 5821",
+    "currency_name": "Peso",
+    "currency_symbol": "COP",
+    "exchange": "$3.74",
+    "latitude": 8.427174,
+    "longitude": -76.787678
+  },
+  {
+    "id": 43,
+    "name": "Poland",
+    "country_code": "+48 386 573 1328",
+    "currency_name": "Zloty",
+    "currency_symbol": "PLN",
+    "exchange": "$6.68",
+    "latitude": 49.57642,
+    "longitude": 21.86815
+  },
+  {
+    "id": 89,
+    "name": "Afghanistan",
+    "country_code": "+93 462 666 8016",
+    "currency_name": "Afghani",
+    "currency_symbol": "AFN",
+    "exchange": "$6.10",
+    "latitude": 33.25,
+    "longitude": 69.216667
+  },
+  {
+    "id": 78,
+    "name": "Indonesia",
+    "country_code": "+62 392 436 0779",
+    "currency_name": "Rupiah",
+    "currency_symbol": "IDR",
+    "exchange": "$0.48",
+    "latitude": -7.002985,
+    "longitude": 112.282503
+  },
+  {
+    "id": 50,
+    "name": "Colombia",
+    "country_code": "+57 769 556 9558",
+    "currency_name": "Peso",
+    "currency_symbol": "COP",
+    "exchange": "$9.71",
+    "latitude": 9.1375974,
+    "longitude": -75.2128996
+  },
+  {
+    "id": 96,
+    "name": "Peru",
+    "country_code": "+51 931 937 5999",
+    "currency_name": "Sol",
+    "currency_symbol": "PEN",
+    "exchange": "$3.60",
+    "latitude": -6.6382226,
+    "longitude": -79.7904475
+  },
+  {
+    "id": 49,
+    "name": "Bosnia and Herzegovina",
+    "country_code": "+387 535 172 1368",
+    "currency_name": "Marka",
+    "currency_symbol": "BAM",
+    "exchange": "$7.55",
+    "latitude": 44.3983211,
+    "longitude": 17.940625
+  },
+  {
+    "id": 46,
+    "name": "Japan",
+    "country_code": "+81 773 848 2621",
+    "currency_name": "Yen",
+    "currency_symbol": "JPY",
+    "exchange": "$0.94",
+    "latitude": 37.7525244,
+    "longitude": 139.1650556
+  },
+  {
+    "id": 54,
+    "name": "China",
+    "country_code": "+86 996 771 4431",
+    "currency_name": "Yuan Renminbi",
+    "currency_symbol": "CNY",
+    "exchange": "$0.60",
+    "latitude": 44.151742,
+    "longitude": 125.8395731
+  },
+  {
+    "id": 14,
+    "name": "Russia",
+    "country_code": "+7 984 676 9742",
+    "currency_name": "Ruble",
+    "currency_symbol": "RUB",
+    "exchange": "$3.99",
+    "latitude": 43.2580921,
+    "longitude": 42.6468184
+  },
+  {
+    "id": 95,
+    "name": "Argentina",
+    "country_code": "+54 831 365 6609",
+    "currency_name": "Peso",
+    "currency_symbol": "ARS",
+    "exchange": "$3.87",
+    "latitude": -34.6037075,
+    "longitude": -58.5096724
+  },
+  {
+    "id": 38,
+    "name": "Sweden",
+    "country_code": "+46 335 334 4485",
+    "currency_name": "Krona",
+    "currency_symbol": "SEK",
+    "exchange": "$9.89",
+    "latitude": 59.4051316,
+    "longitude": 13.5451563
+  },
+  {
+    "id": 39,
+    "name": "Indonesia",
+    "country_code": "+62 716 513 0040",
+    "currency_name": "Rupiah",
+    "currency_symbol": "IDR",
+    "exchange": "$0.02",
+    "latitude": -8.4896395,
+    "longitude": 118.797517
+  },
+  {
+    "id": 19,
+    "name": "China",
+    "country_code": "+86 147 399 7793",
+    "currency_name": "Yuan Renminbi",
+    "currency_symbol": "CNY",
+    "exchange": "$9.42",
+    "latitude": 29.272581,
+    "longitude": 104.874073
+  },
+  {
+    "id": 86,
+    "name": "China",
+    "country_code": "+86 313 646 2378",
+    "currency_name": "Yuan Renminbi",
+    "currency_symbol": "CNY",
+    "exchange": "$0.40",
+    "latitude": 35.963912,
+    "longitude": 105.729085
+  },
+  {
+    "id": 75,
+    "name": "Ethiopia",
+    "country_code": "+251 781 520 9231",
+    "currency_name": "Birr",
+    "currency_symbol": "ETB",
+    "exchange": "$8.35",
+    "latitude": 12.1235658,
+    "longitude": 37.7795618
+  },
+  {
+    "id": 98,
+    "name": "Portugal",
+    "country_code": "+351 527 770 6874",
+    "currency_name": "Euro",
+    "currency_symbol": "EUR",
+    "exchange": "$7.90",
+    "latitude": 41.4346593,
+    "longitude": -8.1962076
+  },
+  {
+    "id": 95,
+    "name": "Cuba",
+    "country_code": "+53 431 467 2242",
+    "currency_name": "Peso",
+    "currency_symbol": "CUP",
+    "exchange": "$9.07",
+    "latitude": 21.1878548,
+    "longitude": -76.606611
+  },
+  {
+    "id": 37,
+    "name": "Philippines",
+    "country_code": "+63 558 548 4698",
+    "currency_name": "Peso",
+    "currency_symbol": "PHP",
+    "exchange": "$0.72",
+    "latitude": 15.4004052,
+    "longitude": 119.9303933
+  },
+  {
+    "id": 74,
+    "name": "Namibia",
+    "country_code": "+264 724 300 5666",
+    "currency_name": "Dollar",
+    "currency_symbol": "NAD",
+    "exchange": "$8.00",
+    "latitude": -17.5093929,
+    "longitude": 14.9885388
+  },
+  {
+    "id": 30,
+    "name": "Nigeria",
+    "country_code": "+234 474 869 4194",
+    "currency_name": "Naira",
+    "currency_symbol": "NGN",
+    "exchange": "$9.43",
+    "latitude": 10.9840928,
+    "longitude": 8.060158
+  },
+  {
+    "id": 83,
+    "name": "Armenia",
+    "country_code": "+374 928 321 5572",
+    "currency_name": "Dram",
+    "currency_symbol": "AMD",
+    "exchange": "$9.52",
+    "latitude": 40.8021951,
+    "longitude": 44.5395836
+  },
+  {
+    "id": 6,
+    "name": "China",
+    "country_code": "+86 623 121 0649",
+    "currency_name": "Yuan Renminbi",
+    "currency_symbol": "CNY",
+    "exchange": "$1.72",
+    "latitude": 33.044814,
+    "longitude": 106.656635
+  },
+  {
+    "id": 8,
+    "name": "China",
+    "country_code": "+86 794 282 3319",
+    "currency_name": "Yuan Renminbi",
+    "currency_symbol": "CNY",
+    "exchange": "$9.07",
+    "latitude": 31.220367,
+    "longitude": 121.424624
+  },
+  {
+    "id": 62,
+    "name": "Russia",
+    "country_code": "+7 632 126 2252",
+    "currency_name": "Ruble",
+    "currency_symbol": "RUB",
+    "exchange": "$2.43",
+    "latitude": 55.4330626,
+    "longitude": 74.9385554
+  },
+  {
+    "id": 20,
+    "name": "Brazil",
+    "country_code": "+55 936 248 1760",
+    "currency_name": "Real",
+    "currency_symbol": "BRL",
+    "exchange": "$2.74",
+    "latitude": -29.2293516,
+    "longitude": -53.6827015
+  },
+  {
+    "id": 87,
+    "name": "China",
+    "country_code": "+86 718 457 2968",
+    "currency_name": "Yuan Renminbi",
+    "currency_symbol": "CNY",
+    "exchange": "$1.55",
+    "latitude": 37.035213,
+    "longitude": 120.764679
+  },
+  {
+    "id": 93,
+    "name": "Czech Republic",
+    "country_code": "+420 155 645 7823",
+    "currency_name": "Koruna",
+    "currency_symbol": "CZK",
+    "exchange": "$5.91",
+    "latitude": 49.604873,
+    "longitude": 18.0646415
+  },
+  {
+    "id": 37,
+    "name": "Nigeria",
+    "country_code": "+234 881 604 4666",
+    "currency_name": "Naira",
+    "currency_symbol": "NGN",
+    "exchange": "$9.80",
+    "latitude": 5.8894555,
+    "longitude": 7.9538378
+  },
+  {
+    "id": 73,
+    "name": "Canada",
+    "country_code": "+1 272 805 3487",
+    "currency_name": "Dollar",
+    "currency_symbol": "CAD",
+    "exchange": "$4.78",
+    "latitude": 47.216667,
+    "longitude": -67.916667
+  },
+  {
+    "id": 33,
+    "name": "Canada",
+    "country_code": "+1 443 255 0318",
+    "currency_name": "Dollar",
+    "currency_symbol": "CAD",
+    "exchange": "$2.48",
+    "latitude": 54.2681766,
+    "longitude": -110.7200371
+  },
+  {
+    "id": 45,
+    "name": "Afghanistan",
+    "country_code": "+93 826 168 8091",
+    "currency_name": "Afghani",
+    "currency_symbol": "AFN",
+    "exchange": "$9.10",
+    "latitude": 34.9690901,
+    "longitude": 63.1443045
+  },
+  {
+    "id": 45,
+    "name": "Indonesia",
+    "country_code": "+62 438 496 8248",
+    "currency_name": "Rupiah",
+    "currency_symbol": "IDR",
+    "exchange": "$5.69",
+    "latitude": -7.5153339,
+    "longitude": 108.7660364
+  }
+]
