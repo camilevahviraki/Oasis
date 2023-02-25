@@ -1,3 +1,7 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
 body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
@@ -5,9 +9,28 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  padding-top: 70px;
+  /* background-color: rgb(247, 246, 234); */
 }
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
+}
+
+a {
+  color: rgb(0, 98, 128);
+}
+
+.center {
+  align-items: center;
+}
+
+.relative {
+  position: relative;
+}
+
+h2{
+  font-size: 20px;
+  font-weight: 600;
 }

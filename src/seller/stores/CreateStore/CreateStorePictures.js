@@ -1,148 +1,140 @@
 import React, { useState } from "react";
-import { useDispatch } from "react-redux";
-import { addStorePictures } from "../../../redux/stores/createStoreReducer";
+import { useDispatch, useSelector } from "react-redux";
+import Upload from "../../../redux/upload";
+import UploadProgress from "../../../reusable/upload-progress/UploadProgress";
+import {
+  addStorePictures,
+  getStoreId
+} from "../../../redux/stores/createStoreReducer";
+import Loader from "../../../reusable/loader/Loader";
+import inputFileIcon from "../../../images/input-file.png";
+import storeImage from '../../../images/store-image-holder.png';
 import "./css/CreateStorePictures.css";
 
 const CreateStorePictures = (props) => {
-  const [choosenFiles, setChoosenFiles] = useState([]);
   const [currentDescription, setCurrentDescription] = useState("");
-  const [currentFiles, setCurrentFiles] = useState([]);
-  const [gallery, setGallery] = useState({});
-  const [fyleType, setFileType] = useState("image");
-  const [multiple, setMultiple] = useState(false);
+  const [gallery, setGallery] = useState([]);
+  const [progress, setProgress] = useState(0);
+  const [showLoader, setLoader] = useState(false);
+  const [message, setMessage] = useState('');
   const dispatch = useDispatch();
+
+  const getProgress = (prog) => {
+    setProgress(prog);
+  }
+
+  const getUploadResponse = (res) => {
+    if(!res.store_id){
+      setLoader(false);
+      setMessage('Error while uploading images!Please reupload again.')
+    }
+  }
+
+  const userData = useSelector(state => state.authenticationReducer); 
+  const storeData = useSelector(state => state.createStoresReducer);
+  const token = userData.token;
 
   const handleSubmit = (e) => {
     e.preventDefault();
-
-    dispatch(addStorePictures(choosenFiles));
-  };
-
-  const handleSelect = (e) => {
-    const choosen = e.target.value;
-
-    if (choosen === "Image") {
-      setFileType("image");
-      setMultiple(false);
-    } else if (choosen === "Gallery") {
-      setFileType("image");
-      setMultiple(true);
-    } else if (choosen === "Video") {
-      setFileType("video");
-      setMultiple(true);
-    }
+    
+    let formData = new FormData()
+    gallery.forEach(img => {
+      formData.append("images[]", img)
+    })
+    formData.append("step", 3)
+    formData.append('store_id', storeData.storeId.store_id)
+    formData.append('fyle_type', 'image');
+    formData.append('user_id', userData.user.id);
+    Upload({
+      endPoint: 'api_stores',
+      data: formData,
+      dispatchResponse: (sent) => dispatch(getStoreId(sent)),
+      sendData: (res) => dispatch(getUploadResponse(res)),
+      getProgress: (prog) => getProgress(prog)
+    })
+    dispatch(addStorePictures(formData, token));
+    setLoader(true);
   };
 
   const handlePreview = (e) => {
-    const currentImage = Array.prototype.slice.call(e.target.files);
-    setGallery(e.target.files);
-    setCurrentFiles(currentImage);
+    setGallery(Array.prototype.slice.call(e.target.files));
   };
 
-  const saveSelectedImages = () => {
-    setGallery([]);
-    setCurrentDescription("");
-    setChoosenFiles([
-      ...choosenFiles,
-      { description: currentDescription, images: currentFiles , type: fyleType},
-    ]);
-  };
-
-  const removeImageSet = (description) => {
-     const newChoosenFiles = choosenFiles.filter((files) => files.description !== description);
-     setChoosenFiles(newChoosenFiles);
-  }
-
-  return (
-    <div 
-      className="create-store-pictures"
-      style={props.progress === 3? {display: 'grid'}: {display: 'none'}}
-    >
-      <div>
-        {choosenFiles.map((files) =>(
-        <div className="create-store-images-preview">
-            
-         { files.type === 'image'?
-             (Object.keys(files.images).map((keyName, i) => (
-                <div className="create-store-image-preview-container small">
-                  <img
-                    src={URL.createObjectURL(files.images[keyName])}
-                    alt=""
-                    className="create-store-image-preview"
-                  />
-                </div>
-              ))):
-              (Object.keys(files.images).map((keyName, i) => (
-                <video width="200px" controls>
-                  <source src={URL.createObjectURL(files.images[keyName])} />
-                </video>
-              )))
-         }
-         <h5>{files.description}</h5>
-         <button type="button" onClick={() => removeImageSet(files.description)}>Remove</button>
-          
-        </div>)
-        )}
-        <div className="create-store-images-preview">
-          {fyleType === "image"
-            ? Object.keys(gallery).map((keyName, i) => (
+  if(props.progress === 3){
+    return (
+      <div className="create-store-pictures">
+          <div className="create-store-images-preview">
+            { gallery.length === 0?(
+              <img src={storeImage} alt=""/>
+            ):(
+              Object.keys(gallery).map((keyName, i) => (
                 <div className="create-store-image-preview-container">
-                  <img
-                    src={URL.createObjectURL(gallery[keyName])}
-                    alt=""
-                    className="create-store-image-preview"
-                  />
+                  {
+                    gallery[keyName].type.includes('image')?(
+                      <img
+                        src={URL.createObjectURL(gallery[keyName])}
+                        alt=""
+                        className="create-store-image-preview"
+                      />
+                    ):(
+                      <video width="400px" controls>
+                        <source src={URL.createObjectURL(gallery[keyName])} />
+                      </video>
+                    )
+                  }
                 </div>
               ))
-            : Object.keys(gallery).map((keyName, i) => (
-                <video width="400px" controls>
-                  <source src={URL.createObjectURL(gallery[keyName])} />
-                </video>
-              ))}
-        </div>
+            )
+              }
+          </div>
+  
+        {showLoader && props.progress === 3?
+          (<>
+            <div style={{width: '300px', marginBottom: '20px'}}>
+              <UploadProgress progress={progress}/>
+            </div>
+             <Loader/>
+           </>
+          )
+        :
+        (<></>)
+        }
+
+        <form onSubmit={handleSubmit} className="form-create-store-pictures">
+  
+          <label htmlFor="create-store-image" className="create-store-label-input-file">
+            Select Images or Video
+            <img src={inputFileIcon} alt="" className="input-file-icon"/>
+            <input
+              type="file"
+              id="create-store-image"
+              name="gallery"
+              accept="image/*, video/*"
+              onChange={handlePreview}
+              className="create-store-image-input"
+              multiple
+            />
+          </label>
+  
+          <input
+            type="text"
+            name="pictures-description"
+            placeholder={`short description`}
+            onChange={(e) => setCurrentDescription(e.target.value)}
+            value={currentDescription}
+          />
+  
+          <div>
+            <p>{message}</p>
+          <input type="submit" value="Next" className="create-store-submit"/>
+          </div>
+        </form>
       </div>
+    );
+  }else{
+    return <></>
+  }
 
-      <form onSubmit={handleSubmit} className="form-create-store-pictures">
-        <select onChange={handleSelect}>
-          <option value="Image">Image</option>
-          <option value="Gallery">Gallery</option>
-          <option value="Video">Video</option>
-        </select>
-        {multiple ? (
-          <input
-            type="file"
-            id="gallery"
-            name="gallery"
-            accept={`${fyleType}/*`}
-            onChange={handlePreview}
-            multiple
-          />
-        ) : (
-          <input
-            type="file"
-            id="gallery"
-            name="gallery"
-            accept={`${fyleType}/*`}
-            onChange={handlePreview}
-          />
-        )}
-        <input
-          type="text"
-          name="pictures-description"
-          placeholder={`short ${fyleType}s description`}
-          onChange={(e) => setCurrentDescription(e.target.value)}
-          value={currentDescription}
-        />
-
-        <div>
-          <button type="button" onClick={saveSelectedImages}>
-            More pictures
-          </button>
-          <input type="submit" value="Next" />
-        </div>
-      </form>
-    </div>
-  );
 };
 
 export default CreateStorePictures;

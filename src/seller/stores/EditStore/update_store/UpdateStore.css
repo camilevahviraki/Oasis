@@ -1,0 +1,9 @@
+.update-store-form {
+    width: 60%;
+}
+
+.update-store-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}

@@ -9,9 +9,19 @@
 .create-store-categories {
     border: 1px solid gray;
     display: flex;
-    flex-direction: column;
-    align-items: center;
-    width: 70%;
+    /* flex-direction: column; */
+    /* align-items: center; */
+    width: 80%;
+}
+
+.create-store-categories h4 {
+    margin: 5px;
+    padding: 6px 12px;
+    min-width: 140px;
+}
+
+.create-store-main{
+    width: 90%;
 }
 
 .store-type {
@@ -19,6 +29,106 @@
 }
 
 .selected-type {
-    background-color: green;
+    background-color: rgb(5, 75, 69);
+    color: #fff;
 }
 
+.InputCreateStore{
+    border: 1px solid rgba(128, 128, 128, 0.377);
+    margin: 8px 0;
+    padding: 8px;
+    width: 100%;
+    /* color: #fff; */
+    /* background-color: #87898a; */
+}
+
+.TextAreaCreateStore {
+    height: 120px;
+    border: 1px solid rgba(128, 128, 128, 0.377);
+    width: 100%;
+}
+
+.create-store-submit {
+    position: absolute;
+    top: 90vh;
+    padding: 8px 15px;
+    background-color: rgba(5, 18, 27, 0.705);
+    color: white;
+}
+
+.create_store_main_container {
+    width: 100vw;
+    overflow-x: hidden;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.categories_list_wrapper {
+    height: 70vh;
+    overflow-y: scroll;
+    width: 100%;
+}
+
+.categories_list_container {
+    width: 48%;
+    /* border: 1px solid red; */
+}
+
+.categories_list_selected_container {
+    width: 48%;
+    margin-left: 4%;
+    /* border: 1px solid green; */
+    position: relative;
+}
+
+.create-store-categories-submit-container {
+    position: absolute;
+    bottom: 0;
+    padding: 12px;
+    width: 100%;
+    /* border: 1px solid gray; */
+}
+
+.create-store-categories-submit-container button{
+    position: absolute;
+    right: 12px;
+    bottom: 12px;
+    color: #fff;
+    background-color: rgb(7, 34, 48);
+    padding: 8px 20px;
+}
+
+.categories_list_wrapper_selected {
+    width: 100%;
+}
+
+.categories_list_container_title {
+    margin-bottom: 20px;
+}
+
+.create-store-selected-type {
+    min-width: 120px;
+    padding: 8px auto;
+    border-radius: 6px;
+    border: 1px solid gray;
+}
+
+.create-store-selected-type-wrap {
+    display: flex;
+    border: 1px solid gray;
+    border-radius: 6px;
+    align-items: center;
+    position: relative;
+    margin-bottom: 5px;
+}
+
+.create-store-selected-type-wrap h4 {
+    margin: auto;
+}
+
+.absolut {
+    position: absolute;
+    margin: 0;
+    right: 12px;
+}

@@ -1,0 +1,22 @@
+.progress-bar-container {
+    width: 98%;
+    height: 40px;
+    border: 1px solid gray;
+}
+
+.progress-bar-step {
+    font-weight: 700;
+    color: rgb(253, 253, 253);
+    background-color: rgb(175, 97, 7);
+}
+
+.progress-bar-line {
+    height: 4px;
+    border-radius: 2px;
+    background-color: rgb(175, 97, 7);
+}
+
+.gray {
+    background-color: rgba(128, 128, 128, 0.63);
+    color: rgb(58, 57, 57);
+}

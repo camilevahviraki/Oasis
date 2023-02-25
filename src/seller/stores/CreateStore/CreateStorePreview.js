@@ -1,71 +1,60 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
+import { Link } from "react-router-dom";
+import { postStoreToServer } from "../../../redux/stores/createStoreReducer";
+import { getStoresShow } from "../../../redux/stores/getStoreShowReducer";
+import linkName from "../../../reusable/remove-blanck-space/linkName";
+import MyStore from "../EditStore/__my_store_reusable/__my_store";
+import { setStoreLink } from "../../../redux/storeLink/storeLinkReducer";
 import "./css/CreateStorePreview.css";
 
 const CreateStorePreview = (props) => {
+  const dispatch = useDispatch();
   const createStoreData = useSelector((state) => state.createStoresReducer);
-  const { details, pictures, types, places, progress } = createStoreData;
-  return (
-    <div
-      style={props.progress === 5 ? { display: "grid" } : { display: "none" }}
-    >
-      <div className="create-store-preview-description">
-        <h3>{details.name}</h3>
-        <div className="create-store-preview-description-location">
-          <h4>Location:</h4>
-          <p>
-            {details.city}, {details.country}
-          </p>
-        </div>
-        <div className="create-store-preview-description-details">
-          <p>{details.description}</p>
-        </div>
-      </div>
-      <div className="create-store-preview-pictures-container">
-        <h3>Store Views</h3>
-        <div className="create-store-preview-pictures">
-          {pictures.map((gallery, key) => (
-            <div className="create-store-preview-pictures-gallery row">
-              {gallery.type === "image" ? (
-                <div className="create-store-image-preview-container">
-                  <img
-                    src={URL.createObjectURL(gallery.images[0])}
-                    alt=""
-                    className="create-store-image-preview"
-                  />
-                </div>
-              ) : (
-                <video width="300px" controls>
-                  <source src={URL.createObjectURL(gallery.images[0])} />
-                </video>
-              )}
-            </div>
-          ))}
-        </div>
-      </div>
-      <div className="create-store-preview-categories-container">
-           <h3>Item's Categories</h3>
-           <div className="create-store-preview-categories row">
-               {
-                 types.map((category) => (
-                    <div>
-                        <h5>{category}</h5>
-                    </div>
-                 ))
-               }
-           </div>
-      </div>
-      <div className="create-store-preview-places-container">
-        <h3>Others Locations</h3>
-        <div className="create-store-preview-places row">
-            <p>Washington DC, USA</p>
-            <p>Casablanca, Morroco</p>
-            <p>Kinshasa, DRC</p>
-            <p>Malibu, </p>
+  const userData = useSelector(state => state.authenticationReducer);
+
+  useEffect(() => {
+    if(createStoreData.storeId.store_id){
+      const data = {
+        user_id: userData.user.id,
+        store_id: createStoreData.storeId.store_id,
+      }
+      dispatch(getStoresShow(data));
+    }
+  }, []);
+
+  const storeData = useSelector(state => state.getStoreShowReducer);
+
+  const saveStoreLink = (link, id) => {
+    localStorage.setItem('storeLink', JSON.stringify({link, store_id: id}));
+    dispatch(setStoreLink({link: linkName(link), store_id: id}));
+  }
+
+  console.log(storeData)
+
+  if(props.progress === 5){
+    return (
+      <div
+        className='create_store_preview_container'
+      >
+        <MyStore storeData={storeData}/>
+        <div className="create-store-preview-submit-container row">
+          <Link
+            to={`store/${linkName(storeData.name)}`}
+            onClick={() => {
+              dispatch(postStoreToServer());
+              saveStoreLink(storeData.name, storeData.id);
+            }}
+          >
+            Next {'>'}
+          </Link>
         </div>
       </div>
-    </div>
-  );
+    );
+  }else {
+    return <></>
+  }
+
 };
 
 export default CreateStorePreview;

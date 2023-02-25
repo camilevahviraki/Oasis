@@ -1,0 +1,27 @@
+.upload-progress-container {
+    width: 100%;
+}
+
+.upload-progress-wrap {
+    width: 100%;
+    height: 6px;
+    display: flex;
+    align-items: center;
+    border-radius: 3px;
+    border: 1px solid gray;
+    background-color: rgba(148, 146, 146, 0.719);
+    position: relative;
+}
+
+.uploaded-progress {
+    position: absolute;
+    left: 0;
+    height: 6px;
+    background-color: rgba(255, 136, 0, 0.726);
+    border-radius: 3px;
+}
+
+.green {
+    background-color: rgba(19, 138, 4, 0.836);
+    color: rgba(19, 138, 4, 0.836);
+}
