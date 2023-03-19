@@ -8,27 +8,26 @@ import UserRoutes from '../user_account/userRoutes';
 import Header from '../header/Header';
 
 const MainRouter = () => {
-
-  const user = useSelector(state => state.authenticationReducer);
+  const user = useSelector((state) => state.authenticationReducer);
 
   return (
     <BrowserRouter>
-       <AuthRoutes/>
-      {
-        user.token? 
-        <>
-          <Header/>
-          <ClientRouter/>
-          <SellerRouter/>
-          <UserRoutes/>
-        </>:
-        <></>
-      }
-      
-      
-      
-    </BrowserRouter>
-  )
-}
+      <AuthRoutes />
+      {/* {
+        user.token
+          ? (
+            <>
+              <Header />
+              <ClientRouter />
+              <SellerRouter />
+              <UserRoutes />
+            </>
+          )
+          : <></>
+      } */}
 
-export default MainRouter
+    </BrowserRouter>
+  );
+};
+
+export default MainRouter;
