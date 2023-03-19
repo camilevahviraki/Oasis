@@ -13,7 +13,7 @@ const MainRouter = () => {
   return (
     <BrowserRouter>
       <AuthRoutes />
-      {/* {
+      {
         user.token
           ? (
             <>
@@ -24,7 +24,7 @@ const MainRouter = () => {
             </>
           )
           : <></>
-      } */}
+      }
 
     </BrowserRouter>
   );
