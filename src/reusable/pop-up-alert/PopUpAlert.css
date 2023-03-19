@@ -1,0 +1,59 @@
+.pop-up-alert-container {
+    position: relative;
+    width: 100%;
+}
+
+.pop-up-alert-wrapp {
+    position: absolute;
+    width: 300px;
+    height: 300px;
+    border: 1px solid gray;
+    background-color: #fff;
+    border-radius: 10px;
+    left: 30%;
+}
+
+.pop-up-alert-wrapper {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    background-color: #fff;
+    z-index: 10;
+}
+
+.pop-up-alert-buttons {
+    position: absolute;
+    width: 100%;
+    bottom: 0;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+}
+
+.pop-up-alert-buttons button{
+   padding: 10px 12px;
+   border-radius: 10px;
+}
+
+.pop-up-alert-cancel {
+    color: #504f4f;
+    background-color: #fff;
+    border: 1px solid #504f4f;
+}
+
+.pop-up-alert-cancel:hover {
+    color: #fff;
+    background-color: #504f4f;
+    border: 1px solid #504f4f;
+}
+
+.pop-up-alert-approve {
+    color: #504f4f;
+    background-color: #fff;
+    border: 1px solid #504f4f;
+}
+
+.pop-up-alert-approve:hover {
+    color: #fff;
+    background-color: #ca7505;
+}

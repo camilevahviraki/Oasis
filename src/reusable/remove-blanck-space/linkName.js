@@ -3,13 +3,13 @@ const linkName = (string) => {
   let newStringArr = [];
 
   stringArr.forEach((elmnt) => {
-    if(elmnt === ' '){
-        newStringArr = [...newStringArr, '-'];
-    }else {
-        newStringArr = [...newStringArr, elmnt];
+    if (elmnt === ' ') {
+      newStringArr = [...newStringArr, '-'];
+    } else {
+      newStringArr = [...newStringArr, elmnt];
     }
   });
   return newStringArr.join('');
-}
+};
 
 export default linkName;
