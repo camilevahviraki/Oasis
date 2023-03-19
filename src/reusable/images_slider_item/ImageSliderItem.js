@@ -29,12 +29,11 @@ const ImageSliderItem = (props) => {
         {imagesArray.map((image, key) => (
           <div
             className={
-              key === imageShown?
-              "image-slider-item-small-wrapp shown"
-              :
-              "image-slider-item-small-wrapp"
+              key === imageShown
+                ? 'image-slider-item-small-wrapp shown'
+                : 'image-slider-item-small-wrapp'
             }
-            onClick={() => {setImageShown(null); setImageShown(key)}}
+            onClick={() => { setImageShown(null); setImageShown(key); }}
           >
             {imagesArray.length === 0 ? (
               <img src={itemImage} alt="" className="image-slider-main-image" />

@@ -16,7 +16,7 @@ const UpdateTextField = (props) => {
   } = props;
 
   const [value, setValue] = useState(fieldValue);
-  const updateData = useSelector(state => state.updateStoreReducer);
+  const updateData = useSelector((state) => state.updateStoreReducer);
   const formValues = [
     {
       type: `${field == 'description' ? 'textarea' : 'text'}`,
@@ -29,7 +29,7 @@ const UpdateTextField = (props) => {
     },
   ];
 
-  if(updateData.response && updateMessage){
+  if (updateData.response && updateMessage) {
     updateMessage(updateData.response.message);
     dispatch(resetStoreFieldToUpdate());
   }

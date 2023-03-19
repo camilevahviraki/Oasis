@@ -46,7 +46,7 @@ const UpdateStore = () => {
 
   const updateMessage = (message) => {
     setMessage(message);
-  }
+  };
 
   return (
     <div className="update-store-container">

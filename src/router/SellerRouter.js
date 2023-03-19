@@ -26,7 +26,7 @@ const SellerRouter = () => {
   const storeLink = useSelector((state) => state.storeLinkReducer);
   const itemLink = useSelector((state) => state.itemLinkReducer);
 
-  console.log('update link', `store/${storeLink.link.link}/update`);
+  console.log('update link', storeLink);
 
   return (
     <Routes>
@@ -61,11 +61,17 @@ const SellerRouter = () => {
         element={(<ItemShow />)}
       />
       <Route
-        path={`store/${storeLink.link.link}/update`}
+        path={storeLink.link
+          ? `store/${storeLink.link.link}/update`
+          : 'my-stores/error_page'
+        }
         element={(<UpdateStore />)}
       />
       <Route
-        path={`store/${storeLink.link.link}/update/new_image`}
+        path={storeLink.link
+          ? `store/${storeLink.link.link}/update/new_image`
+          : 'my-stores/error_page'
+        }
         element={(<NewStorePicture />)}
       />
     </Routes>

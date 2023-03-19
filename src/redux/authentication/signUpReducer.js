@@ -28,11 +28,11 @@ const authenticationReducer = (
       return action.data;
     }
     case USER_LOGOUT: {
-      saveToStorage(null);
+      localStorage.clear();
       return { user: {} };
     }
     case USER_DELETE_ACCOUNT: {
-      saveToStorage(null);
+      localStorage.clear();
       return { user: {} };
     }
     case USER_UPDATE_PASSWORD: {
@@ -40,6 +40,7 @@ const authenticationReducer = (
     }
     default: {
       const savedData = JSON.parse(localStorage.getItem('userCredentials'));
+      console.log(savedData);
       if (savedData && savedData !== 'null') {
         return savedData;
       }

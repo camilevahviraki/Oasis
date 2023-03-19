@@ -44,7 +44,6 @@ const Upload = (props) => {
     if (sendData) {
       sendData(response.data);
     }
-
   }).catch((err) => {
     if (sendData) {
       sendData('error');

@@ -6,13 +6,13 @@ import ClientRouter from './ClientRouter';
 import AuthRoutes from '../authentication/AuthRoutes';
 import UserRoutes from '../user_account/userRoutes';
 import Header from '../header/Header';
+import UpdateAccount from '../authentication/updateAccount';
 
 const MainRouter = () => {
   const user = useSelector((state) => state.authenticationReducer);
 
   return (
     <BrowserRouter>
-      <AuthRoutes />
       {
         user.token
           ? (
@@ -21,9 +21,15 @@ const MainRouter = () => {
               <ClientRouter />
               <SellerRouter />
               <UserRoutes />
+              <Routes>
+                <Route path="account-update" element={(<UpdateAccount />)} />
+              </Routes>
             </>
           )
-          : <></>
+          :
+          (
+            <AuthRoutes />
+          )
       }
 
     </BrowserRouter>

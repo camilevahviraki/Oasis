@@ -17,7 +17,7 @@ const StoreEdit = () => {
       getStoresShow({
         user_id: userData.user.id,
         store_id: storeId.store_id,
-      })
+      }),
     );
 
     // dispatch(setStoreLink({

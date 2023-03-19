@@ -83,31 +83,33 @@ const StoreName = (props) => {
   const classForm = 'form-create-store-names';
   console.log(props);
 
-  return (<div>
-    STore Name
-  </div>)
+  // return (
+  //   <div>
+  //     STore Name
+  //   </div>
+  // );
 
-  // if (props.progress === 1) {
-  //   return (
-  //     <div className="create-store-names">
+  if (props.progress === 1) {
+    return (
+      <div className="create-store-names">
 
-  //       {showLoader && props.progress === 1 ? (<Loader />) : (<></>)}
+        {showLoader && props.progress === 1 ? (<Loader />) : (<></>)}
 
-  //       {/* <FormR
-  //         classForm={classForm}
-  //         inputsArray={formValues}
-  //         submitFunction={submitStoreName}
-  //         submitButton="Next"
-  //         submitClass="create-store-submit"
-  //         getSelectedCountry={getSelectedCountry}
-  //         errorMessage={message}
-  //         inputErrorArr={inputErrorArr}
-  //       /> */}
-  //     </div>
-  //   );
-  // } else {
-  //   return (<></>);
-  // }
+        <FormR
+          classForm={classForm}
+          inputsArray={formValues}
+          submitFunction={submitStoreName}
+          submitButton="Next"
+          submitClass="create-store-submit"
+          getSelectedCountry={getSelectedCountry}
+          errorMessage={message}
+          inputErrorArr={inputErrorArr}
+        />
+      </div>
+    );
+  } else {
+    return (<></>);
+  }
 };
 
 export default StoreName;

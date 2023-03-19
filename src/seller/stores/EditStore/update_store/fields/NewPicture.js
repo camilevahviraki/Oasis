@@ -33,14 +33,12 @@ const NewStorePicture = () => {
         if (res.status === 404) {
           setLoader(false);
           setMessage('Couldn\'t connect to server, Please try again later!');
-        }else {
-          if(res.message === 'error'){
-            setMessage('Error while creating image!');
-            setLoader(false);
-          }else {
-            setMessage(res.message);
-            setLoader(false);
-          }
+        } else if (res.message === 'error') {
+          setMessage('Error while creating image!');
+          setLoader(false);
+        } else {
+          setMessage(res.message);
+          setLoader(false);
         }
       },
       getProgress: (prog) => setProgress(prog),
