@@ -1,9 +1,9 @@
-import React, { useEffect } from "react";
-import { useDispatch, useSelector } from "react-redux";
-import ImageSliderItem from "../../../reusable/images_slider_item/ImageSliderItem";
-import { getItem } from "../../../redux/item/itemShow";
-import LimitText from "../../../reusable/limit-text-length/limitText";
-import "./ItemShow.css";
+import React, { useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import ImageSliderItem from '../../../reusable/images_slider_item/ImageSliderItem';
+import { getItem } from '../../../redux/item/itemShow';
+import LimitText from '../../../reusable/limit-text-length/limitText';
+import './ItemShow.css';
 
 const ItemShow = () => {
   const dispatch = useDispatch();
@@ -12,7 +12,7 @@ const ItemShow = () => {
   useEffect(() => {
     const itemData = {
       id: itemId.itemId,
-      store_id: "azerty",
+      store_id: 'azerty',
     };
     dispatch(getItem(itemData));
   }, []);
@@ -61,7 +61,7 @@ const ItemShow = () => {
               <>
                 <p>Size:</p>
                 <div className="item-show-details-attributes-wrapp">
-                  {["XL", "XXL", "L"].map((attribute) => (
+                  {['XL', 'XXL', 'L'].map((attribute) => (
                     <div className="item-show-details-attribute">
                       {attribute}
                     </div>
@@ -71,16 +71,16 @@ const ItemShow = () => {
               <>
                 <p>Quantity:</p>
                 <div className="item-show-details-attributes-wrapp">
-                  <button>{"+"}</button>
+                  <button>+</button>
                   {quantity}
-                  <button>{"+"}</button>
+                  <button>+</button>
                 </div>
               </>
             </div>
           </div>
           <div className="add-to-cart-button-wrapp">
-               <button className="add-to-cart-button">Add To cart</button>
-            </div>
+            <button className="add-to-cart-button">Add To cart</button>
+          </div>
           <div>
             <LimitText limit={250} text={description} />
           </div>
