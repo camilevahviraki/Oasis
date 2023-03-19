@@ -1,11 +1,11 @@
-import React, { useEffect, useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
+import React, { useEffect, useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import {
   addStoreTypes,
   createStoreProgress,
-} from "../../../redux/stores/createStoreReducer";
-import { getCategories } from "../../../redux/stores_categories/stores_categories_reducer";
-import Loader from "../../../reusable/loader/Loader";
+} from '../../../redux/stores/createStoreReducer';
+import { getCategories } from '../../../redux/stores_categories/stores_categories_reducer';
+import Loader from '../../../reusable/loader/Loader';
 import checkMark from '../../../images/icons/check-mark.png';
 import removeMark from '../../../images/icons/remove-mark.png';
 
@@ -16,7 +16,7 @@ const CreateStoreCategories = (props) => {
   const storeData = useSelector((state) => state.createStoresReducer);
   const userData = useSelector((state) => state.authenticationReducer);
   const categories = useSelector((state) => state.storeCategoriesReducer);
-  const token = userData.token;
+  const { token } = userData;
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -26,7 +26,7 @@ const CreateStoreCategories = (props) => {
   const addCategory = (category) => {
     if (selected.some((e) => e.name === category.name)) {
       const newSelected = selected.filter(
-        (item) => item.name !== category.name
+        (item) => item.name !== category.name,
       );
       setSelected(newSelected);
     } else {
@@ -35,9 +35,9 @@ const CreateStoreCategories = (props) => {
   };
 
   const SubmitCategories = () => {
-    let formData = new FormData();
+    const formData = new FormData();
     categories.forEach((category) => {
-      formData.append("categories[]", category);
+      formData.append('categories[]', category);
     });
 
     dispatch(
@@ -48,8 +48,8 @@ const CreateStoreCategories = (props) => {
           store_id: storeData.storeId.store_id,
           user_id: userData.user.id,
         },
-        token
-      )
+        token,
+      ),
     );
 
     setLoader(true);
@@ -62,7 +62,7 @@ const CreateStoreCategories = (props) => {
         <div className="categories_list_container">
           <h2 className="categories_list_container_title">Select store categories</h2>
           <div className="categories_list_wrapper">
-            {categories.map((category, index) => ( 
+            {categories.map((category, index) => (
               <div
                 key={category.id}
                 onClick={() => {
@@ -72,8 +72,8 @@ const CreateStoreCategories = (props) => {
               >
                 <h4>{category.name}</h4>
                 {
-                  selected.some((e) => e.name === category.name)?
-                  <img src={checkMark} alt="" className="icon absolut"/>:<></>
+                  selected.some((e) => e.name === category.name)
+                    ? <img src={checkMark} alt="" className="icon absolut" /> : <></>
                 }
               </div>
             ))}
@@ -82,13 +82,10 @@ const CreateStoreCategories = (props) => {
         <div className="categories_list_selected_container">
           <h2 className="categories_list_container_title">Selected categories</h2>
           <div className="categories_list_wrapper_selected">
-          {selected.map((category, index) => (
+            {selected.map((category, index) => (
               <div
                 key={category.id}
-                onClick={() => {
-                  addCategory(category);
-                  console.log("category =>", category, "selected =>", selected);
-                }}
+                onClick={() => { addCategory(category); }}
               >
                 <h4 className="create-store-selected-type">
                   {category.name}
@@ -98,15 +95,15 @@ const CreateStoreCategories = (props) => {
           </div>
           <div className="create-store-categories-submit-container">
             <button type="button" onClick={SubmitCategories}>
-              Next{">"}
+              Next
+              {'>'}
             </button>
           </div>
         </div>
       </div>
     );
-  } else {
-    return <></>;
   }
+  return <></>;
 };
 
 export default CreateStoreCategories;
