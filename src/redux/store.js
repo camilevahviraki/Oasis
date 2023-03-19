@@ -6,7 +6,7 @@ import getStoresReducer from './stores/getStoresReducer';
 import authenticationReducer from './authentication/signUpReducer';
 import storeLinkReducer from './storeLink/storeLinkReducer';
 import getStoreShowReducer from './stores/getStoreShowReducer';
-import currenciesReducer from './currencies/currenciesReducer'; 
+import currenciesReducer from './currencies/currenciesReducer';
 import storeCategoriesReducer from './stores_categories/stores_categories_reducer';
 import getItemsList from './item/getItem';
 import countriesReducer from './countries/countriesReducer';
@@ -14,6 +14,8 @@ import itemLinkReducer from './itemLink/itemLinkreducer';
 import getItemDetails from './item/itemShow';
 import homeReducer from './home/homeReducer';
 import updateStoreReducer from './stores/updateStoreReducer';
+import getStoreCategories from './stores/getStoreCategories';
+import getStoreImagesReducer from './stores/getStoreImagesReducer';
 
 const rootReducer = combineReducers({
   createStoresReducer,
@@ -29,6 +31,8 @@ const rootReducer = combineReducers({
   getItemDetails,
   homeReducer,
   updateStoreReducer,
+  getStoreCategories,
+  getStoreImagesReducer,
 });
 
 const store = createStore(
