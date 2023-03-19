@@ -31,6 +31,7 @@
 .my_store_image_wrap {
     width: 40vw;
     height: 40vw;
+    position: relative;
 }
 
 .my_store_details_wrap {
@@ -123,4 +124,28 @@
     height: auto;
     width: auto;
     margin: auto;
+}
+
+.my_store_image_wrap_edit-link {
+    position: absolute;
+    bottom: 20%;
+    right: 3%;
+}
+
+.my_store_image_wrap_edit {
+    height: 60px;
+    width: 60px;
+    border-radius: 50%;
+    border: 1px solid gray;
+    background-color: rgba(128, 128, 128, 0.514);
+    display: grid;
+}
+
+.my_store_image_wrap_edit img {
+    margin: auto;
+}
+
+.my_store_image_wrap_edit:hover {
+    border: 1px solid #fff;
+    background-color: rgba(1, 119, 134, 0.514);
 }

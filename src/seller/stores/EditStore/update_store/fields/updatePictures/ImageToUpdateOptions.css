@@ -1,0 +1,26 @@
+.Image-To-Update-Options-wrapper {
+    position: absolute;
+    z-index: 10;
+    width: 200px;
+    height: 200px;
+    border: 1px solid green;
+    background-color: #fff;
+    display: flex;
+    flex-direction: column;
+}
+
+.Image-To-Update-Options-Button {
+    width: 100%;
+    border-bottom: 1px solid gray;
+}
+
+.Image-To-Update-Options-Button:hover {
+    background-color: #527215;
+    color: #fff;
+}
+
+.Image-To-Update-Options-Image-PopUp-container {
+    position: static;
+    width: 1;
+}
+

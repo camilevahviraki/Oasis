@@ -1,0 +1,21 @@
+.update-store-categories-container {
+   display: flex;
+   flex-direction: column;
+   align-items: center;
+}
+
+.update-store-categories-container-child {
+   display: grid;
+   grid-template-columns: 1fr 1fr;
+   gap: 4vw;
+}
+
+.update-store-categories-wrapper {
+   width: 38vw;
+}
+
+.update-store-categories-button {
+   border: 1px solid gray;
+   padding: 8px 12px;
+   border-radius: 8px;
+}

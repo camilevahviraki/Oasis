@@ -1,0 +1,10 @@
+.store_image_to_update_wrapper {
+    width: 300px;
+    height: 300px;
+    border: 1px solid gray;
+    position: relative;
+}
+
+.store_image_to_update_options_button {
+    position: relative;
+}
