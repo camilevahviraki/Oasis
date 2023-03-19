@@ -11,6 +11,11 @@ body {
   -moz-osx-font-smoothing: grayscale;
   padding-top: 70px;
   /* background-color: rgb(247, 246, 234); */
+  height: 100vh;
+}
+
+#root {
+  height: 100%;
 }
 
 code {
@@ -33,4 +38,8 @@ a {
 h2{
   font-size: 20px;
   font-weight: 600;
+}
+
+.pointer {
+  cursor: pointer;
 }
