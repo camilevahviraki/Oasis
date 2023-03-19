@@ -1,9 +1,7 @@
-import React from 'react'
+import React from 'react';
 
-const StoresCategories = () => {
-  return (
-    <div>StoresCategories</div>
-  )
-}
+const StoresCategories = () => (
+  <div>StoresCategories</div>
+);
 
-export default StoresCategories
+export default StoresCategories;
