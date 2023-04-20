@@ -18,8 +18,6 @@ const MyStores = () => {
     dispatch(getStoresList(userData.user.id));
   }, []);
 
-  console.log(storesList);
-
   const saveStoreLink = (link, id) => {
     localStorage.setItem('storeLink',
       JSON.stringify({

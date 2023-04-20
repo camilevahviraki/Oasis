@@ -1,5 +1,5 @@
 .my-stores-container {
-    width: 100vw;
+    width: 100%;
     min-height: 100vh;
     align-items: center;
     padding-bottom: 30px;
@@ -37,8 +37,8 @@
     display: flex;
     position: absolute;
     bottom: 10px;
-    overflow-x: scroll;
-    width: 100%;
+    overflow-x: auto;
+    width: 90%;
 }
 
 .my-store-categories-wrapper p {
