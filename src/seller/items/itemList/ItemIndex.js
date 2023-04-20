@@ -45,12 +45,13 @@ const ItemsList = (props) => {
                 <ImageSilder imagesArray={items_images} freeze />
               </div>
               <div className="store-item-description">
-                <h4 className="store-item-mainName">{mainName}</h4>
                 <p className="store-item-price">
                   $
                   {price}
                 </p>
-                <LimitText text={description} limit={30} className="store-item-description-text" />
+                <div className='store-item-text'>
+                <LimitText text={`${mainName.toUpperCase()}${' '}${description}`} limit={30} className="store-item-description-text" />
+                </div>
               </div>
             </div>
           </Link>

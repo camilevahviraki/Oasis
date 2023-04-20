@@ -30,11 +30,12 @@
 }
 
 .store-item-description-text {
-    color: rgb(99, 99, 102);
+    color: #424343;
     text-align: start;
     padding: 0;
     max-width: 100%;
-    /* margin: 8px 0; */
+    font-weight: 400;
+    font-size: 14px;
 }
 
 .store-item-image-wrapp {
@@ -54,7 +55,6 @@
 .store-items-list {
     width: 90%;
     margin-top: 45px;
-    /* border: 1px solid green; */
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr;
     gap: 20px;
