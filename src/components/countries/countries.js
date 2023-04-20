@@ -14,6 +14,7 @@ const Countries = (props) => {
     inputWrapperClassName,
     inputLabel,
     placeholder,
+    listClass,
   } = props;
 
   document.addEventListener('mouseup', (e) => {
@@ -28,7 +29,7 @@ const Countries = (props) => {
   const searchCountry = (e) => {
     const { value } = e.target;
 
-    const newlist = countriesList.filter((country) => country.name.toLowerCase().includes(value));
+    const newlist = countriesList.filter((country) => country.name.toLowerCase().includes(value.toLowerCase()));
     setInputValue(value);
     setCountriesShown(newlist);
     setListVisible(true);
@@ -74,7 +75,7 @@ const Countries = (props) => {
       />
       {
         listVisible ? (
-          <div className="countries-list">
+          <div className={listClass? `countries-list ${listClass}` : "countries-list"}>
             {
                 countriesShown.map((country) => (
                   <div
