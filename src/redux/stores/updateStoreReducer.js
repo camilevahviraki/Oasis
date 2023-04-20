@@ -118,7 +118,13 @@ export const addNewStoreCategory = (category, store_id) => (dispatch) => {
 };
 
 export const updateStore = (data, token) => (dispatch) => {
-  axios.post(`${linkURL}/store/update`, data)
+  axios.post(`${linkURL}/store/update`, data,
+  {
+    headers: {
+      // Authorization: `Bearer ${token}`,
+      'Content-Type': 'multipart/form-data',
+    }
+  })
     .then((response) => dispatch(
       {
         type: UPDATE_STORE,
