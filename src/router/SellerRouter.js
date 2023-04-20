@@ -11,6 +11,7 @@ import StoreShow from '../seller/stores/StoreDetails/StoreShow';
 import ItemShow from '../seller/items/showItem/ItemShow';
 import UpdateStore from '../seller/stores/EditStore/update_store/UpdateStore';
 import NewStorePicture from '../seller/stores/EditStore/update_store/fields/NewPicture';
+import InSightData from '../seller/stores/InSightData/InSightData';
 
 const SellerRouter = () => {
   const dispatch = useDispatch();
@@ -25,8 +26,7 @@ const SellerRouter = () => {
 
   const storeLink = useSelector((state) => state.storeLinkReducer);
   const itemLink = useSelector((state) => state.itemLinkReducer);
-
-  console.log('update link', storeLink);
+  console.log(storeLink); 
 
   return (
     <Routes>
@@ -35,6 +35,12 @@ const SellerRouter = () => {
           ? `store/${storeLink.link.link}`
           : 'my-stores/error_page'}
         element={(<StoreShow />)}
+      />
+      <Route
+        path={storeLink.link
+          ? `store/${storeLink.link.link}/analysis`
+          : 'my-stores/error_page'}
+        element={(<InSightData />)}
       />
       <Route path="create-store" element={(<CreateStore />)} />
       <Route path="my-stores" element={(<MyStores />)} />
