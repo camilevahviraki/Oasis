@@ -1,0 +1,104 @@
+.item-color-container-main {
+    padding-top: 20px;
+    width: 100%;
+    flex: 0 0 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.item-color-container {
+    margin-top: 40px;
+    width: 100%;
+    min-height: 40%;
+    display: flex;
+    justify-content: center;
+    z-index: 4;
+}
+
+.create-item-colors-wrapp {
+    width: fit-content;
+    height: fit-content;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+}
+
+.create-item-color {
+    height: 25px;
+    width: 25px;
+    cursor: pointer;
+}
+
+.create-item-color:hover {
+   box-shadow: 1px 2px 10px #fff;
+   border: 2px solid #ffffffc9;
+}
+
+.create-item-color-wrapp {
+    display: flex;
+    align-items: center;
+    margin: 6px 12px;
+    padding-left: 12px;
+    padding-right: 12px;
+    background-color: #70707090;
+    border-radius: 8px;
+    text-align: start;
+    margin-left: 8px;
+}
+
+.create-item-color-wrapp p {
+    min-width: 140px;
+    padding-left: 12px;
+}
+
+.create-item-remove-color {
+    padding: 5px 12px;
+    border: none;
+    border-radius: 5px 8px;
+    background-color: #90550ce0;
+    border: 1px solid #90550ce0;
+    color: #fff;
+}
+
+.create-item-remove-color:hover {
+    padding: 5px 12px;
+    border: none;
+    background-color: #fff;
+    border: 1px solid #90550ce0;
+    color: #90550ce0;
+}
+
+.create-item-colors-picker-title {
+    font-weight: 700;
+}
+
+.create-item-color-image-preview-wrapp {
+    width: 50px;
+    height: 40px;
+    /* border: 1px solid gray; */
+    margin-right: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #fff;
+    border-radius: 8px;
+    margin-top: 3px;
+    margin-bottom: 3px;
+}
+
+.create-item-color-label-image {
+    font-size: 30px;
+    height: fit-content;
+    cursor: pointer;
+}
+
+.create-item-color-input-image {
+    display: none;
+}
+
+.create-item-color-image-preview {
+    max-width: 100%;
+    max-height: 100%;
+    height: auto;
+    width: auto;
+}

@@ -1,0 +1,111 @@
+.create-item-attributes-container {
+    border: 3px solid #ff00f7;
+    flex: 0 0 100%;
+    display: flex;
+    flex-direction: column;
+    width: 100vw;
+    /* height: fit-content; */
+    position: relative;
+    padding-bottom: 60px;
+}
+
+.create-item-attributes {
+    width: 100%;
+    display: flex;
+    overflow-x: hidden;
+    height: fit-content;
+    position: relative;
+}
+
+.button-test {
+    background-color: #001114;
+    color: #fff;
+    padding: 10px 16px;
+    cursor: pointer;
+}
+
+.got-to-attribute-buttons-wrapp {
+    width: 100%;
+    position: fixed;
+    border: 1px solid green;
+    left: 0;
+    top: calc(50% - 100px);
+    min-height: 100px;
+    display: flex;
+    align-items: center;
+    z-index: 1;
+}
+
+.got-to-attribute-button {
+    position: absolute;
+    border: 1px solid gray;
+    font-size: 30px;
+    font-weight: 700;
+    height: 50%;
+    top: 25%;
+    padding: 12px;
+    z-index: 8;
+}
+
+.got-to-attribute-button:hover {
+    background-color: #777777b8;
+    color: #fff;
+}
+
+.left-button {
+    left: 4%;
+    cursor: pointer;
+}
+
+.right-button {
+    right: 4%;
+    cursor: pointer;
+}
+
+.create-item-attribute-dots-wrapp {
+    position: absolute;
+    display: flex;
+    align-items: center;
+    width: 100%;
+    justify-content: center;
+    bottom: 20px;
+    height: 16px;
+    left: 0;
+}
+
+.create-item-attribute-dot {
+    height: 16px;
+    width: 16px;
+    font-size: 12px;
+    border-radius: 50%;
+    background-color: #111617b8;
+    margin: 0 16px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+}
+
+.current-step-dot {
+    background-color: #027888d2;
+    height: 19px;
+    width: 19px;
+}
+
+.button-test-skip-attributes {
+    position: absolute;
+    padding: 8px 16px;
+    border-radius: 8px;
+    background-color: #747373af;
+    right: 5%;
+    bottom: 20px;
+    color: #fff;
+    font-weight: 700;
+}
+
+.button-test-skip-attributes:hover {
+    background-color: #027888d2;
+    color: #fff;
+    font-weight: 700;
+}
