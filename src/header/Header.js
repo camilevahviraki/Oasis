@@ -26,7 +26,7 @@ const Header = () => {
   const links = [
     { id: 1, icon: homeIcon, link: '../' },
     { id: 2, icon: placesIcon, link: '../places' },
-    { id: 3, icon: storeIcon, link: '../my-store' },
+    { id: 3, icon: storeIcon, link: '../my-stores' },
   ];
 
   const changeSearchValue = (e) => {
