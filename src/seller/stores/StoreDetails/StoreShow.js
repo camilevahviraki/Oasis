@@ -1,23 +1,25 @@
-import React, { useEffect, useState } from 'react';
-import { useSelector, useDispatch } from 'react-redux';
-import { Link } from 'react-router-dom';
-import { getStoresShow } from '../../../redux/stores/getStoreShowReducer';
-import { getItems } from '../../../redux/item/getItem';
-import ItemsList from '../../items/itemList/ItemIndex';
-import linkName from '../../../reusable/remove-blanck-space/linkName';
-import ImageSilder from '../../../reusable/images_slider/ImageSilder';
-import { setItemLink } from '../../../redux/itemLink/itemLinkreducer';
-import vectorShop from '../../../images/vector-shop.jpeg';
-import locationIcon from '../../../images/icons/location_on_FILL0_wght400_GRAD0_opsz48.png';
-import moreIcon from '../../../images/icons/more-icon.png';
-import searchIcon from '../../../images/search-icon1.png';
-import instagramIcon from '../../../images/icons/contacts/colored/instagram.png';
-import facebookIcon from '../../../images/icons/contacts/colored/facebook.png';
-import messageIcon from '../../../images/icons/contacts/colored/message.png';
-import twitterIcon from '../../../images/icons/contacts/colored/twitter.png';
-import whatsappIcon from '../../../images/icons/contacts/colored/whatsapp.png';
+import React, { useEffect, useState } from "react";
+import { useSelector, useDispatch } from "react-redux";
+import { AiOutlineSetting } from "react-icons/ai";
+import { BsGraphUp } from "react-icons/bs";
+import { IoMdAdd } from "react-icons/io";
+import { Link } from "react-router-dom";
+import { getStoresShow } from "../../../redux/stores/getStoreShowReducer";
+import { getItems } from "../../../redux/item/getItem";
+import ItemsList from "../../items/itemList/ItemIndex";
+import linkName from "../../../reusable/remove-blanck-space/linkName";
+import ImageSilder from "../../../reusable/images_slider/ImageSilder";
+import { setItemLink } from "../../../redux/itemLink/itemLinkreducer";
+import vectorShop from "../../../images/vector-shop.jpeg";
+import locationIcon from "../../../images/icons/location_on_FILL0_wght400_GRAD0_opsz48.png";
+import searchIcon from "../../../images/search-icon1.png";
+import instagramIcon from "../../../images/icons/contacts/colored/instagram.png";
+import facebookIcon from "../../../images/icons/contacts/colored/facebook.png";
+import messageIcon from "../../../images/icons/contacts/colored/message.png";
+import twitterIcon from "../../../images/icons/contacts/colored/twitter.png";
+import whatsappIcon from "../../../images/icons/contacts/colored/whatsapp.png";
 
-import './StoreShow.css';
+import "./StoreShow.css";
 
 const StoreShow = () => {
   const dispatch = useDispatch();
@@ -27,24 +29,22 @@ const StoreShow = () => {
   const storeLink = useSelector((state) => state.storeLinkReducer);
   const itemsList = useSelector((state) => state.getItemsList);
 
-  console.log(userData);
-
   const [freeze, setFreeze] = useState(false);
-  const [categoryName, setCategory] = useState('all');
+  const [categoryName, setCategory] = useState("all");
 
   useEffect(() => {
     dispatch(
       getStoresShow({
         user_id: userData.user.id,
         store_id: storeId.store_id,
-      }),
+      })
     );
 
     dispatch(
       getItems({
         category: categoryName,
         store_id: storeId.store_id,
-      }),
+      })
     );
   }, []);
 
@@ -70,11 +70,11 @@ const StoreShow = () => {
     location,
     name,
     user_id,
+    main_image_url,
   } = storeData;
 
-  console.log('store data', storeData);
-
   const changeSearchValue = (e) => {};
+  console.log("store data =>", storeData);
 
   return (
     <div className="store-show-container">
@@ -85,6 +85,26 @@ const StoreShow = () => {
           onMouseOut={() => setFreeze(true)}
         >
           <ImageSilder imagesArray={images_url} freeze={freeze} />
+          {user_id === userData.user.id ? (
+            <div className="store-settings">
+              <Link to={`../store/${storeLink.link.link}/analysis`}>
+                <BsGraphUp />
+                <span>Insights</span>
+              </Link>
+              <Link
+                to={`../my-stores/${storeLink.link.link}/item/new?type=${categoryName}`}
+              >
+                <IoMdAdd />
+                <span>New Item</span>
+              </Link>
+              <Link to={`../my-stores/${storeLink.link.link}/edit`}>
+                <AiOutlineSetting />
+                <span>Settings</span>
+              </Link>
+            </div>
+          ) : (
+            <></>
+          )}
           <div className="store-contact-icons">
             {contactsIcons.map((icon) => (
               <Link to="">
@@ -94,7 +114,11 @@ const StoreShow = () => {
           </div>
           <div className="store-banner-container">
             <div className="store-banner-wrapper">
-              <img src={vectorShop} alt="" className="store-banner" />
+              <img
+                src={main_image_url ? main_image_url : vectorShop}
+                alt=""
+                className="store-banner"
+              />
             </div>
             <div>
               <h4 className="store-name">{name}</h4>
@@ -102,12 +126,7 @@ const StoreShow = () => {
                 <p>Location</p>
                 <img src={locationIcon} alt="" className="icon" />
                 <p>
-                  :
-                  {' '}
-                  {location}
-                  ,
-                  {' '}
-                  {country ? country.name : null}
+                  : {location}, {country ? country.name : null}
                 </p>
               </div>
             </div>
@@ -122,25 +141,15 @@ const StoreShow = () => {
             />
             <img src={searchIcon} alt="" className="searchIcon" />
           </div>
-          <div className="store-show-edit-link-wrapp">
-            {
-               user_id === userData.user.id ? (
-                 <Link to={`../my-stores/${storeLink.link.link}/edit`}>
-                   Edit Store
-                 </Link>
-               )
-                 : (<></>)
-            }
-          </div>
         </div>
         <div className="store-categories-wrapper">
           <button
             className={
-              categoryName === 'all'
-                ? 'store-category-name current-category'
-                : 'store-category-name'
+              categoryName === "all"
+                ? "store-category-name current-category"
+                : "store-category-name"
             }
-            onClick={() => setCategory('all')}
+            onClick={() => setCategory("all")}
           >
             home
           </button>
@@ -148,8 +157,8 @@ const StoreShow = () => {
             <button
               className={
                 category.name === categoryName
-                  ? 'store-category-name current-category'
-                  : 'store-category-name'
+                  ? "store-category-name current-category"
+                  : "store-category-name"
               }
               onClick={() => setCategory(category.name)}
             >
@@ -157,14 +166,6 @@ const StoreShow = () => {
             </button>
           ))}
         </div>
-      </div>
-      <div className="store-add-new-item">
-        <Link
-          to={`../my-stores/${storeLink.link.link}/item/new?type=${categoryName}`}
-        >
-          <img src={moreIcon} alt="" className="icon store-more-icon" />
-          <h4 className="store-add-item-title">New Item</h4>
-        </Link>
       </div>
       {/* Items lister bellow */}
       <ItemsList itemsData={itemsList} storeData={storeData} />
