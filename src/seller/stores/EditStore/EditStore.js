@@ -19,12 +19,6 @@ const StoreEdit = () => {
         store_id: storeId.store_id,
       }),
     );
-
-    // dispatch(setStoreLink({
-    //   link: linkName(storeData.name),
-    //   store_id: storeId.store_id,
-    //   })
-    // );
   }, []);
 
   return (

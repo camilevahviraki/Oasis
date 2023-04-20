@@ -30,7 +30,7 @@ const UpdatePictures = (props) => {
   console.log('storeImages =>', storeImages);
 
   const showImageOptions = (data) => {
-    setImageOptionsShown(true);
+    setImageOptionsShown(!imageOptionsShown);
     setImageOptions(data);
   };
 
@@ -59,7 +59,7 @@ const UpdatePictures = (props) => {
         deleting && !updateImageData.response ? <Loader /> : <></>
       }
 
-      <Link to={`../store/${linkName(storeData.name)}/update/new_image`} className="my-store-create-new flex">
+      <Link to={`../store/${linkName(storeData.name)}/update/new_image`} className="my-store-create-new flex new-image-link">
         <img src={createNewIcon} alt="" className="icon" />
         <p>New picture</p>
       </Link>
@@ -74,12 +74,8 @@ const UpdatePictures = (props) => {
               const { image_data, url } = imageUrlandData;
 
               return (
-                <div className="store_image_to_update_wrapper">
+                <div className="store_image_to_update_wrapper" onClick={() => {imageOptionsShown? setImageOptionsShown(false):null}}>
                   <img
-                    // src={CheckValidImage({
-                    //   avartarUrl: url,
-                    //   defaultImg: image_store,
-                    // })}
                     src={url}
                     alt=""
                     className="store_image_to_update"

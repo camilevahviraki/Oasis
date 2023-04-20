@@ -52,6 +52,7 @@ const UpdateStore = () => {
     <div className="update-store-container">
       <h4>
         Update
+        {' '}
         {field}
       </h4>
       {field === 'categories' ? (

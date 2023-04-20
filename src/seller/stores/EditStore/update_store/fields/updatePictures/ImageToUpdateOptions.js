@@ -27,16 +27,12 @@ const ImageToUpdateOptions = (props) => {
         See Image
       </a>
       <button
-        className="Image-To-Update-Options-Button"
+        className="Image-To-Update-Options-Button delete-image-button"
         onClick={() => deleteImage(imageData.id)}
       >
         Delete
       </button>
-      <button className="Image-To-Update-Options-Button">
-        Update
-      </button>
-
-      <div className="Image-To-Update-Options-Image-PopUp-container">
+      {/* <div className="Image-To-Update-Options-Image-PopUp-container">
         <div className="Image-To-Update-Options-Image-PopUp-wrap">
           <img
             src={CheckValidImage({
@@ -47,7 +43,7 @@ const ImageToUpdateOptions = (props) => {
           />
         </div>
 
-      </div>
+      </div> */}
     </div>
   );
 };

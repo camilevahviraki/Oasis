@@ -6,28 +6,6 @@
     margin-top: 30px;
 }
 
-.store-items-item {
-    width: 90%;
-    border: 1px solid gray;
-    display: flex;
-    align-items: center;
-    height: 20vw;
-    margin-bottom: 20px;
-}
-
-.store-items-image-wrapper {
-    width: 20vw;
-    height: 20vw;
-    border: 1px solid gray;
-}
-
-.store-items-item-details {
-    position: relative;
-    width: 75%;
-    margin-left: 4%;
-    text-align: start;
-}
-
 .store-items-item-details-buttons {
     position: absolute;
     right: 5%;
