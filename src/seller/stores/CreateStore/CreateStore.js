@@ -30,7 +30,7 @@ function CreateStore() {
   console.log(createStoreData);
   return (
     <div className="flex flex-col w-screen create_store_main_container">
-      <h3 className="text-4xl font-bold ">{step === 5 ? 'Store Preview' : 'Create Store'}</h3>
+      <h3 className="create-store-title-main">{step === 5 ? 'Store Preview' : 'New Store'}</h3>
       <ProgressBar
         steps={stepsProgress}
         currentStep={step}
