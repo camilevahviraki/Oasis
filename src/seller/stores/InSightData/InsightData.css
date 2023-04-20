@@ -1,0 +1,24 @@
+.insight-main-wrapp {
+    width: 100%;
+    border: 1px solid green;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.insight-table-wrapp {
+    width: 86%;
+    border: 1px solid green;
+}
+
+.insight-table-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+    border-bottom: 1px solid green;
+    height: 30px;
+}
+
+.insight-table-cell {
+    border-right: 1px solid green;
+    height: 100%;
+}
