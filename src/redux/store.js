@@ -16,6 +16,14 @@ import homeReducer from './home/homeReducer';
 import updateStoreReducer from './stores/updateStoreReducer';
 import getStoreCategories from './stores/getStoreCategories';
 import getStoreImagesReducer from './stores/getStoreImagesReducer';
+import colorReducer from './attributes/colorReducer';
+import capacityReducer from './attributes/capacityReducer';
+import sizeReducer from './attributes/sizeReducer';
+import materialReducer from './attributes/materialReducer';
+import createItemReducer from './item/createItem';
+import itemAttributeReducer from './item_attributes/itemAttributesReducer';
+import createItemAttributes from './item/createItemAttributes';
+import createCartReducer from './cart/createCartReducer';
 
 const rootReducer = combineReducers({
   createStoresReducer,
@@ -33,6 +41,14 @@ const rootReducer = combineReducers({
   updateStoreReducer,
   getStoreCategories,
   getStoreImagesReducer,
+  colorReducer,
+  capacityReducer,
+  sizeReducer,
+  materialReducer,
+  createItemReducer,
+  itemAttributeReducer,
+  createItemAttributes,
+  createCartReducer,
 });
 
 const store = createStore(
