@@ -12,6 +12,7 @@ body {
   padding-top: 70px;
   /* background-color: rgb(247, 246, 234); */
   height: 100vh;
+  scroll-behavior: smooth;
 }
 
 #root {
@@ -36,6 +37,11 @@ a {
 }
 
 h2{
+  font-size: 22px;
+  font-weight: 600;
+}
+
+h3 {
   font-size: 20px;
   font-weight: 600;
 }
