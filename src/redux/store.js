@@ -24,6 +24,9 @@ import createItemReducer from './item/createItem';
 import itemAttributeReducer from './item_attributes/itemAttributesReducer';
 import createItemAttributes from './item/createItemAttributes';
 import createCartReducer from './cart/createCartReducer';
+import cartItemsReducer from './cart/getCartsItemReducer';
+import addedToCartIdList from './cart/addedToCartIdList';
+import selectedCurrency from './currencies/selectedCurrency';
 
 const rootReducer = combineReducers({
   createStoresReducer,
@@ -49,6 +52,9 @@ const rootReducer = combineReducers({
   itemAttributeReducer,
   createItemAttributes,
   createCartReducer,
+  cartItemsReducer,
+  addedToCartIdList,
+  selectedCurrency,
 });
 
 const store = createStore(

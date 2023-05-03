@@ -49,3 +49,15 @@ h3 {
 .pointer {
   cursor: pointer;
 }
+
+.limit-text-show-more {
+  cursor: pointer;
+  color: #272727;
+  font-weight: 500;
+}
+
+.limit-text-show-less {
+  cursor: pointer;
+  color: #013e48;
+  font-weight: 500;
+}
