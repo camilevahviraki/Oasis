@@ -159,9 +159,6 @@
     align-items: center;
     height: 30px;
     width: 30vw;
-    border-radius: 15px;
-    border: 1px solid rgba(167, 167, 167, 0.473);
-    background-color: rgba(167, 167, 167, 0.473);
     margin-top: 12px;
 }
 
