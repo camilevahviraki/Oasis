@@ -1,0 +1,53 @@
+.currencies_container {
+    position: relative;
+    cursor: pointer;
+}
+
+.currencies-list {
+    position: absolute;
+    width: 180px;
+    background-color: #fff;
+    text-align: start;
+    box-shadow: 1px 2px 5px gray;
+    background-color: #16272d;
+    max-height: 400px;
+    overflow-y: auto;
+}
+
+.currency-wrapp {
+    display: flex;
+    align-items: center;
+    border: 1px solid #7a7a7ac2;
+    font-size: 13px;
+    padding: 6px;
+    color: #c7cccc;
+    cursor: pointer;
+}
+
+.selected-currency {
+   color: #070f12;
+   font-size: 15px;
+}
+
+.selected-currency-in-list {
+    color: #16272d;
+    background-color: #d4d6d6;
+}
+
+.currency-symbol {
+    font-size: 14px;
+    font-weight: 600;
+    /* color: #dbdede; */
+    margin: 0 6px;
+}
+
+.currency-wrapp:hover {
+    color: #16272d;
+    background-color: #d4d6d6;
+}
+
+.selected-currency:hover {
+    color: #034451;
+    font-size: 15px;
+}
+ 

@@ -42,6 +42,7 @@ header {
 .searchIcon {
     width: 15px;
     height: auto;
+    cursor: pointer;
 }
 
 .search-wrapper {
@@ -64,4 +65,19 @@ header {
     margin-right: 2%;
     border-radius: 15px;
     padding-left: 15px;
+}
+
+.cart-icon {
+    position: relative;
+}
+
+.header-cart-length {
+    position: absolute;
+    right: 18%;
+    padding: 1px;
+    border-radius: 50%;
+    background-color: #ffffffeb;
+    color: rgb(63, 63, 63);
+    top: 3px;
+    font-size: 13px;
 }
