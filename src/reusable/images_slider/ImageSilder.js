@@ -1,5 +1,4 @@
 import React, { useState, useRef, useEffect } from "react";
-import nextIcon from "../../images/next-more-icon.png";
 import {FaAngleRight, FaAngleLeft} from 'react-icons/fa';
 import CheckValidImage from "../check-image/checkValidImage";
 import storeImage from "../../images/store-image-holder.png";
@@ -41,7 +40,6 @@ const ImageSilder = (props) => {
       });
       setScrollTo(imageShown);
     }
-    console.log("scroll", imageShown);
   }
 
   return (
@@ -61,20 +59,22 @@ const ImageSilder = (props) => {
                   <div className="image-slider-video-wrap">
                     <video width="100%" height="45%" controls>
                       <source
-                        src={CheckValidImage({
-                          avartarUrl: imageUrl,
-                          defaultImg: storeImage,
-                        })}
+                        // src={CheckValidImage({
+                        //   avartarUrl: imageUrl,
+                        //   defaultImg: storeImage,
+                        // })}
+                        src={imageUrl}
                         type="video/mp4"
                       />
                     </video>
                   </div>
                 ) : (
                   <img
-                    src={CheckValidImage({
-                      avartarUrl: imageUrl,
-                      defaultImg: storeImage,
-                    })}
+                    // src={CheckValidImage({
+                    //   avartarUrl: imageUrl,
+                    //   defaultImg: storeImage,
+                    // })}
+                    src={imageUrl}
                     alt=""
                     className="my_store_image"
                   />
@@ -102,7 +102,7 @@ const ImageSilder = (props) => {
           <></>
         )}
 
-        {!freeze && imagesArray.length !== 1 ? (
+        {!freeze && imagesArray.length > 1 ? (
           <div className="image-sliders-dots-wrap">
             {arrangedImages.map((image, id) => (
               <div
