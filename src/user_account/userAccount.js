@@ -64,6 +64,8 @@ const UserAccount = () => {
           Last Upated at:
           <span>{updated_at}</span>
         </p>
+
+        <Link to=''>+ Add social media</Link>
       </div>
 
     </div>
