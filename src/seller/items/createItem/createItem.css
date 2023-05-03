@@ -56,14 +56,14 @@
 }
 
 .create-item-image-previews-container {
-    width: 80vw;
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr 1fr;
+    max-width: 80vw;
+    display: flex;
+    /* grid-template-columns: 1fr 1fr 1fr 1fr; */
     flex-wrap: nowrap;
-    overflow-x: scroll;
+    overflow-x: auto;
     overflow-y: hidden;
     scroll-behavior: smooth;
-    -webkit-overflow-scrolling: touch;
+    align-items: center;
 }
 
 .create-item-image-previews-container::-webkit-scrollbar {

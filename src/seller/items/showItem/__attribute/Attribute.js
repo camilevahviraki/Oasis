@@ -7,6 +7,7 @@ const Attribute = (props) => {
   const setAttribute = () => {
     selectAttribute({ attribute, title });
   };
+  
 
   const assignChildAttribute = () => {
     if (title === "Capacity") {

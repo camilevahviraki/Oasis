@@ -12,7 +12,8 @@ import inputFileIcon from "../../../../../images/input-file.png";
 const Details = () => {
   const dispatch = useDispatch();
   const storeData = useSelector((state) => state.storeLinkReducer);
-
+  const currentStore = useSelector((state) => state.getStoreShowReducer);
+ console.log(currentStore);
   const [inputErrorArr, setInputErrorArr] = useState([0, 0, 0, 0, 0]);
   const [message, setMessage] = useState(null);
   const [fyleType, setFileType] = useState("image");
@@ -24,7 +25,8 @@ const Details = () => {
   const [showLoader, setLoader] = useState(false);
 
   const queryParameters = new URLSearchParams(window.location.search);
-  const category = queryParameters.get("type");
+  const categoryParams = queryParameters.get("type");
+  const [category, setCategory] = useState(categoryParams);
 
   const inputsArray = [
     {
@@ -54,6 +56,13 @@ const Details = () => {
       classInput: "user-authentication-form-input",
       placeholder: "14",
       label: "Quantity",
+    },
+    {
+      type: "select-country",
+      placeholder: category,
+      classInput: "user-authentication-form-input",
+      data: currentStore.categories,
+      label: "Item Category",
     },
     {
       type: "textarea",
@@ -130,7 +139,8 @@ const Details = () => {
     <>
       {showLoader ? <Loader /> : <></>}
       <h2 className="create-item-title">
-        Create New Item in category:
+        Create New Item in
+        {' '}
         {category}
       </h2>
       <div className="create-item-images-list">
@@ -189,6 +199,7 @@ const Details = () => {
         errorMessage={message}
         inputErrorArr={inputErrorArr}
         inputWrapperClassName="create-item-input-wrapper"
+        getSelectedCountry={(data) => setCategory(data.name)}
       />
     </>
   );

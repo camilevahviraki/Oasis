@@ -92,6 +92,8 @@
     color: #fff;
     background-color: #276262;
     margin: 12px 0;
+    display: flex;
+    justify-content: center;
 }
 
 .item-quantity-available {
@@ -102,6 +104,10 @@
     background-color: #b0b0b0;
     color: #555;
     cursor: default;
+}
+
+.white-loader {
+    color: #f1f1f1 !important;
 }
 
 .inactive-button:hover {

@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import Attribute from "../__attribute/Attribute";
 import "./itemAttributes.css";
 
@@ -7,6 +7,7 @@ const ItemAttributes = (props) => {
   const [arraySelected, setArrayOfSelected] = useState([]);
 
   const selectAttribute = (data) => {
+    console.log('--------------------------------',data)
     showAttributeImage(data);
     const newArr = arraySelected.filter(
       (element) => element.title !== data.title
@@ -18,9 +19,14 @@ const ItemAttributes = (props) => {
       setArrayOfSelected(newArr);
       setArrayOfSelected([...newArr, data]);
     }
-    handleArrayOfSelected(arraySelected)
+    // handleArrayOfSelected(arraySelected);
+    
   };
 
+  useEffect(() => {
+    handleArrayOfSelected(arraySelected);
+  }, [arraySelected]);
+  
   const checkSelected = (data) => {
     const checkSelected = arraySelected.filter((element) => {
       return (

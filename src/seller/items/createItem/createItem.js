@@ -1,4 +1,5 @@
 import React, { useState, useRef, useEffect } from 'react';
+import { resetCreateStoreData } from '../../../redux/item/createItem';
 import { useDispatch, useSelector } from 'react-redux';
 import CreateItemDetails from './steps/createItemDetails';
 import CreatreItemAttributes from './steps/creatreItemAttributes';
@@ -6,7 +7,7 @@ import CreateItemPreview from './steps/createItemPreview';
 import './createItem.css';
 
 const CreateItem = () => {
-
+  const dispatch = useDispatch();
   const steps = ['Descriptions', 'Attributes', 'Preview'];
   const createItemData = useSelector(state => state.createItemReducer);
   const containerRef = useRef(null);
@@ -18,6 +19,7 @@ const CreateItem = () => {
 
   useEffect(() => {
     setContainerWidth(containerRef.current.offsetWidth);
+    dispatch(resetCreateStoreData());
   }, [])
 
   if(scrollTo !== step){
