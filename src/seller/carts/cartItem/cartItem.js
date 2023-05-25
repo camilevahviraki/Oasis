@@ -1,8 +1,9 @@
 import React, { useState, useEffect } from "react";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import { BsThreeDotsVertical } from "react-icons/bs";
 import { updateCartItemQuantity } from "../../../redux/cart/createCartReducer";
+import { updateCartItemQuantityDisplay } from "../../../redux/cart/getCartsItemReducer";
 import { setItemLink } from "../../../redux/itemLink/itemLinkreducer";
 import linkName from "../../../reusable/remove-blanck-space/linkName";
 import ImageSilder from "../../../reusable/images_slider/ImageSilder";
@@ -12,6 +13,7 @@ import CalculatePrice from "../../../reusable/calculatePrice/calculatePrice";
 import "./cartItem.css";
 
 const CartItem = (props) => {
+  const userData = useSelector((state) => state.authenticationReducer);
   const dispatch = useDispatch();
   const { cartItem, showOptions, handleShowOptions } = props;
   const [mouseOverImage, setMouseOverImage] = useState(null);
@@ -36,14 +38,18 @@ const CartItem = (props) => {
         cart_item_id: cartItem.id,
       })
     );
+    dispatch(
+      updateCartItemQuantityDisplay({
+        quantity: numberOfItems,
+        cart_item_id: cartItem.id,
+      })
+    )
   }, [numberOfItems]);
 
   const setStoreItemLink = (itemName, id) => {
     const itemLink = `item/${linkName(itemName)}`;
     dispatch(setItemLink(itemLink, id));
   };
-
-  console.log(cartItem);
 
   return (
     <div className="cart-item-wrapper">
@@ -60,9 +66,12 @@ const CartItem = (props) => {
       <div className="cart-item-description-wrapper">
         <div className="cart-item-description-name-details">
           <h5 className="cart-item-name">{cartItem.cart_item.main_name}</h5>
-          
+
           <h5 className="cart-item-price">
-            Price: <span><CalculatePrice price={cartItem.cart_item.price}/></span>
+            Price:{" "}
+            <span>
+              <CalculatePrice price={cartItem.cart_item.price} />
+            </span>
           </h5>
           <CartItemAttributes itemAttributes={cartItem.item_attributes} />
         </div>
@@ -83,7 +92,11 @@ const CartItem = (props) => {
           <h5 className="cart-item-price">
             <div className="cart-item-unit-price">
               Total price :{" "}
-              <span><CalculatePrice price={cartItem.cart_item.price * numberOfItems}/></span>
+              <span>
+                <CalculatePrice
+                  price={cartItem.cart_item.price * numberOfItems}
+                />
+              </span>
             </div>
           </h5>
           <div className="cart-item-quantity-wrapper">
