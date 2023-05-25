@@ -9,7 +9,7 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  padding-top: 70px;
+  padding-top: 50px;
   /* background-color: rgb(247, 246, 234); */
   height: 100vh;
   scroll-behavior: smooth;
