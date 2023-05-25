@@ -1,12 +1,12 @@
-import React, { useEffect, useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
-import { AiFillPicture } from "react-icons/ai";
-import { addStoreNames } from "../../../redux/stores/createStoreReducer";
-import { getCountries } from "../../../redux/countries/countriesReducer";
-import storeSplahImage from "../../../images/store-image-holder.png";
-import Loader from "../../../reusable/upload-progress/UploadProgress";
-import FormR from "../../../reusable/form/FormR";
-import "./css/CreateStoreNames.css";
+import React, { useEffect, useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { AiFillPicture } from 'react-icons/ai';
+import { addStoreNames } from '../../../redux/stores/createStoreReducer';
+import { getCountries } from '../../../redux/countries/countriesReducer';
+import storeSplahImage from '../../../images/store-image-holder.png';
+import Loader from '../../../reusable/upload-progress/UploadProgress';
+import FormR from '../../../reusable/form/FormR';
+import './css/CreateStoreNames.css';
 
 const StoreName = (props) => {
   const dispatch = useDispatch();
@@ -30,8 +30,8 @@ const StoreName = (props) => {
     const description = e.target.description.value;
     const city = e.target.city.value;
 
-    if (name === "" || description === "" || city === "" || !country.name) {
-      setMessage("Please! Complete all fields to go to the next step.");
+    if (name === '' || description === '' || city === '' || !country.name) {
+      setMessage('Please! Complete all fields to go to the next step.');
       setInputErrorArr([1, 1, 1, 1]);
     } else {
       const storeNameData = {
@@ -55,36 +55,36 @@ const StoreName = (props) => {
 
   const formValues = [
     {
-      type: "text",
-      name: "name",
-      placeholder: "name",
-      classInput: "InputCreateStore",
-      label: "Store Name",
+      type: 'text',
+      name: 'name',
+      placeholder: 'name',
+      classInput: 'InputCreateStore',
+      label: 'Store Name',
     },
     {
-      type: "select-country",
-      placeholder: "input country",
-      classInput: "InputCreateStore",
+      type: 'select-country',
+      placeholder: 'input country',
+      classInput: 'InputCreateStore',
       data: countriesList,
-      label: "Country",
+      label: 'Country',
     },
     {
-      type: "text",
-      name: "city",
-      placeholder: "city",
-      classInput: "InputCreateStore",
-      label: "City",
+      type: 'text',
+      name: 'city',
+      placeholder: 'city',
+      classInput: 'InputCreateStore',
+      label: 'City',
     },
     {
-      type: "textarea",
-      name: "description",
-      placeholder: "description",
-      classInput: "TextAreaCreateStore",
-      label: "Store Description",
+      type: 'textarea',
+      name: 'description',
+      placeholder: 'description',
+      classInput: 'TextAreaCreateStore',
+      label: 'Store Description',
     },
   ];
 
-  const classForm = "form-create-store-names";
+  const classForm = 'form-create-store-names';
 
   if (props.progress === 1) {
     return (
@@ -127,9 +127,8 @@ const StoreName = (props) => {
         />
       </div>
     );
-  } else {
-    return <></>;
   }
+  return <></>;
 };
 
 export default StoreName;

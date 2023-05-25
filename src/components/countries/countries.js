@@ -75,7 +75,7 @@ const Countries = (props) => {
       />
       {
         listVisible ? (
-          <div className={listClass? `countries-list ${listClass}` : "countries-list"}>
+          <div className={listClass ? `countries-list ${listClass}` : 'countries-list'}>
             {
                 countriesShown.map((country) => (
                   <div

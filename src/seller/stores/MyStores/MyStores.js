@@ -46,7 +46,7 @@ const MyStores = () => {
           id,
           location,
           name,
-          token_id
+          token_id,
         } = store;
 
         return (

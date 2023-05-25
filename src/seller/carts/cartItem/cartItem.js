@@ -1,16 +1,16 @@
-import React, { useState, useEffect } from "react";
-import { useDispatch, useSelector } from "react-redux";
-import { Link } from "react-router-dom";
-import { BsThreeDotsVertical } from "react-icons/bs";
-import { updateCartItemQuantity } from "../../../redux/cart/createCartReducer";
-import { updateCartItemQuantityDisplay } from "../../../redux/cart/getCartsItemReducer";
-import { setItemLink } from "../../../redux/itemLink/itemLinkreducer";
-import linkName from "../../../reusable/remove-blanck-space/linkName";
-import ImageSilder from "../../../reusable/images_slider/ImageSilder";
-import CartItemAttributes from "./cartItemAttributes";
-import CartItemOptions from "../cartItemOptions/cartItemOptions";
-import CalculatePrice from "../../../reusable/calculatePrice/calculatePrice";
-import "./cartItem.css";
+import React, { useState, useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { Link } from 'react-router-dom';
+import { BsThreeDotsVertical } from 'react-icons/bs';
+import { updateCartItemQuantity } from '../../../redux/cart/createCartReducer';
+import { updateCartItemQuantityDisplay } from '../../../redux/cart/getCartsItemReducer';
+import { setItemLink } from '../../../redux/itemLink/itemLinkreducer';
+import linkName from '../../../reusable/remove-blanck-space/linkName';
+import ImageSilder from '../../../reusable/images_slider/ImageSilder';
+import CartItemAttributes from './cartItemAttributes';
+import CartItemOptions from '../cartItemOptions/cartItemOptions';
+import CalculatePrice from '../../../reusable/calculatePrice/calculatePrice';
+import './cartItem.css';
 
 const CartItem = (props) => {
   const userData = useSelector((state) => state.authenticationReducer);
@@ -36,14 +36,14 @@ const CartItem = (props) => {
       updateCartItemQuantity({
         quantity: numberOfItems,
         cart_item_id: cartItem.id,
-      })
+      }),
     );
     dispatch(
       updateCartItemQuantityDisplay({
         quantity: numberOfItems,
         cart_item_id: cartItem.id,
-      })
-    )
+      }),
+    );
   }, [numberOfItems]);
 
   const setStoreItemLink = (itemName, id) => {
@@ -68,7 +68,8 @@ const CartItem = (props) => {
           <h5 className="cart-item-name">{cartItem.cart_item.main_name}</h5>
 
           <h5 className="cart-item-price">
-            Price:{" "}
+            Price:
+            {' '}
             <span>
               <CalculatePrice price={cartItem.cart_item.price} />
             </span>
@@ -79,19 +80,19 @@ const CartItem = (props) => {
           <Link
             to={`../item/${linkName(cartItem.cart_item.main_name)}`}
             className="cart-item-see-more-link"
-            onClick={() =>
-              setStoreItemLink(
-                cartItem.cart_item.main_name,
-                cartItem.cart_item.id
-              )
-            }
+            onClick={() => setStoreItemLink(
+              cartItem.cart_item.main_name,
+              cartItem.cart_item.id,
+            )}
           >
-            {"> "}More details
+            {'> '}
+            More details
           </Link>
 
           <h5 className="cart-item-price">
             <div className="cart-item-unit-price">
-              Total price :{" "}
+              Total price :
+              {' '}
               <span>
                 <CalculatePrice
                   price={cartItem.cart_item.price * numberOfItems}
@@ -104,8 +105,8 @@ const CartItem = (props) => {
             <button
               className={
                 numberOfItems === 1
-                  ? "item-show-change-quantity-button inactive-button"
-                  : "item-show-change-quantity-button"
+                  ? 'item-show-change-quantity-button inactive-button'
+                  : 'item-show-change-quantity-button'
               }
               onClick={() => decreaseNumber()}
             >
@@ -117,8 +118,8 @@ const CartItem = (props) => {
             <button
               className={
                 numberOfItems >= cartItem.cart_item.quantity
-                  ? "item-show-change-quantity-button inactive-button"
-                  : "item-show-change-quantity-button"
+                  ? 'item-show-change-quantity-button inactive-button'
+                  : 'item-show-change-quantity-button'
               }
               onClick={() => increaseNumber()}
             >
@@ -126,7 +127,12 @@ const CartItem = (props) => {
             </button>
           </div>
           <p className="cart-item-quantity-available">
-            <span>{cartItem.cart_item.quantity} </span> Items available
+            <span>
+              {cartItem.cart_item.quantity}
+              {' '}
+            </span>
+            {' '}
+            Items available
           </p>
         </div>
       </div>

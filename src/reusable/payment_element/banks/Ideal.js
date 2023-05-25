@@ -1,11 +1,11 @@
-import React, {useEffect} from 'react';
-import {useLocation} from 'react-router-dom';
+import React, { useEffect } from 'react';
+import { useLocation } from 'react-router-dom';
 import {
   IdealBankElement,
   useStripe,
   useElements,
 } from '@stripe/react-stripe-js';
-import StatusMessages, {useMessages} from './StatusMessages';
+import StatusMessages, { useMessages } from './StatusMessages';
 
 const IdealForm = () => {
   const stripe = useStripe();
@@ -24,7 +24,7 @@ const IdealForm = () => {
       return;
     }
 
-    const {error: backendError, clientSecret} = await fetch(
+    const { error: backendError, clientSecret } = await fetch(
       '/create-payment-intent',
       {
         method: 'POST',
@@ -35,7 +35,7 @@ const IdealForm = () => {
           paymentMethodType: 'ideal',
           currency: 'eur',
         }),
-      }
+      },
     ).then((r) => r.json());
 
     if (backendError) {
@@ -124,9 +124,8 @@ const Ideal = () => {
   const query = new URLSearchParams(useLocation().search);
   if (query.get('return')) {
     return <IdealReturn />;
-  } else {
-    return <IdealForm />;
   }
+  return <IdealForm />;
 };
 
 export default Ideal;

@@ -25,11 +25,10 @@ const ImageSliderItem = (props) => {
   }, [imageShown]);
 
   useEffect(() => {
-    if(showAttributeImage) {
+    if (showAttributeImage) {
       setMainImage(showAttributeImage);
     }
-  }, [showAttributeImage])
-
+  }, [showAttributeImage]);
 
   return (
     <div className="image-slider-item-container">

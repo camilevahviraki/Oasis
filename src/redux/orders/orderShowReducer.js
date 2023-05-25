@@ -1,13 +1,13 @@
-import axios from "axios";
-import linkURL from "../link";
+import axios from 'axios';
+import linkURL from '../link';
 
-const GET_ORDER_SHOW = "redux/store/createCartsReducer/GET_ORDER_SHOW";
+const GET_ORDER_SHOW = 'redux/store/createCartsReducer/GET_ORDER_SHOW';
 
 const orderShowReducer = (state = {}, action) => {
   switch (action.type) {
     case GET_ORDER_SHOW: {
       return action.data;
-    }default:
+    } default:
       return state;
   }
 };
@@ -23,9 +23,9 @@ export const getOrderShow = (tokenId, token) => (dispatch) => {
     }).catch((_err) => {
       dispatch({
         type: GET_ORDER_SHOW,
-        data: {error: 'Ooops! Backend error. Back to the Home page!'}
-      })
-    })
+        data: { error: 'Ooops! Backend error. Back to the Home page!' },
+      });
+    });
 };
 
 export default orderShowReducer;

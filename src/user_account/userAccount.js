@@ -65,7 +65,7 @@ const UserAccount = () => {
           <span>{updated_at}</span>
         </p>
 
-        <Link to=''>+ Add social media</Link>
+        <Link to="">+ Add social media</Link>
       </div>
 
     </div>

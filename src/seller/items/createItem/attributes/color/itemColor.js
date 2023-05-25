@@ -1,18 +1,18 @@
-import React, { useEffect, useState } from "react";
-import { useSelector, useDispatch } from "react-redux";
-import { AiFillPicture } from "react-icons/ai";
-import { getColors } from "../../../../../redux/attributes/colorReducer";
-import { getItemColors } from "../../../../../redux/item_attributes/itemAttributesReducer";
+import React, { useEffect, useState } from 'react';
+import { useSelector, useDispatch } from 'react-redux';
+import { AiFillPicture } from 'react-icons/ai';
+import { getColors } from '../../../../../redux/attributes/colorReducer';
+import { getItemColors } from '../../../../../redux/item_attributes/itemAttributesReducer';
 import {
   deleteItemColors,
   deleteMessage,
   attachImageToItemColors,
-} from "../../../../../redux/item/createItemAttributes";
+} from '../../../../../redux/item/createItemAttributes';
 import {
   uploadItemColor,
   setCurrentStep,
-} from "../../../../../redux/item/createItem";
-import "./itemColor.css";
+} from '../../../../../redux/item/createItem';
+import './itemColor.css';
 
 const ItemColor = () => {
   const [currentColorId, setCurrentColorId] = useState(null);
@@ -26,7 +26,7 @@ const ItemColor = () => {
   const colors = useSelector((state) => state.colorReducer);
   const itemColors = useSelector((state) => state.itemAttributeReducer.colors);
   const deleteColorMessage = useSelector(
-    (state) => state.createItemAttributes.message
+    (state) => state.createItemAttributes.message,
   );
 
   const addColor = (color) => {
@@ -60,7 +60,7 @@ const ItemColor = () => {
                 className="create-item-color"
                 style={{ backgroundColor: color.hex_code }}
                 onClick={() => addColor(color)}
-              ></div>
+              />
             ))}
           </div>
         </div>
@@ -99,7 +99,7 @@ const ItemColor = () => {
               <div
                 className="create-item-color"
                 style={{ backgroundColor: color.hex_code }}
-              ></div>
+              />
 
               <p>{color.name}</p>
               <button

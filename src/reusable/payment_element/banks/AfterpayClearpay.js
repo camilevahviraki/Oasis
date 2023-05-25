@@ -1,7 +1,7 @@
-import React, {useState, useEffect} from 'react'
-import {useLocation} from 'react-router-dom';
-import {useStripe} from '@stripe/react-stripe-js';
-import StatusMessages, {useMessages} from './StatusMessages';
+import React, { useState, useEffect } from 'react';
+import { useLocation } from 'react-router-dom';
+import { useStripe } from '@stripe/react-stripe-js';
+import StatusMessages, { useMessages } from './StatusMessages';
 
 const AfterpayClearpayForm = () => {
   const [messages, addMessage] = useMessages();
@@ -26,12 +26,11 @@ const AfterpayClearpayForm = () => {
   const [shippingPostalCode, setShippingPostalCode] = useState('89501');
   const [shippingCountry, setShippingCountry] = useState('US');
 
-
   const handleSubmit = async (e) => {
     e.preventDefault();
 
     // create payment intent on the server
-    const {error: backendError, clientSecret} = await fetch('/create-payment-intent', {
+    const { error: backendError, clientSecret } = await fetch('/create-payment-intent', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -41,17 +40,17 @@ const AfterpayClearpayForm = () => {
         currency: 'usd',
       }),
     })
-      .then((r) => r.json())
+      .then((r) => r.json());
 
-    if(backendError) {
+    if (backendError) {
       addMessage(backendError.message);
       return;
     }
 
-    addMessage('PaymentIntent created!')
+    addMessage('PaymentIntent created!');
 
     // confirm payment on the client
-    const {error: stripeError} = await stripe.confirmAfterpayClearpayPayment(clientSecret, {
+    const { error: stripeError } = await stripe.confirmAfterpayClearpayPayment(clientSecret, {
       payment_method: {
         billing_details: {
           name,
@@ -75,16 +74,15 @@ const AfterpayClearpayForm = () => {
           state: shippingState,
           country: shippingCountry,
           postal_code: shippingPostalCode,
-        }
+        },
       },
-      return_url: `${window.location.origin}/afterpay-clearpay?return=true`
-    })
+      return_url: `${window.location.origin}/afterpay-clearpay?return=true`,
+    });
 
-    if(stripeError) {
+    if (stripeError) {
       addMessage(stripeError.message);
-      return;
     }
-  }
+  };
 
   return (
     <>
@@ -175,7 +173,7 @@ const AfterpayClearpayForm = () => {
           <label htmlFor="shipping_country">
             Country
           </label>
-          <select id="shipping_country" value={shippingCountry} onChange={(e) => setShippingCountry(e.target.value) }>
+          <select id="shipping_country" value={shippingCountry} onChange={(e) => setShippingCountry(e.target.value)}>
             <option value="AU">Australia</option>
             <option value="NZ">New Zealand</option>
             <option value="UK">United Kingdom</option>
@@ -188,8 +186,8 @@ const AfterpayClearpayForm = () => {
 
       <StatusMessages messages={messages} />
     </>
-  )
-}
+  );
+};
 
 const AfterpayClearpayReturn = () => {
   const stripe = useStripe();
@@ -199,35 +197,33 @@ const AfterpayClearpayReturn = () => {
   const clientSecret = params.get('payment_intent_client_secret');
 
   useEffect(() => {
-    if(!stripe) {
+    if (!stripe) {
       return;
     }
     const fetchPaymentIntent = async () => {
-      const {error, paymentIntent} = await stripe.retrievePaymentIntent(clientSecret);
-      if(error) {
+      const { error, paymentIntent } = await stripe.retrievePaymentIntent(clientSecret);
+      if (error) {
         addMessage(error.message);
       }
       addMessage(`Payment ${paymentIntent.status}: ${paymentIntent.id}`);
-    }
+    };
     fetchPaymentIntent();
-  }, [stripe, addMessage, clientSecret])
+  }, [stripe, addMessage, clientSecret]);
 
   return (
     <>
       <h1>Afterpay / Clearpay Return</h1>
       <StatusMessages messages={messages} />
     </>
-  )
-
-}
+  );
+};
 
 const AfterpayClearpay = () => {
   const query = new URLSearchParams(useLocation().search);
-  if(query.get('return')) {
-    return <AfterpayClearpayReturn />
-  } else {
-    return <AfterpayClearpayForm />;
+  if (query.get('return')) {
+    return <AfterpayClearpayReturn />;
   }
-}
+  return <AfterpayClearpayForm />;
+};
 
-export default AfterpayClearpay
+export default AfterpayClearpay;

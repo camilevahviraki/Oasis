@@ -7,14 +7,12 @@ const searchItemReducer = (state = [], action) => {
   switch (action.type) {
     case GET_CURRENCIES: {
       return action.data;
-    } default: 
+    } default:
       return state;
   }
 };
 
-
-
-export const searchItem = (data ,token) => (dispatch) => {
+export const searchItem = (data, token) => (dispatch) => {
   // data = {
   //   pageName: 'Home',
   //   query: 'azerty',

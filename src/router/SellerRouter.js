@@ -28,56 +28,54 @@ const SellerRouter = () => {
 
   const storeLink = useSelector((state) => state.storeLinkReducer);
   const itemLink = useSelector((state) => state.itemLinkReducer);
-  console.log(storeLink); 
+  console.log(storeLink);
 
   return (
     <Routes>
       <Route
-        path='order'
+        path="order"
         element={(<OrdersIndex />)}
       />
       <Route
-        path='order/:token_id'
+        path="order/:token_id"
         element={(<OrderShow />)}
       />
       <Route
-        path={'store/:token_id'}
+        path="store/:token_id"
         element={(<StoreShow />)}
       />
       <Route
-        path={'store/:token_id/analysis'}
+        path="store/:token_id/analysis"
         element={(<InSightData />)}
       />
       <Route path="create-store" element={(<CreateStore />)} />
       <Route path="my-stores" element={(<MyStores />)} />
       <Route
-        path={'my-store/:token_id/edit'}
+        path="my-store/:token_id/edit"
         element={(<StoreEdit />)}
       />
       <Route
-        path={'my-store/:token_id/items'}
+        path="my-store/:token_id/items"
         element={(<StoreItems />)}
       />
       <Route
-        path={'my-store/:token_id/item/new'}
+        path="my-store/:token_id/item/new"
         element={(<CreateItem />)}
       />
       <Route
-        path={'item/:name/id/:id'}
-        element={(<ItemShow />)}
-      />
-       <Route
-        path={'store/:store_name/item/:name/id/:id'}
+        path="item/:name/id/:id"
         element={(<ItemShow />)}
       />
       <Route
-        path={'store/:token_id/update'
-        }
+        path="store/:store_name/item/:name/id/:id"
+        element={(<ItemShow />)}
+      />
+      <Route
+        path="store/:token_id/update"
         element={(<UpdateStore />)}
       />
       <Route
-        path={'store/:token_id/update/new_image'
-        }
+        path="store/:token_id/update/new_image"
         element={(<NewStorePicture />)}
       />
     </Routes>

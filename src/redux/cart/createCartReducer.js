@@ -1,19 +1,18 @@
-import axios from "axios";
-import linkURL from "../link";
+import axios from 'axios';
+import linkURL from '../link';
 
-const CREATE_CART = "redux/store/createCartsReducer/CREATE_CART";
-const UPDATE_CART_QUANTITY = "redux/store/createCartsReducer/UPDATE_CART_QUANTITY";
-const DELETE_CART_ITEM = "redux/store/createCartsReducer/DELETE_CART_ITEM";
-const DELETE_CART_MESSAGE_RESPONSE =
-  "redux/store/createCartsReducer/DELETE_CART_MESSAGE_RESPONSE";
+const CREATE_CART = 'redux/store/createCartsReducer/CREATE_CART';
+const UPDATE_CART_QUANTITY = 'redux/store/createCartsReducer/UPDATE_CART_QUANTITY';
+const DELETE_CART_ITEM = 'redux/store/createCartsReducer/DELETE_CART_ITEM';
+const DELETE_CART_MESSAGE_RESPONSE = 'redux/store/createCartsReducer/DELETE_CART_MESSAGE_RESPONSE';
 
 const createCartReducer = (state = { message: null }, action) => {
   switch (action.type) {
     case CREATE_CART: {
       return action.data;
-    }case UPDATE_CART_QUANTITY: {
+    } case UPDATE_CART_QUANTITY: {
       return action.data;
-    }case DELETE_CART_ITEM: {
+    } case DELETE_CART_ITEM: {
       return action.data;
     }
     case DELETE_CART_MESSAGE_RESPONSE: {
@@ -25,8 +24,8 @@ const createCartReducer = (state = { message: null }, action) => {
 };
 
 export const deleteCartItemResponse = () => ({
-  type: DELETE_CART_MESSAGE_RESPONSE
-})
+  type: DELETE_CART_MESSAGE_RESPONSE,
+});
 
 export const createNewCartItem = (data, token) => (dispatch) => {
   axios
@@ -41,7 +40,7 @@ export const createNewCartItem = (data, token) => (dispatch) => {
       dispatch({
         type: CREATE_CART,
         data: {
-          error: "Error while creating cart-item!",
+          error: 'Error while creating cart-item!',
           message: null,
         },
       });
@@ -61,13 +60,12 @@ export const deleteCartItem = (id, token) => (dispatch) => {
       dispatch({
         type: DELETE_CART_ITEM,
         data: {
-          error: "Error while deleting cart-item!",
+          error: 'Error while deleting cart-item!',
           message: null,
         },
       });
     });
 };
-
 
 export const updateCartItemQuantity = (data, token) => (dispatch) => {
   axios
@@ -82,7 +80,7 @@ export const updateCartItemQuantity = (data, token) => (dispatch) => {
       dispatch({
         type: UPDATE_CART_QUANTITY,
         data: {
-          error: "Error while updating quantity!",
+          error: 'Error while updating quantity!',
           message: null,
         },
       });

@@ -30,7 +30,7 @@ const createStoresReducer = (
       const details = action.data;
       const { storeId, coordinates } = state;
       const newState = {
-        pictures, types, places, details, storeId, coordinates
+        pictures, types, places, details, storeId, coordinates,
       };
       saveToStorage(newState);
       return newState;
@@ -42,7 +42,7 @@ const createStoresReducer = (
       const { details } = state;
       const { storeId, coordinates } = state;
       const newState = {
-        pictures, types, places, details, storeId, coordinates
+        pictures, types, places, details, storeId, coordinates,
       };
       saveToStorage(newState);
       return newState;
@@ -54,7 +54,7 @@ const createStoresReducer = (
       const { details } = state;
       const { storeId, coordinates } = state;
       const newState = {
-        pictures, types, places, details, storeId, coordinates
+        pictures, types, places, details, storeId, coordinates,
       };
       saveToStorage(newState);
       return newState;
@@ -66,7 +66,7 @@ const createStoresReducer = (
       const { details } = state;
       const { storeId, coordinates } = state;
       const newState = {
-        pictures, types, places, details, storeId, coordinates
+        pictures, types, places, details, storeId, coordinates,
       };
       saveToStorage(newState);
       return newState;
@@ -78,7 +78,7 @@ const createStoresReducer = (
       const { details } = state;
       const { storeId, coordinates } = state;
       const newState = {
-        pictures, types, places, details, storeId, coordinates
+        pictures, types, places, details, storeId, coordinates,
       };
       saveToStorage(newState);
       return newState;
@@ -90,7 +90,7 @@ const createStoresReducer = (
       const { details } = state;
       const { storeId, coordinates } = state;
       const newState = {
-        pictures, types, places, details, storeId, coordinates
+        pictures, types, places, details, storeId, coordinates,
       };
       saveToStorage(newState);
       return newState;
@@ -102,7 +102,7 @@ const createStoresReducer = (
       const { details } = state;
       const { storeId, coordinates } = state;
       const newState = {
-        pictures, types, places, details, storeId, coordinates
+        pictures, types, places, details, storeId, coordinates,
       };
       saveToStorage(newState);
       return newState;
@@ -114,7 +114,7 @@ const createStoresReducer = (
       const { details, coordinates } = state;
       const { storeId } = action;
       const newState = {
-        pictures, types, places, details, storeId, coordinates
+        pictures, types, places, details, storeId, coordinates,
       };
       saveToStorage(newState);
       return newState;
@@ -127,7 +127,7 @@ const createStoresReducer = (
       const { storeId } = state;
       const coordinates = action.data;
       const newState = {
-        pictures, types, places, details, storeId, coordinates
+        pictures, types, places, details, storeId, coordinates,
       };
       // saveToStorage(newState);
       return newState;
@@ -156,7 +156,7 @@ const createStoresReducer = (
 export const addCoordinatesToStore = (data) => ({
   type: ADD_COORDINATES_TO_STORE,
   data,
-})
+});
 
 export const getStoreId = (storeId) => (
   {

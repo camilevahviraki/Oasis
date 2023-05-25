@@ -1,7 +1,7 @@
-import React, {useEffect, useState} from 'react';
-import {useLocation} from 'react-router-dom';
-import {P24BankElement, useStripe, useElements} from '@stripe/react-stripe-js';
-import StatusMessages, {useMessages} from './StatusMessages';
+import React, { useEffect, useState } from 'react';
+import { useLocation } from 'react-router-dom';
+import { P24BankElement, useStripe, useElements } from '@stripe/react-stripe-js';
+import StatusMessages, { useMessages } from './StatusMessages';
 
 const P24Form = () => {
   const stripe = useStripe();
@@ -22,7 +22,7 @@ const P24Form = () => {
       return;
     }
 
-    const {error: backendError, clientSecret} = await fetch('/create-payment-intent', {
+    const { error: backendError, clientSecret } = await fetch('/create-payment-intent', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -40,7 +40,7 @@ const P24Form = () => {
 
     addMessage('Client secret returned');
 
-    const {error: stripeError, paymentIntent} = await stripe.confirmP24Payment(
+    const { error: stripeError, paymentIntent } = await stripe.confirmP24Payment(
       clientSecret,
       {
         payment_method: {
@@ -58,10 +58,10 @@ const P24Form = () => {
             // stripe.com/docs/payments/p24/accept-a-payment#requirements
             // for directions.
             tos_shown_and_accepted: true,
-          }
+          },
         },
         return_url: `${window.location.origin}/p24?return=true`,
-      }
+      },
     );
 
     if (stripeError) {
@@ -147,9 +147,8 @@ const P24 = () => {
   const query = new URLSearchParams(useLocation().search);
   if (query.get('return')) {
     return <P24Return />;
-  } else {
-    return <P24Form />;
   }
+  return <P24Form />;
 };
 
 export default P24;

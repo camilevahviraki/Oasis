@@ -1,19 +1,19 @@
-import React, { useEffect, useState } from "react";
-import { useSelector, useDispatch } from "react-redux";
-import { AiFillPicture } from "react-icons/ai";
-import { getMaterials } from "../../../../../redux/attributes/materialReducer";
-import { getItemMaterials } from "../../../../../redux/item_attributes/itemAttributesReducer";
+import React, { useEffect, useState } from 'react';
+import { useSelector, useDispatch } from 'react-redux';
+import { AiFillPicture } from 'react-icons/ai';
+import { getMaterials } from '../../../../../redux/attributes/materialReducer';
+import { getItemMaterials } from '../../../../../redux/item_attributes/itemAttributesReducer';
 import {
   deleteItemMaterials,
   deleteMessage,
   attachImageToItemMaterials,
-} from "../../../../../redux/item/createItemAttributes";
+} from '../../../../../redux/item/createItemAttributes';
 import {
   uploadItemMaterial,
   setCurrentStep,
-} from "../../../../../redux/item/createItem";
-import Countries from "../../../../../components/countries/countries";
-import "./itemMaterial.css";
+} from '../../../../../redux/item/createItem';
+import Countries from '../../../../../components/countries/countries';
+import './itemMaterial.css';
 
 const ItemMaterial = () => {
   const currentItem = useSelector((state) => state.createItemReducer);
@@ -33,7 +33,6 @@ const ItemMaterial = () => {
   };
 
   const AddMaterialToItem = () => {
-    
     const obj = {
       name: selectedUnit.name,
       code: selectedUnit.code,
@@ -41,14 +40,14 @@ const ItemMaterial = () => {
     };
     if (selectedUnit) {
       const checkExist = itemMaterials.filter((elmnt) => elmnt.name === selectedUnit.name);
-      if(checkExist.length === 0){
+      if (checkExist.length === 0) {
         dispatch(uploadItemMaterial(obj, currentItem.item.item_id));
       }
     }
   };
 
   const deleteSizeMessage = useSelector(
-    (state) => state.createItemAttributes.messageMaterial
+    (state) => state.createItemAttributes.messageMaterial,
   );
 
   if (currentItem.materials) {
@@ -68,23 +67,23 @@ const ItemMaterial = () => {
       <h2 className="create-item-colors-picker-title">Material</h2>
       <div className="create-item-material-container-sub">
 
-          <div className="create-item-material-form-wrapp">
-            <Countries
-              getSelectedCountry={getSelectedMaterial}
-              data={materials}
-              inputClass={"create-item-input-capacity"}
-              inputWrapperClassName={"create-item-input-capacity-wrapp"}
-              inputLabel={"Material"}
-              placeholder={"select material"}
-              listClass={"capacities-unit-list"}
-            />
-            <button
-                type="button"
-                onClick={AddMaterialToItem}
-                className="create-item-add-capacity-button"
-            >
-              Add
-            </button>
+        <div className="create-item-material-form-wrapp">
+          <Countries
+            getSelectedCountry={getSelectedMaterial}
+            data={materials}
+            inputClass="create-item-input-capacity"
+            inputWrapperClassName="create-item-input-capacity-wrapp"
+            inputLabel="Material"
+            placeholder="select material"
+            listClass="capacities-unit-list"
+          />
+          <button
+            type="button"
+            onClick={AddMaterialToItem}
+            className="create-item-add-capacity-button"
+          >
+            Add
+          </button>
         </div>
 
         <div className="selected-unit-wrapp">
@@ -118,7 +117,7 @@ const ItemMaterial = () => {
                   </>
                 )}
               </div>
-              <div className="create-item-color"></div>
+              <div className="create-item-color" />
               <p>{material.name}</p>
               <button
                 type="button"

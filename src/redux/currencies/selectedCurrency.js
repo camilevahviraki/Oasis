@@ -1,21 +1,21 @@
-const SELECT_CURRENCY = "redux/store/getStoresReducer/SELECT_CURRENCY";
+const SELECT_CURRENCY = 'redux/store/getStoresReducer/SELECT_CURRENCY';
 
 const selectedCurrency = (
   state = {
-    country: "United States",
+    country: 'United States',
     exchange: 1000,
-    name: "USD",
-    symbole: "$",
+    name: 'USD',
+    symbole: '$',
   },
-  action
+  action,
 ) => {
   switch (action.type) {
     case SELECT_CURRENCY: {
-      localStorage.setItem("selectedCurrency", JSON.stringify(action.data));
+      localStorage.setItem('selectedCurrency', JSON.stringify(action.data));
       return action.data;
     }
     default: {
-      const savedCurrency = localStorage.getItem("selectedCurrency");
+      const savedCurrency = localStorage.getItem('selectedCurrency');
       if (savedCurrency) {
         return JSON.parse(savedCurrency);
       }

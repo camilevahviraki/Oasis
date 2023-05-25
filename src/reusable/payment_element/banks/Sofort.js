@@ -1,7 +1,7 @@
-import React, {useEffect, useState} from 'react';
-import {useLocation} from 'react-router-dom';
-import {useStripe, useElements} from '@stripe/react-stripe-js';
-import StatusMessages, {useMessages} from './StatusMessages';
+import React, { useEffect, useState } from 'react';
+import { useLocation } from 'react-router-dom';
+import { useStripe, useElements } from '@stripe/react-stripe-js';
+import StatusMessages, { useMessages } from './StatusMessages';
 
 const SofortForm = () => {
   const stripe = useStripe();
@@ -22,7 +22,7 @@ const SofortForm = () => {
       return;
     }
 
-    const {error: backendError, clientSecret} = await fetch(
+    const { error: backendError, clientSecret } = await fetch(
       '/create-payment-intent',
       {
         method: 'POST',
@@ -33,7 +33,7 @@ const SofortForm = () => {
           paymentMethodType: 'sofort',
           currency: 'eur',
         }),
-      }
+      },
     ).then((r) => r.json());
 
     if (backendError) {
@@ -142,9 +142,8 @@ const Sofort = () => {
   const query = new URLSearchParams(useLocation().search);
   if (query.get('return')) {
     return <SofortReturn />;
-  } else {
-    return <SofortForm />;
   }
+  return <SofortForm />;
 };
 
 export default Sofort;

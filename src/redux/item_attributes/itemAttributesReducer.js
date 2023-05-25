@@ -15,33 +15,41 @@ const itemAttributeReducer = (state = {
   switch (action.type) {
     case GET_ITEM_COLORS: {
       const colors = action.data;
-      const capacities = state.capacities;
-      const materials = state.materials;
-      const sizes = state.sizes;
+      const { capacities } = state;
+      const { materials } = state;
+      const { sizes } = state;
 
-      return {colors, capacities, materials, sizes};
-    }case GET_ITEM_SIZES: {
-      const colors = state.colors;
-      const capacities = state.capacities;
-      const materials = state.materials;
+      return {
+        colors, capacities, materials, sizes,
+      };
+    } case GET_ITEM_SIZES: {
+      const { colors } = state;
+      const { capacities } = state;
+      const { materials } = state;
       const sizes = action.data;
 
-      return {colors, capacities, materials, sizes};
-    }case GET_ITEM_CAPACITY: {
-      const colors = state.colors;
+      return {
+        colors, capacities, materials, sizes,
+      };
+    } case GET_ITEM_CAPACITY: {
+      const { colors } = state;
       const capacities = action.data;
-      const materials = state.materials;
-      const sizes = state.sizes;
+      const { materials } = state;
+      const { sizes } = state;
 
-      return {colors, capacities, materials, sizes};
-    }case GET_ITEM_MATERIAL: {
-      const colors = state.colors;
-      const capacities = state.capacities;
+      return {
+        colors, capacities, materials, sizes,
+      };
+    } case GET_ITEM_MATERIAL: {
+      const { colors } = state;
+      const { capacities } = state;
       const materials = action.data;
-      const sizes = state.sizes;
+      const { sizes } = state;
 
-      return {colors, capacities, materials, sizes};
-    }default:
+      return {
+        colors, capacities, materials, sizes,
+      };
+    } default:
       return state;
   }
 };

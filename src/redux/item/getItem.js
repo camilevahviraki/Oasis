@@ -1,10 +1,9 @@
-import axios from "axios";
-import linkURL from "../link";
+import axios from 'axios';
+import linkURL from '../link';
 
-const GET_ITEMS_LIST = "redux/store/getStoresReducer/GET_ITEMS_LIST";
-const SEARCH_STORE_ITEM = "redux/store/getStoresReducer/SEARCH_STORE_ITEM";
-const DELETE_SEARCHED_DATA =
-  "redux/store/getStoresReducer/DELETE_SEARCHED_DATA";
+const GET_ITEMS_LIST = 'redux/store/getStoresReducer/GET_ITEMS_LIST';
+const SEARCH_STORE_ITEM = 'redux/store/getStoresReducer/SEARCH_STORE_ITEM';
+const DELETE_SEARCHED_DATA = 'redux/store/getStoresReducer/DELETE_SEARCHED_DATA';
 
 const getItemsList = (state = { itemsList: [] }, action) => {
   switch (action.type) {

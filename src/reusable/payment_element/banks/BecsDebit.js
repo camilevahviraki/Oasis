@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, { useState } from 'react';
 import {
   AuBankAccountElement,
   useStripe,
@@ -29,7 +29,7 @@ const BecsDebitForm = () => {
       return;
     }
 
-    const {error: backendError, clientSecret} = await fetch(
+    const { error: backendError, clientSecret } = await fetch(
       '/create-payment-intent',
       {
         method: 'POST',
@@ -40,7 +40,7 @@ const BecsDebitForm = () => {
           paymentMethodType: 'au_becs_debit',
           currency: 'aud',
         }),
-      }
+      },
     ).then((r) => r.json());
 
     if (backendError) {
@@ -83,7 +83,9 @@ const BecsDebitForm = () => {
 
       <p>
         <div>
-          <code>000-000</code> (Test BSB)
+          <code>000-000</code>
+          {' '}
+          (Test BSB)
         </div>
         <div>
           <code>000123456</code>
@@ -116,7 +118,7 @@ const BecsDebitForm = () => {
 
         <button type="submit">Pay</button>
 
-        <div id="error-message" role="alert"></div>
+        <div id="error-message" role="alert" />
 
         <div id="mandate-acceptance">
           By providing your bank account details and confirming this payment,
@@ -127,7 +129,9 @@ const BecsDebitForm = () => {
           , and authorise Stripe Payments Australia Pty Ltd ACN 160 180 343
           Direct Debit User ID number 507156 (“Stripe”) to debit your account
           through the Bulk Electronic Clearing System (BECS) on behalf of
-          <strong>INSERT YOUR BUSINESS NAME HERE</strong> (the "Merchant") for
+          <strong>INSERT YOUR BUSINESS NAME HERE</strong>
+          {' '}
+          (the "Merchant") for
           any amounts separately communicated to you by the Merchant. You
           certify that you are either an account holder or an authorised
           signatory on the account listed above.

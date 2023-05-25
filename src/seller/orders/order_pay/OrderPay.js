@@ -1,11 +1,11 @@
-import React, { useEffect, useState } from "react";
-import { FiMail, FiPhone, FiLoader } from "react-icons/fi";
-import { SlLocationPin } from "react-icons/sl";
-import {MdOutlineClose} from 'react-icons/md';
-import { useDispatch, useSelector } from "react-redux";
-import CalculatePrice from "../../../reusable/calculatePrice/calculatePrice";
-import OrderItem from "./OrderItem";
-import OrderStripeContainer from "../order_stripe_container/OrderStripeContainer";
+import React, { useEffect, useState } from 'react';
+import { FiMail, FiPhone, FiLoader } from 'react-icons/fi';
+import { SlLocationPin } from 'react-icons/sl';
+import { MdOutlineClose } from 'react-icons/md';
+import { useDispatch, useSelector } from 'react-redux';
+import CalculatePrice from '../../../reusable/calculatePrice/calculatePrice';
+import OrderItem from './OrderItem';
+import OrderStripeContainer from '../order_stripe_container/OrderStripeContainer';
 
 const OrderPay = () => {
   const dispatch = useDispatch();
@@ -42,11 +42,16 @@ const OrderPay = () => {
   };
 
   return (
-  <>
-      {orderData.id && order_destination? (
+    <>
+      {orderData.id && order_destination ? (
         <>
           <h3 className="order-create-main-title">
-            Order <span>#{token_id}</span>
+            Order
+            {' '}
+            <span>
+              #
+              {token_id}
+            </span>
           </h3>
           <div className="order-create-purchase-items">
             {order_items.map((orderItem) => (
@@ -57,53 +62,63 @@ const OrderPay = () => {
             <div className="cart-srtipe-div">
               <h5 className="order-stripe-title">Contact</h5>
               <p className="order-stripe-contact">
-                <FiMail className="order-stripe-icon" />{" "}
+                <FiMail className="order-stripe-icon" />
+                {' '}
                 <span>{order_destination.email}</span>
               </p>
               <p className="order-stripe-contact">
-                <FiPhone className="order-stripe-icon" />{" "}
+                <FiPhone className="order-stripe-icon" />
+                {' '}
                 <span>{order_destination.phone}</span>
               </p>
             </div>
             <div className="cart-srtipe-div">
               <h5 className="order-stripe-title">Shipping Adress</h5>
               <p className="order-stripe-contact">
-                <SlLocationPin className="order-stripe-icon" />{" "}
+                <SlLocationPin className="order-stripe-icon" />
+                {' '}
                 <span>
-                  {order_destination.city}, {order_destination.country.name}
+                  {order_destination.city}
+                  ,
+                  {order_destination.country.name}
                 </span>
               </p>
             </div>
             <div className="cart-srtipe-div">
               <h5 className="order-stripe-title">Charge Details</h5>
               <h6 className="cart-offer-title order-offer-title">
-                Products total price:{" "}
+                Products total price:
+                {' '}
                 <p>
                   <CalculatePrice price={totalPrice} />
                 </p>
               </h6>
               <h6 className="cart-offer-title order-offer-title">
-                Special Offer:{" "}
+                Special Offer:
+                {' '}
                 <p>
                   <CalculatePrice price={specialOffer} />
                 </p>
               </h6>
               <h6 className="cart-offer-title order-offer-title">
-                Taxes(5.2%):{" "}
+                Taxes(5.2%):
+                {' '}
                 <p>
                   <CalculatePrice price={(totalPrice * taxes) / 100} />
                 </p>
               </h6>
               <h6 className="cart-offer-title order-offer-title">
-                Deliver Time:2-3 days{" "}
+                Deliver Time:2-3 days
+                {' '}
                 <p>
                   <CalculatePrice price={0} />
                 </p>
               </h6>
               <h6 className="cart-charge-details order-offer-title">
-                Calculated Price:{" "}
+                Calculated Price:
+                {' '}
                 <p>
-                  {" "}
+                  {' '}
                   {totalPrice <= 10 ? (
                     <CalculatePrice
                       price={
@@ -112,13 +127,13 @@ const OrderPay = () => {
                     />
                   ) : (
                     <CalculatePrice
-                      price={
-                        totalPrice -
-                        specialOffer +
-                        deliverPrice +
-                        (totalPrice * taxes) / 100
+                    price={
+                        totalPrice
+                        - specialOffer
+                        + deliverPrice
+                        + (totalPrice * taxes) / 100
                       }
-                    />
+                  />
                   )}
                 </p>
               </h6>
@@ -131,7 +146,7 @@ const OrderPay = () => {
               {loader ? (
                 <FiLoader className="button-loader" color="white" />
               ) : (
-                " Pay"
+                ' Pay'
               )}
             </button>
           </div>
@@ -140,9 +155,10 @@ const OrderPay = () => {
               className="create-order-payment-container"
             >
               <div className="close-paymement-window">
-                 <MdOutlineClose className='close-paymement-window-button'
-                   onClick={() => setShowStripe(false)}
-                 />
+                <MdOutlineClose
+                  className="close-paymement-window-button"
+                  onClick={() => setShowStripe(false)}
+                />
               </div>
               <OrderStripeContainer />
             </div>
@@ -153,7 +169,7 @@ const OrderPay = () => {
       ) : (
         <></>
       )}
- </>
+    </>
   );
 };
 

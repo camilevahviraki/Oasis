@@ -74,7 +74,7 @@ const UpdatePictures = (props) => {
               const { image_data, url } = imageUrlandData;
 
               return (
-                <div className="store_image_to_update_wrapper" onClick={() => {imageOptionsShown? setImageOptionsShown(false):null}}>
+                <div className="store_image_to_update_wrapper" onClick={() => { imageOptionsShown ? setImageOptionsShown(false) : null; }}>
                   <img
                     src={url}
                     alt=""

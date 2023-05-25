@@ -1,9 +1,9 @@
-import React, { useEffect, useState } from "react";
-import { Marker, Popup, useMap } from "react-leaflet";
-import L from "leaflet";
-import { useSelector, useDispatch } from "react-redux";
-import { setCurrentLocation } from "../../../redux/places/currentLocationReducer";
-import locationIcon from "../../../images/location/location.png";
+import React, { useEffect, useState } from 'react';
+import { Marker, Popup, useMap } from 'react-leaflet';
+import L from 'leaflet';
+import { useSelector, useDispatch } from 'react-redux';
+import { setCurrentLocation } from '../../../redux/places/currentLocationReducer';
+import locationIcon from '../../../images/location/location.png';
 
 const LocationMarker = () => {
   const dispatch = useDispatch();
@@ -15,13 +15,13 @@ const LocationMarker = () => {
     iconUrl: user.avatar_url ? user.avatar_url : locationIcon,
     iconSize: [50, 50],
     iconAnchor: [25, 25],
-    className: "leaflet-my-location-icon",
+    className: 'leaflet-my-location-icon',
   });
 
   const map = useMap();
 
   useEffect(() => {
-    map.locate().on("locationfound", (e) => {
+    map.locate().on('locationfound', (e) => {
       setPosition(e.latlng);
       map.flyTo(e.latlng, 12);
       const radius = e.accuracy;

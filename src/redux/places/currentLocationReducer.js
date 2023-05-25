@@ -4,18 +4,16 @@ const currentLocationReducer = (state = null, action) => {
   switch (action.type) {
     case SET_CURRENT_LOCATION: {
       return action.data;
-    } default: 
+    } default:
       return state;
   }
 };
 
-
-
 export const setCurrentLocation = (data) => (
 
-        {
-          type: SET_CURRENT_LOCATION,
-          data: data,
-        });
+  {
+    type: SET_CURRENT_LOCATION,
+    data,
+  });
 
 export default currentLocationReducer;

@@ -1,19 +1,19 @@
-import React, { useEffect, useState } from "react";
-import { useSelector, useDispatch } from "react-redux";
-import { AiFillPicture } from "react-icons/ai";
-import { getCapacities } from "../../../../../redux/attributes/capacityReducer";
-import { getItemCapacities } from "../../../../../redux/item_attributes/itemAttributesReducer";
+import React, { useEffect, useState } from 'react';
+import { useSelector, useDispatch } from 'react-redux';
+import { AiFillPicture } from 'react-icons/ai';
+import { getCapacities } from '../../../../../redux/attributes/capacityReducer';
+import { getItemCapacities } from '../../../../../redux/item_attributes/itemAttributesReducer';
 import {
   deleteItemCapacities,
   deleteMessage,
   attachImageToItemCapacity,
-} from "../../../../../redux/item/createItemAttributes";
+} from '../../../../../redux/item/createItemAttributes';
 import {
   uploadItemCapacity,
   setCurrentStep,
-} from "../../../../../redux/item/createItem";
-import Countries from "../../../../../components/countries/countries";
-import "./itemCapacity.css";
+} from '../../../../../redux/item/createItem';
+import Countries from '../../../../../components/countries/countries';
+import './itemCapacity.css';
 
 const ItemCapacity = () => {
   const currentItem = useSelector((state) => state.createItemReducer);
@@ -29,7 +29,7 @@ const ItemCapacity = () => {
 
   const capacities = useSelector((state) => state.capacityReducer);
   const itemCapacities = useSelector(
-    (state) => state.itemAttributeReducer.capacities
+    (state) => state.itemAttributeReducer.capacities,
   );
 
   const getSelectedCapacity = (data) => {
@@ -45,13 +45,13 @@ const ItemCapacity = () => {
       capacity_unit_id: selectedUnit.id,
     };
     if (selectedUnitTilte && capacityValue) {
-      console.log("add =>", obj, currentItem);
+      console.log('add =>', obj, currentItem);
       dispatch(uploadItemCapacity(obj, currentItem.item.item_id));
     }
   };
 
   const deleteCapacityMessage = useSelector(
-    (state) => state.createItemAttributes.messageCapacity
+    (state) => state.createItemAttributes.messageCapacity,
   );
 
   if (currentItem.capacities) {
@@ -70,7 +70,7 @@ const ItemCapacity = () => {
 
   return (
     <div className="create-item-capacity-container">
-       <h2 className="create-item-colors-picker-title">Capacity</h2>
+      <h2 className="create-item-colors-picker-title">Capacity</h2>
       <div className="create-item-capacity-container-sub">
         <div className="create-item-capacity-form-wrapper">
           <div className="create-item-capacity-form-wrapp">
@@ -78,11 +78,11 @@ const ItemCapacity = () => {
             <Countries
               getSelectedCountry={getSelectedCapacity}
               data={capacities}
-              inputClass={"create-item-input-capacity"}
-              inputWrapperClassName={"create-item-input-capacity-wrapp"}
-              inputLabel={"Capacity Unit"}
-              placeholder={"select capacity unit"}
-              listClass={"capacities-unit-list"}
+              inputClass="create-item-input-capacity"
+              inputWrapperClassName="create-item-input-capacity-wrapp"
+              inputLabel="Capacity Unit"
+              placeholder="select capacity unit"
+              listClass="capacities-unit-list"
             />
           </div>
           <form className="form-input-capacity-container">
@@ -143,9 +143,9 @@ const ItemCapacity = () => {
               <div className="create-item-color">{capacity.value}</div>
               <p>
                 {capacity.code}
-                {"("}
+                (
                 {capacity.name}
-                {")"}
+                )
               </p>
               <button
                 type="button"

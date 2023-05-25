@@ -1,9 +1,9 @@
-import React, { useEffect, useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
-import { AiOutlineDown, AiOutlineRight } from "react-icons/ai";
-import { getCurrencies } from "../../redux/currencies/currenciesReducer";
-import { setCurrency } from "../../redux/currencies/selectedCurrency";
-import "./Currency.css";
+import React, { useEffect, useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { AiOutlineDown, AiOutlineRight } from 'react-icons/ai';
+import { getCurrencies } from '../../redux/currencies/currenciesReducer';
+import { setCurrency } from '../../redux/currencies/selectedCurrency';
+import './Currency.css';
 
 const Currency = () => {
   const dispatch = useDispatch();
@@ -28,10 +28,12 @@ const Currency = () => {
       <div className="selected-currency">
         {currencies.length > 0 ? (
           <>
-            <span>{selectedCurrency.name}</span> {selectedCurrency.symbole}
+            <span>{selectedCurrency.name}</span>
+            {' '}
+            {selectedCurrency.symbole}
             <AiOutlineDown
               className={
-                showCurrencyList ? "currency-arrow-turned" : "currency-arrow"
+                showCurrencyList ? 'currency-arrow-turned' : 'currency-arrow'
               }
               color="#707070"
             />
@@ -48,13 +50,19 @@ const Currency = () => {
               <div
                 className={
                   name === selectedCurrency.name
-                    ? "currency-wrapp selected-currency-in-list"
-                    : "currency-wrapp"
+                    ? 'currency-wrapp selected-currency-in-list'
+                    : 'currency-wrapp'
                 }
                 onClick={() => selectCurrency(currency)}
               >
-                <span className="currency-symbol">{symbole} </span>
-                <span>{name} </span>
+                <span className="currency-symbol">
+                  {symbole}
+                  {' '}
+                </span>
+                <span>
+                  {name}
+                  {' '}
+                </span>
               </div>
             );
           })}

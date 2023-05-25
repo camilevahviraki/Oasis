@@ -1,5 +1,5 @@
-import React from "react";
-import { useSelector } from "react-redux";
+import React from 'react';
+import { useSelector } from 'react-redux';
 
 const CalculatePrice = (props) => {
   const { price, symboleClass } = props;
@@ -7,8 +7,9 @@ const CalculatePrice = (props) => {
   const { exchange, symbole } = selectedCurrency;
   return (
     <>
-      <span className={symboleClass ? symboleClass : "price-symbol"}>
-        {symbole}{" "}
+      <span className={symboleClass || 'price-symbol'}>
+        {symbole}
+        {' '}
       </span>
       <span>{((price * exchange) / 1000).toFixed(2)}</span>
     </>

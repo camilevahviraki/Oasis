@@ -1,6 +1,6 @@
-import React, {useState} from 'react';
-import {useStripe, useElements} from '@stripe/react-stripe-js';
-import StatusMessages, {useMessages} from './StatusMessages';
+import React, { useState } from 'react';
+import { useStripe, useElements } from '@stripe/react-stripe-js';
+import StatusMessages, { useMessages } from './StatusMessages';
 
 const OxxoForm = () => {
   const stripe = useStripe();
@@ -21,7 +21,7 @@ const OxxoForm = () => {
       return;
     }
 
-    const {error: backendError, clientSecret} = await fetch(
+    const { error: backendError, clientSecret } = await fetch(
       '/create-payment-intent',
       {
         method: 'POST',
@@ -32,7 +32,7 @@ const OxxoForm = () => {
           paymentMethodType: 'oxxo',
           currency: 'mxn',
         }),
-      }
+      },
     ).then((r) => r.json());
 
     if (backendError) {
@@ -42,7 +42,7 @@ const OxxoForm = () => {
 
     addMessage('Client secret returned');
 
-    const {error: stripeError, paymentIntent} = await stripe.confirmOxxoPayment(
+    const { error: stripeError, paymentIntent } = await stripe.confirmOxxoPayment(
       clientSecret,
       {
         payment_method: {
@@ -51,7 +51,7 @@ const OxxoForm = () => {
             email,
           },
         },
-      }
+      },
     );
 
     if (stripeError) {
@@ -72,8 +72,8 @@ const OxxoForm = () => {
     // intent will succeed after 3 seconds. We set this timeout
     // to refetch the payment intent.
     const i = setInterval(async () => {
-      const {error: e, paymentIntent} = await stripe.retrievePaymentIntent(
-        clientSecret
+      const { error: e, paymentIntent } = await stripe.retrievePaymentIntent(
+        clientSecret,
       );
       addMessage(`Payment ${paymentIntent.status}: ${paymentIntent.id}`);
       if (paymentIntent.status === 'succeeded') {

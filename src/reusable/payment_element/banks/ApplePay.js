@@ -1,6 +1,6 @@
-import React, {useEffect, useState} from 'react';
-import {PaymentRequestButtonElement, useStripe, useElements} from '@stripe/react-stripe-js';
-import StatusMessages, {useMessages} from './StatusMessages';
+import React, { useEffect, useState } from 'react';
+import { PaymentRequestButtonElement, useStripe, useElements } from '@stripe/react-stripe-js';
+import StatusMessages, { useMessages } from './StatusMessages';
 
 const ApplePay = () => {
   const stripe = useStripe();
@@ -25,14 +25,14 @@ const ApplePay = () => {
     });
 
     // Check the availability of the Payment Request API.
-    pr.canMakePayment().then(result => {
+    pr.canMakePayment().then((result) => {
       if (result) {
         setPaymentRequest(pr);
       }
     });
 
     pr.on('paymentmethod', async (e) => {
-      const {error: backendError, clientSecret} = await fetch(
+      const { error: backendError, clientSecret } = await fetch(
         '/create-payment-intent',
         {
           method: 'POST',
@@ -43,7 +43,7 @@ const ApplePay = () => {
             paymentMethodType: 'card',
             currency: 'usd',
           }),
-        }
+        },
       ).then((r) => r.json());
 
       if (backendError) {
@@ -79,9 +79,9 @@ const ApplePay = () => {
     <>
       <h1>Apple Pay</h1>
 
-      <a href="https://stripe.com/docs/stripe-js/elements/payment-request-button" target="_blank">Stripe Documentation</a>
+      <a href="https://stripe.com/docs/stripe-js/elements/payment-request-button" target="_blank" rel="noreferrer">Stripe Documentation</a>
 
-      {paymentRequest && <PaymentRequestButtonElement options={{paymentRequest}} />}
+      {paymentRequest && <PaymentRequestButtonElement options={{ paymentRequest }} />}
 
       <StatusMessages messages={messages} />
     </>

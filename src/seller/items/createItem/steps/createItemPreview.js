@@ -1,6 +1,6 @@
-import React from "react";
-import { useSelector } from "react-redux";
-import Preview from "./create_preview/preview";
+import React from 'react';
+import { useSelector } from 'react-redux';
+import Preview from './create_preview/preview';
 import './create_preview/createItemPreview.css';
 
 const CreateItemPreview = () => {

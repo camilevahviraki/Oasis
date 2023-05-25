@@ -1,26 +1,26 @@
-import axios from "axios";
-import linkURL from "../link";
+import axios from 'axios';
+import linkURL from '../link';
 
-const GET_HOME_ITEMS_LIST = "redux/store/home_page/GET_HOME_ITEMS_LIST";
-const SEARCH_ITEM = "redux/store/home_page/SEARCH_ITEM";
+const GET_HOME_ITEMS_LIST = 'redux/store/home_page/GET_HOME_ITEMS_LIST';
+const SEARCH_ITEM = 'redux/store/home_page/SEARCH_ITEM';
 
 const homeReducer = (
   state = {
     data: [],
   },
-  action
+  action,
 ) => {
   switch (action.type) {
     case GET_HOME_ITEMS_LIST: {
       return {
         data: action.data,
-      }
+      };
     }
     case SEARCH_ITEM: {
       return {
         data: action.data,
         searchedData: true,
-      }
+      };
     }
     default:
       return state;

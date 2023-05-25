@@ -1,5 +1,5 @@
-import React from "react";
-import Countries from "../../components/countries/countries";
+import React from 'react';
+import Countries from '../../components/countries/countries';
 
 const FormR = (props) => {
   const {
@@ -30,7 +30,7 @@ const FormR = (props) => {
 
         return (
           <>
-            {type === "select-country" ? (
+            {type === 'select-country' ? (
               <>
                 <Countries
                   data={inputObj.data}
@@ -45,14 +45,14 @@ const FormR = (props) => {
               </>
             ) : (
               <>
-                {type === "textarea" ? (
-                  <div className={inputWrapperClassName || "formR-input-wrap"}>
+                {type === 'textarea' ? (
+                  <div className={inputWrapperClassName || 'formR-input-wrap'}>
                     {label ? <label htmlFor={name}>{label}</label> : <></>}
                     {value ? (
                       <textarea
                         id={name}
                         name={name}
-                        className={classInput || "textarea"}
+                        className={classInput || 'textarea'}
                         placeholder={placeholder}
                         onChange={onChangeFunc || null}
                         value={value}
@@ -61,7 +61,7 @@ const FormR = (props) => {
                       <textarea
                         id={name}
                         name={name}
-                        className={classInput || "textarea"}
+                        className={classInput || 'textarea'}
                         placeholder={placeholder}
                         onChange={onChangeFunc || null}
                       />
@@ -71,14 +71,14 @@ const FormR = (props) => {
                     ) : null}
                   </div>
                 ) : (
-                  <div className={inputWrapperClassName || "formR-input-wrap"}>
+                  <div className={inputWrapperClassName || 'formR-input-wrap'}>
                     {label ? <label htmlFor={name}>{label}</label> : <></>}
                     {value ? (
                       <input
                         type={type}
                         name={name}
                         id={name}
-                        className={classInput || "input"}
+                        className={classInput || 'input'}
                         placeholder={placeholder}
                         value={value}
                         onChange={onChangeFunc || null}
@@ -90,7 +90,7 @@ const FormR = (props) => {
                             type={type}
                             name={name}
                             id={name}
-                            className={classInput || "input"}
+                            className={classInput || 'input'}
                             placeholder={placeholder}
                             onChange={onChangeFunc || null}
                             step={step}
@@ -100,7 +100,7 @@ const FormR = (props) => {
                             type={type}
                             name={name}
                             id={name}
-                            className={classInput || "input"}
+                            className={classInput || 'input'}
                             placeholder={placeholder}
                             onChange={onChangeFunc || null}
                           />

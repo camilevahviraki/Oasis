@@ -32,7 +32,6 @@ const CreateStorePreview = (props) => {
 
   console.log(storeData);
 
-
   if (props.progress === 5) {
     return (
       <div

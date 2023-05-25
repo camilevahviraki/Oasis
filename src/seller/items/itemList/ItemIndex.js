@@ -1,20 +1,20 @@
-import React, { useState, useEffect } from "react";
-import { Link } from "react-router-dom";
-import { useDispatch, useSelector } from "react-redux";
-import { BsCartPlus, BsCartCheck } from "react-icons/bs";
-import { FiLoader } from "react-icons/fi";
+import React, { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom';
+import { useDispatch, useSelector } from 'react-redux';
+import { BsCartPlus, BsCartCheck } from 'react-icons/bs';
+import { FiLoader } from 'react-icons/fi';
 import {
   createNewCartItem,
   deleteCartItemResponse,
-} from "../../../redux/cart/createCartReducer";
-import { addNewItemIdToCartList } from "../../../redux/cart/addedToCartIdList";
-import { getCartItems } from "../../../redux/cart/getCartsItemReducer";
-import { setItemLink } from "../../../redux/itemLink/itemLinkreducer";
-import linkName from "../../../reusable/remove-blanck-space/linkName";
-import LimitText from "../../../reusable/limit-text-length/limitText";
-import ImageSilder from "../../../reusable/images_slider/ImageSilder";
-import CalculatePrice from "../../../reusable/calculatePrice/calculatePrice";
-import "./ItemIndex.css";
+} from '../../../redux/cart/createCartReducer';
+import { addNewItemIdToCartList } from '../../../redux/cart/addedToCartIdList';
+import { getCartItems } from '../../../redux/cart/getCartsItemReducer';
+import { setItemLink } from '../../../redux/itemLink/itemLinkreducer';
+import linkName from '../../../reusable/remove-blanck-space/linkName';
+import LimitText from '../../../reusable/limit-text-length/limitText';
+import ImageSilder from '../../../reusable/images_slider/ImageSilder';
+import CalculatePrice from '../../../reusable/calculatePrice/calculatePrice';
+import './ItemIndex.css';
 
 const ItemsList = (props) => {
   const dispatch = useDispatch();
@@ -25,11 +25,11 @@ const ItemsList = (props) => {
   const [buttonLoader, setButtonLoader] = useState(null);
   const [addedToCart, setAddedToCart] = useState({});
   const createCartItemResponse = useSelector(
-    (state) => state.createCartReducer.message
+    (state) => state.createCartReducer.message,
   );
 
   const addedToCartIdList = useSelector(
-    (state) => state.addedToCartIdList.data
+    (state) => state.addedToCartIdList.data,
   );
 
   const addToCart = (item) => {
@@ -50,7 +50,7 @@ const ItemsList = (props) => {
   };
 
   useEffect(() => {
-    if (createCartItemResponse === "Item saved in cart successfully!") {
+    if (createCartItemResponse === 'Item saved in cart successfully!') {
       setAddedToCart(buttonLoader);
       dispatch(deleteCartItemResponse());
       dispatch(getCartItems(userData.user.id));
@@ -83,8 +83,8 @@ const ItemsList = (props) => {
                   to={
                     storeData
                       ? `../store/${linkName(storeData.name)}/item/${linkName(
-                          item.main_name
-                        )}/id/${token_id}`
+                        item.main_name,
+                      )}/id/${token_id}`
                       : `../item/${linkName(item.main_name)}/id/${token_id}`
                   }
                 >
@@ -97,14 +97,14 @@ const ItemsList = (props) => {
                 </p>
                 <div className="store-item-text">
                   <LimitText
-                    text={`${main_name.toUpperCase()}${" "}${description}`}
+                    text={`${main_name.toUpperCase()}${' '}${description}`}
                     limit={30}
                     className="store-item-description-text"
                   />
                 </div>
               </div>
-              {(showCartIcon === id && quantity > 0) ||
-              addedToCartIdList.includes(id) ? (
+              {(showCartIcon === id && quantity > 0)
+              || addedToCartIdList.includes(id) ? (
                 <div
                   className="item-cart-button-wrapp"
                   onClick={() => addToCart(item)}
@@ -114,16 +114,16 @@ const ItemsList = (props) => {
                   ) : (
                     <>
                       {addedToCart === id || addedToCartIdList.includes(id) ? (
-                        <BsCartCheck color={"green"} />
+                        <BsCartCheck color="green" />
                       ) : (
                         <BsCartPlus />
                       )}
                     </>
                   )}
                 </div>
-              ) : (
-                <></>
-              )}
+                ) : (
+                  <></>
+                )}
             </div>
           </div>
         );

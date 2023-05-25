@@ -1,6 +1,6 @@
-import React, {useEffect, useState} from 'react';
-import {PaymentRequestButtonElement, useStripe, useElements} from '@stripe/react-stripe-js';
-import StatusMessages, {useMessages} from './StatusMessages';
+import React, { useEffect, useState } from 'react';
+import { PaymentRequestButtonElement, useStripe, useElements } from '@stripe/react-stripe-js';
+import StatusMessages, { useMessages } from './StatusMessages';
 
 const GooglePay = () => {
   const stripe = useStripe();
@@ -25,14 +25,14 @@ const GooglePay = () => {
     });
 
     // Check the availability of the Payment Request API.
-    pr.canMakePayment().then(result => {
+    pr.canMakePayment().then((result) => {
       if (result) {
         setPaymentRequest(pr);
       }
     });
 
     pr.on('paymentmethod', async (e) => {
-      const {error: backendError, clientSecret} = await fetch(
+      const { error: backendError, clientSecret } = await fetch(
         '/create-payment-intent',
         {
           method: 'POST',
@@ -43,7 +43,7 @@ const GooglePay = () => {
             paymentMethodType: 'card',
             currency: 'usd',
           }),
-        }
+        },
       ).then((r) => r.json());
 
       if (backendError) {
@@ -79,7 +79,7 @@ const GooglePay = () => {
     <>
       <h1>Google Pay</h1>
 
-      {paymentRequest && <PaymentRequestButtonElement options={{paymentRequest}} />}
+      {paymentRequest && <PaymentRequestButtonElement options={{ paymentRequest }} />}
 
       <StatusMessages messages={messages} />
     </>

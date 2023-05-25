@@ -1,38 +1,41 @@
-import React, { useState } from "react";
+import React, { useState } from 'react';
 
 const Attribute = (props) => {
-  const { attribute, title, selectAttribute, current } = props;
+  const {
+    attribute, title, selectAttribute, current,
+  } = props;
   const [selectedAttr, setSelectedAttr] = useState(null);
 
   const setAttribute = () => {
     selectAttribute({ attribute, title });
   };
-  
 
   const assignChildAttribute = () => {
-    if (title === "Capacity") {
+    if (title === 'Capacity') {
       return (
         <span>
           {attribute.value}
           {attribute.code}
         </span>
       );
-    } else if (title === "Size") {
+    } if (title === 'Size') {
       return (
         <span>
           {attribute.value}
           {attribute.code}
         </span>
       );
-    } else if (title === "Material") {
+    } if (title === 'Material') {
       return <span>{attribute.name}</span>;
-    } else if (title === "Color") {
+    } if (title === 'Color') {
       return (
         <>
           <div
             className="attribute-color-background"
-            style={{backgroundColor: attribute.hex_code}}
-          >{attribute.name}</div>
+            style={{ backgroundColor: attribute.hex_code }}
+          >
+            {attribute.name}
+          </div>
         </>
       );
     }
@@ -42,8 +45,8 @@ const Attribute = (props) => {
     <div
       className={
         current
-          ? "item-attribute-wrapp current-attribute"
-          : "item-attribute-wrapp"
+          ? 'item-attribute-wrapp current-attribute'
+          : 'item-attribute-wrapp'
       }
       onClick={setAttribute}
     >

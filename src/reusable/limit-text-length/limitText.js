@@ -1,13 +1,15 @@
-import React, { useState } from "react";
+import React, { useState } from 'react';
 
 const LimitText = (props) => {
-  const { limit, text, className, more } = props;
+  const {
+    limit, text, className, more,
+  } = props;
 
   const [showAll, setShowAll] = useState(false);
   let textArr = [];
 
   if (text) {
-    textArr = text.split("");
+    textArr = text.split('');
   }
   let newTextArr = [];
 
@@ -19,11 +21,11 @@ const LimitText = (props) => {
 
   return (
     <>
-      <p className={className || "p"}>
+      <p className={className || 'p'}>
         {!showAll ? (
           <>
-            {newTextArr.join("")}
-            {newTextArr.length === textArr.length ? null : "..."}
+            {newTextArr.join('')}
+            {newTextArr.length === textArr.length ? null : '...'}
           </>
         ) : (
           <>{text}</>
@@ -34,7 +36,7 @@ const LimitText = (props) => {
           className="limit-text-show-less"
           onClick={() => setShowAll(!showAll)}
         >
-          {!showAll ? "more" : "show less"}
+          {!showAll ? 'more' : 'show less'}
         </span>
       ) : (
         <></>

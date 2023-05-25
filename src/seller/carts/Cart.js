@@ -1,13 +1,13 @@
-import React, { useState, useEffect } from "react";
-import { useSelector, useDispatch } from "react-redux";
-import { FiLoader} from 'react-icons/fi';
-import { getCartItems } from "../../redux/cart/getCartsItemReducer";
-import { deleteCartItem } from "../../redux/cart/createCartReducer";
-import { deleteItemIdToCartList } from "../../redux/cart/addedToCartIdList";
-import CalculatePrice from "../../reusable/calculatePrice/calculatePrice";
-import CartItem from "./cartItem/cartItem";
-import { createNewOrderItem } from "../../redux/orders/createOrderReducer";
-import "./cart.css";
+import React, { useState, useEffect } from 'react';
+import { useSelector, useDispatch } from 'react-redux';
+import { FiLoader } from 'react-icons/fi';
+import { getCartItems } from '../../redux/cart/getCartsItemReducer';
+import { deleteCartItem } from '../../redux/cart/createCartReducer';
+import { deleteItemIdToCartList } from '../../redux/cart/addedToCartIdList';
+import CalculatePrice from '../../reusable/calculatePrice/calculatePrice';
+import CartItem from './cartItem/cartItem';
+import { createNewOrderItem } from '../../redux/orders/createOrderReducer';
+import './cart.css';
 
 const Cart = () => {
   const dispatch = useDispatch();
@@ -15,7 +15,7 @@ const Cart = () => {
   const createOrderData = useSelector((state) => state.createOrderReducer);
   const [showOptions, setShowOptions] = useState(null);
   const [loader, setLoader] = useState(false);
-  const [message, setMessage] = useState(null)
+  const [message, setMessage] = useState(null);
   const [taxes, setTaxes] = useState(5.2);
   const [specialOffer, setSpecialOffer] = useState(2);
   const [deliverPrice, setDeliverPrice] = useState(0);
@@ -35,24 +35,24 @@ const Cart = () => {
       createNewOrderItem({
         user_id: userData.user.id,
         order_items: cartItems,
-      })
+      }),
     );
   };
 
   useEffect(() => {
-    if (createOrderData.message === 'Order purachased successfully!'){
+    if (createOrderData.message === 'Order purachased successfully!') {
       cartItems.forEach((item) => {
         dispatch(deleteCartItem(item.id));
         dispatch(deleteItemIdToCartList(item.cart_item.id));
       });
       dispatch(getCartItems(userData.user.id));
       setLoader(false);
-      window.location.href = `../order/${createOrderData.order_id}`
-      console.log('createOrderData =>',createOrderData);
-    }else if(createOrderData.message === 'Error while creating order!'){
+      window.location.href = `../order/${createOrderData.order_id}`;
+      console.log('createOrderData =>', createOrderData);
+    } else if (createOrderData.message === 'Error while creating order!') {
       setMessage('Error while purchasing Items');
       setLoader(false);
-      console.log('createOrderData =>',createOrderData);
+      console.log('createOrderData =>', createOrderData);
     }
   }, [createOrderData]);
 
@@ -77,31 +77,38 @@ const Cart = () => {
       <div className="cart-srtipe-container">
         <h4 className="cart-charge-details">Charge Details</h4>
         <h5 className="cart-offer-title">
-          Products total price:{" "}
+          Products total price:
+          {' '}
           <p>
             <CalculatePrice price={totalPrice} />
           </p>
         </h5>
         <h5 className="cart-offer-title">
-          Special Offer:{" "}
+          Special Offer:
+          {' '}
           <p>
             <CalculatePrice price={specialOffer} />
           </p>
         </h5>
         <h5 className="cart-offer-title">
-          Deliver Time : 2-3 days{" "}
+          Deliver Time : 2-3 days
+          {' '}
           <p>
             <CalculatePrice price={deliverPrice} />
           </p>
         </h5>
         <h5 className="cart-offer-title">
-          Taxes ({taxes}%):{" "}
+          Taxes (
+          {taxes}
+          %):
+          {' '}
           <p>
             <CalculatePrice price={(totalPrice * taxes) / 100} />
           </p>
         </h5>
         <h5 className="cart-charge-details">
-          Calculated Price{" "}
+          Calculated Price
+          {' '}
           <p>
             {cartItems.length === 0 ? (
               <CalculatePrice
@@ -110,10 +117,10 @@ const Cart = () => {
             ) : (
               <CalculatePrice
                 price={
-                  totalPrice -
-                  specialOffer +
-                  deliverPrice +
-                  (totalPrice * taxes) / 100
+                  totalPrice
+                  - specialOffer
+                  + deliverPrice
+                  + (totalPrice * taxes) / 100
                 }
               />
             )}
@@ -126,13 +133,13 @@ const Cart = () => {
           type="button"
           className={
             cartItems.length === 0
-              ? "cart-checkout-button disabled-button"
-              : "cart-checkout-button"
+              ? 'cart-checkout-button disabled-button'
+              : 'cart-checkout-button'
           }
           onClick={() => checkoutCart()}
           disabled={cartItems.length === 0}
         >
-          {loader ? <FiLoader className='button-loader' color="white"/>:' Checkout'}
+          {loader ? <FiLoader className="button-loader" color="white" /> : ' Checkout'}
         </button>
         <p>{message}</p>
       </div>

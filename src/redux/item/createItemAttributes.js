@@ -13,137 +13,143 @@ const ATTACH_IMAGE_TO_MATERIAL = 'redux/store/getStoresReducer/ATTACH_IMAGE_TO_M
 const ATTACH_IMAGE_TO_CAPACITY = 'redux/store/getStoresReducer/ATTACH_IMAGE_TO_CAPACITY';
 
 const createItemAttributes = (state = {
-    message: null,
-    messageCapacity: null,
-    messageSize: null,
-    messageMaterial: null,
-  }, action) => {
-    switch (action.type) {
-      case DELETE_ITEM_COLOR: {
-        return action.data;
-      }case DELETE_ITEM_CAPACITY: {
-        const message = state.message;
-        const messageCapacity = action.data.message;
-        return { message, messageCapacity };
-      }case DELETE_ITEM_SIZE: {
-        const message = state.message;
-        const messageSize = action.data.message;
-        const messageCapacity = state.messageCapacity;
-        return { message, messageCapacity, messageSize };
-      }case DELETE_ITEM_MATERIAL: {
-        const message = state.message;
-        const messageSize = state.message;
-        const messageCapacity = state.messageCapacity;
-        const messageMaterial = action.data.message;
-        return { message, messageCapacity, messageSize, messageMaterial };
-      }case DELETE_MESSAGE: {
-        return {message: null, messageCapacity: null, messageSize: null, messageMaterial: null}
-      }case ATTACH_IMAGE_TO_COLOR: {
-        return action.data;
-      }case ATTACH_IMAGE_TO_CAPACITY: {
-        const message = state.message;
-        const messageCapacity = action.data.message;
-        const messageSize = state.messageSize;
-        return { message, messageCapacity, messageSize };
-      }case ATTACH_IMAGE_TO_SIZE: {
-        const message = state.message;
-        const messageCapacity = state.messageCapacity;
-        const messageSize = action.data.message;
-        return { message, messageSize, messageCapacity };
-      }case ATTACH_IMAGE_TO_MATERIAL: {
-        const message = state.message;
-        const messageSize = state.message;
-        const messageCapacity = state.messageCapacity;
-        const messageMaterial = action.data.message;
-        return { message, messageCapacity, messageSize, messageMaterial };
-      }default:
-        return state;
-    }
-  };
+  message: null,
+  messageCapacity: null,
+  messageSize: null,
+  messageMaterial: null,
+}, action) => {
+  switch (action.type) {
+    case DELETE_ITEM_COLOR: {
+      return action.data;
+    } case DELETE_ITEM_CAPACITY: {
+      const { message } = state;
+      const messageCapacity = action.data.message;
+      return { message, messageCapacity };
+    } case DELETE_ITEM_SIZE: {
+      const { message } = state;
+      const messageSize = action.data.message;
+      const { messageCapacity } = state;
+      return { message, messageCapacity, messageSize };
+    } case DELETE_ITEM_MATERIAL: {
+      const { message } = state;
+      const messageSize = state.message;
+      const { messageCapacity } = state;
+      const messageMaterial = action.data.message;
+      return {
+        message, messageCapacity, messageSize, messageMaterial,
+      };
+    } case DELETE_MESSAGE: {
+      return {
+        message: null, messageCapacity: null, messageSize: null, messageMaterial: null,
+      };
+    } case ATTACH_IMAGE_TO_COLOR: {
+      return action.data;
+    } case ATTACH_IMAGE_TO_CAPACITY: {
+      const { message } = state;
+      const messageCapacity = action.data.message;
+      const { messageSize } = state;
+      return { message, messageCapacity, messageSize };
+    } case ATTACH_IMAGE_TO_SIZE: {
+      const { message } = state;
+      const { messageCapacity } = state;
+      const messageSize = action.data.message;
+      return { message, messageSize, messageCapacity };
+    } case ATTACH_IMAGE_TO_MATERIAL: {
+      const { message } = state;
+      const messageSize = state.message;
+      const { messageCapacity } = state;
+      const messageMaterial = action.data.message;
+      return {
+        message, messageCapacity, messageSize, messageMaterial,
+      };
+    } default:
+      return state;
+  }
+};
 
-  export const deleteMessage = () => ({
-    type: DELETE_MESSAGE,
-  })
+export const deleteMessage = () => ({
+  type: DELETE_MESSAGE,
+});
 
-  export const deleteItemColors = (id, token) => (dispatch) => {
-    axios.delete(`${linkURL}/item/:item_id/colors/${id}`)
+export const deleteItemColors = (id, token) => (dispatch) => {
+  axios.delete(`${linkURL}/item/:item_id/colors/${id}`)
     .then((response) => {
-        dispatch(
-          {
-            type: DELETE_ITEM_COLOR,
-            data: response.data,
-          },
-        );
-      });
-  };
+      dispatch(
+        {
+          type: DELETE_ITEM_COLOR,
+          data: response.data,
+        },
+      );
+    });
+};
 
-  export const deleteItemSizes = (id, token) => (dispatch) => {
-    axios.delete(`${linkURL}/item/:item_id/sizes/${id}`)
+export const deleteItemSizes = (id, token) => (dispatch) => {
+  axios.delete(`${linkURL}/item/:item_id/sizes/${id}`)
     .then((response) => {
-        console.log('zaaaazaaaaa =>', response);
-        dispatch(
-          {
-            type: DELETE_ITEM_SIZE,
-            data: response.data,
-          },
-        );
-      });
-  };
+      console.log('zaaaazaaaaa =>', response);
+      dispatch(
+        {
+          type: DELETE_ITEM_SIZE,
+          data: response.data,
+        },
+      );
+    });
+};
 
-  export const deleteItemCapacities = (id, token) => (dispatch) => {
-    axios.delete(`${linkURL}/item/${id}/capacity/${id}`)
+export const deleteItemCapacities = (id, token) => (dispatch) => {
+  axios.delete(`${linkURL}/item/${id}/capacity/${id}`)
     .then((response) => {
-        dispatch(
-          {
-            type: DELETE_ITEM_CAPACITY,
-            data: response.data,
-          }
-        );
-      });
-  };
+      dispatch(
+        {
+          type: DELETE_ITEM_CAPACITY,
+          data: response.data,
+        },
+      );
+    });
+};
 
-  export const deleteItemMaterials = (id, token) => (dispatch) => {
-    axios.delete(`${linkURL}/item/:item_id/materials/${id}`)
+export const deleteItemMaterials = (id, token) => (dispatch) => {
+  axios.delete(`${linkURL}/item/:item_id/materials/${id}`)
     .then((response) => {
-        dispatch(
-          {
-            type: DELETE_ITEM_MATERIAL,
-            data: response.data,
-          },
-        );
-      });
-  };
+      dispatch(
+        {
+          type: DELETE_ITEM_MATERIAL,
+          data: response.data,
+        },
+      );
+    });
+};
 
-  export const attachImageToItemColors = (id, image, token) => (dispatch) => {
-     Upload( {
-      endPoint: `item/:item_id/colors/${id}/image`,
-      data: {image},
-      sendData: (data) => dispatch({type: ATTACH_IMAGE_TO_COLOR, data})
-    }) 
-  };
+export const attachImageToItemColors = (id, image, token) => (dispatch) => {
+  Upload({
+    endPoint: `item/:item_id/colors/${id}/image`,
+    data: { image },
+    sendData: (data) => dispatch({ type: ATTACH_IMAGE_TO_COLOR, data }),
+  });
+};
 
-  export const attachImageToItemSizes = (id, image, token) => (dispatch) => {
-      Upload( {
-        endPoint: `item/:item_id/sizes/${id}/image`,
-        data: {image},
-        sendData: (data) => dispatch({type: ATTACH_IMAGE_TO_SIZE, data})
-      })
-  };
+export const attachImageToItemSizes = (id, image, token) => (dispatch) => {
+  Upload({
+    endPoint: `item/:item_id/sizes/${id}/image`,
+    data: { image },
+    sendData: (data) => dispatch({ type: ATTACH_IMAGE_TO_SIZE, data }),
+  });
+};
 
-  export const attachImageToItemCapacity = (id, image, token) => (dispatch) => {
-      Upload( {
-        endPoint: `item/:item_id/capacity/${id}/image`,
-        data: {image},
-        sendData: (data) => dispatch({type: ATTACH_IMAGE_TO_CAPACITY, data})
-      });
-  };
+export const attachImageToItemCapacity = (id, image, token) => (dispatch) => {
+  Upload({
+    endPoint: `item/:item_id/capacity/${id}/image`,
+    data: { image },
+    sendData: (data) => dispatch({ type: ATTACH_IMAGE_TO_CAPACITY, data }),
+  });
+};
 
-  export const attachImageToItemMaterials = (id, image, token) => (dispatch) => {    
-      Upload( {
-        endPoint: `item/:item_id/materials/${id}/image`,
-        data: {image},
-        sendData: (data) => dispatch({type: ATTACH_IMAGE_TO_MATERIAL, data})
-      });
-  };
+export const attachImageToItemMaterials = (id, image, token) => (dispatch) => {
+  Upload({
+    endPoint: `item/:item_id/materials/${id}/image`,
+    data: { image },
+    sendData: (data) => dispatch({ type: ATTACH_IMAGE_TO_MATERIAL, data }),
+  });
+};
 
 export default createItemAttributes;

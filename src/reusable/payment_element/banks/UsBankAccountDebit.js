@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, { useState } from 'react';
 import { useStripe } from '@stripe/react-stripe-js';
 import StatusMessages from './StatusMessages';
 
@@ -7,7 +7,7 @@ const UsBankAccountDebitForm = () => {
   const [name, setName] = useState('Jenny Rosen');
   const [email, setEmail] = useState('jenny+skip_waiting@example.com');
   const [confirming, setConfirming] = useState(false);
-  const [paymentIntentClientSecret, setPaymentIntentClientSecret] = useState()
+  const [paymentIntentClientSecret, setPaymentIntentClientSecret] = useState();
 
   // helper for displaying status messages.
   const [messages, setMessages] = useState([]);
@@ -27,7 +27,7 @@ const UsBankAccountDebitForm = () => {
       return;
     }
 
-    const {error: backendError, clientSecret} = await fetch(
+    const { error: backendError, clientSecret } = await fetch(
       '/create-payment-intent',
       {
         method: 'POST',
@@ -38,7 +38,7 @@ const UsBankAccountDebitForm = () => {
           paymentMethodType: 'us_bank_account',
           currency: 'usd',
         }),
-      }
+      },
     ).then((r) => r.json());
 
     if (backendError) {
@@ -49,7 +49,7 @@ const UsBankAccountDebitForm = () => {
     setPaymentIntentClientSecret(clientSecret);
     addMessage('Client secret returned');
 
-    let {error: stripeError, paymentIntent} = await stripe.collectBankAccountForPayment({
+    const { error: stripeError, paymentIntent } = await stripe.collectBankAccountForPayment({
       clientSecret,
       params: {
         payment_method_type: 'us_bank_account',
@@ -61,7 +61,6 @@ const UsBankAccountDebitForm = () => {
         },
       },
     });
-
 
     if (stripeError) {
       // Show error to your customer (e.g., insufficient funds)
@@ -108,10 +107,10 @@ const UsBankAccountDebitForm = () => {
 
         <button type="submit">Pay</button>
 
-        <div id="error-message" role="alert"></div>
+        <div id="error-message" role="alert" />
       </form>
 
-      {confirming && <UsBankAccountDebitConfirmationForm clientSecret={paymentIntentClientSecret} addMessage={addMessage}/>}
+      {confirming && <UsBankAccountDebitConfirmationForm clientSecret={paymentIntentClientSecret} addMessage={addMessage} />}
 
       <StatusMessages messages={messages} />
     </>
@@ -123,22 +122,22 @@ const UsBankAccountDebitConfirmationForm = ({ clientSecret, addMessage }) => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    const {paymentIntent, error} = await stripe.confirmUsBankAccountPayment(clientSecret)
+    const { paymentIntent, error } = await stripe.confirmUsBankAccountPayment(clientSecret);
     if (error) {
       // The payment failed for some reason.
-      addMessage(`Payment failed for some reason`);
+      addMessage('Payment failed for some reason');
       addMessage(error.message);
-    } else if (paymentIntent.status === "requires_payment_method") {
+    } else if (paymentIntent.status === 'requires_payment_method') {
       // Confirmation failed. Attempt again with a different payment method.
-      addMessage(`Confirmation failed. Attempt again with a different payment method.`);
-    } else if (paymentIntent.status === "processing") {
+      addMessage('Confirmation failed. Attempt again with a different payment method.');
+    } else if (paymentIntent.status === 'processing') {
       // Confirmation succeeded! The account will be debited.
-      addMessage(`Confirmation succeeded! The account will be debited.`)
-    } else if (paymentIntent.next_action?.type === "verify_with_microdeposits") {
+      addMessage('Confirmation succeeded! The account will be debited.');
+    } else if (paymentIntent.next_action?.type === 'verify_with_microdeposits') {
       // The account needs to be verified via microdeposits.
       // Display a message to consumer with next steps (consumer waits for
       // microdeposits, then enters an amount on a page sent to them via email).
-      addMessage(`The account needs to be verified via microdeposits.`);
+      addMessage('The account needs to be verified via microdeposits.');
       addMessage(`<a href="${paymentIntent.next_action?.verify_with_microdeposits?.hosted_verification_url}">verify microdeposits</a>.`);
     }
     addMessage(`Payment ${paymentIntent.status}: ${paymentIntent.id}`);
@@ -147,19 +146,42 @@ const UsBankAccountDebitConfirmationForm = ({ clientSecret, addMessage }) => {
   return (
     <form onSubmit={handleSubmit}>
       <p id="mandate-acceptance">
-        By clicking Accept, you authorize <em>YOUR BUSINESS NAME</em> to debit the bank
+        By clicking Accept, you authorize
+        {' '}
+        <em>YOUR BUSINESS NAME</em>
+        {' '}
+        to debit the bank
         account specified above for any amount owed for charges arising from
-        your use of <em>YOUR BUSINESS NAME</em>’ services and/or purchase of products from
-        <em>YOUR BUSINESS NAME</em>, pursuant to <em>YOUR BUSINESS NAME</em>’ website and terms, until this
+        your use of
+        {' '}
+        <em>YOUR BUSINESS NAME</em>
+        ’ services and/or purchase of products from
+        <em>YOUR BUSINESS NAME</em>
+        , pursuant to
+        <em>YOUR BUSINESS NAME</em>
+        ’ website and terms, until this
         authorization is revoked. You may amend or cancel this authorization at
-        any time by providing notice to <em>YOUR BUSINESS NAME</em> with 30 (thirty) days
+        any time by providing notice to
+        <em>YOUR BUSINESS NAME</em>
+        {' '}
+        with 30 (thirty) days
         notice.
       </p>
 
       <p>
-        If you use <em>YOUR BUSINESS NAME</em>’ services or purchase additional
-        products periodically pursuant to <em>YOUR BUSINESS NAME</em>’ terms, you
-        authorize <em>YOUR BUSINESS NAME</em> to debit your bank account
+        If you use
+        {' '}
+        <em>YOUR BUSINESS NAME</em>
+        ’ services or purchase additional
+        products periodically pursuant to
+        {' '}
+        <em>YOUR BUSINESS NAME</em>
+        ’ terms, you
+        authorize
+        {' '}
+        <em>YOUR BUSINESS NAME</em>
+        {' '}
+        to debit your bank account
         periodically. Payments that fall outside of the regular debits
         authorized above will only be debited after your authorization is
         obtained.
@@ -167,7 +189,7 @@ const UsBankAccountDebitConfirmationForm = ({ clientSecret, addMessage }) => {
 
       <button>Accept</button>
     </form>
-  )
+  );
 };
 
 export default UsBankAccountDebitForm;

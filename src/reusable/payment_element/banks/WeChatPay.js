@@ -1,6 +1,6 @@
 import React from 'react';
-import StatusMessages, {useMessages} from './StatusMessages';
-import {useStripe} from '@stripe/react-stripe-js';
+import { useStripe } from '@stripe/react-stripe-js';
+import StatusMessages, { useMessages } from './StatusMessages';
 
 const WeChatPay = () => {
   const [messages, addMessage] = useMessages();
@@ -9,26 +9,26 @@ const WeChatPay = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    if(!stripe) {
+    if (!stripe) {
       return;
     }
 
     // Create the payment intent on the server
     const {
       error: backendError,
-      clientSecret
+      clientSecret,
     } = await fetch('/create-payment-intent', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
       },
       body: JSON.stringify({
-        paymentMethodType: "wechat_pay",
-        currency: "cny"
+        paymentMethodType: 'wechat_pay',
+        currency: 'cny',
       }),
-    }).then(r => r.json());
+    }).then((r) => r.json());
 
-    if(backendError) {
+    if (backendError) {
       addMessage(backendError.message);
       return;
     }
@@ -36,23 +36,23 @@ const WeChatPay = () => {
     // Confirm the payment on the client
     const {
       error,
-      paymentIntent
+      paymentIntent,
     } = await stripe.confirmWechatPayPayment(
       clientSecret, {
         payment_method_options: {
           wechat_pay: {
-            client: 'web'
+            client: 'web',
           },
         },
-      }
-    )
+      },
+    );
 
-    if(error) {
+    if (error) {
       addMessage(error.message);
       return;
     }
     addMessage(`Payment: ${paymentIntent.id} ${paymentIntent.status}`);
-  }
+  };
 
   return (
     <>
@@ -64,7 +64,7 @@ const WeChatPay = () => {
 
       <StatusMessages messages={messages} />
     </>
-  )
-}
+  );
+};
 
 export default WeChatPay;

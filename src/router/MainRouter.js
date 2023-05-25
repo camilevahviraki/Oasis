@@ -26,8 +26,7 @@ const MainRouter = () => {
               </Routes>
             </>
           )
-          :
-          (
+          : (
             <AuthRoutes />
           )
       }

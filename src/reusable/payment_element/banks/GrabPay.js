@@ -1,7 +1,7 @@
-import React, {useEffect, useState} from 'react';
-import {useLocation} from 'react-router-dom';
-import {useStripe, useElements} from '@stripe/react-stripe-js';
-import StatusMessages, {useMessages} from './StatusMessages';
+import React, { useEffect, useState } from 'react';
+import { useLocation } from 'react-router-dom';
+import { useStripe, useElements } from '@stripe/react-stripe-js';
+import StatusMessages, { useMessages } from './StatusMessages';
 
 const GrabPayForm = () => {
   const stripe = useStripe();
@@ -21,7 +21,7 @@ const GrabPayForm = () => {
       return;
     }
 
-    const {error: backendError, clientSecret} = await fetch(
+    const { error: backendError, clientSecret } = await fetch(
       '/create-payment-intent',
       {
         method: 'POST',
@@ -32,7 +32,7 @@ const GrabPayForm = () => {
           paymentMethodType: 'grabpay',
           currency: 'myr',
         }),
-      }
+      },
     ).then((r) => r.json());
 
     if (backendError) {
@@ -128,9 +128,8 @@ const GrabPay = () => {
   const query = new URLSearchParams(useLocation().search);
   if (query.get('return')) {
     return <GrabPayReturn />;
-  } else {
-    return <GrabPayForm />;
   }
+  return <GrabPayForm />;
 };
 
 export default GrabPay;

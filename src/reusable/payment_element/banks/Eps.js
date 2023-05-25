@@ -1,7 +1,7 @@
-import React, {useEffect, useState} from 'react';
-import {useLocation} from 'react-router-dom';
-import {EpsBankElement, useStripe, useElements} from '@stripe/react-stripe-js';
-import StatusMessages, {useMessages} from './StatusMessages';
+import React, { useEffect, useState } from 'react';
+import { useLocation } from 'react-router-dom';
+import { EpsBankElement, useStripe, useElements } from '@stripe/react-stripe-js';
+import StatusMessages, { useMessages } from './StatusMessages';
 
 const EpsForm = () => {
   const stripe = useStripe();
@@ -21,7 +21,7 @@ const EpsForm = () => {
       return;
     }
 
-    const {error: backendError, clientSecret} = await fetch('/create-payment-intent', {
+    const { error: backendError, clientSecret } = await fetch('/create-payment-intent', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -39,7 +39,7 @@ const EpsForm = () => {
 
     addMessage('Client secret returned');
 
-    const {error: stripeError, paymentIntent} = await stripe.confirmEpsPayment(
+    const { error: stripeError, paymentIntent } = await stripe.confirmEpsPayment(
       clientSecret,
       {
         payment_method: {
@@ -49,7 +49,7 @@ const EpsForm = () => {
           },
         },
         return_url: `${window.location.origin}/eps?return=true`,
-      }
+      },
     );
 
     if (stripeError) {
@@ -125,9 +125,8 @@ const Eps = () => {
   const query = new URLSearchParams(useLocation().search);
   if (query.get('return')) {
     return <EpsReturn />;
-  } else {
-    return <EpsForm />;
   }
+  return <EpsForm />;
 };
 
 export default Eps;

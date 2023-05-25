@@ -1,13 +1,13 @@
-import React, { useRef, useState, useEffect } from "react";
-import { useDispatch, useSelector } from "react-redux";
+import React, { useRef, useState, useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import {
   setCurrentStep,
   setAttributeStep,
-} from "../../../../../redux/item/createItem";
-import ItemCapacity from "../../attributes/capacity/itemCapacity";
-import ItemColor from "../../attributes/color/itemColor";
-import ItemMaterial from "../../attributes/material/itemMaterial";
-import ItemSize from "../../attributes/size/itemSize";
+} from '../../../../../redux/item/createItem';
+import ItemCapacity from '../../attributes/capacity/itemCapacity';
+import ItemColor from '../../attributes/color/itemColor';
+import ItemMaterial from '../../attributes/material/itemMaterial';
+import ItemSize from '../../attributes/size/itemSize';
 
 const Attributes = () => {
   const attributesRef = useRef(null);
@@ -41,7 +41,7 @@ const Attributes = () => {
       attributesRef.current.scrollTo({
         top: 0,
         left: (attributeStep - 1) * containerWidth,
-        behavior: "smooth",
+        behavior: 'smooth',
       });
       setScrollTo(attributeStep);
     }
@@ -54,14 +54,14 @@ const Attributes = () => {
         className="got-to-attribute-button left-button"
         onClick={gotToPreviousAttribute}
       >
-        {"<"}
+        {'<'}
       </button>
       <button
         type="button"
         className="got-to-attribute-button right-button"
         onClick={gotToNextAttribute}
       >
-        {">"}
+        {'>'}
       </button>
       <div className="create-item-attributes" ref={attributesRef}>
         <ItemColor />
@@ -74,8 +74,8 @@ const Attributes = () => {
           <div
             className={
               attributeStep === dot
-                ? "create-item-attribute-dot current-step-dot"
-                : "create-item-attribute-dot"
+                ? 'create-item-attribute-dot current-step-dot'
+                : 'create-item-attribute-dot'
             }
             onClick={() => dispatch(setAttributeStep(dot))}
           >
@@ -87,7 +87,8 @@ const Attributes = () => {
         onClick={() => dispatch(setCurrentStep(3))}
         className="button-test-skip-attributes"
       >
-        {"> "}Preview product 
+        {'> '}
+        Preview product
       </button>
     </div>
   );

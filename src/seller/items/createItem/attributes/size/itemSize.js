@@ -1,23 +1,21 @@
-import React, { useEffect, useState } from "react";
-import { useSelector, useDispatch } from "react-redux";
-import { AiFillPicture } from "react-icons/ai";
-import { getSizes } from "../../../../../redux/attributes/sizeReducer";
-import { getItemSizes } from "../../../../../redux/item_attributes/itemAttributesReducer";
+import React, { useEffect, useState } from 'react';
+import { useSelector, useDispatch } from 'react-redux';
+import { AiFillPicture } from 'react-icons/ai';
+import { getSizes } from '../../../../../redux/attributes/sizeReducer';
+import { getItemSizes } from '../../../../../redux/item_attributes/itemAttributesReducer';
 import {
   deleteItemSizes,
   deleteMessage,
   attachImageToItemSizes,
-} from "../../../../../redux/item/createItemAttributes";
+} from '../../../../../redux/item/createItemAttributes';
 import {
   uploadItemSize,
   setCurrentStep,
-} from "../../../../../redux/item/createItem";
-import Countries from "../../../../../components/countries/countries";
+} from '../../../../../redux/item/createItem';
+import Countries from '../../../../../components/countries/countries';
 import './itemSize.css';
 
 const ItemSize = () => {
-
-
   const currentItem = useSelector((state) => state.createItemReducer);
   const [selectedUnit, setSelectedUnit] = useState(null);
   const [selectedUnitTilte, setSelectedUnitTitle] = useState(null);
@@ -31,7 +29,7 @@ const ItemSize = () => {
 
   const sizesUnit = useSelector((state) => state.sizeReducer);
   const itemSizes = useSelector(
-    (state) => state.itemAttributeReducer.sizes
+    (state) => state.itemAttributeReducer.sizes,
   );
 
   const getSelectedSize = (data) => {
@@ -69,7 +67,7 @@ const ItemSize = () => {
 
   return (
     <div className="create-item-capacity-container">
-        <h2 className="create-item-colors-picker-title">Size</h2>
+      <h2 className="create-item-colors-picker-title">Size</h2>
       <div className="create-item-capacity-container-sub">
         <div className="create-item-capacity-form-wrapper">
           <div className="create-item-capacity-form-wrapp">
@@ -77,11 +75,11 @@ const ItemSize = () => {
             <Countries
               getSelectedCountry={getSelectedSize}
               data={sizesUnit}
-              inputClass={"create-item-input-capacity"}
-              inputWrapperClassName={"create-item-input-capacity-wrapp"}
-              inputLabel={"Size Unit"}
-              placeholder={"select size unit"}
-              listClass={"capacities-unit-list"}
+              inputClass="create-item-input-capacity"
+              inputWrapperClassName="create-item-input-capacity-wrapp"
+              inputLabel="Size Unit"
+              placeholder="select size unit"
+              listClass="capacities-unit-list"
             />
           </div>
           <form className="form-input-capacity-container">
@@ -107,7 +105,7 @@ const ItemSize = () => {
             </div>
           </form>
         </div>
-         
+
         <div className="selected-unit-wrapp">
           <h3>Added Sizes</h3>
           {itemSizes.map((size) => (
@@ -143,9 +141,9 @@ const ItemSize = () => {
               <div className="create-item-color">{size.value}</div>
               <p>
                 {size.code}
-                {"("}
+                (
                 {size.name}
-                {")"}
+                )
               </p>
               <button
                 type="button"
@@ -158,10 +156,9 @@ const ItemSize = () => {
           ))}
         </div>
 
-
-        </div>
+      </div>
     </div>
-  )
-}
+  );
+};
 
-export default ItemSize
+export default ItemSize;

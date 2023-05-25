@@ -1,39 +1,36 @@
-import React, { useEffect, useState } from "react";
-import Attribute from "../__attribute/Attribute";
-import "./itemAttributes.css";
+import React, { useEffect, useState } from 'react';
+import Attribute from '../__attribute/Attribute';
+import './itemAttributes.css';
 
 const ItemAttributes = (props) => {
   const { data, showAttributeImage, handleArrayOfSelected } = props;
   const [arraySelected, setArrayOfSelected] = useState([]);
 
   const selectAttribute = (data) => {
-    console.log('--------------------------------',data)
+    console.log('--------------------------------', data);
     showAttributeImage(data);
     const newArr = arraySelected.filter(
-      (element) => element.title !== data.title
+      (element) => element.title !== data.title,
     );
     const checkSelected = newArr.filter(
-      (element) => element.attribute.name === data.attribute.name
+      (element) => element.attribute.name === data.attribute.name,
     );
     if (checkSelected.length === 0) {
       setArrayOfSelected(newArr);
       setArrayOfSelected([...newArr, data]);
     }
     // handleArrayOfSelected(arraySelected);
-    
   };
 
   useEffect(() => {
     handleArrayOfSelected(arraySelected);
   }, [arraySelected]);
-  
+
   const checkSelected = (data) => {
-    const checkSelected = arraySelected.filter((element) => {
-      return (
-        element.attribute.id === data.attribute.id &&
-        element.title === data.title
-      );
-    });
+    const checkSelected = arraySelected.filter((element) => (
+      element.attribute.id === data.attribute.id
+        && element.title === data.title
+    ));
     if (checkSelected.length > 0) {
       return true;
     }
@@ -43,9 +40,7 @@ const ItemAttributes = (props) => {
   const assignSelectedTitle = (data) => {
     let responseData = { value: null, name: null };
     data.values.forEach((element) => {
-      const checkSelected = arraySelected.filter((item) => {
-        return item.attribute.id === element.id && item.title === data.title;
-      });
+      const checkSelected = arraySelected.filter((item) => item.attribute.id === element.id && item.title === data.title);
       if (checkSelected.length > 0) {
         responseData = checkSelected[0].attribute;
       }
@@ -59,11 +54,14 @@ const ItemAttributes = (props) => {
         data.map((attributeType) => (
           <div className="item-show-details-attributes-type">
             <p className="attribute-title">
-              {attributeType.title}:{" "}
+              {attributeType.title}
+              :
+              {' '}
               <span>
                 {assignSelectedTitle(attributeType).value}
                 {assignSelectedTitle(attributeType).name}
-              </span>{" "}
+              </span>
+              {' '}
             </p>
             <div className="item-show-details-attributes-wrapp">
               {attributeType.values.map((attribute, key) => (

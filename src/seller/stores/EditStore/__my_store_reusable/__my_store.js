@@ -12,7 +12,7 @@ import './__my_store.css';
 
 const MyStore = (props) => {
   const dispatch = useDispatch();
-  const {token_id} = useParams();
+  const { token_id } = useParams();
   const {
     categories,
     images_url,
@@ -51,12 +51,12 @@ const MyStore = (props) => {
               <img src={inputFileIcon} alt="" className="input-file-icon" />
             </div>
           </Link>
-          <div className='store-edit-image-profile-wrapp'>
+          <div className="store-edit-image-profile-wrapp">
             <Link
               to={`../store/${token_id}/update?field=main_image_profile`}
               onClick={() => goToUpdateFieldPage('main_image', main_image_url)}
             >
-              <img src={main_image_url?main_image_url:splashImage} alt=""/>
+              <img src={main_image_url || splashImage} alt="" />
             </Link>
           </div>
         </div>

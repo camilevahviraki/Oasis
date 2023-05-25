@@ -1,6 +1,6 @@
-import React from "react";
-import { useSelector } from "react-redux";
-import Details from "./create_details/details";
+import React from 'react';
+import { useSelector } from 'react-redux';
+import Details from './create_details/details';
 import '../createItem.css';
 
 const CreateItemDetails = () => {

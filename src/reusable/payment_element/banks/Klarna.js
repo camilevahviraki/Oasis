@@ -1,7 +1,7 @@
-import React, {useEffect, useState} from 'react';
-import {useLocation} from 'react-router-dom';
-import {useStripe} from '@stripe/react-stripe-js';
-import StatusMessages, {useMessages} from './StatusMessages';
+import React, { useEffect, useState } from 'react';
+import { useLocation } from 'react-router-dom';
+import { useStripe } from '@stripe/react-stripe-js';
+import StatusMessages, { useMessages } from './StatusMessages';
 
 const COUNTRY_CURRENCY = {
   AT: 'EUR',
@@ -16,7 +16,7 @@ const COUNTRY_CURRENCY = {
   SE: 'SEK',
   UK: 'GBP',
   US: 'USD',
-}
+};
 
 const KlarnaForm = () => {
   const stripe = useStripe();
@@ -36,7 +36,7 @@ const KlarnaForm = () => {
       return;
     }
 
-    const {error: backendError, clientSecret} = await fetch(
+    const { error: backendError, clientSecret } = await fetch(
       '/create-payment-intent',
       {
         method: 'POST',
@@ -47,7 +47,7 @@ const KlarnaForm = () => {
           paymentMethodType: 'klarna',
           currency: COUNTRY_CURRENCY[country],
         }),
-      }
+      },
     ).then((r) => r.json());
 
     if (backendError) {
@@ -57,19 +57,19 @@ const KlarnaForm = () => {
 
     addMessage('Client secret returned');
 
-    const {error: stripeError, paymentIntent} = await stripe.confirmKlarnaPayment(
+    const { error: stripeError, paymentIntent } = await stripe.confirmKlarnaPayment(
       clientSecret,
       {
         payment_method: {
           billing_details: {
             email,
             address: {
-              country
-            }
+              country,
+            },
           },
         },
         return_url: `${window.location.origin}/klarna?return=true`,
-      }
+      },
     );
 
     if (stripeError) {
@@ -98,7 +98,7 @@ const KlarnaForm = () => {
           Country
         </label>
         <select id="country" value={country}>
-          {Object.keys(COUNTRY_CURRENCY).map(country => <option key={country}>{country}</option>)}
+          {Object.keys(COUNTRY_CURRENCY).map((country) => <option key={country}>{country}</option>)}
         </select>
 
         <button type="submit">Pay</button>
@@ -145,9 +145,8 @@ const Klarna = () => {
   const query = new URLSearchParams(useLocation().search);
   if (query.get('return')) {
     return <KlarnaReturn />;
-  } else {
-    return <KlarnaForm />;
   }
-}
+  return <KlarnaForm />;
+};
 
 export default Klarna;

@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
-import {HiOutlineShoppingCart} from 'react-icons/hi';
-import {RiMessengerLine} from 'react-icons/ri';
-import {getCartItems} from '../redux/cart/getCartsItemReducer';
+import { HiOutlineShoppingCart } from 'react-icons/hi';
+import { RiMessengerLine } from 'react-icons/ri';
+import { getCartItems } from '../redux/cart/getCartsItemReducer';
 import Menu from './menu';
 import linkName from '../reusable/remove-blanck-space/linkName';
 import Currency from './currencies/Currency';
@@ -28,10 +28,10 @@ const Header = () => {
   };
 
   useEffect(() => {
-    dispatch(getCartItems(userData.user.id))
-   }, []);
-   
-  const cartData = useSelector(state => state.cartItemsReducer); 
+    dispatch(getCartItems(userData.user.id));
+  }, []);
+
+  const cartData = useSelector((state) => state.cartItemsReducer);
 
   const links = [
     { id: 1, icon: homeIcon, link: '../' },
@@ -58,12 +58,12 @@ const Header = () => {
       <div className="right-icons-wrap flex align-center">
         <Currency />
 
-        <Link to="../cart" className='cart-icon'>
-        <span className='header-cart-length'>{cartData.length}</span>
-          <HiOutlineShoppingCart className="user-Icon"/>
+        <Link to="../cart" className="cart-icon">
+          <span className="header-cart-length">{cartData.length}</span>
+          <HiOutlineShoppingCart className="user-Icon" />
         </Link>
-        <Link to="../chat" >
-          <RiMessengerLine className="user-Icon"/>
+        <Link to="../chat">
+          <RiMessengerLine className="user-Icon" />
         </Link>
         <Link to={`../account/${linkName(userNames)}`}>
           <div className="user-Icon-wrap">

@@ -57,7 +57,7 @@ const updateStoreReducer = (state = {
       };
       saveToStorage(newState);
       return newState;
-    }case UPDATE_STORE_PLACE: {
+    } case UPDATE_STORE_PLACE: {
       const newState = {
         field: state.field,
         fieldValue: state.fieldValue,
@@ -66,7 +66,7 @@ const updateStoreReducer = (state = {
       saveToStorage(newState);
       return newState;
     }
-     case RESET_FIELD_RESPONSE: {
+    case RESET_FIELD_RESPONSE: {
       const newState = {
         field: state.field,
         fieldValue: state.fieldValue,
@@ -138,12 +138,12 @@ export const addNewStoreCategory = (category, store_id) => (dispatch) => {
 
 export const updateStore = (data, token) => (dispatch) => {
   axios.post(`${linkURL}/store/update`, data,
-  {
-    headers: {
+    {
+      headers: {
       // Authorization: `Bearer ${token}`,
-      'Content-Type': 'multipart/form-data',
-    }
-  })
+        'Content-Type': 'multipart/form-data',
+      },
+    })
     .then((response) => dispatch(
       {
         type: UPDATE_STORE,

@@ -1,12 +1,12 @@
-import React, { useEffect } from "react";
-import { getStoresShow } from "../../../../../redux/stores/getStoreShowReducer";
-import { useDispatch, useSelector } from "react-redux";
+import React, { useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { AiFillPicture } from 'react-icons/ai';
+import { getStoresShow } from '../../../../../redux/stores/getStoreShowReducer';
 import {
   updateStore,
   resetStoreFieldToUpdate,
-} from "../../../../../redux/stores/updateStoreReducer";
-import { AiFillPicture } from "react-icons/ai";
-import storeSplahImage from "../../../../../images/store-image-holder.png";
+} from '../../../../../redux/stores/updateStoreReducer';
+import storeSplahImage from '../../../../../images/store-image-holder.png';
 
 const UpdateMainImage = () => {
   const dispatch = useDispatch();
@@ -18,7 +18,7 @@ const UpdateMainImage = () => {
       getStoresShow({
         user_id: userData.user.id,
         store_id: storeData.id,
-      })
+      }),
     );
     if (updateStoreData.response) {
       dispatch(resetStoreFieldToUpdate());
@@ -26,7 +26,7 @@ const UpdateMainImage = () => {
   }, [updateStoreData.response]);
   const updateStoreImage = (image) => {
     const data = {
-      field: "main_image",
+      field: 'main_image',
       store_id: storeData.id,
       new_value: image,
     };
@@ -40,7 +40,7 @@ const UpdateMainImage = () => {
       <div className="create-store-main-image-preview-container">
         <div className="create-store-image-preview-wrapp">
           <img
-            src={main_image_url ? main_image_url : storeSplahImage}
+            src={main_image_url || storeSplahImage}
             alt=""
             className="create-store-image-preview"
           />

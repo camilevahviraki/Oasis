@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, { useState } from 'react';
 import {
   useStripe,
   useElements,
@@ -28,7 +28,7 @@ const AcssDebitForm = () => {
       return;
     }
 
-    const {error: backendError, clientSecret} = await fetch(
+    const { error: backendError, clientSecret } = await fetch(
       '/create-payment-intent',
       {
         method: 'POST',
@@ -39,7 +39,7 @@ const AcssDebitForm = () => {
           paymentMethodType: 'acss_debit',
           currency: 'cad',
         }),
-      }
+      },
     ).then((r) => r.json());
 
     if (backendError) {
@@ -99,7 +99,7 @@ const AcssDebitForm = () => {
 
         <button type="submit">Pay</button>
 
-        <div id="error-message" role="alert"></div>
+        <div id="error-message" role="alert" />
       </form>
 
       <StatusMessages messages={messages} />

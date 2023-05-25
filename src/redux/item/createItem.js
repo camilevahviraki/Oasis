@@ -1,14 +1,14 @@
-import axios from "axios";
-import linkURL from "../link";
+import axios from 'axios';
+import linkURL from '../link';
 
-const SET_CURRENT_ITEM = "redux/store/getStoresReducer/SET_CURRENT_ITEM";
-const SET_CURRENT_STEP = "redux/store/getStoresReducer/SET_CURRENT_STEP";
-const ADD_ITEM_COLORS = "redux/store/getStoresReducer/ADD_ITEM_COLORS";
-const ADD_ITEM_CAPACITIES = "redux/store/getStoresReducer/ADD_ITEM_CAPACITIES";
-const ADD_ITEM_SIZE = "redux/store/getStoresReducer/ADD_ITEM_SIZE";
-const ADD_ITEM_MATERIAL = "redux/store/getStoresReducer/ADD_ITEM_MATERIAL";
-const SET_ATTRIBUTE_STEP = "redux/store/getStoresReducer/SET_ATTRIBUTE_STEP";
-const RESET_CREATE_ITEM_DATA = "redux/store/getStoresReducer/RESET_CREATE_ITEM_DATA";
+const SET_CURRENT_ITEM = 'redux/store/getStoresReducer/SET_CURRENT_ITEM';
+const SET_CURRENT_STEP = 'redux/store/getStoresReducer/SET_CURRENT_STEP';
+const ADD_ITEM_COLORS = 'redux/store/getStoresReducer/ADD_ITEM_COLORS';
+const ADD_ITEM_CAPACITIES = 'redux/store/getStoresReducer/ADD_ITEM_CAPACITIES';
+const ADD_ITEM_SIZE = 'redux/store/getStoresReducer/ADD_ITEM_SIZE';
+const ADD_ITEM_MATERIAL = 'redux/store/getStoresReducer/ADD_ITEM_MATERIAL';
+const SET_ATTRIBUTE_STEP = 'redux/store/getStoresReducer/SET_ATTRIBUTE_STEP';
+const RESET_CREATE_ITEM_DATA = 'redux/store/getStoresReducer/RESET_CREATE_ITEM_DATA';
 
 const createItemReducer = (
   state = {
@@ -20,17 +20,17 @@ const createItemReducer = (
     materials: null,
     attributeStep: 1,
   },
-  action
+  action,
 ) => {
   switch (action.type) {
     case SET_CURRENT_ITEM: {
       const item = action.data;
       const currentObj = {
-        item: item,
+        item,
         step: 2,
-        attributeStep: 1
+        attributeStep: 1,
       };
-      localStorage.setItem("createdItem", JSON.stringify(currentObj));
+      localStorage.setItem('createdItem', JSON.stringify(currentObj));
       return currentObj;
     }
     case SET_ATTRIBUTE_STEP: {
@@ -39,59 +39,59 @@ const createItemReducer = (
         step: 2,
         attributeStep: action.data,
       };
-      localStorage.setItem("createdItem", JSON.stringify(currentObj));
+      localStorage.setItem('createdItem', JSON.stringify(currentObj));
       return currentObj;
     }
     case ADD_ITEM_COLORS: {
-      const item = state.item;
+      const { item } = state;
       const currentObj = {
-        item: item,
+        item,
         step: 2,
         colors: action.data,
         attributeStep: state.attributeStep,
       };
-      localStorage.setItem("createdItem", JSON.stringify(currentObj));
+      localStorage.setItem('createdItem', JSON.stringify(currentObj));
       return currentObj;
-    }case ADD_ITEM_CAPACITIES: {
-      const item = state.item;
+    } case ADD_ITEM_CAPACITIES: {
+      const { item } = state;
       const currentObj = {
-        item: item,
+        item,
         step: 2,
         capacities: action.data,
         attributeStep: state.attributeStep,
       };
-      localStorage.setItem("createdItem", JSON.stringify(currentObj));
+      localStorage.setItem('createdItem', JSON.stringify(currentObj));
       return currentObj;
-    }case ADD_ITEM_SIZE: {
-      const item = state.item;
+    } case ADD_ITEM_SIZE: {
+      const { item } = state;
       const currentObj = {
-        item: item,
+        item,
         step: 2,
         sizes: action.data,
         attributeStep: state.attributeStep,
       };
-      localStorage.setItem("createdItem", JSON.stringify(currentObj));
+      localStorage.setItem('createdItem', JSON.stringify(currentObj));
       return currentObj;
-    }case ADD_ITEM_MATERIAL: {
-      const item = state.item;
+    } case ADD_ITEM_MATERIAL: {
+      const { item } = state;
       const currentObj = {
-        item: item,
+        item,
         step: 2,
         materials: action.data,
         attributeStep: state.attributeStep,
       };
-      localStorage.setItem("createdItem", JSON.stringify(currentObj));
+      localStorage.setItem('createdItem', JSON.stringify(currentObj));
       return currentObj;
-    }case SET_CURRENT_STEP: {
+    } case SET_CURRENT_STEP: {
       const currentObj = {
         item: state.item,
         step: action.data,
         attributeStep: state.attributeStep,
       };
-      localStorage.setItem("createdItem", JSON.stringify(currentObj));
+      localStorage.setItem('createdItem', JSON.stringify(currentObj));
       return currentObj;
-    }case RESET_CREATE_ITEM_DATA: {
-      const currentObj ={
+    } case RESET_CREATE_ITEM_DATA: {
+      const currentObj = {
         item: {},
         step: 1,
         colors: null,
@@ -100,11 +100,11 @@ const createItemReducer = (
         materials: null,
         attributeStep: 1,
       };
-      localStorage.setItem("createdItem", JSON.stringify(currentObj));
+      localStorage.setItem('createdItem', JSON.stringify(currentObj));
       return currentObj;
     }
     default: {
-      const savedObject = localStorage.getItem("createdItem");
+      const savedObject = localStorage.getItem('createdItem');
       if (savedObject) {
         return JSON.parse(savedObject);
       }
@@ -114,8 +114,8 @@ const createItemReducer = (
 };
 
 export const resetCreateStoreData = () => ({
-  type: RESET_CREATE_ITEM_DATA
-})
+  type: RESET_CREATE_ITEM_DATA,
+});
 
 export const setCurrentStep = (step) => ({
   type: SET_CURRENT_STEP,
@@ -167,6 +167,5 @@ export const uploadItemMaterial = (material, itemId, token) => (dispatch) => {
     });
   });
 };
-
 
 export default createItemReducer;

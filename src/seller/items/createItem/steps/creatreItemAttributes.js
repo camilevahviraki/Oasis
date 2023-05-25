@@ -1,6 +1,6 @@
-import React from "react";
-import { useSelector } from "react-redux";
-import Attributes from "./create_attributes/attributes";
+import React from 'react';
+import { useSelector } from 'react-redux';
+import Attributes from './create_attributes/attributes';
 import './create_attributes/createItemAttributes.css';
 
 const CreatreItemAttributes = () => {

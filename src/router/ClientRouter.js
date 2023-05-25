@@ -7,8 +7,8 @@ import Places from '../seller/places/Places';
 const ClientRouter = () => (
   <Routes>
     <Route path="/" element={(<Home />)} />
-    <Route path='cart' element={<Cart/>}/>
-    <Route path='places' element={<Places/>}/>
+    <Route path="cart" element={<Cart />} />
+    <Route path="places" element={<Places />} />
   </Routes>
 );
 

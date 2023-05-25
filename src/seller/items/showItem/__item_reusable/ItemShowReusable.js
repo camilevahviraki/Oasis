@@ -1,20 +1,20 @@
-import React, { useEffect, useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
-import { setStoreLink } from "../../../../redux/storeLink/storeLinkReducer";
-import { getCartItems } from "../../../../redux/cart/getCartsItemReducer";
+import React, { useEffect, useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { FiLoader } from 'react-icons/fi';
+import { Link } from 'react-router-dom';
+import { setStoreLink } from '../../../../redux/storeLink/storeLinkReducer';
+import { getCartItems } from '../../../../redux/cart/getCartsItemReducer';
 import {
   createNewCartItem,
   deleteCartItemResponse,
-} from "../../../../redux/cart/createCartReducer";
-import { FiLoader } from "react-icons/fi";
-import linkName from "../../../../reusable/remove-blanck-space/linkName";
-import ItemAttributes from "../__item_attributes/itemAttributes";
-import ImageSliderItem from "../../../../reusable/images_slider_item/ImageSliderItem";
-import { getItem } from "../../../../redux/item/itemShow";
-import LimitText from "../../../../reusable/limit-text-length/limitText";
-import CalculatePrice from "../../../../reusable/calculatePrice/calculatePrice";
-import "../ItemShow.css";
-import { Link } from "react-router-dom";
+} from '../../../../redux/cart/createCartReducer';
+import linkName from '../../../../reusable/remove-blanck-space/linkName';
+import ItemAttributes from '../__item_attributes/itemAttributes';
+import ImageSliderItem from '../../../../reusable/images_slider_item/ImageSliderItem';
+import { getItem } from '../../../../redux/item/itemShow';
+import LimitText from '../../../../reusable/limit-text-length/limitText';
+import CalculatePrice from '../../../../reusable/calculatePrice/calculatePrice';
+import '../ItemShow.css';
 
 const ItemShowReusable = (props) => {
   const dispatch = useDispatch();
@@ -23,7 +23,7 @@ const ItemShowReusable = (props) => {
   useEffect(() => {
     const itemData = {
       id: itemId,
-      store_id: "azerty",
+      store_id: 'azerty',
     };
     dispatch(getItem(itemData));
   }, []);
@@ -35,7 +35,7 @@ const ItemShowReusable = (props) => {
   const [errorMessage, setErrorMessage] = useState(null);
   const [buttonLoader, setButtonLoader] = useState(false);
   const createCartItemResponse = useSelector(
-    (state) => state.createCartReducer.message
+    (state) => state.createCartReducer.message,
   );
   const selectedCurrency = useSelector((state) => state.selectedCurrency);
 
@@ -82,17 +82,17 @@ const ItemShowReusable = (props) => {
 
   const saveStoreLink = (link, id) => {
     localStorage.setItem(
-      "storeLink",
+      'storeLink',
       JSON.stringify({
         link: linkName(link),
         store_id: id,
-      })
+      }),
     );
     dispatch(
       setStoreLink({
         link: linkName(link),
         store_id: id,
-      })
+      }),
     );
   };
 
@@ -102,44 +102,43 @@ const ItemShowReusable = (props) => {
 
   const assignAttributeId = (title) => {
     const itemAttribute = arraySelected.filter(
-      (elmnt) => elmnt.title === title
+      (elmnt) => elmnt.title === title,
     );
     if (itemAttribute.length > 0) {
       return itemAttribute[0].attribute.id;
-    } else {
-      return null;
     }
+    return null;
   };
 
   const addToCart = () => {
     if (quantity <= 0) {
-      setErrorMessage("This product is currently out of stock!");
+      setErrorMessage('This product is currently out of stock!');
     } else if (arraySelected.length === item_attributes.length) {
       const data = {
-        store_id: store_id,
+        store_id,
         item_id: id,
         quantity: numberOfItems,
-        price: price,
+        price,
         user_id: userData.user.id,
-        item_capacity: assignAttributeId("Capacity"),
-        item_color: assignAttributeId("Color"),
-        item_material: assignAttributeId("Material"),
-        item_size: assignAttributeId("Size"),
+        item_capacity: assignAttributeId('Capacity'),
+        item_color: assignAttributeId('Color'),
+        item_material: assignAttributeId('Material'),
+        item_size: assignAttributeId('Size'),
       };
       dispatch(createNewCartItem(data));
       setErrorMessage(null);
       setButtonLoader(true);
     } else {
-      setErrorMessage("Select attributes befor checkout!");
+      setErrorMessage('Select attributes befor checkout!');
     }
   };
 
   useEffect(() => {
-    if (createCartItemResponse === "Item saved in cart successfully!") {
+    if (createCartItemResponse === 'Item saved in cart successfully!') {
       dispatch(deleteCartItemResponse());
       dispatch(getCartItems(userData.user.id));
       setButtonLoader(false);
-      setErrorMessage("Saved successfully!");
+      setErrorMessage('Saved successfully!');
     }
   }, [createCartItemResponse]);
 
@@ -165,7 +164,7 @@ const ItemShowReusable = (props) => {
           </Link>
           <h4>{main_name}</h4>
           <div className="item-show-text-description">
-            <LimitText limit={200} text={description} more={true} />
+            <LimitText limit={200} text={description} more />
           </div>
           <div className="item-show-price-wrapp">
             <h5>
@@ -185,8 +184,8 @@ const ItemShowReusable = (props) => {
               <button
                 className={
                   numberOfItems === 1
-                    ? "item-show-change-quantity-button inactive-button"
-                    : "item-show-change-quantity-button"
+                    ? 'item-show-change-quantity-button inactive-button'
+                    : 'item-show-change-quantity-button'
                 }
                 onClick={() => decreaseNumber()}
               >
@@ -212,8 +211,8 @@ const ItemShowReusable = (props) => {
               <button
                 className={
                   numberOfItems >= quantity
-                    ? "item-show-change-quantity-button inactive-button"
-                    : "item-show-change-quantity-button"
+                    ? 'item-show-change-quantity-button inactive-button'
+                    : 'item-show-change-quantity-button'
                 }
                 onClick={() => increaseNumber()}
               >
@@ -221,7 +220,9 @@ const ItemShowReusable = (props) => {
               </button>
             </div>
             <span className="item-quantity-available">
-              {quantity} Pieces available
+              {quantity}
+              {' '}
+              Pieces available
             </span>
           </div>
           <div className="add-to-cart-button-wrapp">
@@ -233,7 +234,7 @@ const ItemShowReusable = (props) => {
               {buttonLoader ? (
                 <FiLoader className="button-loader white-loader" />
               ) : (
-                <>{preview ? "Next >" : "Add To cart"}</>
+                <>{preview ? 'Next >' : 'Add To cart'}</>
               )}
             </button>
             <p>{errorMessage}</p>

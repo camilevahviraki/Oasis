@@ -1,8 +1,8 @@
-import React from "react";
-import { useSelector } from "react-redux";
-import { useParams } from "react-router";
-import ItemShowReusable from "./__item_reusable/ItemShowReusable";
-import "./ItemShow.css";
+import React from 'react';
+import { useSelector } from 'react-redux';
+import { useParams } from 'react-router';
+import ItemShowReusable from './__item_reusable/ItemShowReusable';
+import './ItemShow.css';
 
 const ItemShow = () => {
   // const itemId = useSelector((state) => state.itemLinkReducer);

@@ -1,6 +1,6 @@
-import React, { useState } from "react";
-import ImageSilder from "../../../../reusable/images_slider/ImageSilder";
-import "./MyItem.css";
+import React, { useState } from 'react';
+import ImageSilder from '../../../../reusable/images_slider/ImageSilder';
+import './MyItem.css';
 
 const MyItem = (props) => {
   const {
@@ -40,7 +40,8 @@ const MyItem = (props) => {
             <h4>{mainName}</h4>
             <p>
               Price:
-              {price}$
+              {price}
+              $
             </p>
           </div>
           <div className="store-items-edit-item-details-buttons">

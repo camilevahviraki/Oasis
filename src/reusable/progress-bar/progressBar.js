@@ -1,26 +1,28 @@
-import React from "react";
-import "./progress-bar.css";
+import React from 'react';
+import './progress-bar.css';
 
 const ProgressBar = (props) => {
-  const { currentStep, steps, bgColor, setProgress } = props;
+  const {
+    currentStep, steps, bgColor, setProgress,
+  } = props;
 
   const setpsCount = steps.length;
   return (
     <div className="item-progress-bar-container">
       {steps.map((stepUp, key) => (
         <div
-          className={currentStep > key ? "item-step active-step" : "item-step"}
+          className={currentStep > key ? 'item-step active-step' : 'item-step'}
           style={
             key + 1 === steps.length
               ? {
-                  width: `${(100 - (steps.length - 1) / 2) / steps.length}%`,
-                }
+                width: `${(100 - (steps.length - 1) / 2) / steps.length}%`,
+              }
               : {
-                  width: `${97 / steps.length}%`,
-                  marginRight: "0.5%",
-                }
+                width: `${97 / steps.length}%`,
+                marginRight: '0.5%',
+              }
           }
-          onClick={setProgress? () => setProgress(key + 1): () => {}}
+          onClick={setProgress ? () => setProgress(key + 1) : () => {}}
         >
           {stepUp}
         </div>

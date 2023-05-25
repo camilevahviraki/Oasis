@@ -1,6 +1,6 @@
-import React, {useState} from 'react';
-import {useStripe, useElements} from '@stripe/react-stripe-js';
-import StatusMessages, {useMessages} from './StatusMessages';
+import React, { useState } from 'react';
+import { useStripe, useElements } from '@stripe/react-stripe-js';
+import StatusMessages, { useMessages } from './StatusMessages';
 
 const Boleto = () => {
   const stripe = useStripe();
@@ -15,7 +15,6 @@ const Boleto = () => {
   const [taxId, setTaxId] = useState('000.000.000-00');
   const [messages, addMessage] = useMessages();
 
-
   const handleSubmit = async (e) => {
     // We don't want to let default form submission happen here,
     // which would refresh the page.
@@ -28,7 +27,7 @@ const Boleto = () => {
       return;
     }
 
-    const {error: backendError, clientSecret} = await fetch(
+    const { error: backendError, clientSecret } = await fetch(
       '/create-payment-intent',
       {
         method: 'POST',
@@ -39,7 +38,7 @@ const Boleto = () => {
           paymentMethodType: 'boleto',
           currency: 'brl',
         }),
-      }
+      },
     ).then((r) => r.json());
 
     if (backendError) {
@@ -49,7 +48,7 @@ const Boleto = () => {
 
     addMessage('Client secret returned');
 
-    const {error: stripeError, paymentIntent} = await stripe.confirmBoletoPayment(
+    const { error: stripeError, paymentIntent } = await stripe.confirmBoletoPayment(
       clientSecret,
       {
         payment_method: {
@@ -68,7 +67,7 @@ const Boleto = () => {
             tax_id: taxId,
           },
         },
-      }
+      },
     );
 
     if (stripeError) {
@@ -89,8 +88,8 @@ const Boleto = () => {
     // intent will succeed after 3 seconds. We set this timeout
     // to refetch the payment intent.
     const i = setInterval(async () => {
-      const {error: e, paymentIntent} = await stripe.retrievePaymentIntent(
-        clientSecret
+      const { error: e, paymentIntent } = await stripe.retrievePaymentIntent(
+        clientSecret,
       );
       addMessage(`Payment ${paymentIntent.status}: ${paymentIntent.id}`);
       if (paymentIntent.status === 'succeeded') {
