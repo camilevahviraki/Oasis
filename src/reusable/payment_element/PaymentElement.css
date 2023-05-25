@@ -1,0 +1,182 @@
+@import url('https://fonts.googleapis.com/css?family=Raleway&display=swap');
+:root {
+  --light-grey: #F6F9FC;
+  --dark-terminal-color: #0A2540;
+  --accent-color: #635BFF;
+  --radius: 3px;
+}
+/* 
+
+body {
+  padding: 20px;
+  font-family: 'Raleway';
+  display: flex;
+  justify-content: center;
+  font-size: 1.2em;
+  color: var(--dark-terminal-color);
+}
+
+main {
+  width: 480px;
+}
+
+ */
+
+.payment-element-container form > * {
+  margin: 10px 0;
+}
+
+
+.payment-element-container button {
+  cursor: pointer;
+  transition: all 0.2s ease;
+  width: 260px;
+  background-color: #006280;
+  color: #fff;
+  padding: 10px;
+  border-radius: 6px;
+  border: none;
+  font-weight: 600;
+  margin: 16px 0;
+  display: flex;
+  justify-content: center;
+}
+.payment-element-container button:hover {
+  filter: contrast(115%);
+}
+.payment-element-container button:active {
+  transform: translateY(0px) scale(0.98);
+  filter: brightness(0.9);
+}
+.payment-element-container button:disabled {
+  opacity: 0.5;
+  cursor: none;
+}
+
+.payment-element-container input, select {
+  display: block;
+  font-size: 1.1em;
+  width: 100%;
+  border-radius: 6px;
+  padding: 4px;
+  padding-left: 8px;
+}
+
+.payment-element-container label {
+  display: block;
+  font-size: 13px;
+  color: #4a4a4a;
+  font-weight: 700;
+}
+
+.payment-element-container small {
+  font-size: .6em;
+}
+
+.payment-element-container fieldset, input, select {
+  border: 1px solid #efefef;
+}
+
+
+#payment-form {
+  border: #F6F9FC solid 1px;
+  border-radius: var(--radius);
+  padding: 20px;
+  margin: 20px 0;
+  box-shadow: 0 30px 50px -20px rgb(50 50 93 / 25%), 0 30px 60px -30px rgb(0 0 0 / 30%);
+}
+
+#messages {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New';
+  background-color: #0A253C;
+  color: #00D924;
+  padding: 20px;
+  margin: 20px 0;
+  border-radius: var(--radius);
+  font-size:0.7em;
+}
+
+.payment-element-container {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  font-family: 'Raleway', 'sans-serif';
+  color: var(--dark-terminal-color);
+}
+
+.payment-element-container a {
+  color: var(--accent-color);
+  font-weight: 900;
+}
+
+.payment-element-category-wrapp {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  background-color: #fff;
+  padding: 6px 0;
+  border: 1px solid #efefef;
+}
+
+.payment-element-category-wrapp h3 {
+  font-size: 14px;
+  color: #292929;
+}
+
+.payment-element-category-wrapp div {
+  font-size: 24px;
+  margin: 0 10px;
+}
+
+.payment-element-selected-category-wrapper {
+  display: flex;
+  align-items: center;
+  background-color: #fff;
+  border: 1px solid #bfbdbd;
+  width: 94%;
+  padding: 6px 0;
+  position: relative;
+  margin: 8px 0;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.payment-selected-category-in-list {
+  background-color: #88898b;
+}
+
+.payment-element-selected-category-wrapper h3 {
+  color: #191919;
+  font-size: 14px;
+  margin-left: 10px;
+}
+
+.arrow-down-wrapper {
+  position: absolute;
+  right: 10px;
+}
+
+.payment-element-categories-wrapper {
+  width: 80%;
+  position: absolute;
+  top: 100%;
+  right: 0;
+  height: -moz-fit-content;
+  height: fit-content;
+  z-index: 8;
+  box-shadow: 1px 2px 5px grey;
+}
+
+.selected-bank-container {
+  padding: 12px 20px;
+    margin: 12px 0;
+    text-align: start;
+    width: 100%;
+}
+
+#mandate-acceptance {
+  font-size: 12px;
+  font-style: italic;
+  color: #292929;
+}

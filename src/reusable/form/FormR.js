@@ -1,5 +1,5 @@
-import React from 'react';
-import Countries from '../../components/countries/countries';
+import React from "react";
+import Countries from "../../components/countries/countries";
 
 const FormR = (props) => {
   const {
@@ -25,11 +25,12 @@ const FormR = (props) => {
           placeholder,
           value,
           type,
+          step,
         } = inputObj;
 
         return (
           <>
-            {type === 'select-country' ? (
+            {type === "select-country" ? (
               <>
                 <Countries
                   data={inputObj.data}
@@ -38,92 +39,74 @@ const FormR = (props) => {
                   getSelectedCountry={getSelectedCountry}
                   placeholder={placeholder || null}
                 />
-                {
-              inputErrorArr && inputErrorArr[key] === 1 ? (
-                <div className="error-input-show" />
-              ) : null
-}
+                {inputErrorArr && inputErrorArr[key] === 1 ? (
+                  <div className="error-input-show" />
+                ) : null}
               </>
             ) : (
               <>
-                {type === 'textarea' ? (
-                  <div
-                    className={
-                    inputWrapperClassName || 'formR-input-wrap'
-                  }
-                  >
-                    {label ? (
-                      <label htmlFor={name}>{label}</label>
-                    ) : (
-                      <></>
-                    )}
-                    {
-                    value ? (
+                {type === "textarea" ? (
+                  <div className={inputWrapperClassName || "formR-input-wrap"}>
+                    {label ? <label htmlFor={name}>{label}</label> : <></>}
+                    {value ? (
                       <textarea
                         id={name}
                         name={name}
-                        className={
-                      classInput || 'textarea'
-                    }
+                        className={classInput || "textarea"}
                         placeholder={placeholder}
                         onChange={onChangeFunc || null}
                         value={value}
                       />
-                    )
-                      : (
-                        <textarea
-                          id={name}
-                          name={name}
-                          className={
-                    classInput || 'textarea'
-                  }
-                          placeholder={placeholder}
-                          onChange={onChangeFunc || null}
-                        />
-                      )
-                   }
+                    ) : (
+                      <textarea
+                        id={name}
+                        name={name}
+                        className={classInput || "textarea"}
+                        placeholder={placeholder}
+                        onChange={onChangeFunc || null}
+                      />
+                    )}
                     {inputErrorArr && inputErrorArr[key] === 1 ? (
                       <div className="error-input-show" />
                     ) : null}
                   </div>
                 ) : (
-                  <div
-                    className={
-                    inputWrapperClassName || 'formR-input-wrap'
-                  }
-                  >
-                    {label ? (
-                      <label htmlFor={name}>{label}</label>
-                    ) : (
-                      <></>
-                    )}
-                    {
-                    value ? (
+                  <div className={inputWrapperClassName || "formR-input-wrap"}>
+                    {label ? <label htmlFor={name}>{label}</label> : <></>}
+                    {value ? (
                       <input
                         type={type}
                         name={name}
                         id={name}
-                        className={
-                      classInput || 'input'
-                    }
+                        className={classInput || "input"}
                         placeholder={placeholder}
                         value={value}
                         onChange={onChangeFunc || null}
                       />
-                    )
-                      : (
-                        <input
-                          type={type}
-                          name={name}
-                          id={name}
-                          className={
-                    classInput || 'input'
-                  }
-                          placeholder={placeholder}
-                          onChange={onChangeFunc || null}
-                        />
-                      )
-}
+                    ) : (
+                      <>
+                        {step ? (
+                          <input
+                            type={type}
+                            name={name}
+                            id={name}
+                            className={classInput || "input"}
+                            placeholder={placeholder}
+                            onChange={onChangeFunc || null}
+                            step={step}
+                          />
+                        ) : (
+                          <input
+                            type={type}
+                            name={name}
+                            id={name}
+                            className={classInput || "input"}
+                            placeholder={placeholder}
+                            onChange={onChangeFunc || null}
+                          />
+                        )}
+                      </>
+                    )}
 
                     {inputErrorArr && inputErrorArr[key] === 1 ? (
                       <div className="error-input-show" />
