@@ -9,6 +9,7 @@ const BACK_TO_PREVIOUS_PROGRESS = '/redux/BACK_TO_PREVIOUS_PROGRESS';
 const SET_PROGRESS = '/redux/SET_PROGRESs';
 const POST_STORE_TO_SERVER = '/redux/POST_STORE_TO_SERVER';
 const GET_STORE_ID = '/redux/GET_STORE_ID';
+const ADD_COORDINATES_TO_STORE = '/redux/ADD_COORDINATES_TO_STORE';
 
 const createStoresReducer = (
   state = {
@@ -17,6 +18,7 @@ const createStoresReducer = (
     types: [],
     places: [],
     storeId: { step: 1 },
+    coordinates: null,
   },
   action,
 ) => {
@@ -26,9 +28,9 @@ const createStoresReducer = (
       const { types } = state;
       const { places } = state;
       const details = action.data;
-      const { storeId } = state;
+      const { storeId, coordinates } = state;
       const newState = {
-        pictures, types, places, details, storeId,
+        pictures, types, places, details, storeId, coordinates
       };
       saveToStorage(newState);
       return newState;
@@ -38,9 +40,9 @@ const createStoresReducer = (
       const types = action.data;
       const { places } = state;
       const { details } = state;
-      const { storeId } = state;
+      const { storeId, coordinates } = state;
       const newState = {
-        pictures, types, places, details, storeId,
+        pictures, types, places, details, storeId, coordinates
       };
       saveToStorage(newState);
       return newState;
@@ -50,9 +52,9 @@ const createStoresReducer = (
       const { types } = state;
       const places = action.data;
       const { details } = state;
-      const { storeId } = state;
+      const { storeId, coordinates } = state;
       const newState = {
-        pictures, types, places, details, storeId,
+        pictures, types, places, details, storeId, coordinates
       };
       saveToStorage(newState);
       return newState;
@@ -62,9 +64,9 @@ const createStoresReducer = (
       const { types } = state;
       const { places } = state;
       const { details } = state;
-      const { storeId } = state;
+      const { storeId, coordinates } = state;
       const newState = {
-        pictures, types, places, details, storeId,
+        pictures, types, places, details, storeId, coordinates
       };
       saveToStorage(newState);
       return newState;
@@ -74,9 +76,9 @@ const createStoresReducer = (
       const { types } = state;
       const { places } = state;
       const { details } = state;
-      const { storeId } = state;
+      const { storeId, coordinates } = state;
       const newState = {
-        pictures, types, places, details, storeId,
+        pictures, types, places, details, storeId, coordinates
       };
       saveToStorage(newState);
       return newState;
@@ -86,9 +88,9 @@ const createStoresReducer = (
       const { types } = state;
       const { places } = state;
       const { details } = state;
-      const { storeId } = state;
+      const { storeId, coordinates } = state;
       const newState = {
-        pictures, types, places, details, storeId,
+        pictures, types, places, details, storeId, coordinates
       };
       saveToStorage(newState);
       return newState;
@@ -98,9 +100,9 @@ const createStoresReducer = (
       const { types } = state;
       const { places } = state;
       const { details } = state;
-      const { storeId } = state;
+      const { storeId, coordinates } = state;
       const newState = {
-        pictures, types, places, details, storeId,
+        pictures, types, places, details, storeId, coordinates
       };
       saveToStorage(newState);
       return newState;
@@ -109,12 +111,25 @@ const createStoresReducer = (
       const { pictures } = state;
       const { types } = state;
       const { places } = state;
-      const { details } = state;
+      const { details, coordinates } = state;
       const { storeId } = action;
       const newState = {
-        pictures, types, places, details, storeId,
+        pictures, types, places, details, storeId, coordinates
       };
       saveToStorage(newState);
+      return newState;
+    }
+    case ADD_COORDINATES_TO_STORE: {
+      const { pictures } = state;
+      const { types } = state;
+      const { places } = state;
+      const { details } = state;
+      const { storeId } = state;
+      const coordinates = action.data;
+      const newState = {
+        pictures, types, places, details, storeId, coordinates
+      };
+      // saveToStorage(newState);
       return newState;
     }
     case POST_STORE_TO_SERVER: {
@@ -124,6 +139,7 @@ const createStoresReducer = (
         types: [],
         places: [],
         storeId: { step: 1 },
+        coordinates: null,
       };
       localStorage.removeItem('createStoreData');
       return newState;
@@ -136,6 +152,11 @@ const createStoresReducer = (
       return state;
   }
 };
+
+export const addCoordinatesToStore = (data) => ({
+  type: ADD_COORDINATES_TO_STORE,
+  data,
+})
 
 export const getStoreId = (storeId) => (
   {

@@ -1,5 +1,6 @@
 import axios from 'axios';
 import linkURL from '../link';
+import Upload from '../upload';
 
 const UPDATE_STORE = 'redux/store/getStoreShowReducer/UPDATE_STORE';
 const SET_FIELD = 'redux/store/getStoreShowReducer/SET_FIELD';
@@ -7,6 +8,7 @@ const DELETE_CATEGORY = 'redux/store/getStoreShowReducer/DELETE_CATEGORY';
 const ADD_NEW_CATEGORY = 'redux/store/getStoreShowReducer/ADD_NEW_CATEGORY';
 const RESET_FIELD_RESPONSE = 'redux/store/getStoreShowReducer/RESET_FIELD_RESPONSE';
 const DELETE_STORE_IMAGE = 'redux/store/getStoreShowReducer/DELETE_STORE_IMAGE';
+const UPDATE_STORE_PLACE = '/redux/UPDATE_STORE_PLACE';
 
 const updateStoreReducer = (state = {
   field: null,
@@ -55,7 +57,16 @@ const updateStoreReducer = (state = {
       };
       saveToStorage(newState);
       return newState;
-    } case RESET_FIELD_RESPONSE: {
+    }case UPDATE_STORE_PLACE: {
+      const newState = {
+        field: state.field,
+        fieldValue: state.fieldValue,
+        response: action.data,
+      };
+      saveToStorage(newState);
+      return newState;
+    }
+     case RESET_FIELD_RESPONSE: {
       const newState = {
         field: state.field,
         fieldValue: state.fieldValue,
@@ -75,6 +86,14 @@ const updateStoreReducer = (state = {
 
 const saveToStorage = (data) => {
   localStorage.setItem('update-store-data', JSON.stringify(data));
+};
+
+export const updateStorePlaces = (places, token) => (dispatch) => {
+  Upload({ data: places, endPoint: 'api_stores', dispatchResponse: (data) => dispatch(getStoreId(data), token) });
+  dispatch({
+    type: UPDATE_STORE_PLACE,
+    data: 'Updated coordinates',
+  });
 };
 
 export const resetStoreFieldToUpdate = () => ({

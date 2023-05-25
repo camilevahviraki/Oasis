@@ -27,6 +27,11 @@ import createCartReducer from './cart/createCartReducer';
 import cartItemsReducer from './cart/getCartsItemReducer';
 import addedToCartIdList from './cart/addedToCartIdList';
 import selectedCurrency from './currencies/selectedCurrency';
+import createOrderReducer from './orders/createOrderReducer';
+import orderShowReducer from './orders/orderShowReducer';
+import ordersIndexReducer from './orders/ordersIndexReducer';
+import currentLocationReducer from './places/currentLocationReducer';
+import storesPlacesReducer from './places/storesPlacesReducer';
 
 const rootReducer = combineReducers({
   createStoresReducer,
@@ -55,6 +60,11 @@ const rootReducer = combineReducers({
   cartItemsReducer,
   addedToCartIdList,
   selectedCurrency,
+  createOrderReducer,
+  orderShowReducer,
+  ordersIndexReducer,
+  currentLocationReducer,
+  storesPlacesReducer,
 });
 
 const store = createStore(
