@@ -1,13 +1,13 @@
 import React, { useEffect, useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { getStoresShow } from '../../../redux/stores/getStoreShowReducer';
-import { setStoreLink } from '../../../redux/storeLink/storeLinkReducer';
-import linkName from '../../../reusable/remove-blanck-space/linkName';
+import { useParams } from "react-router";
 import MyStore from './__my_store_reusable/__my_store';
 import './EditStore.css';
 
 const StoreEdit = () => {
   const dispatch = useDispatch();
+  const {token_id} = useParams();
   const userData = useSelector((state) => state.authenticationReducer);
   const storeId = useSelector((state) => state.storeLinkReducer.link);
   const storeData = useSelector((state) => state.getStoreShowReducer);
@@ -16,7 +16,7 @@ const StoreEdit = () => {
     dispatch(
       getStoresShow({
         user_id: userData.user.id,
-        store_id: storeId.store_id,
+        store_id: token_id,
       }),
     );
   }, []);

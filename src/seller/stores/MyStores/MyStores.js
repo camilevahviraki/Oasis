@@ -46,14 +46,14 @@ const MyStores = () => {
           id,
           location,
           name,
+          token_id
         } = store;
 
         return (
           <div className="my-store-wrapper">
             <div className="my-store-picture-container">
               <Link
-                to={`../store/${linkName(name)}`}
-                onClick={() => saveStoreLink(name, id)}
+                to={`../store/${token_id}`}
               >
                 <ImageSilder imagesArray={images_url} freeze />
               </Link>
@@ -61,8 +61,7 @@ const MyStores = () => {
             <div className="my-store-details">
               <div className="flex flex-col">
                 <Link
-                  to={`../store/${linkName(name)}`}
-                  onClick={() => saveStoreLink(name, id)}
+                  to={`../store/${token_id}`}
                 >
                   <h3 className="my-store-name">{name}</h3>
                 </Link>

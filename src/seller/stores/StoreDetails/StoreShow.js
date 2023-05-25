@@ -4,6 +4,7 @@ import { AiOutlineSetting } from "react-icons/ai";
 import { BsGraphUp } from "react-icons/bs";
 import { IoMdAdd } from "react-icons/io";
 import { Link } from "react-router-dom";
+import { useParams } from "react-router";
 import { getStoresShow } from "../../../redux/stores/getStoreShowReducer";
 import { getItems, searchStoreItem, deleteSearchedData } from "../../../redux/item/getItem";
 import Loader from "../../../reusable/loader/Loader";
@@ -24,6 +25,7 @@ import "./StoreShow.css";
 
 const StoreShow = () => {
   const dispatch = useDispatch();
+  const { token_id } = useParams();
   const userData = useSelector((state) => state.authenticationReducer);
   const storeId = useSelector((state) => state.storeLinkReducer.link);
   const storeData = useSelector((state) => state.getStoreShowReducer);
@@ -42,21 +44,17 @@ const StoreShow = () => {
     dispatch(
       getStoresShow({
         user_id: userData.user.id,
-        store_id: storeId.store_id,
+        store_id: token_id,
       })
     );
 
     dispatch(
       getItems({
         category: categoryName,
-        store_id: storeId.store_id,
+        store_id: token_id,
       })
     );
   }, []);
-
-  const setStoreItemLink = (link, id) => {
-    dispatch(setItemLink(link, id));
-  };
 
   const contactsIcons = [
     whatsappIcon,
@@ -107,17 +105,17 @@ const StoreShow = () => {
           <ImageSilder imagesArray={images_url} freeze={freeze} />
           {user_id === userData.user.id ? (
             <div className="store-settings">
-              <Link to={`../store/${storeLink.link.link}/analysis`}>
+              <Link to={`../store/${token_id}/analysis`}>
                 <BsGraphUp />
                 <span>Insights</span>
               </Link>
               <Link
-                to={`../my-stores/${storeLink.link.link}/item/new?type=${categoryName}`}
+                to={`../my-store/${token_id}/item/new?type=${categoryName}`}
               >
                 <IoMdAdd />
                 <span>New Item</span>
               </Link>
-              <Link to={`../my-stores/${storeLink.link.link}/edit`}>
+              <Link to={`../my-store/${token_id}/edit`}>
                 <AiOutlineSetting />
                 <span>Settings</span>
               </Link>

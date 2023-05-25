@@ -54,10 +54,9 @@
 
 .create-store-submit {
     padding: 8px 15px;
-    width: 100px;
-    margin-top: 10px;
     background-color: #23747a;
     color: white;
+    margin: 10px;
 }
 
 .create_store_main_container {
