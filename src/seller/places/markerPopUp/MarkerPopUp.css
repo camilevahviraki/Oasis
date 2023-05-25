@@ -1,0 +1,36 @@
+.marker-pop-up-container {
+    width: 120px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.marker-pop-up-image-wrapper {
+    margin: 10px 0;
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    border: 1px solid #d0cece7d;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.marker-pop-up-description {
+    font-size: 12px;
+    color: #3c3c3cdb;
+    width: 100%;
+    text-align: start;
+}
+
+.marker-pop-up-store-name {
+    font-size: 14px;
+    font-weight: 700;
+    color: #2e2e2edb;
+}
+
+.marker-pop-up-link {
+    font-size: 13px;
+    font-weight: 600;
+}
