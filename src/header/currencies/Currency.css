@@ -1,6 +1,9 @@
 .currencies_container {
     position: relative;
     cursor: pointer;
+    border: 1px solid #bfbdbd;
+    padding: 6px;
+    border-radius: 6px;
 }
 
 .currencies-list {
@@ -27,6 +30,43 @@
 .selected-currency {
    color: #070f12;
    font-size: 15px;
+   display: flex;
+   font-weight: 700;
+   align-items: center;
+}
+
+.currency-arrow {
+    margin-left: 6px;
+    font-size: 16px;
+    animation: turnbottom 0.2s ease-in 5ms 1 normal forwards;
+}
+
+.currency-arrow-turned {
+    margin-left: 6px;
+    font-size: 16px;
+    animation: turn 0.2s ease-in 5ms 1 normal forwards;
+}
+
+@keyframes turnbottom {
+    from {
+      transform: rotate(-90deg);
+    }to {
+       transform: rotate(0deg);
+    }
+}
+
+@keyframes turn {
+    from {
+      transform: rotate(0deg);
+    }to {
+       transform: rotate(-90deg);
+    }
+}
+
+.selected-currency span {
+    font-size: 13px;
+    margin-right: 4px;
+    font-weight: 400;
 }
 
 .selected-currency-in-list {
