@@ -113,6 +113,7 @@
     display: flex;
     position: absolute;
     z-index: 8;
+    margin-top: 10px;
 }
 
 .item-step {
@@ -130,4 +131,8 @@
     background-color: #046168e0;
     color: #e7e7e7e0;
 }
-/* //////////////////////////////////////////////////////////// */
+
+.create-item-price-input {
+    border: 1px solid #8080807f;
+    height: 40px;
+}

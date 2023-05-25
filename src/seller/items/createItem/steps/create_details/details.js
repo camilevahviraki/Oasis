@@ -13,7 +13,6 @@ const Details = () => {
   const dispatch = useDispatch();
   const storeData = useSelector((state) => state.storeLinkReducer);
   const currentStore = useSelector((state) => state.getStoreShowReducer);
- console.log(currentStore);
   const [inputErrorArr, setInputErrorArr] = useState([0, 0, 0, 0, 0]);
   const [message, setMessage] = useState(null);
   const [fyleType, setFileType] = useState("image");
@@ -23,6 +22,7 @@ const Details = () => {
   const [showProgess, setShowProgress] = useState(false);
   const [inputKey, setInputKey] = useState("keyBefore");
   const [showLoader, setLoader] = useState(false);
+  const selectedCurrency = useSelector(state => state.selectedCurrency);
 
   const queryParameters = new URLSearchParams(window.location.search);
   const categoryParams = queryParameters.get("type");
@@ -48,7 +48,8 @@ const Details = () => {
       name: "price",
       classInput: "user-authentication-form-input",
       placeholder: "24",
-      label: "Price($)",
+      step: "0.0001",
+      label: `Price(${selectedCurrency.symbole})`,
     },
     {
       type: "number",
@@ -81,23 +82,30 @@ const Details = () => {
     e.preventDefault();
     const mainName = e.target.mainName.value;
     const names = e.target.names.value;
-    const price = e.target.price.value;
+    const priceR = e.target.price.value;
+    const price = priceR * 1000 / selectedCurrency.exchange; 
     const description = e.target.description.value;
     const quantity = e.target.quantity.value;
 
     if (mainName.length === 0) {
       setMessage("Please! The Item name required");
-      setInputErrorArr([1, 0, 0, 0, 0]);
+      setInputErrorArr([1, 0, 0, 0, 0, 0]);
     } else if (mainName.length <= 2) {
       setMessage("The minimum length of the name is 3");
-      setInputErrorArr([1, 0, 0, 0, 0]);
+      setInputErrorArr([1, 0, 0, 0, 0, 0]);
     } else if (price.length === 0) {
       setMessage("Please enter the price!");
-      setInputErrorArr([0, 0, 1, 0, 0]);
+      setInputErrorArr([0, 0, 1, 0, 0, 0]);
     } else if (description.length <= 20) {
       setMessage("Enter a description longer than 20 characters.");
-      setInputErrorArr([0, 0, 0, 0, 1]);
-    } else {
+      setInputErrorArr([0, 0, 0, 0, 0, 1]);
+    } else if (quantity.length === 0) {
+      setMessage("Please, input quantity!");
+      setInputErrorArr([0, 0, 0, 1, 0, 0]);
+    } else if (category === 'all' || category.length === 0) {
+      setMessage("Select the category of this product!");
+      setInputErrorArr([0, 0, 0, 0, 1, 0]);
+    }else {
       setShowProgress(true);
       setInputErrorArr([0, 0, 0, 0, 0]);
       setMessage(null);
@@ -139,11 +147,17 @@ const Details = () => {
     <>
       {showLoader ? <Loader /> : <></>}
       <h2 className="create-item-title">
-        Create New Item in
+       {
+        category !== 'all'? (<>
+           Create New Item in
         {' '}
         {category}
+        </>)
+        :
+        (<></>)
+       }
       </h2>
-      <div className="create-item-images-list">
+      <div className="cre-item-images-list">
         <div className="create-item-image-previews-container">
           {Object.keys(gallery).map((keyName, i) => (
             <div className="create-item-image-preview">

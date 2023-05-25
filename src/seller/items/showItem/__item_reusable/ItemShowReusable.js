@@ -2,8 +2,11 @@ import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { setStoreLink } from "../../../../redux/storeLink/storeLinkReducer";
 import { getCartItems } from "../../../../redux/cart/getCartsItemReducer";
-import { createNewCartItem, deleteCartItemResponse } from "../../../../redux/cart/createCartReducer";
-import { FiLoader} from 'react-icons/fi';
+import {
+  createNewCartItem,
+  deleteCartItemResponse,
+} from "../../../../redux/cart/createCartReducer";
+import { FiLoader } from "react-icons/fi";
 import linkName from "../../../../reusable/remove-blanck-space/linkName";
 import ItemAttributes from "../__item_attributes/itemAttributes";
 import ImageSliderItem from "../../../../reusable/images_slider_item/ImageSliderItem";
@@ -31,8 +34,10 @@ const ItemShowReusable = (props) => {
   const [arraySelected, setArrayOfSelected] = useState([]);
   const [errorMessage, setErrorMessage] = useState(null);
   const [buttonLoader, setButtonLoader] = useState(false);
-  const createCartItemResponse  = useSelector(state => state.createCartReducer.message);
-  const selectedCurrency = useSelector(state => state.selectedCurrency);
+  const createCartItemResponse = useSelector(
+    (state) => state.createCartReducer.message
+  );
+  const selectedCurrency = useSelector((state) => state.selectedCurrency);
 
   const {
     created_at,
@@ -92,47 +97,49 @@ const ItemShowReusable = (props) => {
   };
 
   const handleArrayOfSelected = (data) => {
-    setArrayOfSelected(data)
-  }
+    setArrayOfSelected(data);
+  };
 
   const assignAttributeId = (title) => {
-    const itemAttribute = arraySelected.filter((elmnt) => elmnt.title === title);
-    if(itemAttribute.length > 0){
-      return itemAttribute[0].attribute.id
-    }else {
-      return null
+    const itemAttribute = arraySelected.filter(
+      (elmnt) => elmnt.title === title
+    );
+    if (itemAttribute.length > 0) {
+      return itemAttribute[0].attribute.id;
+    } else {
+      return null;
     }
-  }
+  };
 
   const addToCart = () => {
-    if(quantity <= 0){
-      setErrorMessage('This product is currently out of stock!')
-    }else if(arraySelected.length === item_attributes.length){
+    if (quantity <= 0) {
+      setErrorMessage("This product is currently out of stock!");
+    } else if (arraySelected.length === item_attributes.length) {
       const data = {
         store_id: store_id,
         item_id: id,
         quantity: numberOfItems,
         price: price,
         user_id: userData.user.id,
-        item_capacity: assignAttributeId('Capacity'),
-        item_color: assignAttributeId('Color'),
-        item_material: assignAttributeId('Material'),
-        item_size: assignAttributeId('Size'),
-      }
+        item_capacity: assignAttributeId("Capacity"),
+        item_color: assignAttributeId("Color"),
+        item_material: assignAttributeId("Material"),
+        item_size: assignAttributeId("Size"),
+      };
       dispatch(createNewCartItem(data));
       setErrorMessage(null);
       setButtonLoader(true);
-     }else {
-      setErrorMessage('Select attributes befor checkout!')
-     }
+    } else {
+      setErrorMessage("Select attributes befor checkout!");
+    }
   };
 
   useEffect(() => {
-    if(createCartItemResponse === 'Item saved in cart successfully!'){
-        dispatch(deleteCartItemResponse());
-        dispatch(getCartItems(userData.user.id));
-        setButtonLoader(false);
-        setErrorMessage('Saved successfully!')
+    if (createCartItemResponse === "Item saved in cart successfully!") {
+      dispatch(deleteCartItemResponse());
+      dispatch(getCartItems(userData.user.id));
+      setButtonLoader(false);
+      setErrorMessage("Saved successfully!");
     }
   }, [createCartItemResponse]);
 
@@ -152,17 +159,18 @@ const ItemShowReusable = (props) => {
         <div className="item-show-details">
           <Link
             className="item-store-link"
-            to={`../store/${linkName(`${store_id}`)}`}
-            onClick={() => saveStoreLink(`${store_id}`, store_id)}
+            to={`../store/${store_id}`}
           >
             In this Store
           </Link>
           <h4>{main_name}</h4>
           <div className="item-show-text-description">
-            <LimitText limit={200} text={description} more={true}/>
+            <LimitText limit={200} text={description} more={true} />
           </div>
           <div className="item-show-price-wrapp">
-            <h5><CalculatePrice price={price}/></h5>
+            <h5>
+              <CalculatePrice price={price} />
+            </h5>
           </div>
           <div className="item-show-details-container">
             <ItemAttributes
@@ -222,10 +230,11 @@ const ItemShowReusable = (props) => {
               onClick={preview ? () => nexStep(true) : () => addToCart()}
               disabled={buttonLoader}
             >
-               {buttonLoader ? <FiLoader className='button-loader white-loader'/>:
-               (<>
-                  {preview ? "Next >" : "Add To cart"}
-               </>)}
+              {buttonLoader ? (
+                <FiLoader className="button-loader white-loader" />
+              ) : (
+                <>{preview ? "Next >" : "Add To cart"}</>
+              )}
             </button>
             <p>{errorMessage}</p>
           </div>

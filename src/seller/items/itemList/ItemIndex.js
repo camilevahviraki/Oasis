@@ -32,16 +32,6 @@ const ItemsList = (props) => {
     (state) => state.addedToCartIdList.data
   );
 
-  const setStoreItemLink = (itemName, id) => {
-    let itemLink = null;
-    if (storeData) {
-      itemLink = `store/${linkName(storeData.name)}/item/${linkName(itemName)}`;
-    } else {
-      itemLink = `item/${linkName(itemName)}`;
-    }
-    dispatch(setItemLink(itemLink, id));
-  };
-
   const addToCart = (item) => {
     const data = {
       store_id: item.store_id,
@@ -80,6 +70,7 @@ const ItemsList = (props) => {
           description,
           quantity,
           id,
+          token_id,
         } = item;
         return (
           <div
@@ -93,16 +84,17 @@ const ItemsList = (props) => {
                     storeData
                       ? `../store/${linkName(storeData.name)}/item/${linkName(
                           item.main_name
-                        )}`
-                      : `../item/${linkName(item.main_name)}`
+                        )}/id/${token_id}`
+                      : `../item/${linkName(item.main_name)}/id/${token_id}`
                   }
-                  onClick={() => setStoreItemLink(item.main_name, id)}
                 >
                   <ImageSilder imagesArray={items_images} freeze />
                 </Link>
               </div>
               <div className="store-item-description">
-                <p className="store-item-price"><CalculatePrice price={price}/></p>
+                <p className="store-item-price">
+                  <CalculatePrice price={price} />
+                </p>
                 <div className="store-item-text">
                   <LimitText
                     text={`${main_name.toUpperCase()}${" "}${description}`}
