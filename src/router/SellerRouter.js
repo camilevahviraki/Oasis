@@ -12,6 +12,8 @@ import ItemShow from '../seller/items/showItem/ItemShow';
 import UpdateStore from '../seller/stores/EditStore/update_store/UpdateStore';
 import NewStorePicture from '../seller/stores/EditStore/update_store/fields/NewPicture';
 import InSightData from '../seller/stores/InSightData/InSightData';
+import OrderShow from '../seller/orders/order_show/OrderShow';
+import OrdersIndex from '../seller/orders/orders_index/OrdersIndex';
 
 const SellerRouter = () => {
   const dispatch = useDispatch();
@@ -31,52 +33,50 @@ const SellerRouter = () => {
   return (
     <Routes>
       <Route
-        path={storeLink.link
-          ? `store/${storeLink.link.link}`
-          : 'my-stores/error_page'}
+        path='order'
+        element={(<OrdersIndex />)}
+      />
+      <Route
+        path='order/:token_id'
+        element={(<OrderShow />)}
+      />
+      <Route
+        path={'store/:token_id'}
         element={(<StoreShow />)}
       />
       <Route
-        path={storeLink.link
-          ? `store/${storeLink.link.link}/analysis`
-          : 'my-stores/error_page'}
+        path={'store/:token_id/analysis'}
         element={(<InSightData />)}
       />
       <Route path="create-store" element={(<CreateStore />)} />
       <Route path="my-stores" element={(<MyStores />)} />
       <Route
-        path={storeLink.link
-          ? `my-stores/${storeLink.link.link}/edit`
-          : 'my-stores/error_page'}
+        path={'my-store/:token_id/edit'}
         element={(<StoreEdit />)}
       />
       <Route
-        path={storeLink.link
-          ? `my-stores/${storeLink.link.link}/items`
-          : 'my-stores/error_page'}
+        path={'my-store/:token_id/items'}
         element={(<StoreItems />)}
       />
       <Route
-        path={storeLink.link
-          ? `my-stores/${storeLink.link.link}/item/new`
-          : 'my-stores/error_page'}
+        path={'my-store/:token_id/item/new'}
         element={(<CreateItem />)}
       />
       <Route
-        path={itemLink.link ? itemLink.link : 'my-stores/error_page'}
+        path={'item/:name/id/:id'}
+        element={(<ItemShow />)}
+      />
+       <Route
+        path={'store/:store_name/item/:name/id/:id'}
         element={(<ItemShow />)}
       />
       <Route
-        path={storeLink.link
-          ? `store/${storeLink.link.link}/update`
-          : 'my-stores/error_page'
+        path={'store/:token_id/update'
         }
         element={(<UpdateStore />)}
       />
       <Route
-        path={storeLink.link
-          ? `store/${storeLink.link.link}/update/new_image`
-          : 'my-stores/error_page'
+        path={'store/:token_id/update/new_image'
         }
         element={(<NewStorePicture />)}
       />
