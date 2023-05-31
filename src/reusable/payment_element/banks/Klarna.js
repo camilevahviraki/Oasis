@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { useLocation } from 'react-router-dom';
 import { useStripe } from '@stripe/react-stripe-js';
 import StatusMessages, { useMessages } from './StatusMessages';
+import postPayementIntent from '../postPayementIntent';
 
 const COUNTRY_CURRENCY = {
   AT: 'EUR',
@@ -36,19 +37,12 @@ const KlarnaForm = () => {
       return;
     }
 
-    const { error: backendError, clientSecret } = await fetch(
-      '/create-payment-intent',
-      {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({
-          paymentMethodType: 'klarna',
-          currency: COUNTRY_CURRENCY[country],
-        }),
-      },
-    ).then((r) => r.json());
+    const data = {
+      paymentMethodType: 'klarna',
+      currency: COUNTRY_CURRENCY[country],
+    }
+    const response = await postPayementIntent({data});
+    const {error: backendError, clientSecret} = response;
 
     if (backendError) {
       addMessage(backendError.message);

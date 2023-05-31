@@ -1,6 +1,7 @@
 import React from 'react';
 import { useStripe } from '@stripe/react-stripe-js';
 import StatusMessages, { useMessages } from './StatusMessages';
+import postPayementIntent from '../postPayementIntent';
 
 const WeChatPay = () => {
   const [messages, addMessage] = useMessages();
@@ -13,20 +14,12 @@ const WeChatPay = () => {
       return;
     }
 
-    // Create the payment intent on the server
-    const {
-      error: backendError,
-      clientSecret,
-    } = await fetch('/create-payment-intent', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify({
-        paymentMethodType: 'wechat_pay',
-        currency: 'cny',
-      }),
-    }).then((r) => r.json());
+    const data = {
+      paymentMethodType: 'wechat_pay',
+      currency: 'cny',
+    }
+    const response = await postPayementIntent({data});
+    const {error: backendError, clientSecret} = response;
 
     if (backendError) {
       addMessage(backendError.message);

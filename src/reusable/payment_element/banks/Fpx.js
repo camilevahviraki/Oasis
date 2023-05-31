@@ -2,6 +2,7 @@ import React, { useEffect } from 'react';
 import { useLocation } from 'react-router-dom';
 import { FpxBankElement, useStripe, useElements } from '@stripe/react-stripe-js';
 import StatusMessages, { useMessages } from './StatusMessages';
+import postPayementIntent from '../postPayementIntent';
 
 const FpxForm = () => {
   const stripe = useStripe();
@@ -20,19 +21,13 @@ const FpxForm = () => {
       return;
     }
 
-    const { error: backendError, clientSecret } = await fetch(
-      '/create-payment-intent',
-      {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({
-          paymentMethodType: 'fpx',
-          currency: 'myr',
-        }),
-      },
-    ).then((r) => r.json());
+    const data = {
+      paymentMethodType: 'fpx',
+      currency: 'myr',
+    }
+
+    const response = await postPayementIntent({data});
+    const {error: backendError, clientSecret} = response;
 
     if (backendError) {
       addMessage(backendError.message);

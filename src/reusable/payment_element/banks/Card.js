@@ -1,5 +1,6 @@
+import { CardElement, useElements, useStripe } from '@stripe/react-stripe-js';
 import React from 'react';
-import { CardElement, useStripe, useElements } from '@stripe/react-stripe-js';
+import postPayementIntent from '../postPayementIntent';
 import StatusMessages, { useMessages } from './StatusMessages';
 
 const CardForm = () => {
@@ -19,19 +20,12 @@ const CardForm = () => {
       return;
     }
 
-    const { error: backendError, clientSecret } = await fetch(
-      '/create-payment-intent',
-      {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({
-          paymentMethodType: 'card',
-          currency: 'usd',
-        }),
-      },
-    ).then((r) => r.json());
+    const data = {
+      paymentMethodType: 'card',
+      currency: 'usd',
+    }
+    const response = await postPayementIntent({data});
+    const {error: backendError, clientSecret} = response;
 
     if (backendError) {
       addMessage(backendError.message);
@@ -53,16 +47,10 @@ const CardForm = () => {
     );
 
     if (stripeError) {
-      // Show error to your customer (e.g., insufficient funds)
       addMessage(stripeError.message);
       return;
     }
 
-    // Show a success message to your customer
-    // There's a risk of the customer closing the window before callback
-    // execution. Set up a webhook or plugin to listen for the
-    // payment_intent.succeeded event that handles any business critical
-    // post-payment actions.
     addMessage(`Payment ${paymentIntent.status}: ${paymentIntent.id}`);
   };
 
@@ -90,7 +78,7 @@ const CardForm = () => {
           <code>4000002500003155</code>
           {' '}
           (Requires
-          <a href="https://www.youtube.com/watch?v=2kc-FjU2-mY" target="_blank" rel="noopener noreferrer">3DSecure</a>
+          3DSecure
           )
         </div>
       </p>

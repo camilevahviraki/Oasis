@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { useStripe, useElements } from '@stripe/react-stripe-js';
 import StatusMessages, { useMessages } from './StatusMessages';
+import postPayementIntent from '../postPayementIntent';
 
 const Boleto = () => {
   const stripe = useStripe();
@@ -27,19 +28,13 @@ const Boleto = () => {
       return;
     }
 
-    const { error: backendError, clientSecret } = await fetch(
-      '/create-payment-intent',
-      {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({
-          paymentMethodType: 'boleto',
-          currency: 'brl',
-        }),
-      },
-    ).then((r) => r.json());
+    const data = {
+      paymentMethodType: 'boleto',
+      currency: 'brl',
+    }
+
+    const response = await postPayementIntent({data});
+    const {error: backendError, clientSecret} = response;
 
     if (backendError) {
       addMessage(backendError.message);

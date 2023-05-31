@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import StatusMessages, { useMessages } from './StatusMessages';
+import postPayementIntent from '../postPayementIntent';
 
 const DisplayBankTransferInstructions = ({ displayBankTransferInstructions }) => {
   if (!displayBankTransferInstructions) return null;
@@ -82,26 +83,23 @@ export const JPBankTransfer = () => {
         onSubmit={async (e) => {
           e.preventDefault();
           addMessage('fetching...');
-          const paymentIntent = await fetch('/create-payment-intent', {
-            method: 'POST',
-            headers: {
-              'Content-Type': 'application/json',
-              Accept: 'application/json',
-            },
-            body: JSON.stringify({
-              paymentMethodType: 'customer_balance',
-              currency: 'jpy',
-              paymentMethodOptions: {
-                customer_balance: {
-                  funding_type: 'bank_transfer',
-                  bank_transfer: {
-                    type: 'jp_bank_transfer',
-                  },
+
+          const data = {
+            paymentMethodType: 'customer_balance',
+            currency: 'jpy',
+            paymentMethodOptions: {
+              customer_balance: {
+                funding_type: 'bank_transfer',
+                bank_transfer: {
+                  type: 'jp_bank_transfer',
                 },
               },
-              customerId,
-            }),
-          }).then((data) => data.json());
+            },
+            customerId,
+          }
+          const response = await postPayementIntent({data});
+          const paymentIntent = response;
+
           if (paymentIntent.error) {
             addMessage(`Error: ${paymentIntent.error.message}`);
             return;

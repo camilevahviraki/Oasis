@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { useStripe, useElements } from '@stripe/react-stripe-js';
 import StatusMessages, { useMessages } from './StatusMessages';
+import postPayementIntent from '../postPayementIntent';
 
 const OxxoForm = () => {
   const stripe = useStripe();
@@ -21,19 +22,12 @@ const OxxoForm = () => {
       return;
     }
 
-    const { error: backendError, clientSecret } = await fetch(
-      '/create-payment-intent',
-      {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({
-          paymentMethodType: 'oxxo',
-          currency: 'mxn',
-        }),
-      },
-    ).then((r) => r.json());
+    const data = {
+      paymentMethodType: 'oxxo',
+      currency: 'mxn',
+    }
+    const response = await postPayementIntent({data});
+    const {error: backendError, clientSecret} = response;
 
     if (backendError) {
       addMessage(backendError.message);

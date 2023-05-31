@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { useLocation } from 'react-router-dom';
 import { useStripe, useElements } from '@stripe/react-stripe-js';
+import postPayementIntent from '../postPayementIntent';
 import StatusMessages, { useMessages } from './StatusMessages';
 
 const BancontactForm = () => {
@@ -21,19 +22,14 @@ const BancontactForm = () => {
       return;
     }
 
-    const { error: backendError, clientSecret } = await fetch(
-      '/create-payment-intent',
-      {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({
-          paymentMethodType: 'bancontact',
-          currency: 'eur',
-        }),
-      },
-    ).then((r) => r.json());
+
+    const data = {
+      paymentMethodType: 'bancontact',
+      currency: 'eur',
+    }
+
+    const response = await postPayementIntent({data});
+    const {error: backendError, clientSecret} = response;
 
     if (backendError) {
       addMessage(backendError.message);
@@ -51,7 +47,7 @@ const BancontactForm = () => {
           name,
         },
       },
-      return_url: `${window.location.origin}/bancontact?return=true`,
+      return_url: `${window.location.origin}order_payed/bancontact?return=true`,
     });
 
     if (stripeError) {
@@ -60,11 +56,6 @@ const BancontactForm = () => {
       return;
     }
 
-    // Show a success message to your customer
-    // There's a risk of the customer closing the window before callback
-    // execution. Set up a webhook or plugin to listen for the
-    // payment_intent.succeeded event that handles any business critical
-    // post-payment actions.
     addMessage(`Payment ${paymentIntent.status}: ${paymentIntent.id}`);
   };
 
@@ -118,7 +109,7 @@ const BancontactReturn = () => {
 
   return (
     <>
-      <h1>Bancontact Return</h1>
+      <h1>Thank you for choosing Bancontact</h1>
       <StatusMessages messages={messages} />
     </>
   );

@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { PaymentRequestButtonElement, useStripe, useElements } from '@stripe/react-stripe-js';
 import StatusMessages, { useMessages } from './StatusMessages';
+import postPayementIntent from '../postPayementIntent';
 
 const ApplePay = () => {
   const stripe = useStripe();
@@ -32,19 +33,14 @@ const ApplePay = () => {
     });
 
     pr.on('paymentmethod', async (e) => {
-      const { error: backendError, clientSecret } = await fetch(
-        '/create-payment-intent',
-        {
-          method: 'POST',
-          headers: {
-            'Content-Type': 'application/json',
-          },
-          body: JSON.stringify({
-            paymentMethodType: 'card',
-            currency: 'usd',
-          }),
-        },
-      ).then((r) => r.json());
+
+      const data = {
+        paymentMethodType: 'card',
+        currency: 'usd',
+      }
+  
+      const response = await postPayementIntent({data});
+      const {error: backendError, clientSecret} = response;
 
       if (backendError) {
         addMessage(backendError.message);
