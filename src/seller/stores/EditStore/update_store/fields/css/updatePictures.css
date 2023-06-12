@@ -1,0 +1,35 @@
+.update-store-images {
+    margin-top: 40px;
+    width: 80%;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    gap: 1%;
+    position: relative;
+    margin-bottom: 40px;
+}
+
+.store_image_to_update_wrapper {
+    /* width: 25vw; */
+    height: 25vw;
+    border: 1px solid gray;
+    position: relative;
+}
+
+.store_image_to_update_options_button {
+    position: absolute;
+    bottom: 30px;
+    left: 10px;
+    background-color: #b1b1b126;
+    cursor: pointer;
+}
+
+.store_image_to_update_options_button:hover {
+    background-color: #00606830;
+}
+
+.new-image-link {
+    position: absolute;
+    right: 5%;
+    margin-bottom: 20px;
+    top: -30px;
+}

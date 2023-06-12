@@ -3,7 +3,7 @@
     flex-direction: column;
     align-items: center;
     margin-top: 20px;
-    width: 100vw;
+    width: 100%;
     padding-bottom: 30px;
 }
 
@@ -17,7 +17,6 @@
     width: 80%;
     border: 1px solid gray;
     display: flex;
-    /* align-items: center; */
     margin-bottom: 20px;
     padding-bottom: 30px;
     padding-bottom: 30px;
@@ -30,7 +29,8 @@
 
 .my_store_image_wrap {
     width: 40vw;
-    height: 40vw;
+    height: 32vw;
+    position: relative;
 }
 
 .my_store_details_wrap {
@@ -38,7 +38,6 @@
     flex-direction: column;
     margin-left: 20px;
     height: 100%;
-    /* border: 1px solid gray; */
     width: 47%;
     text-align: start;
 }
@@ -56,8 +55,8 @@
 .my_store_categories {
     display: flex;
     align-items: center;
-    max-width: 100%;
-    overflow-x: scroll;
+    max-width: 90%;
+    overflow-x: auto;
     overflow-y: hidden;
 }
 
@@ -99,8 +98,8 @@
 
 .my_store_categories_places {
     margin: 0;
-    max-width: 100%;
-    overflow-x: scroll;
+    max-width: 90%;
+    overflow-x: auto;
 }
 
 .my_store_categories_places div {
@@ -123,4 +122,49 @@
     height: auto;
     width: auto;
     margin: auto;
+}
+
+.my_store_image_wrap_edit-link {
+    position: absolute;
+    bottom: 8%;
+    right: 3%;
+}
+
+.my_store_image_wrap_edit {
+    height: 60px;
+    width: 60px;
+    border-radius: 50%;
+    border: 1px solid gray;
+    background-color: rgba(128, 128, 128, 0.514);
+    display: grid;
+}
+
+.my_store_image_wrap_edit img {
+    margin: auto;
+}
+
+.my_store_image_wrap_edit:hover {
+    border: 1px solid #fff;
+    background-color: rgba(1, 119, 134, 0.514);
+}
+
+.store-edit-image-profile-wrapp {
+    width: 180px;
+    height: 180px;
+    border-radius: 50%;
+    border: 1px solid gray;
+    position: absolute;
+    left: 30px;
+    bottom: 0px;
+    background-color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+}
+
+.store-edit-image-profile-wrapp div {
+    width: 90%;
+    height: 90%;
+    border-radius: 50%;
 }

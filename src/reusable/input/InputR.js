@@ -8,19 +8,19 @@ const InputR = (props) => {
     classNameInput,
     label,
     type,
-    inputContainerClass
-  } = props;  
+    inputContainerClass,
+  } = props;
   return (
     <div className={inputContainerClass}>
-        {label?(<label htmlFor={name}>{label}</label>):(<></>)}
-        <input
-          type={type}
-          className={classNameInput}
-          placeholder={placeholder}
-          onChange={onChangeFunc}
-          />
+      {label ? (<label htmlFor={name}>{label}</label>) : (<></>)}
+      <input
+        type={type}
+        className={classNameInput}
+        placeholder={placeholder}
+        onChange={onChangeFunc}
+      />
     </div>
-  )
-}
+  );
+};
 
-export default InputR
+export default InputR;

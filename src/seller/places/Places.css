@@ -1,0 +1,44 @@
+.place-main-container {
+    width: 90%;
+    border: 1px solid gray;
+    overflow: hidden;
+    position: relative;
+    height: calc(100vh - 50px);
+}
+
+.leaflet-control-zoom {
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    top: 20px;
+    left: 20px;
+}
+
+.leaflet-control-zoom a {
+    border: 1px solid gray;
+    color: black;
+    font-size: 16px;
+    font-weight: 700;
+    margin: 2px;
+    background-color: #88888038;
+}
+
+.leaflet-my-location-icon {
+    border-radius: 50%;
+    animation: iconlocation 3s linear 5ms infinite normal forwards;
+    border: 2px solid #fff;
+}
+
+@keyframes iconlocation {
+    from {
+      width: 50px;
+      height: 50px;
+    }to {
+      width: 55px;
+      height: 55px;
+    }
+}
+
+.Leaflet-position-circle {
+    background-color: #22445344;
+}

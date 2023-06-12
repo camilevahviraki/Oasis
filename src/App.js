@@ -1,14 +1,15 @@
-import "./App.css";
-import { Provider, useSelector } from "react-redux";
-import store from "./redux/store";
-import CreateStore from "./seller/stores/CreateStore/CreateStore";
-import MainRouter from "./router/MainRouter";
+import './App.css';
+import { Provider, useSelector } from 'react-redux';
+import store from './redux/store';
+import CreateStore from './seller/stores/CreateStore/CreateStore';
+import MainRouter from './router/MainRouter';
+// import "leaflet/dist/leaflet.css";
 
 function App() {
   return (
     <Provider store={store}>
       <div className="App">
-        <MainRouter/>
+        <MainRouter />
       </div>
     </Provider>
   );

@@ -1,72 +1,100 @@
-import React, { useState } from "react";
-import nextIcon from "../../images/next-more-icon.png";
-import CheckValidImage from "../check-image/checkValidImage";
-import storeImage from "../../images/store-image-holder.png";
-import "./ImageSlider.css";
+import React, { useState, useRef, useEffect } from 'react';
+import { FaAngleRight, FaAngleLeft } from 'react-icons/fa';
+import CheckValidImage from '../check-image/checkValidImage';
+import storeImage from '../../images/store-image-holder.png';
+import './ImageSlider.css';
 
 const ImageSilder = (props) => {
+  const imagesContainerRef = useRef(null);
   const { imagesArray, freeze } = props;
-
-  const [imageShown, setImageShown] = useState(0);
-
-  const videos = imagesArray.filter((image) => image.includes("video/upload"));
-  const images = imagesArray.filter((image) => image.includes("image/upload"));
+  const [imageShown, setImageShown] = useState(1);
+  const [containerWidth, setContainerWidth] = useState(null);
+  const [scrollTo, setScrollTo] = useState(1);
+  const videos = imagesArray.filter((image) => image.includes('video/upload'));
+  const images = imagesArray.filter((image) => image.includes('image/upload'));
 
   const arrangedImages = [...images, ...videos];
 
   const nextImage = () => {
-    if (imageShown + 1 < arrangedImages.length) {
+    if (imageShown < arrangedImages.length) {
       setImageShown(imageShown + 1);
     }
   };
 
   const previousImage = () => {
-    if (imageShown - 1 >= 0) {
+    if (imageShown - 1 >= 1) {
       setImageShown(imageShown - 1);
     }
   };
 
-  return (
-    <div
-      style={{ width: "100%", height: "100%" }}
-      className="images-slider-container"
-    >
-      {imagesArray.length === 0 ? (
-        <img src={storeImage} alt="" className="my_store_image" />
-      ) : (
-        <>
-          {arrangedImages[imageShown].includes("video/upload") ? (
-            <div className="image-slider-video-wrap">
-              <video width="100%" height="45%" controls>
-                <source src={
-                  CheckValidImage({
-                    avartarUrl: arrangedImages[imageShown],
-                    defaultImg: storeImage
-                  })} type="video/mp4" />
-              </video>
-            </div>
-          ) : (
-            <img
-              src={
-                CheckValidImage({
-                avartarUrl: arrangedImages[imageShown],
-                defaultImg: storeImage
-              })}
-              alt=""
-              className="my_store_image"
-            />
-          )}
-        </>
-      )}
+  useEffect(() => {
+    setContainerWidth(imagesContainerRef.current.offsetWidth);
+  }, []);
 
+  if (scrollTo !== imageShown) {
+    if (imagesContainerRef.current) {
+      imagesContainerRef.current.scrollTo({
+        top: 0,
+        left: (imageShown - 1) * containerWidth,
+        behavior: 'smooth',
+      });
+      setScrollTo(imageShown);
+    }
+  }
+
+  return (
+    <div className="images-slider-container-main">
+      <div
+        style={{ width: '100%', height: '100%' }}
+        className="images-slider-container"
+        ref={imagesContainerRef}
+      >
+        {imagesArray.length === 0 ? (
+          <img src={storeImage} alt="" className="my_store_image" />
+        ) : (
+          <>
+            {arrangedImages.map((imageUrl) => (
+              <div className="image-slider-flex">
+                {imageUrl.includes('video/upload') ? (
+                  <div className="image-slider-video-wrap">
+                    <video width="100%" height="45%" controls>
+                      <source
+                        // src={CheckValidImage({
+                        //   avartarUrl: imageUrl,
+                        //   defaultImg: storeImage,
+                        // })}
+                        src={imageUrl}
+                        type="video/mp4"
+                      />
+                    </video>
+                  </div>
+                ) : (
+                  <img
+                    // src={CheckValidImage({
+                    //   avartarUrl: imageUrl,
+                    //   defaultImg: storeImage,
+                    // })}
+                    src={imageUrl}
+                    alt=""
+                    className="my_store_image"
+                  />
+                )}
+              </div>
+            ))}
+          </>
+        )}
+      </div>
       {!freeze && imagesArray.length !== 1 ? (
         <div className="image-slider-buttons-wrapper">
           <div>
-            <button className="button-next-image-left" onClick={previousImage}>
-              <img src={nextIcon} alt="" />
+            <button
+              className="button-slide-image button-next-image-left"
+              onClick={previousImage}
+            >
+              <FaAngleLeft />
             </button>
-            <button className="button-next-image-right" onClick={nextImage}>
-              <img src={nextIcon} alt="" />
+            <button className="button-slide-image button-next-image-right" onClick={nextImage}>
+              <FaAngleRight />
             </button>
           </div>
         </div>
@@ -74,16 +102,17 @@ const ImageSilder = (props) => {
         <></>
       )}
 
-      {!freeze && imagesArray.length !== 1 ? (
+      {!freeze && imagesArray.length > 1 ? (
         <div className="image-sliders-dots-wrap">
           {arrangedImages.map((image, id) => (
             <div
               className={
-                id === imageShown
-                  ? "image-slider-dots current-dot"
-                  : "image-slider-dots"
-              }
-            ></div>
+                  id + 1 === imageShown
+                    ? 'image-slider-dots current-dot'
+                    : 'image-slider-dots'
+                }
+              onClick={() => setImageShown(id + 1)}
+            />
           ))}
         </div>
       ) : (

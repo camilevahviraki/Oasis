@@ -53,16 +53,19 @@
 }
 
 .store-show-image-container {
-    width: 100vw;
-    height: 200px;
+    /* width: 100vw; */
+    height: 180px;
+    position: relative;
+    border-bottom: 1px solid #b8b8b8af;
 }
 
 .store-banner-container {
     position: absolute;
-    bottom: -85px;
+    bottom: -40px;
     left: 30px;
     display: flex;
     align-items: center;
+    background-color: #fff;
 }
 
 .store-banner-wrapper {
@@ -70,14 +73,18 @@
     height: 80px;
     border-radius: 50%;
     border: 1px solid gray;
-    display: block;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     margin-right: 12px;
+    overflow: hidden;
 }
 
 .store-banner {
     max-width: 100%;
     max-height: 100%;
-    margin: auto;
+    width: auto;
+    height: auto;
 }
 
 .store-name {
@@ -92,7 +99,7 @@
 
 .store-categories-wrapper {
     display: flex;
-    margin-top: 90px;
+    margin-top: 55px;
     align-items: baseline;
     width: 100%;
     border-bottom: 1px solid gray;
@@ -152,9 +159,6 @@
     align-items: center;
     height: 30px;
     width: 30vw;
-    border-radius: 15px;
-    border: 1px solid rgba(167, 167, 167, 0.473);
-    background-color: rgba(167, 167, 167, 0.473);
     margin-top: 12px;
 }
 
@@ -173,4 +177,37 @@
     right: 30px;
     bottom: -90px;
     font-weight: 700;
+}
+
+.store-settings {
+    display: flex;
+    align-items: center;
+    position: absolute;
+    top: 0;
+    right: 20px;
+    align-items: center;
+}
+
+.store-settings a {
+    margin-left: 16px;
+    font-size: 18px;
+    color: #3c3d3e;
+    display: flex;
+    padding: 6px;
+    border-radius: 6px;
+}
+
+.store-settings span {
+    font-size: 14px;
+    margin-left: 5px;
+}
+
+.store-settings a:hover {
+    background-color: #56575834;
+    color: #006d91;
+}
+
+.item-store-link {
+    position: absolute;
+    right: 5vw;
 }

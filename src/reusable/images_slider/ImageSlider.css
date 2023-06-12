@@ -1,3 +1,10 @@
+.images-slider-container-main {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+}
+
 .image-slider-buttons-wrapper {
     width: 100%;
     position: absolute;
@@ -14,8 +21,21 @@
 .images-slider-container {
     position: relative;
     display: flex;
-    flex-direction: column;
     align-items: center;
+    overflow-x: hidden;
+}
+
+.button-slide-image {
+    padding: 5px;
+    font-size: 18px;
+    border-radius: 50%;
+    border: 1px solid gray;
+    background-color: #8a8a8a4a;
+}
+
+.button-slide-image:hover {
+    color: #fff;
+    background-color: #276262;
 }
 
 .button-next-image-left {
@@ -59,13 +79,14 @@
     background-color: rgba(50, 78, 78, 0.486);
     border: 1px solid gray;
     margin: 5px;
+    cursor: pointer;
 }
 
 .current-dot {
     width: 11px;
     height: 11px;
-    background-color: aliceblue;
-    border: 1px solid rgb(11, 107, 107);
+    background-color: #276262;
+    border: 1px solid #757575c9;
 }
 
 .image-sliders-dots-wrap {
@@ -73,6 +94,8 @@
     align-items: center;
     position: absolute;
     bottom: 10px;
+    width: 100%;
+    justify-content: center;
 }
 
 .image-slider-video-wrap {
@@ -81,3 +104,12 @@
     display: flex;
     align-items: center;
 }
+
+.image-slider-flex {
+    flex: 0 0 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+}
+

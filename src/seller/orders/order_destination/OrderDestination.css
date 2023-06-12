@@ -1,0 +1,28 @@
+.order-create-sub-page-container {
+    flex: 0 0 100%;
+    /* border: 1px solid gray; */
+    padding-top: 30px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.order-destination-form-wrapp {
+    max-width: 1000px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.create-order-map-container {
+    width: 80%;
+    border: 1px solid #80808046;
+    margin: 30px 0;
+}
+
+.create-order-map-wrapper {
+    width: 100%;
+    height: 40vw;
+    overflow: hidden;
+}

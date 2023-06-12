@@ -6,11 +6,16 @@
     width: 70%;
 }
 
+.create-store-title-main {
+    font-weight: 700;
+    margin-top: 18px;
+    font-size: 22px;
+    color: #15292a;
+}
+
 .create-store-categories {
     border: 1px solid gray;
     display: flex;
-    /* flex-direction: column; */
-    /* align-items: center; */
     width: 80%;
 }
 
@@ -29,31 +34,29 @@
 }
 
 .selected-type {
-    background-color: rgb(5, 75, 69);
+    background-color: #054b45;
     color: #fff;
 }
 
 .InputCreateStore{
-    border: 1px solid rgba(128, 128, 128, 0.377);
-    margin: 8px 0;
+    border: 1px solid #80808060;
+    margin: 5px 0;
     padding: 8px;
     width: 100%;
-    /* color: #fff; */
-    /* background-color: #87898a; */
 }
 
 .TextAreaCreateStore {
     height: 120px;
-    border: 1px solid rgba(128, 128, 128, 0.377);
+    border: 1px solid #80808060;
     width: 100%;
+    margin-top: 5px;
 }
 
 .create-store-submit {
-    position: absolute;
-    top: 90vh;
     padding: 8px 15px;
-    background-color: rgba(5, 18, 27, 0.705);
+    background-color: #23747a;
     color: white;
+    margin: 10px;
 }
 
 .create_store_main_container {
@@ -72,13 +75,11 @@
 
 .categories_list_container {
     width: 48%;
-    /* border: 1px solid red; */
 }
 
 .categories_list_selected_container {
     width: 48%;
     margin-left: 4%;
-    /* border: 1px solid green; */
     position: relative;
 }
 
@@ -87,7 +88,6 @@
     bottom: 0;
     padding: 12px;
     width: 100%;
-    /* border: 1px solid gray; */
 }
 
 .create-store-categories-submit-container button{
@@ -131,4 +131,46 @@
     position: absolute;
     margin: 0;
     right: 12px;
+}
+
+.create-store-main-image-preview-container {
+    position: relative;
+}
+
+.create-store-image-preview-wrapp {
+    height: 150px;
+    width: 150px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    position: relative;
+    border: 1px solid #808080a9;
+}
+
+.create-store-image-preview {
+    max-width: 100%;
+    max-height: 100%;
+}
+
+.create-store-label-input-file {
+    position: absolute;
+    right: 10px;
+    bottom: 10px;
+    height: 30px;
+    width: 30px;
+    border-radius: 50%;
+    z-index: 5;
+    background-color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 20px;
+    cursor: pointer;
+}
+
+.create-store-label-input-file:hover {
+    background-color: #00555ad3;
+    color: #fff;
 }

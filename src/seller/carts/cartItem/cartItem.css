@@ -1,0 +1,124 @@
+.cart-item-quantity-wrapper {
+    display: flex;
+    align-items: center;
+}
+
+.cart-item-quantity-wrapper button {
+    width: 20px !important;
+    height: 20px !important;
+    font-size: 12px !important;
+    font-weight: 400;
+    margin: 6px;
+    border-radius: 50%;
+}
+
+.cart-item-quantity-available {
+    font-weight: 400;
+    color: #616161;
+    /* color: ; */
+    font-size: 12px;
+    font-style: italic;
+}
+
+.cart-item-quantity-available span {
+    font-weight: 600;
+    color: #424242;
+}
+
+.cart-item-price {
+    color: #303030;
+    font-size: 13px;
+    margin-bottom: 5px;
+    display: flex;
+    align-items: center;
+}
+
+.cart-item-price span {
+    color: #1c1c1c;
+    font-size: 18px;
+    font-weight: 700;
+}
+
+.cart-item-qunatity-title {
+    color: #303030;
+    font-size: 13px;
+}
+
+.cart-item-name {
+    color: #1c1c1c;
+    font-size: 17px;
+}
+
+.cart-item-buttons-wrapper {
+    height: 100%;
+    width: 50%;
+    margin-left: 2%;
+    text-align: start;
+    /* border: 1px solid blue; */
+    display: flex;
+    flex-direction: column;
+    /* justify-content: flex-end; */
+}
+
+.cart-item-attribute-wrapp {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
+.cart-item-attribute-title {
+    color: #303030;
+    font-weight: 400;
+    font-size: 12px;
+    display: flex;
+    align-items: center;
+}
+
+.cart-item-attribute-title span {
+    font-size: 12px;
+    font-weight: 600;
+    color: #212121;
+}
+
+.cart-item-attribute-color {
+    width: 15px;
+    height: 15px;
+    border: 1px solid gray;
+    margin-left: 8px;
+}
+
+.cart-items-options-button-wrapper {
+    position: absolute;
+    top: 5%;
+    right: 1.5%;
+}
+
+.cart-item-show-options {
+    cursor: pointer;
+}
+
+.cart-item-options-button:hover {
+    color: #035455;
+}
+
+.cart-item-unit-price {
+    font-style: italic;
+    font-size: 12px;
+    color: #303030;
+    font-weight: 300;
+    display: flex;
+    align-items: center;
+    margin-left: 8px;
+    margin-top: 30px;
+}
+
+.cart-item-unit-price span {
+    font-weight: 700;
+    font-size: 13px;
+}
+
+.cart-item-see-more-link {
+    position: absolute;
+    bottom: 12px;
+    font-size: 14px;
+}

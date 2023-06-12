@@ -5,15 +5,13 @@ import SignIn from './signin';
 import ForgotPassword from './forgotPassword';
 import UpdateAccount from './updateAccount';
 
-const AuthRoutes = () => {
-  return (
-    <Routes>
-      <Route path='signup' element={(<SignUp/>)}/>
-      <Route path='login' element={(<SignIn/>)}/>
-      <Route path='forgot-password' element={(<ForgotPassword/>)}/>
-      <Route path='account-update' element={(<UpdateAccount/>)}/>
-    </Routes>
-  )
-}
+const AuthRoutes = () => (
+  <Routes>
+    <Route path="/" element={(<SignIn />)} />
+    <Route path="signup" element={(<SignUp />)} />
+    <Route path="login" element={(<SignIn />)} />
+    <Route path="forgot-password" element={(<ForgotPassword />)} />
+  </Routes>
+);
 
 export default AuthRoutes;

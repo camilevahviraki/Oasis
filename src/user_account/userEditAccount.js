@@ -1,9 +1,7 @@
-import React from 'react'
+import React from 'react';
 
-const UserEditAccount = () => {
-  return (
-    <div>UserEditAccount</div>
-  )
-}
+const UserEditAccount = () => (
+  <div>UserEditAccount</div>
+);
 
 export default UserEditAccount;

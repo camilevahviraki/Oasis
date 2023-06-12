@@ -9,8 +9,14 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  padding-top: 70px;
+  padding-top: 50px;
   /* background-color: rgb(247, 246, 234); */
+  height: 100vh;
+  scroll-behavior: smooth;
+}
+
+#root {
+  height: 100%;
 }
 
 code {
@@ -31,6 +37,27 @@ a {
 }
 
 h2{
+  font-size: 22px;
+  font-weight: 600;
+}
+
+h3 {
   font-size: 20px;
   font-weight: 600;
+}
+
+.pointer {
+  cursor: pointer;
+}
+
+.limit-text-show-more {
+  cursor: pointer;
+  color: #272727;
+  font-weight: 500;
+}
+
+.limit-text-show-less {
+  cursor: pointer;
+  color: #013e48;
+  font-weight: 500;
 }

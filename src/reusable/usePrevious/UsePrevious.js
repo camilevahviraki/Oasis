@@ -1,11 +1,11 @@
-import React, {useRef, useEffect} from 'react'
+import React, { useRef, useEffect } from 'react';
 
 const UsePrevious = (value) => {
-   const ref = useRef();
+  const ref = useRef();
   useEffect(() => {
-    ref.current = value; //assign the value of ref to the argument
-  },[value]); //this code will run when the value of 'value' changes
-  return ref.current; //in the end, return the current ref value.
-}
+    ref.current = value; // assign the value of ref to the argument
+  }, [value]); // this code will run when the value of 'value' changes
+  return ref.current; // in the end, return the current ref value.
+};
 
-export default UsePrevious
+export default UsePrevious;

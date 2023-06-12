@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { postStoreToServer } from '../redux/stores/createStoreReducer';
 import { Routes, Route } from 'react-router-dom';
+import { postStoreToServer } from '../redux/stores/createStoreReducer';
 import CreateStore from '../seller/stores/CreateStore/CreateStore';
 import MyStores from '../seller/stores/MyStores/MyStores';
 import StoreEdit from '../seller/stores/EditStore/EditStore';
@@ -10,56 +10,76 @@ import CreateItem from '../seller/items/createItem/createItem';
 import StoreShow from '../seller/stores/StoreDetails/StoreShow';
 import ItemShow from '../seller/items/showItem/ItemShow';
 import UpdateStore from '../seller/stores/EditStore/update_store/UpdateStore';
+import NewStorePicture from '../seller/stores/EditStore/update_store/fields/NewPicture';
+import InSightData from '../seller/stores/InSightData/InSightData';
+import OrderShow from '../seller/orders/order_show/OrderShow';
+import OrdersIndex from '../seller/orders/orders_index/OrdersIndex';
 
 const SellerRouter = () => {
-  const dispatch = useDispatch()
-  const createStoreData = useSelector(state => state.createStoresReducer);
+  const dispatch = useDispatch();
+  const createStoreData = useSelector((state) => state.createStoresReducer);
 
   useEffect(() => {
-
-    const step = createStoreData.storeId.step;
-    if(step === 5 || step === '5'){
+    const { step } = createStoreData.storeId;
+    if (step === 5 || step === '5') {
       dispatch(postStoreToServer());
     }
   }, []);
 
   const storeLink = useSelector((state) => state.storeLinkReducer);
   const itemLink = useSelector((state) => state.itemLinkReducer);
-
-  console.log('update link', `store/${storeLink.link.link}/update`);
+  console.log(storeLink);
 
   return (
-      <Routes>
-          <Route path={storeLink.link?
-            `store/${storeLink.link.link}`:
-            `my-stores/error_page`
-            } element={(<StoreShow/>)}
-          />
-          <Route path='create-store' element={(<CreateStore/>)}/>
-          <Route path='my-stores' element={(<MyStores/>)}/>
-          <Route path={storeLink.link?
-            `my-stores/${storeLink.link.link}/edit`:
-            `my-stores/error_page`
-            } element={(<StoreEdit/>)}
-          />
-          <Route path={storeLink.link?
-              `my-stores/${storeLink.link.link}/items`:
-              `my-stores/error_page`
-            } element={(<StoreItems/>)}
-          />
-          <Route path={storeLink.link?
-              `my-stores/${storeLink.link.link}/item/new`:
-              `my-stores/error_page`
-            } element={(<CreateItem/>)}
-          />
-          <Route path={itemLink.link? itemLink.link : `my-stores/error_page`} 
-            element={(<ItemShow/>)}
-          />
-          <Route path={`store/${storeLink.link.link}/update`}
-            element={(<UpdateStore/>)}
-          />
-      </Routes>
-  )
-}
+    <Routes>
+      <Route
+        path="order"
+        element={(<OrdersIndex />)}
+      />
+      <Route
+        path="order/:token_id"
+        element={(<OrderShow />)}
+      />
+      <Route
+        path="store/:token_id"
+        element={(<StoreShow />)}
+      />
+      <Route
+        path="store/:token_id/analysis"
+        element={(<InSightData />)}
+      />
+      <Route path="create-store" element={(<CreateStore />)} />
+      <Route path="my-stores" element={(<MyStores />)} />
+      <Route
+        path="my-store/:token_id/edit"
+        element={(<StoreEdit />)}
+      />
+      <Route
+        path="my-store/:token_id/items"
+        element={(<StoreItems />)}
+      />
+      <Route
+        path="my-store/:token_id/item/new"
+        element={(<CreateItem />)}
+      />
+      <Route
+        path="item/:name/id/:id"
+        element={(<ItemShow />)}
+      />
+      <Route
+        path="store/:store_name/item/:name/id/:id"
+        element={(<ItemShow />)}
+      />
+      <Route
+        path="store/:token_id/update"
+        element={(<UpdateStore />)}
+      />
+      <Route
+        path="store/:token_id/update/new_image"
+        element={(<NewStorePicture />)}
+      />
+    </Routes>
+  );
+};
 
-export default SellerRouter
+export default SellerRouter;
