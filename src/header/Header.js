@@ -34,7 +34,7 @@ const Header = () => {
   const cartData = useSelector((state) => state.cartItemsReducer);
 
   const links = [
-    { id: 1, icon: homeIcon, link: '../' },
+    { id: 1, icon: homeIcon, link: '../home' },
     { id: 2, icon: placesIcon, link: '../places' },
     { id: 3, icon: storeIcon, link: '../my-stores' },
   ];

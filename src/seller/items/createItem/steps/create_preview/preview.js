@@ -1,5 +1,5 @@
 import React from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { resetCreateStoreData } from '../../../../../redux/item/createItem';
 import ItemShowReusable from '../../../showItem/__item_reusable/ItemShowReusable';
@@ -13,12 +13,15 @@ const Preview = () => {
     item,
   } = createItemData;
 
+  const {token_id} = useParams();
+
   const nexStep = (state) => {
     if (state) {
-      navigate(`../store/${storeLink.link.link}`);
+      navigate(`../store/${token_id}`);
       dispatch(resetCreateStoreData());
     }
   };
+
   return (
     <>
       <ItemShowReusable itemId={item.item_id} preview nexStep={nexStep} />

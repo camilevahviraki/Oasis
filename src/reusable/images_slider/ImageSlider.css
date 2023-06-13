@@ -10,6 +10,7 @@
     position: absolute;
     top: 0;
     height: 100%;
+    z-index: 5;
 }
 
 .image-slider-buttons-wrapper div {
@@ -96,6 +97,7 @@
     bottom: 10px;
     width: 100%;
     justify-content: center;
+    z-index: 5;
 }
 
 .image-slider-video-wrap {

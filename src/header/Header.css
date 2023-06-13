@@ -1,11 +1,11 @@
 header {
-    border-bottom: 1px solid gray;
     padding: 10px 2%;
     position: fixed;
     align-items: center;
     z-index: 10;
     background-color: #fff;
     top: 0;
+    box-shadow: 1px 1px 5px #b5b5b5;
 }
 
 .header-icons img {
