@@ -1,24 +1,161 @@
 .insight-main-wrapp {
+    position: relative;
     width: 100%;
-    border: 1px solid green;
     display: flex;
-    flex-direction: column;
-    align-items: center;
 }
 
+.insight-data-header {
+   position: fixed;
+   left: 0;
+   top: 50px;
+   height: calc(100vh - 50px);
+   width: 20%;
+   background-color: #001b20;
+   color: #dcdcdc;
+}
+
+.insight-data-page-wrapp {
+    width: 70%;
+    padding: 20px 0;
+    margin-left: 25%;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    min-height: calc(100vh - 50px);
+}
 .insight-table-wrapp {
-    width: 86%;
-    border: 1px solid green;
+    width: 100%;
+    border: 1px solid #001d1b49;
+    margin: 50px 0 0 0;
+}
+
+.insight-data-more-sales {
+    position: absolute;
+    color: #004c5a;
+    padding: 8px;
+    right: 0;
+    display: flex;
+    align-items: center;
+    z-index: 8;
+}
+
+.icon-more-sales {
+    font-size: 25px;
+    margin-right: 6px;
+}
+
+.insight-data-more-sales:hover {
+    border-radius: 8px;
+    background-color: #91919194;
 }
 
 .insight-table-row {
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
-    border-bottom: 1px solid green;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+    border-bottom: 1px solid #91919194;
     height: 30px;
 }
 
+.insight-data-header-links {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    text-align: start;
+    margin-top: 20px;
+}
+
+.insight-data-header-link-wrapper {
+    background-color: #001b20;
+    width: 100%;
+    position: relative;
+    box-shadow: 1px 2px 8px #000f12;
+    padding: 10px;
+    display: flex;
+    align-items: center;
+}
+
+.insight-data-header-link {
+    padding: 10px;
+    color: #dcdcdc;
+    width: 100%;
+    display: flex;
+    align-items: center;
+}
+
+.insight-data-header-link span {
+   font-size: 20px;
+   margin-right: 8px;
+}
+
+.insight-data-header-store-desc {
+    width: 100%;
+    margin: 20px 0 60px 0;
+    display: flex;
+    flex-direction: column;
+}
+
+.insight-data-store-location {
+    font-size: 14px;
+    color: #dcdcdc95;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    padding-left: 12px;
+}
+
+.insight-data-store-location span {
+    font-size: 20px;
+    margin-right: 8px;
+    color: #dcdcdc;
+}
+
+.insight-data-header-link-triangle-show {
+    position: absolute;
+    right: 0;
+    width: 0;
+    height: 0;
+    border-bottom: 14px solid transparent;
+    border-right: 14px solid #fff;
+    border-top: 14px solid transparent;
+}
+
+.insight-data-link-active {
+    background: #00323c;
+    color: #fff;
+}
+
+.insight-table-cell-title {
+    font-weight: 700;
+    color: #000f12;
+}
+
 .insight-table-cell {
-    border-right: 1px solid green;
+    border-right: 1px solid #91919194;
     height: 100%;
+    font-size: 13px;
+    color: #2b3335;
+}
+
+.insight-data-solds-filter {
+    width: 70vw;
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.search-filter {
+    min-width: 200px;
+}
+
+#solds-search-categories-list {
+   right: 55%;
+}
+
+.store-charts-container {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-height: calc(100vh - 150px);
 }

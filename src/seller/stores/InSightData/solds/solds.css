@@ -1,0 +1,28 @@
+.search-categories-list-form {
+   display: flex;
+   flex-direction: column;
+   width: 100%;
+   padding: 12px 0;
+   align-items: center;
+}
+
+.search-categories-list-form label {
+    font-size: 12px;
+    color: #00192498;
+    width: 90%;
+}
+
+.search-categories-list-form input {
+    font-size: 14px;
+    color: #001924c7;
+    width: 90%;
+}
+
+.search-categories-list-form button {
+    padding: 6px;
+    color: #ffffffda;
+    background-color: #003f5ad1;
+    border: 6px;
+    margin: 8px;
+    margin-right: 5%;
+}

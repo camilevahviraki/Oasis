@@ -1,18 +1,19 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useRef } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { AiOutlineSetting } from 'react-icons/ai';
 import { BsGraphUp } from 'react-icons/bs';
 import { IoMdAdd } from 'react-icons/io';
+import { BsFilterLeft } from 'react-icons/bs';
 import { Link } from 'react-router-dom';
 import { useParams } from 'react-router';
+import useIsInViewport from '../../../reusable/checkInViewwPort/checkInViewPort';
 import { getStoresShow } from '../../../redux/stores/getStoreShowReducer';
 import { getItems, searchStoreItem, deleteSearchedData } from '../../../redux/item/getItem';
+import StoreCategoriesList from './categories_list/StoreCategoriesList';
 import Loader from '../../../reusable/loader/Loader';
 import SearchBar from '../../../reusable/serach-bar/SearchBar';
 import ItemsList from '../../items/itemList/ItemIndex';
-import linkName from '../../../reusable/remove-blanck-space/linkName';
 import ImageSilder from '../../../reusable/images_slider/ImageSilder';
-import { setItemLink } from '../../../redux/itemLink/itemLinkreducer';
 import vectorShop from '../../../images/vector-shop.jpeg';
 import locationIcon from '../../../images/icons/location_on_FILL0_wght400_GRAD0_opsz48.png';
 import instagramIcon from '../../../images/icons/contacts/colored/instagram.png';
@@ -26,11 +27,11 @@ import './StoreShow.css';
 const StoreShow = () => {
   const dispatch = useDispatch();
   const { token_id } = useParams();
+  const searchRef = useRef(null);
   const userData = useSelector((state) => state.authenticationReducer);
-  const storeId = useSelector((state) => state.storeLinkReducer.link);
   const storeData = useSelector((state) => state.getStoreShowReducer);
-  const storeLink = useSelector((state) => state.storeLinkReducer);
   const storeItems = useSelector((state) => state.getItemsList);
+  const searchInView = useIsInViewport(searchRef);
   const {
     searchedData,
     itemsList,
@@ -39,6 +40,12 @@ const StoreShow = () => {
   const [freeze, setFreeze] = useState(false);
   const [categoryName, setCategory] = useState('all');
   const [showLoader, setLoader] = useState(false);
+  const [searchBarOnTop, setSearchBarOnTop] = useState(false);
+  const [showCategories, setShowCategories] = useState(false);
+
+  useEffect(() => {
+    setSearchBarOnTop(!searchInView);
+  }, [searchInView]);
 
   useEffect(() => {
     dispatch(
@@ -76,11 +83,10 @@ const StoreShow = () => {
   } = storeData;
 
   const handleSearch = (value) => {
-    // if(itemsList.length > 0){
     const data = {
       query: value,
       categoryName,
-      storeId: storeId.store_id,
+      storeId: id,
     };
     dispatch(searchStoreItem(data));
     setLoader(true);
@@ -92,6 +98,11 @@ const StoreShow = () => {
       dispatch(deleteSearchedData());
     }
   }, [searchedData]);
+
+  const selectCategory = (category) => {
+    setCategory(category.name);
+    setShowCategories(false);
+  }
 
   return (
     <div className="store-show-container">
@@ -109,7 +120,7 @@ const StoreShow = () => {
                 <span>Insights</span>
               </Link>
               <Link
-                to={`../my-store/${token_id}/item/new?type=${categoryName}`}
+                to={`../my-store/${token_id}/item/new?type=${categoryName}&&key=${storeData.id}`}
               >
                 <IoMdAdd />
                 <span>New Item</span>
@@ -154,53 +165,73 @@ const StoreShow = () => {
             </div>
           </div>
 
-          <div className="search-wrapper-store">
+          <div ref={searchRef} className="search-wrapper-store">
             <SearchBar onSearch={handleSearch} instantSearch />
           </div>
         </div>
         <div className="store-categories-wrapper">
-          <button
-            className={
-              categoryName === 'all'
-                ? 'store-category-name current-category'
-                : 'store-category-name'
-            }
-            onClick={() => setCategory('all')}
-          >
-            home
-          </button>
-          {categories.map((category) => (
-            <button
-              className={
-                category.name === categoryName
-                  ? 'store-category-name current-category'
-                  : 'store-category-name'
-              }
-              onClick={() => {
-                setCategory(category.name);
-                dispatch(
-                  getItems({
-                    category: category.name,
-                    store_id: storeId.store_id,
-                  }),
-                );
-              }}
-            >
-              {category.name}
-            </button>
-          ))}
+          <StoreCategoriesList
+            setCategory={setCategory}
+            getItems={getItems}
+            categories={categories}
+            categoryName={categoryName}
+          />
         </div>
       </div>
+      {
+        searchBarOnTop ? (
+
+          <div
+            className="welcome-page-search-bar-container"
+            style={{ position: 'fixed', top: '50px', zIndex: 8, flexDirection: 'column' }}
+          >
+
+            <div className='store-search-flex'>
+              <h4 className="store-name" style={{ marginRight: '60px' }}>{name}{" store"}</h4>
+              <SearchBar onSearch={(value) => handleSearch(value)} instantSearch />
+              <h4 className='search-filter' onClick={() => setShowCategories(!showCategories)}>
+                <BsFilterLeft />
+                <span>{categoryName}</span>
+              </h4>
+
+              {
+                showCategories ? (
+                  <div className='search-categories-list'>
+                    <p
+                      className='search-categories-list-category'
+                      onClick={() => { setCategory('all'); setShowCategories(!showCategories) }}
+                    ><span></span> All</p>
+                    {
+                      categories.map((category) => (
+                        <p
+                          className='search-categories-list-category'
+                          onClick={() => selectCategory(category)}
+                        >
+                          <span></span> {category.name}
+                        </p>
+                      ))
+                    }
+                  </div>
+                ) :
+                  (<></>)
+              }
+            </div>
+          </div>
+        ) : (<></>)
+      }
       {
         showLoader ? (<Loader />) : (<></>)
       }
       {/* Items lister bellow */}
-      {itemsList.length === 0 && searchedData !== undefined ? (
-        <div className="oops-cooldnt-find-a-match">Oops! Could'nt find a match</div>
-      ) : (
-        <ItemsList itemsData={itemsList} storeData={storeData} />
-      )}
-
+      <div style={{ minHeight: 'calc(100vh - 50px)', display: 'flex', justifyContent: 'center' }}>
+        {
+          itemsList.length === 0 && searchedData !== undefined ? (
+            <div className="oops-cooldnt-find-a-match">Oops! Could'nt find a match</div>
+          ) : (
+            <ItemsList itemsData={itemsList} storeData={storeData} />
+          )
+        }
+      </div>
     </div>
   );
 };

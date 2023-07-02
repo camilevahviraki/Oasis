@@ -102,7 +102,8 @@
     margin-top: 55px;
     align-items: baseline;
     width: 100%;
-    border-bottom: 1px solid gray;
+    box-shadow: inset 0px -5px 5px -5px #00000080;
+    background-color: #fff;
 }
 
 .store-category-name {
@@ -111,6 +112,7 @@
     color: gray;
     font-weight: 700;
     width: 120px;
+    font-size: 14px;
 }
 
 .store-category-name:hover {
@@ -150,6 +152,7 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+    background-color: #e5e5e5c2;
 }
 
 .search-wrapper-store {
@@ -183,7 +186,7 @@
     display: flex;
     align-items: center;
     position: absolute;
-    top: 0;
+    top: 6px;
     right: 20px;
     align-items: center;
 }
@@ -210,4 +213,27 @@
 .item-store-link {
     position: absolute;
     right: 5vw;
+}
+
+.store-image-and-lister {
+    background-color: #fff;
+}
+
+.store-search-bar-categories-list-wrapp {
+    position: relative;
+    height: 50%;
+}
+
+.store-search-bar-categories-list {
+    position: absolute;
+    width: 100vw;
+    display: flex;
+    align-items: center;
+    top: 100%;background-color: #fff;
+    overflow-x: auto;
+    border-top: 1px solid #80808075;
+}
+
+.store-search-flex {
+    display: flex;
 }
