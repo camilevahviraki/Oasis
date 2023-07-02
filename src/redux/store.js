@@ -32,6 +32,12 @@ import orderShowReducer from './orders/orderShowReducer';
 import ordersIndexReducer from './orders/ordersIndexReducer';
 import currentLocationReducer from './places/currentLocationReducer';
 import storesPlacesReducer from './places/storesPlacesReducer';
+import welcomePageReducer from './home/welcomePageReducer';
+import massDeleteItemsReducer from './item/massDelete';
+import createStoreSaleReducer from './store_sales/createStoreSales';
+import storeSalesItemsReducer from './store_sales/getStoreSales';
+import storeGraphsReducer from './store_sales/getStoreGraphs';
+import updateItemQuantity from './item/updatedItemQuantity';
 
 const rootReducer = combineReducers({
   createStoresReducer,
@@ -65,6 +71,12 @@ const rootReducer = combineReducers({
   ordersIndexReducer,
   currentLocationReducer,
   storesPlacesReducer,
+  welcomePageReducer,
+  massDeleteItemsReducer,
+  createStoreSaleReducer,
+  storeSalesItemsReducer,
+  storeGraphsReducer,
+  updateItemQuantity,
 });
 
 const store = createStore(
