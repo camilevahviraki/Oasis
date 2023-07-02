@@ -12,7 +12,7 @@ const Home = () => {
   const dispatch = useDispatch();
   const userData = useSelector((state) => state.authenticationReducer);
   useEffect(() => {
-    // dispatch(clearStoreData());
+    dispatch(clearStoreData());
     dispatch(getHomeItems());
   }, []);
 
@@ -39,14 +39,19 @@ const Home = () => {
 
   useEffect(() => {
     if (searchedData && data.length > 0) {
-      //  add to search_suggestions table;
       console.log('add to search_suggestions table =>', searchedQuery);
     }
   }, [homeData.data.length]);
 
   return (
     <div className="home-container">
-      <SearchBar onSearch={handleSearch} instantSearch />
+      <div
+        className="welcome-page-search-bar-container"
+        style={{ position: 'fixed', top: '50px', zIndex: 8 }}
+      >
+        <h2 className='store-name' style={{ fontSize: '24px', marginRight: '60px' }}>Home</h2>
+        <SearchBar onSearch={handleSearch} instantSearch={false} homePage />
+      </div>
       {data.length === 0 && searchedData ? (
         <div className="oops-cooldnt-find-a-match">Oops! Could'nt find a match</div>
       ) : (

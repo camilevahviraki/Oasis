@@ -32,6 +32,24 @@
     z-index: 3;
 }
 
+.big-card-slier-see-more-wrapp {
+    width: 100%;
+    margin-top: 16px;
+}
+
+.slider-see-more-button {
+    font-size: 20px;
+    padding: 12px 30px;
+    border-radius: 24px;
+    font-weight: 700;
+    color: #fff;
+    background-color: #df7304c9;
+}
+
+.slider-see-more-button:hover {
+    background-color: #df7204a6;
+}
+
 .big-card-slier-description {
     width: 45%;
     height: 100%;

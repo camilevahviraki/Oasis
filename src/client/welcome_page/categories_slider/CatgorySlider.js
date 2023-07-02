@@ -1,5 +1,6 @@
 import React, { useState, useRef, useEffect } from "react";
 import { FaAngleRight, FaAngleLeft } from "react-icons/fa";
+import {GiRunningShoe} from "react-icons/fa";
 import "./CatgorySlider.css";
 
 const CatgorySlider = (props) => {
@@ -8,8 +9,7 @@ const CatgorySlider = (props) => {
   const [scrollTo, setScrollTo] = useState(1);
   const [imageShown, setImageShown] = useState(1);
   const [containerWidth, setContainerWidth] = useState(null);
-  console.log("categories =>", data);
-
+  
   useEffect(() => {
     setContainerWidth(containerRef.current.offsetWidth);
   }, []);
@@ -93,7 +93,7 @@ const CatgorySlider = (props) => {
       setImageShown(data.length / 4);
     }
   };
-  console.log(imageShown);
+
   if (scrollTo !== imageShown) {
     if (containerRef.current) {
       containerRef.current.scrollTo({
@@ -110,12 +110,12 @@ const CatgorySlider = (props) => {
       <div className="big-cards-lister-wrapper" ref={containerRef}>
         {data.map((card, key) => {
           const { id, name } = card;
-          if (name === "Others") {
+          if (name !== "Others") {
             return (
               <div
                 className="welcome-page-small-card"
                 key={id}
-                style={{ backgroundImage: `url(${assignImage(card)})` }}
+                // style={{ backgroundImage: `url(${assignImage(card)})` }}
               >
                 {name}
               </div>

@@ -1,4 +1,5 @@
 import React, { useState, useRef, useEffect } from "react";
+import { Link } from "react-router-dom";
 import { FaAngleRight, FaAngleLeft } from "react-icons/fa";
 import "./CardSlider.css";
 
@@ -75,6 +76,9 @@ const CardSlider = (props) => {
               <div className="big-card-slier-description">
                 <h2 className="big-card-slier-title">{mainTile}</h2>
                 <p>{text}</p>
+                <div className="big-card-slier-see-more-wrapp">
+                  <Link to={"../home"} className="slider-see-more-button">See more</Link>
+                </div>  
               </div>
               <div className="big-card-slier-bg"
                 style={{background: `linear-gradient(30deg, ${bgColor[0]}, ${bgColor[1]})`}}

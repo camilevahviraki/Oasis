@@ -1,8 +1,14 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import {AiOutlineCopyright} from 'react-icons/ai';
+import { Link } from "react-router-dom";
+import { AiOutlineCopyright } from 'react-icons/ai';
 import CardSlider from "./card_slider/CardSlider";
 import CatgorySlider from "./categories_slider/CatgorySlider";
+import { getCategories } from "../../redux/stores_categories/stores_categories_reducer";
+import { getWelcomItemsItems, welcomeSearchItem } from "../../redux/home/welcomePageReducer";
+import useIsInViewport from "../../reusable/checkInViewwPort/checkInViewPort";
+import SearchBar from "../../reusable/serach-bar/SearchBar";
+import ItemsList from "../../seller/items/itemList/ItemIndex";
 import bgImg1 from "../../images/welcome_page/img1.png";
 import bgImg2 from "../../images/welcome_page/img2.png";
 import bgImg3 from "../../images/welcome_page/img3.png";
@@ -13,16 +19,34 @@ import bgImg7 from "../../images/welcome_page/img7.png";
 import bgImg8 from "../../images/welcome_page/img8.png";
 import bgImg9 from "../../images/welcome_page/img9.png";
 import bgImg10 from "../../images/welcome_page/img10.png";
-import { getCategories } from "../../redux/stores_categories/stores_categories_reducer";
 import "./WelcomePage.css";
+
 
 const WelcomePage = () => {
   const dispatch = useDispatch();
   useEffect(() => {
-    dispatch(getCategories());
+    // dispatch(getCategories());
+    dispatch(getWelcomItemsItems())
   }, []);
 
+  const searchRef = useRef(null);
+  const sliderRef = useRef(null);
   const categoriesData = useSelector((state) => state.storeCategoriesReducer);
+  const welcomePageItems = useSelector((state) => state.welcomePageReducer);
+  const searchInView = useIsInViewport(searchRef);
+  const sliderInView = useIsInViewport(sliderRef);
+  const handleSearch = (value) => {
+    dispatch(welcomeSearchItem({ query: value }));
+  }
+  const [searchBarOnTop, setSearchBarOnTop] = useState(false);
+
+  useEffect(() => {
+    if (sliderInView) {
+      setSearchBarOnTop(false);
+    } else {
+      setSearchBarOnTop(!searchInView);
+    }
+  }, [searchInView, sliderInView]);
 
   const cardsData = [
     {
@@ -59,11 +83,32 @@ const WelcomePage = () => {
 
   return (
     <div className="welcome-page-container">
-      <div className="welcome-page-big-cards-container">
+
+      <div ref={sliderRef} className="welcome-page-big-cards-container">
         <CardSlider data={cardsData} />
       </div>
       <div className="welcome-page-small-cards-container">
         <CatgorySlider data={categoriesData} />
+      </div>
+      <div ref={searchRef} className="welcome-page-search-bar-container">
+        <SearchBar onSearch={(value) => handleSearch(value)} instantSearch homePage />
+      </div>
+      {
+        searchBarOnTop ? (
+
+          <div
+            className="welcome-page-search-bar-container"
+            style={{ position: 'fixed', top: '50px', zIndex: 8 }}
+          >
+            <SearchBar onSearch={(value) => handleSearch(value)} instantSearch homePage />
+          </div>
+        ) : (<></>)
+      }
+      <div className="welcome-page-items-list-container">
+        <ItemsList itemsData={welcomePageItems.data} />
+        <div className="welcome-page-see-more-items">
+          <Link to={'../home'}>See more products{' >'}</Link>
+        </div>
       </div>
 
       <div className="welcome-page-app-description-container">
@@ -109,7 +154,7 @@ const WelcomePage = () => {
       </div>
       <div className="welcome-page-footer-container">
         <h3 className="welcome-page-footer-logo">OASIS</h3>
-        <p className="welcome-page-footer-licence"><AiOutlineCopyright/>{' '}2023 oasis.com ltd</p>
+        <p className="welcome-page-footer-licence"><AiOutlineCopyright />{' '}2023 oasis.com ltd</p>
       </div>
     </div>
   );
