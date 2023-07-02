@@ -40,7 +40,14 @@ const Menu = (props) => {
         </div>
         <div>
           <img src={userIcon} alt="" className="icon" />
-          <Link to={`../account/${linkName(userNames)}`} onClick={props.hideMenu}>My account</Link>
+          {
+            userData.user?(
+              <Link to={`../account/${linkName(userNames)}`} onClick={props.hideMenu}>My account</Link>
+            ):(
+              <Link to={`../login`} onClick={props.hideMenu}>Login</Link>
+            )
+          }
+         
         </div>
         <div>
           <img src={settingIcon} alt="" className="icon" />
