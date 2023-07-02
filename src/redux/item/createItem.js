@@ -31,6 +31,7 @@ const createItemReducer = (
         attributeStep: 1,
       };
       localStorage.setItem('createdItem', JSON.stringify(currentObj));
+
       return currentObj;
     }
     case SET_ATTRIBUTE_STEP: {
@@ -127,10 +128,12 @@ export const setAttributeStep = (step) => ({
   data: step,
 });
 
-export const setCurrentItem = (item, token) => ({
+export const setCurrentItem = (item) => {
+  console.log(item);
+  return ({
   type: SET_CURRENT_ITEM,
   data: item,
-});
+})};
 
 export const uploadItemColor = (color, itemId, token) => (dispatch) => {
   axios.post(`${linkURL}/item/${itemId}/colors`, color).then((res) => {
