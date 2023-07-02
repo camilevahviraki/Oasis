@@ -1,14 +1,27 @@
-import React, { useState } from 'react';
-import searchIcon from '../../images/search-icon1.png';
+import React, { useState, useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { ImSearch } from 'react-icons/im';
+import { BsFilterLeft } from 'react-icons/bs';
+import { getCategories } from '../../redux/stores_categories/stores_categories_reducer';
+import './SearchBar.css';
 
 const SearchBar = (props) => {
+  const dispatch = useDispatch();
   const {
-    tableName,
     onSearch,
     instantSearch,
+    homePage,
   } = props;
 
+  useEffect(() => {
+    if(homePage){
+      dispatch(getCategories());
+    }
+  }, []);
+
   const [value, setValue] = useState('');
+  const [showCategories, setShowCategories] = useState(false);
+  const categoriesList = useSelector((state) => state.storeCategoriesReducer);
 
   const changeSearchValue = (e) => {
     setValue(e.target.value);
@@ -22,10 +35,60 @@ const SearchBar = (props) => {
     onSearch(value);
   };
 
+  const selectCategory = (category) => {
+    setValue(category.name);
+    onSearch(category.name);
+    setShowCategories(false);
+  }
+
   return (
-    <div className="search-wrapper">
-      <input type="search" placeholder="Search..." name="search-bar" onChange={changeSearchValue} />
-      <img src={searchIcon} alt="" className="searchIcon" onClick={handleSearch} />
+    <div style={{ display: 'flex', alignItems: 'center', position: 'relative' }}>
+      <div className="search-wrapper">
+        <input
+          type="search"
+          placeholder="Search..."
+          name="search-bar"
+          value={value}
+          onChange={changeSearchValue}
+          onKeyDown={(e) => {
+            if (e.key === 'Enter') {
+              handleSearch();
+            }
+          }}
+        />
+        <ImSearch color='black' className="searchIcon" onClick={handleSearch} />
+      </div>
+
+      {
+        homePage ? (
+          <>
+            <h4 className='search-filter' onClick={() => setShowCategories(!showCategories)}>
+              <BsFilterLeft />
+              <span>Categories</span>
+            </h4>
+
+            {
+              showCategories ? (
+                <div className='search-categories-list'>
+                  {
+                    categoriesList.map((category) => (
+                      <p
+                        className='search-categories-list-category'
+                        onClick={() => selectCategory(category)}
+                      >
+                        <span></span> {category.name}
+                      </p>
+                    ))
+                  }
+                </div>
+              ) :
+                (<></>)
+            }
+
+          </>
+        ) : (<></>)
+      }
+
     </div>
   );
 };

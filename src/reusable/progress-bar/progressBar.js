@@ -3,10 +3,9 @@ import './progress-bar.css';
 
 const ProgressBar = (props) => {
   const {
-    currentStep, steps, bgColor, setProgress,
+    currentStep, steps, setProgress,
   } = props;
 
-  const setpsCount = steps.length;
   return (
     <div className="item-progress-bar-container">
       {steps.map((stepUp, key) => (
