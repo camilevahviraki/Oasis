@@ -25,6 +25,7 @@ const StoreCategoriesList = (props) => {
                   <>
                     {categories.map((category) => (
                       <button
+                        key={category.name}
                         style={searchBar ? { fontSize: '13px' } : null}
                         className={
                                     category.name === categoryName
