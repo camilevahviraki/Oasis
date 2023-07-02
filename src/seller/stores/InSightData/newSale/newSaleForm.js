@@ -10,13 +10,11 @@ import ItemAttributes from '../../../items/showItem/__item_attributes/itemAttrib
 import { createNewStoreSale, deleteStoreSaleResponse } from '../../../../redux/store_sales/createStoreSales';
 
 const NewSaleForm = (props) => {
-
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const params = useParams();
   const { item, redirectPage } = props;
   const [attributes, setAttributes] = useState([]);
-  const [attributeImage, setAttributeImage] = useState(null);
   const [numberOfItems, setNumberOfItems] = useState(1);
   const [showInputNum, setShowInputNum] = useState(false);
   const [errorMessage, setErrorMessage] = useState(null);
@@ -32,13 +30,12 @@ const NewSaleForm = (props) => {
   } = item;
 
   const handleArrayOfSelected = (attributes) => {
-    console.log(attributes);
     setAttributes(attributes);
-  }
+  };
 
   const showAttributeImage = (image) => {
-    console.log(image);
-  }
+    // console.log(image);
+  };
 
   const decreaseNumber = () => {
     if (numberOfItems > 1) {
@@ -57,12 +54,12 @@ const NewSaleForm = (props) => {
     if (newNumber >= 1) {
       setNumberOfItems(newNumber);
     }
-  }
+  };
 
   const addStoreSale = () => {
     const data = {
       item_id: item.id,
-      store_id: store_id,
+      store_id,
       item_capacity: null,
       item_color: null,
       item_material: null,
@@ -72,12 +69,11 @@ const NewSaleForm = (props) => {
       quantity: numberOfItems,
     };
 
-    if(item_attributes.length === attributes.length){
+    if (item_attributes.length === attributes.length) {
       dispatch(createNewStoreSale(data));
       setButtonLoader(true);
     }
-
-  }
+  };
   const pageLink = `../store/${params.token_id}/analysis?page=`;
 
   useEffect(() => {
@@ -91,13 +87,16 @@ const NewSaleForm = (props) => {
   }, [createStoreSaleResponse]);
 
   return (
-    <div className='new-sale-form-container'>
-      <div className='new-sale-form-item-container'>
-        <div className='new-sale-form-image-slider-wrapp'>
+    <div className="new-sale-form-container">
+      <div className="new-sale-form-item-container">
+        <div className="new-sale-form-image-slider-wrapp">
           <ImageSilder imagesArray={items_images} freeze />
         </div>
-        <div className='new-sale-form-item-description'>
-          <h3>{'> '}{main_name}</h3>
+        <div className="new-sale-form-item-description">
+          <h3>
+            {'> '}
+            {main_name}
+          </h3>
           <h4><CalculatePrice price={price} /></h4>
           <p><LimitText text={description} limit={200} /></p>
           <ItemAttributes
@@ -156,21 +155,21 @@ const NewSaleForm = (props) => {
         </div>
       </div>
       <div className="add-to-cart-button-wrapp">
-            <button
-              className="add-to-cart-button"
-              onClick={ () => addStoreSale()}
-              disabled={buttonLoader}
-            >
-              {buttonLoader ? (
-                <FiLoader className="button-loader white-loader" />
-              ) : (
-                <>{'Confirm sale'}</>
-              )}
-            </button>
-            <p>{errorMessage}</p>
-          </div>
+        <button
+          className="add-to-cart-button"
+          onClick={() => addStoreSale()}
+          disabled={buttonLoader}
+        >
+          {buttonLoader ? (
+            <FiLoader className="button-loader white-loader" />
+          ) : (
+            <>Confirm sale</>
+          )}
+        </button>
+        <p>{errorMessage}</p>
+      </div>
     </div>
-  )
-}
+  );
+};
 
 export default NewSaleForm;

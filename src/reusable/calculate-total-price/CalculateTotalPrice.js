@@ -1,5 +1,5 @@
-import React, { useState } from "react";
-import { useSelector } from "react-redux";
+import React, { useState } from 'react';
+import { useSelector } from 'react-redux';
 
 const CalculateTotalPrice = (props) => {
   let total = 0;
@@ -15,12 +15,19 @@ const CalculateTotalPrice = (props) => {
     <>
       {taxes ? (
         <>
-          <span className={symboleClass || "price-symbol"}>{symbole} </span>{" "}
+          <span className={symboleClass || 'price-symbol'}>
+            {symbole}
+            {' '}
+          </span>
+          {' '}
           <span>{(((taxes + total) * exchange) / 1000).toFixed(2)}</span>
         </>
       ) : (
         <>
-          <span className={symboleClass || "price-symbol"}>{symbole} </span>
+          <span className={symboleClass || 'price-symbol'}>
+            {symbole}
+            {' '}
+          </span>
           <span>{((total * exchange) / 1000).toFixed(2)}</span>
         </>
       )}

@@ -86,7 +86,6 @@ export const deleteItemColors = (id, token) => (dispatch) => {
 export const deleteItemSizes = (id, token) => (dispatch) => {
   axios.delete(`${linkURL}/item/:item_id/sizes/${id}`)
     .then((response) => {
-      console.log('zaaaazaaaaa =>', response);
       dispatch(
         {
           type: DELETE_ITEM_SIZE,

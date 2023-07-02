@@ -25,9 +25,9 @@ const EpsForm = () => {
     const data = {
       paymentMethodType: 'eps',
       currency: 'eur',
-    }
-    const response = await postPayementIntent({data});
-    const {error: backendError, clientSecret} = response;
+    };
+    const response = await postPayementIntent({ data });
+    const { error: backendError, clientSecret } = response;
 
     if (backendError) {
       addMessage(backendError.message);

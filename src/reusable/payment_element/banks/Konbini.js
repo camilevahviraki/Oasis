@@ -32,9 +32,9 @@ const KonbiniForm = () => {
           expires_after_days: 3,
         },
       },
-    }
-    const response = await postPayementIntent({data});
-    const {error: backendError, clientSecret} = response;
+    };
+    const response = await postPayementIntent({ data });
+    const { error: backendError, clientSecret } = response;
 
     if (backendError) {
       addMessage(backendError.message);

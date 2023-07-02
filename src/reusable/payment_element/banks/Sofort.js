@@ -26,9 +26,9 @@ const SofortForm = () => {
     const data = {
       paymentMethodType: 'sofort',
       currency: 'eur',
-    }
-    const response = await postPayementIntent({data});
-    const {error: backendError, clientSecret} = response;
+    };
+    const response = await postPayementIntent({ data });
+    const { error: backendError, clientSecret } = response;
 
     if (backendError) {
       addMessage(backendError.message);

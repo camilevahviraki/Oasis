@@ -1,9 +1,7 @@
-import React from 'react'
+import React from 'react';
 
-const StoreRouter = () => {
-  return (
-    <div>StoreRouter</div>
-  )
-}
+const StoreRouter = () => (
+  <div>StoreRouter</div>
+);
 
-export default StoreRouter
+export default StoreRouter;

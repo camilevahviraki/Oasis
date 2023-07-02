@@ -26,10 +26,6 @@ const SellerRouter = () => {
     }
   }, []);
 
-  const storeLink = useSelector((state) => state.storeLinkReducer);
-  const itemLink = useSelector((state) => state.itemLinkReducer);
-  console.log(storeLink);
-
   return (
     <Routes>
       <Route

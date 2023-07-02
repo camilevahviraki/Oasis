@@ -14,7 +14,7 @@ const SearchBar = (props) => {
   } = props;
 
   useEffect(() => {
-    if(homePage){
+    if (homePage) {
       dispatch(getCategories());
     }
   }, []);
@@ -39,7 +39,7 @@ const SearchBar = (props) => {
     setValue(category.name);
     onSearch(category.name);
     setShowCategories(false);
-  }
+  };
 
   return (
     <div style={{ display: 'flex', alignItems: 'center', position: 'relative' }}>
@@ -56,33 +56,36 @@ const SearchBar = (props) => {
             }
           }}
         />
-        <ImSearch color='black' className="searchIcon" onClick={handleSearch} />
+        <ImSearch color="black" className="searchIcon" onClick={handleSearch} />
       </div>
 
       {
         homePage ? (
           <>
-            <h4 className='search-filter' onClick={() => setShowCategories(!showCategories)}>
+            <h4 className="search-filter" onClick={() => setShowCategories(!showCategories)}>
               <BsFilterLeft />
               <span>Categories</span>
             </h4>
 
             {
               showCategories ? (
-                <div className='search-categories-list'>
+                <div className="search-categories-list">
                   {
                     categoriesList.map((category) => (
                       <p
-                        className='search-categories-list-category'
+                        key={category.name}
+                        className="search-categories-list-category"
                         onClick={() => selectCategory(category)}
                       >
-                        <span></span> {category.name}
+                        <span />
+                        {' '}
+                        {category.name}
                       </p>
                     ))
                   }
                 </div>
-              ) :
-                (<></>)
+              )
+                : (<></>)
             }
 
           </>

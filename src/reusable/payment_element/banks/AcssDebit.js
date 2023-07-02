@@ -32,11 +32,10 @@ const AcssDebitForm = () => {
     const data = {
       paymentMethodType: 'acss_debit',
       currency: 'cad',
-    }
+    };
 
-    const response = await postPayementIntent({data});
-    const {error: backendError, clientSecret} = response;
-    console.log(response)
+    const response = await postPayementIntent({ data });
+    const { error: backendError, clientSecret } = response;
     if (backendError) {
       addMessage(backendError.message);
       return;

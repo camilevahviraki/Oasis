@@ -45,7 +45,6 @@ const ItemCapacity = () => {
       capacity_unit_id: selectedUnit.id,
     };
     if (selectedUnitTilte && capacityValue) {
-      console.log('add =>', obj, currentItem);
       dispatch(uploadItemCapacity(obj, currentItem.item.item_id));
     }
   };
@@ -111,7 +110,7 @@ const ItemCapacity = () => {
         <div className="selected-unit-wrapp">
           <h3>Added Capacities</h3>
           {itemCapacities.map((capacity) => (
-            <div className="create-item-color-wrapp">
+            <div className="create-item-color-wrapp" key={capacity.id}>
               <div className="create-item-color-image-preview-wrapp">
                 {capacity.image_url ? (
                   <img

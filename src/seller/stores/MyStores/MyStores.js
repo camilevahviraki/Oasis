@@ -1,11 +1,9 @@
 import React, { useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import {BsGraphUp} from 'react-icons/bs';
+import { BsGraphUp } from 'react-icons/bs';
 import { useSelector, useDispatch } from 'react-redux';
 import { getStoresList } from '../../../redux/stores/getStoresReducer';
-import { setStoreLink } from '../../../redux/storeLink/storeLinkReducer';
 import LimitText from '../../../reusable/limit-text-length/limitText';
-import linkName from '../../../reusable/remove-blanck-space/linkName';
 import locationIcon from '../../../images/icons/location_on_FILL0_wght400_GRAD0_opsz48.png';
 import createNewIcon from '../../../images/icons/more-icon.png';
 import ImageSilder from '../../../reusable/images_slider/ImageSilder';
@@ -19,18 +17,6 @@ const MyStores = () => {
   useEffect(() => {
     dispatch(getStoresList(userData.user.id));
   }, []);
-
-  const saveStoreLink = (link, id) => {
-    localStorage.setItem('storeLink',
-      JSON.stringify({
-        link: linkName(link),
-        store_id: id,
-      }));
-    dispatch(setStoreLink({
-      link: linkName(link),
-      store_id: id,
-    }));
-  };
 
   return (
     <div className="my-stores-container flex flex-col">
@@ -53,7 +39,7 @@ const MyStores = () => {
         } = store;
 
         return (
-          <div className="my-store-wrapper">
+          <div className="my-store-wrapper" key={id}>
             <div className="my-store-picture-container">
               <Link
                 to={`../store/${token_id}`}
@@ -76,14 +62,18 @@ const MyStores = () => {
                     {country ? country.name : null}
                   </p>
                 </div>
-                <Link to={`../store/${token_id}/analysis`} className='stores-list-ananlysis-link'><span><BsGraphUp style={{fontSize: '24px'}}/></span> Store analysis</Link>
-                <LimitText text={description} limit={240}/>
+                <Link to={`../store/${token_id}/analysis`} className="stores-list-ananlysis-link">
+                  <span><BsGraphUp style={{ fontSize: '24px' }} /></span>
+                  {' '}
+                  Store analysis
+                </Link>
+                <LimitText text={description} limit={240} />
                 {/* <p>{description}</p> */}
               </div>
 
               <div className="my-store-categories-wrapper">
                 {categories.map((category) => (
-                  <p>{category.name}</p>
+                  <p key={category.name}>{category.name}</p>
                 ))}
               </div>
             </div>

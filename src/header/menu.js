@@ -41,13 +41,13 @@ const Menu = (props) => {
         <div>
           <img src={userIcon} alt="" className="icon" />
           {
-            userData.user?(
+            userData.user ? (
               <Link to={`../account/${linkName(userNames)}`} onClick={props.hideMenu}>My account</Link>
-            ):(
-              <Link to={`../login`} onClick={props.hideMenu}>Login</Link>
+            ) : (
+              <Link to="../login" onClick={props.hideMenu}>Login</Link>
             )
           }
-         
+
         </div>
         <div>
           <img src={settingIcon} alt="" className="icon" />

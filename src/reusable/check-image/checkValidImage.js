@@ -23,11 +23,10 @@ const CheckValidImage = (props) => {
   //   setImageUrl(defaultImg);
   // }
 
-  if(avartarUrl){
+  if (avartarUrl) {
     return avartarUrl;
-  }else {
-    return defaultImg;
   }
+  return defaultImg;
 };
 
 export default CheckValidImage;

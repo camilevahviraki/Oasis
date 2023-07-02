@@ -1,53 +1,49 @@
-import React from 'react'
+import React from 'react';
 
 const StoreCategoriesList = (props) => {
+  const {
+    setCategory, getItems, categories, categoryName, searchBar,
+  } = props;
 
-    const { setCategory, getItems, categories, categoryName, searchBar } = props;
+  return (
+    <>
 
-    return (
-        <>
-
-            <button
-                className={
+      <button
+        key={categoryName}
+        className={
                     categoryName === 'all'
-                        ? 'store-category-name current-category'
-                        : 'store-category-name'
+                      ? 'store-category-name current-category'
+                      : 'store-category-name'
                 }
-                onClick={() => setCategory('all')}
-                style={searchBar?{fontSize: '12px', padding: '8px'}:null}
-            >
-                home
-            </button>
-            {
+        onClick={() => setCategory('all')}
+        style={searchBar ? { fontSize: '12px', padding: '8px' } : null}
+      >
+        home
+      </button>
+      {
                 categories ? (
-                    <>
-                        {categories.map((category) => (
-                            <button
-                                style={searchBar?{fontSize: '13px'}:null}
-                                className={
+                  <>
+                    {categories.map((category) => (
+                      <button
+                        style={searchBar ? { fontSize: '13px' } : null}
+                        className={
                                     category.name === categoryName
-                                        ? 'store-category-name current-category'
-                                        : 'store-category-name'
+                                      ? 'store-category-name current-category'
+                                      : 'store-category-name'
                                 }
-                                onClick={() => {
-                                    setCategory(category.name);
-                                    dispatch(
-                                        getItems({
-                                            category: category.name,
-                                            store_id: storeId.store_id,
-                                        }),
-                                    );
-                                }}
-                            >
-                                {category.name}
-                            </button>
-                        ))}
-                    </>
+                        onClick={() => {
+                          setCategory(category.name);
+                        }}
+                      >
+                        {category.name}
+                      </button>
+                    ))}
+                  </>
                 ) : (<div>No categories yet</div>)
             }
 
-        </>
-    )
-}
+    </>
+  );
+};
 
-export default StoreCategoriesList
+export default StoreCategoriesList;

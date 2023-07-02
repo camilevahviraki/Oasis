@@ -41,6 +41,7 @@ const CreateItem = () => {
         {
           steps.map((stepUp, key) => (
             <div
+              key={stepUp}
               className={step > key ? 'item-step active-step' : 'item-step'}
               style={key + 1 === steps.length
                 ? {

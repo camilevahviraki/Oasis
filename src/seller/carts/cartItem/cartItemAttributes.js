@@ -2,11 +2,10 @@ import React from 'react';
 
 const CartItemAttributes = (props) => {
   const { itemAttributes } = props;
-  console.log(itemAttributes);
   return (
     <div className="cart-item-attribute-wrapp">
       {itemAttributes.map((attribute) => (
-        <div className="cart-item-attribute">
+        <div className="cart-item-attribute" key={attribute.title}>
           <h5 className="cart-item-attribute-title">
             {attribute.title}
             :

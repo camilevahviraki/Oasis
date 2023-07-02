@@ -28,7 +28,6 @@ const welcomePageReducer = (
 };
 
 export const welcomeSearchItem = (data, token) => (dispatch) => {
-
   axios
     .post(`${linkURL}/user/${data.userId}/home_page/search`, data)
     .then((response) => {

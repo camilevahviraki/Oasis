@@ -39,7 +39,7 @@ const Home = () => {
 
   useEffect(() => {
     if (searchedData && data.length > 0) {
-      console.log('add to search_suggestions table =>', searchedQuery);
+      // console.log('add to search_suggestions table =>', searchedQuery);
     }
   }, [homeData.data.length]);
 
@@ -49,7 +49,7 @@ const Home = () => {
         className="welcome-page-search-bar-container"
         style={{ position: 'fixed', top: '50px', zIndex: 8 }}
       >
-        <h2 className='store-name' style={{ fontSize: '24px', marginRight: '60px' }}>Home</h2>
+        <h2 className="store-name" style={{ fontSize: '24px', marginRight: '60px' }}>Home</h2>
         <SearchBar onSearch={handleSearch} instantSearch={false} homePage />
       </div>
       {data.length === 0 && searchedData ? (

@@ -48,15 +48,11 @@ const Cart = () => {
       dispatch(getCartItems(userData.user.id));
       setLoader(false);
       window.location.href = `../order/${createOrderData.order_id}`;
-      console.log('createOrderData =>', createOrderData);
     } else if (createOrderData.message === 'Error while creating order!') {
       setMessage('Error while purchasing Items');
       setLoader(false);
-      console.log('createOrderData =>', createOrderData);
     }
   }, [createOrderData]);
-
-  console.log(cartItems);
 
   let totalPrice = 0;
   cartItems.forEach((item) => {
@@ -68,6 +64,7 @@ const Cart = () => {
       <div>
         {cartItems.map((cartItem) => (
           <CartItem
+            key={cartItem.id}
             cartItem={cartItem}
             showOptions={showOptions ? showOptions.id === cartItem.id : false}
             handleShowOptions={handleShowOptions}

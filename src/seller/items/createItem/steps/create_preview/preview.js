@@ -13,7 +13,7 @@ const Preview = () => {
     item,
   } = createItemData;
 
-  const {token_id} = useParams();
+  const { token_id } = useParams();
 
   const nexStep = (state) => {
     if (state) {

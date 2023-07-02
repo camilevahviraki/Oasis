@@ -25,9 +25,9 @@ const OxxoForm = () => {
     const data = {
       paymentMethodType: 'oxxo',
       currency: 'mxn',
-    }
-    const response = await postPayementIntent({data});
-    const {error: backendError, clientSecret} = response;
+    };
+    const response = await postPayementIntent({ data });
+    const { error: backendError, clientSecret } = response;
 
     if (backendError) {
       addMessage(backendError.message);

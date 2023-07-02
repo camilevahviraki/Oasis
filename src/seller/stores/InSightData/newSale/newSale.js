@@ -6,8 +6,7 @@ import ProgressBar from '../../../../reusable/progress-bar/progressBar';
 import './newSale.css';
 
 const NewSale = (props) => {
-
-  const {redirectPage} = props;
+  const { redirectPage } = props;
   const containerRef = useRef(null);
   const [selectedItem, setSelctedItem] = useState({});
   const [step, setStep] = useState(1);
@@ -26,13 +25,13 @@ const NewSale = (props) => {
   const handleSelectedItem = (item) => {
     setSelctedItem(item);
     setStep(2);
-  }
+  };
 
   const handleSetProgess = (progess) => {
     if (selectedItem.main_name) {
       setStep(progess);
     }
-  }
+  };
 
   if (scrollTo !== step) {
     if (containerRef.current) {
@@ -45,26 +44,26 @@ const NewSale = (props) => {
       );
       setScrollTo(step);
     }
-  };
+  }
 
   return (
-    <div className='new-sales-container'>
-      <div className='new-sales-progessbar'>
+    <div className="new-sales-container">
+      <div className="new-sales-progessbar">
         <ProgressBar currentStep={step} steps={steps} setProgress={handleSetProgess} />
       </div>
-      <h2 className='new-sales-title'>New Sale</h2>
-      <div ref={containerRef} className='new-sales-items-list-and-form'>
-        <div className='new-sales-page'>
-          {step ===1?(<InsightDataItemsList newSale setSelctedItem={handleSelectedItem} />):(<></>)}
+      <h2 className="new-sales-title">New Sale</h2>
+      <div ref={containerRef} className="new-sales-items-list-and-form">
+        <div className="new-sales-page">
+          {step === 1 ? (<InsightDataItemsList newSale setSelctedItem={handleSelectedItem} />) : (<></>)}
         </div>
-        <div className='new-sales-page'>
-          {step === 2 ? (<NewSaleForm item={selectedItem} redirectPage={redirectPage}/>) : (<></>)}
+        <div className="new-sales-page">
+          {step === 2 ? (<NewSaleForm item={selectedItem} redirectPage={redirectPage} />) : (<></>)}
         </div>
 
       </div>
 
     </div>
-  )
-}
+  );
+};
 
 export default NewSale;

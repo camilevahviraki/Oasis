@@ -57,6 +57,7 @@ const ItemColor = () => {
           <div className="create-item-colors-wrapp">
             {colors.map((color) => (
               <div
+                key={color.hex_code}
                 className="create-item-color"
                 style={{ backgroundColor: color.hex_code }}
                 onClick={() => addColor(color)}
@@ -67,7 +68,7 @@ const ItemColor = () => {
         <div className="create-item-selected-colors">
           <h2>Selected colors</h2>
           {itemColors.map((color) => (
-            <div className="create-item-color-wrapp">
+            <div className="create-item-color-wrapp" key={color.id}>
               <div className="create-item-color-image-preview-wrapp">
                 {color.image_url ? (
                   <img

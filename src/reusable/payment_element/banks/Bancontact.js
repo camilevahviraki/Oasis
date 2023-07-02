@@ -22,14 +22,13 @@ const BancontactForm = () => {
       return;
     }
 
-
     const data = {
       paymentMethodType: 'bancontact',
       currency: 'eur',
-    }
+    };
 
-    const response = await postPayementIntent({data});
-    const {error: backendError, clientSecret} = response;
+    const response = await postPayementIntent({ data });
+    const { error: backendError, clientSecret } = response;
 
     if (backendError) {
       addMessage(backendError.message);

@@ -40,6 +40,7 @@ const ImageSliderItem = (props) => {
       >
         {imagesArray.map((image, key) => (
           <div
+            key={image}
             className={
               key === imageShown
                 ? 'image-slider-item-small-wrapp shown'

@@ -11,8 +11,8 @@ const ImageSilder = (props) => {
   const [containerWidth, setContainerWidth] = useState(null);
   const [scrollTo, setScrollTo] = useState(1);
   let videos = [];
-  let images = []; 
-  if(imagesArray){
+  let images = [];
+  if (imagesArray) {
     videos = imagesArray.filter((image) => image.includes('video/upload'));
     images = imagesArray.filter((image) => image.includes('image/upload'));
   }
@@ -58,7 +58,7 @@ const ImageSilder = (props) => {
         ) : (
           <>
             {arrangedImages.map((imageUrl) => (
-              <div className="image-slider-flex">
+              <div className="image-slider-flex" key={imageUrl}>
                 {imageUrl.includes('video/upload') ? (
                   <div className="image-slider-video-wrap">
                     <video width="100%" height="45%" controls>
@@ -110,6 +110,7 @@ const ImageSilder = (props) => {
         <div className="image-sliders-dots-wrap">
           {arrangedImages.map((image, id) => (
             <div
+              key={image}
               className={
                   id + 1 === imageShown
                     ? 'image-slider-dots current-dot'

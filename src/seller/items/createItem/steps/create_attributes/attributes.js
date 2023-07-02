@@ -18,8 +18,6 @@ const Attributes = () => {
   const [containerWidth, setContainerWidth] = useState(null);
   const attributesPages = [1, 2, 3, 4];
 
-  console.log(createItemData);
-
   const gotToNextAttribute = () => {
     if (attributeStep < attributesPages.length) {
       dispatch(setAttributeStep(attributeStep + 1));
@@ -72,6 +70,7 @@ const Attributes = () => {
       <div className="create-item-attribute-dots-wrapp">
         {attributesPages.map((dot) => (
           <div
+            key={dot}
             className={
               attributeStep === dot
                 ? 'create-item-attribute-dot current-step-dot'

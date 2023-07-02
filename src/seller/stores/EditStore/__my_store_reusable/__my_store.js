@@ -3,7 +3,6 @@ import { Link } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { useParams } from 'react-router';
 import ImageSilder from '../../../../reusable/images_slider/ImageSilder';
-import linkName from '../../../../reusable/remove-blanck-space/linkName';
 import { setStoreFieldToUpdate } from '../../../../redux/stores/updateStoreReducer';
 import locationIcon from '../../../../images/icons/location_on_FILL0_wght400_GRAD0_opsz48.png';
 import inputFileIcon from '../../../../images/input-file.png';
@@ -33,8 +32,6 @@ const MyStore = (props) => {
   const goToUpdateFieldPage = (field, value) => {
     dispatch(setStoreFieldToUpdate(field, value));
   };
-
-  const storeLink = useSelector((state) => state.storeLinkReducer);
 
   return (
     <div className="my_store_container">
@@ -112,6 +109,7 @@ const MyStore = (props) => {
             <Link
               to={`../my-stores/${token_id}/items?type=${category.name}&store_d=${id}`}
               onClick={() => goToItemsList(category.name)}
+              key={category.name}
             >
               <p>{category.name}</p>
             </Link>

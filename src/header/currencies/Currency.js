@@ -48,6 +48,7 @@ const Currency = () => {
             const { _country, name, symbole } = currency;
             return (
               <div
+                key={name}
                 className={
                   name === selectedCurrency.name
                     ? 'currency-wrapp selected-currency-in-list'

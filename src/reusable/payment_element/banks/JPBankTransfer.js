@@ -96,8 +96,8 @@ export const JPBankTransfer = () => {
               },
             },
             customerId,
-          }
-          const response = await postPayementIntent({data});
+          };
+          const response = await postPayementIntent({ data });
           const paymentIntent = response;
 
           if (paymentIntent.error) {

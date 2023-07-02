@@ -28,9 +28,9 @@ const IdealForm = () => {
     const data = {
       paymentMethodType: 'ideal',
       currency: 'eur',
-    }
-    const response = await postPayementIntent({data});
-    const {error: backendError, clientSecret} = response;
+    };
+    const response = await postPayementIntent({ data });
+    const { error: backendError, clientSecret } = response;
 
     if (backendError) {
       addMessage(backendError.message);

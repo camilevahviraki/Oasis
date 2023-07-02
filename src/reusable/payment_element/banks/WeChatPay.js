@@ -17,9 +17,9 @@ const WeChatPay = () => {
     const data = {
       paymentMethodType: 'wechat_pay',
       currency: 'cny',
-    }
-    const response = await postPayementIntent({data});
-    const {error: backendError, clientSecret} = response;
+    };
+    const response = await postPayementIntent({ data });
+    const { error: backendError, clientSecret } = response;
 
     if (backendError) {
       addMessage(backendError.message);

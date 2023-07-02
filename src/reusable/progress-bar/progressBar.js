@@ -10,6 +10,7 @@ const ProgressBar = (props) => {
     <div className="item-progress-bar-container">
       {steps.map((stepUp, key) => (
         <div
+          key={stepUp}
           className={currentStep > key ? 'item-step active-step' : 'item-step'}
           style={
             key + 1 === steps.length

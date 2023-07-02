@@ -32,13 +32,13 @@ const AfterpayClearpayForm = () => {
 
     // create payment intent on the server
 
-      const data = {
-        paymentMethodType: 'afterpay_clearpay',
-        currency: 'usd',
-      }
-  
-      const response = await postPayementIntent({data});
-      const {error: backendError, clientSecret} = response;
+    const data = {
+      paymentMethodType: 'afterpay_clearpay',
+      currency: 'usd',
+    };
+
+    const response = await postPayementIntent({ data });
+    const { error: backendError, clientSecret } = response;
 
     if (backendError) {
       addMessage(backendError.message);

@@ -4,13 +4,13 @@ import linkURL from '../link';
 const UPDATE_ITEM_RESPONSE = 'redux/store/getStoresReducer/UPDATE_ITEM_RESPONSE';
 const DELETE_RESPONSE = 'redux/store/getStoresReducer/DELETE_RESPONSE';
 
-const updateItemQuantity = (state = {message: null }, action) => {
+const updateItemQuantity = (state = { message: null }, action) => {
   switch (action.type) {
     case UPDATE_ITEM_RESPONSE: {
       return action.data;
     }
     case DELETE_RESPONSE: {
-      return {message: null }
+      return { message: null };
     }
     default:
       return state;

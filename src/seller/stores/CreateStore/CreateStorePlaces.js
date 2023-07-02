@@ -111,8 +111,6 @@ const CreateStorePlaces = (props) => {
     }
   };
 
-  console.log('=====>', response);
-
   useEffect(() => {
     if (response === 'Updated coordinates') {
       setLoader(false);

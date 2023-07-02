@@ -79,6 +79,7 @@ const Countries = (props) => {
             {
                 countriesShown.map((country) => (
                   <div
+                    key={country.name}
                     className={country.name === selectedCountry.name ? 'country-item selected-country' : 'country-item'}
                     onClick={() => selectCountry(country)}
                   >

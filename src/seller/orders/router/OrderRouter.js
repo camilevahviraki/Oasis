@@ -1,9 +1,7 @@
-import React from 'react'
+import React from 'react';
 
-const OrderRouter = () => {
-  return (
-    <div>OrderRouter</div>
-  )
-}
+const OrderRouter = () => (
+  <div>OrderRouter</div>
+);
 
-export default OrderRouter
+export default OrderRouter;

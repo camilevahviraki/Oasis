@@ -1,10 +1,9 @@
-import React, { useState, useRef, useEffect } from "react";
-import { Link } from "react-router-dom";
-import { FaAngleRight, FaAngleLeft } from "react-icons/fa";
-import "./CardSlider.css";
+import React, { useState, useRef, useEffect } from 'react';
+import { Link } from 'react-router-dom';
+import { FaAngleRight, FaAngleLeft } from 'react-icons/fa';
+import './CardSlider.css';
 
 const CardSlider = (props) => {
-
   const { data } = props;
   const containerRef = useRef(null);
   const [scrollTo, setScrollTo] = useState(1);
@@ -48,7 +47,7 @@ const CardSlider = (props) => {
       containerRef.current.scrollTo({
         top: 0,
         left: (imageShown - 1) * containerWidth,
-        behavior: "smooth",
+        behavior: 'smooth',
       });
       setScrollTo(imageShown);
     }
@@ -66,22 +65,26 @@ const CardSlider = (props) => {
   return (
     <div className="big-card-slider-container">
       <div className="big-cards-lister-wrapper" ref={containerRef}>
-        {data.map((card) => {
-          const { mainTile, text, image, bgColor } = card;
+        {data.map((card, id) => {
+          const {
+            mainTile, text, image, bgColor,
+          } = card;
           return (
             <div
-             className="big-card-slider-wrapper" 
-             style={{backgroundImage: `url(${image})`}}
+              key={mainTile + id}
+              className="big-card-slider-wrapper"
+              style={{ backgroundImage: `url(${image})` }}
             >
               <div className="big-card-slier-description">
                 <h2 className="big-card-slier-title">{mainTile}</h2>
                 <p>{text}</p>
                 <div className="big-card-slier-see-more-wrapp">
-                  <Link to={"../home"} className="slider-see-more-button">See more</Link>
-                </div>  
+                  <Link to="../home" className="slider-see-more-button">See more</Link>
+                </div>
               </div>
-              <div className="big-card-slier-bg"
-                style={{background: `linear-gradient(30deg, ${bgColor[0]}, ${bgColor[1]})`}}
+              <div
+                className="big-card-slier-bg"
+                style={{ background: `linear-gradient(30deg, ${bgColor[0]}, ${bgColor[1]})` }}
               >
                 {/* <img src={image} alt='' className="big-card-slier-image"/> */}
               </div>
@@ -110,10 +113,11 @@ const CardSlider = (props) => {
       <div className="image-sliders-dots-wrap">
         {data.map((image, id) => (
           <div
+            key={image}
             className={
               id + 1 === imageShown
-                ? "image-slider-dots-m current-dot-m"
-                : "image-slider-dots-m"
+                ? 'image-slider-dots-m current-dot-m'
+                : 'image-slider-dots-m'
             }
             onClick={() => setImageShown(id + 1)}
           />

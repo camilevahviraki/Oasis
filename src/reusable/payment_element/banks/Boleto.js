@@ -31,10 +31,10 @@ const Boleto = () => {
     const data = {
       paymentMethodType: 'boleto',
       currency: 'brl',
-    }
+    };
 
-    const response = await postPayementIntent({data});
-    const {error: backendError, clientSecret} = response;
+    const response = await postPayementIntent({ data });
+    const { error: backendError, clientSecret } = response;
 
     if (backendError) {
       addMessage(backendError.message);

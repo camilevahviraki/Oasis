@@ -21,14 +21,14 @@ const GiropayForm = () => {
       addMessage('Stripe.js has not yet loaded.');
       return;
     }
-    
+
     const data = {
       paymentMethodType: 'giropay',
       currency: 'eur',
-    }
+    };
 
-    const response = await postPayementIntent({data});
-    const {error: backendError, clientSecret} = response;
+    const response = await postPayementIntent({ data });
+    const { error: backendError, clientSecret } = response;
 
     if (backendError) {
       addMessage(backendError.message);

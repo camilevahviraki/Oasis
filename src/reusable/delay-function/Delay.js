@@ -1,17 +1,15 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState } from 'react';
 
 const Delay = (props) => {
-
   const [response, setResponse] = useState(false);
 
-
   useEffect(() => {
-     setTimeout(() => {
-        setResponse(true);
-     }, 3000)
+    setTimeout(() => {
+      setResponse(true);
+    }, 3000);
   }, []);
 
   return response;
-}
+};
 
-export default Delay
+export default Delay;

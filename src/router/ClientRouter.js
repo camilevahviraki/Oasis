@@ -7,7 +7,7 @@ import WelcomePage from '../client/welcome_page/WelcomePage';
 
 const ClientRouter = () => (
   <Routes>
-    <Route path='/' element={(<WelcomePage/>)}/>
+    <Route path="/" element={(<WelcomePage />)} />
     <Route path="home" element={(<Home />)} />
     <Route path="cart" element={<Cart />} />
     <Route path="places" element={<Places />} />

@@ -1,7 +1,7 @@
-import {useEffect, useState} from 'react';
+import { useEffect, useState } from 'react';
 
 function Completion(props) {
-  const [ messageBody, setMessageBody ] = useState('');
+  const [messageBody, setMessageBody] = useState('');
   const { stripePromise } = props;
 
   useEffect(() => {
@@ -13,7 +13,12 @@ function Completion(props) {
       const { error, paymentIntent } = await stripe.retrievePaymentIntent(clientSecret);
 
       setMessageBody(error ? `> ${error.message}` : (
-        <>&gt; Payment {paymentIntent.status}: <a href={`https://dashboard.stripe.com/test/payments/${paymentIntent.id}`} target="_blank" rel="noreferrer">{paymentIntent.id}</a></>
+        <>
+          &gt; Payment
+          {paymentIntent.status}
+          :
+          <a href={`https://dashboard.stripe.com/test/payments/${paymentIntent.id}`} target="_blank" rel="noreferrer">{paymentIntent.id}</a>
+        </>
       ));
     });
   }, [stripePromise]);
@@ -22,7 +27,7 @@ function Completion(props) {
     <>
       <h1>Thank you!</h1>
       <a href="/">home</a>
-      <div id="messages" role="alert" style={messageBody ? {display: 'block'} : {}}>{messageBody}</div>
+      <div id="messages" role="alert" style={messageBody ? { display: 'block' } : {}}>{messageBody}</div>
     </>
   );
 }

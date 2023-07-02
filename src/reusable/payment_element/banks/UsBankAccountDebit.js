@@ -31,9 +31,9 @@ const UsBankAccountDebitForm = () => {
     const data = {
       paymentMethodType: 'us_bank_account',
       currency: 'usd',
-    }
-    const response = await postPayementIntent({data});
-    const {error: backendError, clientSecret} = response;
+    };
+    const response = await postPayementIntent({ data });
+    const { error: backendError, clientSecret } = response;
 
     if (backendError) {
       addMessage(backendError.message);

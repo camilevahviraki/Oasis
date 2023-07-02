@@ -1,11 +1,11 @@
-import React, { useEffect, useRef, useState } from "react";
-import { Link } from "react-router-dom";
-import { useDispatch, useSelector } from "react-redux";
-import LimitText from "../../../reusable/limit-text-length/limitText";
-import { getOrderIndex } from "../../../redux/orders/ordersIndexReducer";
-import CalculateTotalPrice from "../../../reusable/calculate-total-price/CalculateTotalPrice";
-import OrderItems from "./order_items/OrderItems";
-import "./OrdersIndex.css";
+import React, { useEffect, useRef, useState } from 'react';
+import { Link } from 'react-router-dom';
+import { useDispatch, useSelector } from 'react-redux';
+import LimitText from '../../../reusable/limit-text-length/limitText';
+import { getOrderIndex } from '../../../redux/orders/ordersIndexReducer';
+import CalculateTotalPrice from '../../../reusable/calculate-total-price/CalculateTotalPrice';
+import OrderItems from './order_items/OrderItems';
+import './OrdersIndex.css';
 
 const OrdersIndex = () => {
   const dispatch = useDispatch();
@@ -17,7 +17,6 @@ const OrdersIndex = () => {
   }, []);
 
   const ordersList = useSelector((state) => state.ordersIndexReducer);
-  console.log("orders ==>", ordersList);
 
   return (
     <div className="orders-list-container">
@@ -27,7 +26,7 @@ const OrdersIndex = () => {
         <button type="button">Unfinished</button>
       </div>
       <div className="order-in-list-wrapper order-in-list-wrapper-title">
-        <div></div>
+        <div />
         <div className="order-in-list-title">Order Id</div>
         <div className="order-in-list-title">Products</div>
         <div className="order-in-list-title">Created</div>
@@ -49,7 +48,7 @@ const OrdersIndex = () => {
             user_id,
           } = order;
           return (
-            <div className="order-in-list-wrapper">
+            <div className="order-in-list-wrapper" key={id}>
               <div className="order-radio-button">
                 <input type="checkbox" checked />
               </div>
@@ -61,7 +60,9 @@ const OrdersIndex = () => {
               <div className="order-items-in-list">
                 <OrderItems orderItems={order_items} />
                 <p className="order-index-more-products">
-                  {order_items.length}{" "}products
+                  {order_items.length}
+                  {' '}
+                  products
                 </p>
               </div>
               <div className="order-created-at">{created_at}</div>

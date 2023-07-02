@@ -27,7 +27,7 @@ const InSightData = () => {
       getStoresShow({
         user_id: userData.user.id,
         store_id: token_id,
-      })
+      }),
     );
   }, []);
 
@@ -57,52 +57,69 @@ const InSightData = () => {
     { name: 'New sales', icon: <BiListPlus />, path: 'new-sale' },
     { name: 'Sales', icon: <TbReportMoney />, path: 'sales' },
     { name: 'All products', icon: <MdProductionQuantityLimits />, path: 'all-products' },
-    { name: 'Graphs', icon: <SlGraph />, path: 'graphs' }
+    { name: 'Graphs', icon: <SlGraph />, path: 'graphs' },
   ];
 
   const pages = [
-    { link: 'sales', function: <Solds storeData={storeData}/> },
+    { link: 'sales', function: <Solds storeData={storeData} /> },
     { link: 'all-products', function: <InsightDataItemsList /> },
-    { link: 'graphs', function: <Graphics storeData={storeData}/> },
-    { link: 'new-sale', function: <NewSale redirectPage={() => setChangePage(!changePage)}/> },
-  ]
+    { link: 'graphs', function: <Graphics storeData={storeData} /> },
+    { link: 'new-sale', function: <NewSale redirectPage={() => setChangePage(!changePage)} /> },
+  ];
 
   return (
     <div className="insight-main-wrapp">
-      <div className='insight-data-header'>
-        <div className='insight-data-header-store-desc'>
+      <div className="insight-data-header">
+        <div className="insight-data-header-store-desc">
           <h2>
             {
-              name? name: ''
+              name || ''
             }
-            {' '}store
-            </h2>
-          <p className='insight-data-store-location'><span><ImLocation /></span>{name? (<>{location},{' '}{country.name}</>): ''}</p>
+            {' '}
+            store
+          </h2>
+          <p className="insight-data-store-location">
+            <span><ImLocation /></span>
+            {name ? (
+              <>
+                {location}
+                ,
+                {' '}
+                {country.name}
+              </>
+            ) : ''}
+          </p>
         </div>
 
-        <div className='insight-data-header-links'>
+        <div className="insight-data-header-links">
           {
             links.map((link) => (
-              <div className={page !== link.path ?
-                'insight-data-header-link-wrapper'
-                :
-                'insight-data-header-link-wrapper insight-data-link-active'}
+              <div
+                key={link.path}
+                className={page !== link.path
+                  ? 'insight-data-header-link-wrapper'
+                  : 'insight-data-header-link-wrapper insight-data-link-active'}
               >
                 <Link
-                  className='insight-data-header-link'
+                  className="insight-data-header-link"
                   to={`${pageLink}${link.path}`}
                   onClick={() => setChangePage(!changePage)}
-                > <span>{link.icon}</span> {link.name}</Link>
+                >
+                  {' '}
+                  <span>{link.icon}</span>
+                  {' '}
+                  {link.name}
+                </Link>
                 {
-                  page === link.path ?
-                    (<div className='insight-data-header-link-triangle-show'></div>) : (<></>)
+                  page === link.path
+                    ? (<div className="insight-data-header-link-triangle-show" />) : (<></>)
                 }
               </div>
             ))
           }
         </div>
       </div>
-      <div className='insight-data-page-wrapp'>
+      <div className="insight-data-page-wrapp">
         {/* <Link
           onClick={() => setChangePage(!changePage)}
           to={`${pageLink}new-sale`}
@@ -114,13 +131,11 @@ const InSightData = () => {
           pages.map((currentPage) => {
             if (currentPage.link === page) {
               return currentPage.function;
-            } else {
-              return null
             }
+            return null;
           })
         }
       </div>
-
 
     </div>
   );

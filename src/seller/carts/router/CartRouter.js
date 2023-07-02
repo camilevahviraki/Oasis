@@ -1,9 +1,7 @@
-import React from 'react'
+import React from 'react';
 
-const CartRouter = () => {
-  return (
-    <div>CartRouter</div>
-  )
-}
+const CartRouter = () => (
+  <div>CartRouter</div>
+);
 
-export default CartRouter
+export default CartRouter;

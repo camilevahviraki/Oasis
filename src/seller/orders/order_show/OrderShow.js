@@ -60,6 +60,7 @@ const OrderShow = () => {
           <div className="item-progress-bar-container">
             {steps.map((stepUp, key) => (
               <div
+                key={stepUp}
                 className={step > key ? 'item-step active-step' : 'item-step'}
                 style={
                   key + 1 === steps.length
@@ -77,7 +78,6 @@ const OrderShow = () => {
                   step >= scrollTo
                     ? () => {
                       setScrollTo(key + 1);
-                      console.log('scroll to =>', scrollTo, step);
                     }
                     : null
                 }

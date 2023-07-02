@@ -55,7 +55,7 @@ const OrderPay = () => {
           </h3>
           <div className="order-create-purchase-items">
             {order_items.map((orderItem) => (
-              <OrderItem data={orderItem} />
+              <OrderItem data={orderItem} key={orderItem.id} />
             ))}
           </div>
           <div className="cart-srtipe-container order-create-striper-container">
@@ -127,13 +127,13 @@ const OrderPay = () => {
                     />
                   ) : (
                     <CalculatePrice
-                    price={
+                      price={
                         totalPrice
                         - specialOffer
                         + deliverPrice
                         + (totalPrice * taxes) / 100
                       }
-                  />
+                    />
                   )}
                 </p>
               </h6>

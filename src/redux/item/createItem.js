@@ -128,12 +128,10 @@ export const setAttributeStep = (step) => ({
   data: step,
 });
 
-export const setCurrentItem = (item) => {
-  console.log(item);
-  return ({
+export const setCurrentItem = (item) => ({
   type: SET_CURRENT_ITEM,
   data: item,
-})};
+});
 
 export const uploadItemColor = (color, itemId, token) => (dispatch) => {
   axios.post(`${linkURL}/item/${itemId}/colors`, color).then((res) => {

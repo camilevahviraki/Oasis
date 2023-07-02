@@ -89,7 +89,7 @@ const ItemMaterial = () => {
         <div className="selected-unit-wrapp">
           <h3>Selected Materials</h3>
           {itemMaterials.map((material) => (
-            <div className="create-item-color-wrapp">
+            <div className="create-item-color-wrapp" key={material.id}>
               <div className="create-item-color-image-preview-wrapp">
                 {material.image_url ? (
                   <img

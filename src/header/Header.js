@@ -3,9 +3,9 @@ import { Link } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
 import { HiOutlineShoppingCart } from 'react-icons/hi';
 import { RiMessengerLine } from 'react-icons/ri';
-import {GoHome} from 'react-icons/go';
-import {MdOutlineStorefront} from 'react-icons/md';
-import {ImEarth} from 'react-icons/im';
+import { GoHome } from 'react-icons/go';
+import { MdOutlineStorefront } from 'react-icons/md';
+import { ImEarth } from 'react-icons/im';
 import { getCartItems } from '../redux/cart/getCartsItemReducer';
 import Menu from './menu';
 import linkName from '../reusable/remove-blanck-space/linkName';
@@ -29,7 +29,7 @@ const Header = () => {
 
   const handleShowMenu = () => {
     setShowMenu(true);
-  }
+  };
 
   useEffect(() => {
     dispatch(getCartItems(userData.user.id));
@@ -41,12 +41,12 @@ const Header = () => {
     width: '30px',
     height: 'auto',
     marginRight: '30px',
-  }
+  };
 
   const links = [
-    { id: 1, icon: <GoHome style={iconsStyle} className='header-icons-r'/>, link: '../home' },
-    { id: 2, icon: <ImEarth style={iconsStyle} className='header-icons-r'/>, link: '../places' },
-    { id: 3, icon: <MdOutlineStorefront style={iconsStyle} className='header-icons-r'/>, link: '../my-stores' },
+    { id: 1, icon: <GoHome style={iconsStyle} className="header-icons-r" />, link: '../home' },
+    { id: 2, icon: <ImEarth style={iconsStyle} className="header-icons-r" />, link: '../places' },
+    { id: 3, icon: <MdOutlineStorefront style={iconsStyle} className="header-icons-r" />, link: '../my-stores' },
   ];
 
   const currenPath = window.location.pathname;
@@ -54,15 +54,16 @@ const Header = () => {
   return (
     <header className="flex align-center w-full">
       <div className="logo-wrap">
-        <Link to={"../"}>OASIS</Link>
+        <Link to="../">OASIS</Link>
       </div>
       <div className="flex align-center header-icons">
         {links.map((linkObj) => (
           <Link
+            key={linkObj.link}
             to={linkObj.link}
             className={
-              currenPath.substring(1) === linkObj.link.replace(/(\.\.\/)/g, '')?
-              'header-current-link':'header-home-link'
+              currenPath.substring(1) === linkObj.link.replace(/(\.\.\/)/g, '')
+                ? 'header-current-link' : 'header-home-link'
             }
           >
             {linkObj.icon}

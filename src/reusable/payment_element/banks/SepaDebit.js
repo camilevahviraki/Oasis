@@ -25,9 +25,9 @@ const SepaDebitForm = () => {
     const data = {
       paymentMethodType: 'sepa_debit',
       currency: 'eur',
-    }
-    const response = await postPayementIntent({data});
-    const {error: backendError, clientSecret} = response;
+    };
+    const response = await postPayementIntent({ data });
+    const { error: backendError, clientSecret } = response;
 
     if (backendError) {
       addMessage(backendError.message);

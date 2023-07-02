@@ -5,9 +5,7 @@ import { getImagesForAStore } from '../../../../../redux/stores/getStoreImagesRe
 import { resetStoreFieldToUpdate } from '../../../../../redux/stores/updateStoreReducer';
 import Loader from '../../../../../reusable/loader/Loader';
 import linkName from '../../../../../reusable/remove-blanck-space/linkName';
-import CheckValidImage from '../../../../../reusable/check-image/checkValidImage';
 import ImageToUpdateOptions from './updatePictures/ImageToUpdateOptions';
-import image_store from '../../../../../images/store-image-holder.png';
 import createNewIcon from '../../../../../images/icons/more-icon.png';
 import itemOptions from '../../../../../images/icons/item_options_3dots.png';
 import './css/updatePictures.css';
@@ -26,8 +24,6 @@ const UpdatePictures = (props) => {
   const [imageOptionsShown, setImageOptionsShown] = useState(false);
   const [imageOptions, setImageOptions] = useState({ id: null });
   const [deleting, setDeleting] = useState(false);
-
-  console.log('storeImages =>', storeImages);
 
   const showImageOptions = (data) => {
     setImageOptionsShown(!imageOptionsShown);
@@ -69,12 +65,16 @@ const UpdatePictures = (props) => {
           description, id, pictures_data, store_id,
         } = imageData;
         return (
-          <>
+          < >
             {pictures_data.map((imageUrlandData) => {
               const { image_data, url } = imageUrlandData;
 
               return (
-                <div className="store_image_to_update_wrapper" onClick={() => { imageOptionsShown ? setImageOptionsShown(false) : null; }}>
+                <div
+                  key={url}
+                  className="store_image_to_update_wrapper"
+                  onClick={() => { imageOptionsShown ? setImageOptionsShown(false) : null; }}
+                >
                   <img
                     src={url}
                     alt=""

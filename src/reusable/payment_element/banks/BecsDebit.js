@@ -33,10 +33,10 @@ const BecsDebitForm = () => {
     const data = {
       paymentMethodType: 'au_becs_debit',
       currency: 'aud',
-    }
+    };
 
-    const response = await postPayementIntent({data});
-    const {error: backendError, clientSecret} = response;
+    const response = await postPayementIntent({ data });
+    const { error: backendError, clientSecret } = response;
 
     if (backendError) {
       addMessage(backendError.message);

@@ -18,7 +18,7 @@ const OrderItem = (props) => {
     attributes_item, exchange, item, store_id,
   } = props.data;
   const {
-    description, items_images, main_name, price, quantity, token_id
+    description, items_images, main_name, price, quantity, token_id,
   } = item;
 
   return (

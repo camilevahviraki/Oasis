@@ -10,8 +10,8 @@ const massDeleteItemsReducer = (state = {}, action) => {
       return action.data;
     }
     case RESET_MASS_DELETE_ITEMS_RES: {
-        return {};
-      }
+      return {};
+    }
     default:
       return state;
   }
@@ -23,7 +23,7 @@ export const resetMassDeleteItemsResponse = () => ({
 
 export const massDeleteItems = (ids, token) => (dispatch) => {
   axios
-    .post(`${linkURL}/api_stores/show/items/mass_delete`, {ids})
+    .post(`${linkURL}/api_stores/show/items/mass_delete`, { ids })
     .then((response) => {
       dispatch({
         type: MASS_DELETE_ITEMS,

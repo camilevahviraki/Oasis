@@ -1,9 +1,8 @@
 import React, { useEffect, useState, useRef } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { AiOutlineSetting } from 'react-icons/ai';
-import { BsGraphUp } from 'react-icons/bs';
+import { BsGraphUp, BsFilterLeft } from 'react-icons/bs';
 import { IoMdAdd } from 'react-icons/io';
-import { BsFilterLeft } from 'react-icons/bs';
 import { Link } from 'react-router-dom';
 import { useParams } from 'react-router';
 import useIsInViewport from '../../../reusable/checkInViewwPort/checkInViewPort';
@@ -102,7 +101,7 @@ const StoreShow = () => {
   const selectCategory = (category) => {
     setCategory(category.name);
     setShowCategories(false);
-  }
+  };
 
   return (
     <div className="store-show-container">
@@ -135,7 +134,7 @@ const StoreShow = () => {
           )}
           <div className="store-contact-icons">
             {contactsIcons.map((icon) => (
-              <Link to="">
+              <Link to="" key={icon}>
                 <img src={icon} alt="" className="icon store-contacts-icon" />
               </Link>
             ))}
@@ -183,37 +182,49 @@ const StoreShow = () => {
 
           <div
             className="welcome-page-search-bar-container"
-            style={{ position: 'fixed', top: '50px', zIndex: 8, flexDirection: 'column' }}
+            style={{
+              position: 'fixed', top: '50px', zIndex: 8, flexDirection: 'column',
+            }}
           >
 
-            <div className='store-search-flex'>
-              <h4 className="store-name" style={{ marginRight: '60px' }}>{name}{" store"}</h4>
+            <div className="store-search-flex">
+              <h4 className="store-name" style={{ marginRight: '60px' }}>
+                {name}
+                {' store'}
+              </h4>
               <SearchBar onSearch={(value) => handleSearch(value)} instantSearch />
-              <h4 className='search-filter' onClick={() => setShowCategories(!showCategories)}>
+              <h4 className="search-filter" onClick={() => setShowCategories(!showCategories)}>
                 <BsFilterLeft />
                 <span>{categoryName}</span>
               </h4>
 
               {
                 showCategories ? (
-                  <div className='search-categories-list'>
+                  <div className="search-categories-list">
                     <p
-                      className='search-categories-list-category'
-                      onClick={() => { setCategory('all'); setShowCategories(!showCategories) }}
-                    ><span></span> All</p>
+                      className="search-categories-list-category"
+                      onClick={() => { setCategory('all'); setShowCategories(!showCategories); }}
+                    >
+                      <span />
+                      {' '}
+                      All
+                    </p>
                     {
                       categories.map((category) => (
                         <p
-                          className='search-categories-list-category'
+                          className="search-categories-list-category"
                           onClick={() => selectCategory(category)}
+                          key={category.name}
                         >
-                          <span></span> {category.name}
+                          <span />
+                          {' '}
+                          {category.name}
                         </p>
                       ))
                     }
                   </div>
-                ) :
-                  (<></>)
+                )
+                  : (<></>)
               }
             </div>
           </div>

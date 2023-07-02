@@ -10,7 +10,9 @@ import { updateQuantity } from '../../../../redux/item/updatedItemQuantity';
 
 const SingleItem = (props) => {
   const dispatch = useDispatch();
-  const { itemData, checkProduct, setSelctedItem, selectedProducts, newSale, allowSelect } = props;
+  const {
+    itemData, checkProduct, setSelctedItem, selectedProducts, newSale, allowSelect,
+  } = props;
   const {
     created_at,
     currency,
@@ -30,18 +32,18 @@ const SingleItem = (props) => {
 
   const [updatedQuantity, setUpdatedQuantity] = useState(quantity);
   const handleUpdateQuantity = (sign) => {
-    if(sign === '-' && updatedQuantity > 0){
+    if (sign === '-' && updatedQuantity > 0) {
       dispatch(updateQuantity({
-        item_id: token_id, quantity: quantity - 1
-      }))
+        item_id: token_id, quantity: quantity - 1,
+      }));
       setUpdatedQuantity(updatedQuantity - 1);
-    }else{
+    } else {
       dispatch(updateQuantity({
-        item_id: token_id, quantity: quantity + 1
-      }))
+        item_id: token_id, quantity: quantity + 1,
+      }));
       setUpdatedQuantity(updatedQuantity + 1);
     }
-  }
+  };
 
   return (
     <div className="order-item-wrapper" style={{ height: '90px' }}>
@@ -87,13 +89,13 @@ const SingleItem = (props) => {
               </span>
               {' '}
             </div>
-            <button 
-            onClick={() => handleUpdateQuantity('+')}
-            className='item-show-change-quantity-button'>
+            <button
+              onClick={() => handleUpdateQuantity('+')}
+              className="item-show-change-quantity-button"
+            >
               +
             </button>
           </div>
-
 
           <Link
             to={`../item/${linkName(main_name)}/id/${token_id}`}
@@ -105,16 +107,20 @@ const SingleItem = (props) => {
         </div>
         {
           allowSelect || newSale ? (
-            <div className='delete-checkbox-wrapp'>
+            <div className="delete-checkbox-wrapp">
               <label
                 htmlFor={`check${id}`}
                 className={selectedProducts.includes(id) ? 'delete-checkbox checked' : 'delete-checkbox'}
               >
                 {selectedProducts.includes(id) ? <FaCheck /> : null}
               </label>
-              <input type='checkbox' id={`check${id}`} className='checkBox'
+              <input
+                type="checkbox"
+                id={`check${id}`}
+                className="checkBox"
                 onChange={
-                  !newSale ? (() => checkProduct(id)) : (() => setSelctedItem(item))}
+                  !newSale ? (() => checkProduct(id)) : (() => setSelctedItem(itemData))
+}
               />
             </div>
           ) : (<></>)
@@ -122,7 +128,7 @@ const SingleItem = (props) => {
       </div>
 
     </div>
-  )
-}
+  );
+};
 
-export default SingleItem
+export default SingleItem;
