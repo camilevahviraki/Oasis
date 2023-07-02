@@ -18,7 +18,7 @@ const OrderItem = (props) => {
     attributes_item, exchange, item, store_id,
   } = props.data;
   const {
-    description, items_images, main_name, price, quantity,
+    description, items_images, main_name, price, quantity, token_id
   } = item;
 
   return (
@@ -90,7 +90,7 @@ const OrderItem = (props) => {
           </p>
 
           <Link
-            to={`../item/${linkName(main_name)}`}
+            to={`../item/${linkName(main_name)}/id/${token_id}`}
             className="cart-item-see-more-link"
           >
             {'> '}

@@ -14,10 +14,8 @@ const OrderShow = () => {
 
   const containerRef = useRef(null);
   const [containerWidth, setContainerWidth] = useState(0);
-  // const step = 3;
   useEffect(() => {
     setContainerWidth(containerRef.current.offsetWidth);
-    // f0d1b92514cdefb9f24a
     dispatch(getOrderShow(token_id));
   }, []);
 
