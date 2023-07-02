@@ -3,7 +3,6 @@
     display: flex;
     flex-direction: row;
     min-height: calc(100vh - 71px);
-    border: 1px solid green;
 }
 
 .create-item-input-wrapper{
@@ -108,7 +107,7 @@
 /* //////////////////////////////////////////////////////////// */
 
 .item-progress-bar-container {
-    width: 90vw;
+    width: 90%;
     margin-left: 5%;
     display: flex;
     position: absolute;

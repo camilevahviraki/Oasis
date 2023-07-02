@@ -3,11 +3,10 @@ import Attribute from '../__attribute/Attribute';
 import './itemAttributes.css';
 
 const ItemAttributes = (props) => {
-  const { data, showAttributeImage, handleArrayOfSelected } = props;
+  const { data, showAttributeImage, handleArrayOfSelected, displayGrid } = props;
   const [arraySelected, setArrayOfSelected] = useState([]);
 
   const selectAttribute = (data) => {
-    console.log('--------------------------------', data);
     showAttributeImage(data);
     const newArr = arraySelected.filter(
       (element) => element.title !== data.title,
@@ -19,7 +18,6 @@ const ItemAttributes = (props) => {
       setArrayOfSelected(newArr);
       setArrayOfSelected([...newArr, data]);
     }
-    // handleArrayOfSelected(arraySelected);
   };
 
   useEffect(() => {
@@ -49,7 +47,7 @@ const ItemAttributes = (props) => {
   };
 
   return (
-    <div className="item-attributes-container">
+    <div className="item-attributes-container" style={displayGrid?{display: 'grid', gridTemplateColumns: '1fr 1fr'}:{}}>
       {data ? (
         data.map((attributeType) => (
           <div className="item-show-details-attributes-type">

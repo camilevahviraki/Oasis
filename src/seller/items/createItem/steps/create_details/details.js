@@ -11,9 +11,7 @@ import inputFileIcon from "../../../../../images/input-file.png";
 
 const Details = () => {
   const dispatch = useDispatch();
-  const storeData = useSelector((state) => state.storeLinkReducer);
   const params = useParams();
-  console.log(params);
 
   useEffect(() => {
     dispatch(getCategories());
@@ -123,15 +121,15 @@ const Details = () => {
       setLoader(true);
       Object.keys(gallery).forEach((key) => {
         formData.append("pictures[]", gallery[key]);
-        console.log("qwerty file =>", gallery[key].type);
       });
-      formData.append("store_id", storeData.link.store_id);
+      formData.append("store_id", queryParameters.get("key"));
       formData.append("mainName", mainName);
       formData.append("names", names);
       formData.append("price", price);
       formData.append("description", description);
       formData.append("quantity", quantity);
       formData.append("category", category);
+
       Upload({
         endPoint: "api_stores/show/items",
         data: formData,
