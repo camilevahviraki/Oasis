@@ -27,6 +27,7 @@ const MainRouter = () => {
         <>
           <Header />
           <AuthRoutes />
+          <ClientRouter />
         </>
       )}
     </BrowserRouter>
