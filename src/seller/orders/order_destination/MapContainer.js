@@ -32,7 +32,7 @@ const LocationMarker = () => {
 const LocationFinder = () => {
   const map = useMapEvents({
     click(e) {
-      console.log(e);
+      // console.log(e);
     },
   });
   return null;

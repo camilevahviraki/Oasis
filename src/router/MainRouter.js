@@ -13,24 +13,23 @@ const MainRouter = () => {
 
   return (
     <BrowserRouter>
-      {
-        user.token
-          ? (
-            <>
-              <Header />
-              <ClientRouter />
-              <SellerRouter />
-              <UserRoutes />
-              <Routes>
-                <Route path="account-update" element={(<UpdateAccount />)} />
-              </Routes>
-            </>
-          )
-          : (
-            <AuthRoutes />
-          )
-      }
-
+      {user.token ? (
+        <>
+          <Header />
+          <ClientRouter />
+          <SellerRouter />
+          <UserRoutes />
+          <Routes>
+            <Route path="account-update" element={<UpdateAccount />} />
+          </Routes>
+        </>
+      ) : (
+        <>
+          <Header />
+          <AuthRoutes />
+          <ClientRouter />
+        </>
+      )}
     </BrowserRouter>
   );
 };

@@ -25,7 +25,7 @@ const UpdateTextField = (props) => {
 
   const formValues = [
     {
-      type: `${field == 'description' ? 'textarea' : 'text'}`,
+      type: `${field === 'description' ? 'textarea' : 'text'}`,
       name: 'name',
       placeholder: 'new-value',
       classInput: 'InputCreateStore',
@@ -46,8 +46,6 @@ const UpdateTextField = (props) => {
       dispatch(resetStoreFieldToUpdate());
     }
   }, [updateData.response]);
-
-  console.log('update data ==>', updateData);
 
   return (
     <>

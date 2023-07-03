@@ -35,7 +35,6 @@ const ForgotPassword = () => {
       setMessage(null);
 
       dispatch(userResetPassword(formData));
-      console.log(formData);
     }
 
     // const toChangePasswoed = {user:

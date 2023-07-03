@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { useLocation } from 'react-router-dom';
 import { useStripe, useElements } from '@stripe/react-stripe-js';
+import postPayementIntent from '../postPayementIntent';
 import StatusMessages, { useMessages } from './StatusMessages';
 
 const AlipayForm = () => {
@@ -21,19 +22,13 @@ const AlipayForm = () => {
       return;
     }
 
-    const { error: backendError, clientSecret } = await fetch(
-      '/create-payment-intent',
-      {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({
-          paymentMethodType: 'alipay',
-          currency: 'cny',
-        }),
-      },
-    ).then((r) => r.json());
+    const data = {
+      paymentMethodType: 'alipay',
+      currency: 'cny',
+    };
+
+    const response = await postPayementIntent({ data });
+    const { error: backendError, clientSecret } = response;
 
     if (backendError) {
       addMessage(backendError.message);

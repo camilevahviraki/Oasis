@@ -1,7 +1,6 @@
 import './App.css';
 import { Provider, useSelector } from 'react-redux';
 import store from './redux/store';
-import CreateStore from './seller/stores/CreateStore/CreateStore';
 import MainRouter from './router/MainRouter';
 // import "leaflet/dist/leaflet.css";
 

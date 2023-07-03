@@ -83,7 +83,6 @@ const UpdateAccount = (props) => {
 
       setMessage(null);
       setInputErrorArr([0, 0, 0, 0, 0]);
-      console.log(formData);
     }
   };
 

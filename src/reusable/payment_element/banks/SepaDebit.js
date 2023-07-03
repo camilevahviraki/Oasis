@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { IbanElement, useStripe, useElements } from '@stripe/react-stripe-js';
 import StatusMessages, { useMessages } from './StatusMessages';
+import postPayementIntent from '../postPayementIntent';
 
 const SepaDebitForm = () => {
   const stripe = useStripe();
@@ -21,19 +22,12 @@ const SepaDebitForm = () => {
       return;
     }
 
-    const { error: backendError, clientSecret } = await fetch(
-      '/create-payment-intent',
-      {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({
-          paymentMethodType: 'sepa_debit',
-          currency: 'eur',
-        }),
-      },
-    ).then((r) => r.json());
+    const data = {
+      paymentMethodType: 'sepa_debit',
+      currency: 'eur',
+    };
+    const response = await postPayementIntent({ data });
+    const { error: backendError, clientSecret } = response;
 
     if (backendError) {
       addMessage(backendError.message);

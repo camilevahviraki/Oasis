@@ -12,7 +12,6 @@ import './css/CreateStore.css';
 function CreateStore() {
   const dispatch = useDispatch();
   const createStoreData = useSelector((state) => state.createStoresReducer);
-  const [progressN, setProgressN] = useState(1);
   const stepsProgress = [
     'Description',
     'Categories',
@@ -27,7 +26,6 @@ function CreateStore() {
 
   const { step } = createStoreData.storeId;
 
-  console.log(createStoreData);
   return (
     <div className="flex flex-col w-screen create_store_main_container">
       <h3 className="create-store-title-main">{step === 5 ? 'Store Preview' : 'New Store'}</h3>

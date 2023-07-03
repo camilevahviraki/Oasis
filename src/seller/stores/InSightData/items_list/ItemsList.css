@@ -1,0 +1,74 @@
+.insight-data-items-list-wrapp {
+    margin-top: 40px;
+    width: 100%;
+    background-color: #00181a3b;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 16px 0;
+    border-radius: 10px;
+}
+
+.delete-checkbox-wrapp {
+    position: absolute;
+    right: 2%;
+}
+
+.checkBox {
+    display: none;
+}
+
+.checked {
+    background-color: #023554c2;
+    color: #fff!important;
+}
+
+label {
+    cursor: pointer;
+}
+
+.delete-checkbox {
+    width: 20px;
+    height: 20px;
+    border-radius: 3px;
+    border: 1px solid rgb(185, 185, 185);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 16px;
+    margin: 10px;
+    color: #023554;
+    box-shadow: 1px 1px 3px #50595b43;
+}
+
+.insight-data-items-list-top-buttons {
+    position: absolute;
+    top: 20px;
+    display: flex;
+    align-items: center;
+}
+
+.insight-data-items-list-button-select {
+    padding: 8px;
+    font-weight: 600;
+    margin: 0 10px;
+    font-size: 14px;
+    color: #002731;
+    display: flex;
+    align-items: center;
+    border-radius: 8px;
+}
+
+.insight-data-items-list-button-select:hover {
+    background-color: #9999992f;
+}
+
+.insight-data-items-list-button-select span {
+    margin-right: 6px;
+    font-size: 20px;
+}
+
+.items-del-button {
+    min-width: 146px;
+    position: relative;
+}

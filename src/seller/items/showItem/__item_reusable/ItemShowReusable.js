@@ -37,10 +37,8 @@ const ItemShowReusable = (props) => {
   const createCartItemResponse = useSelector(
     (state) => state.createCartReducer.message,
   );
-  const selectedCurrency = useSelector((state) => state.selectedCurrency);
 
   const {
-    created_at,
     currency,
     id,
     item_categories,
@@ -53,6 +51,7 @@ const ItemShowReusable = (props) => {
     store_id,
     updated_at,
     item_attributes,
+    token_id,
   } = item;
 
   const showAttributeImage = (data) => {
@@ -78,22 +77,6 @@ const ItemShowReusable = (props) => {
     if (numberOfItems < quantity) {
       setNumberOfItems(numberOfItems + 1);
     }
-  };
-
-  const saveStoreLink = (link, id) => {
-    localStorage.setItem(
-      'storeLink',
-      JSON.stringify({
-        link: linkName(link),
-        store_id: id,
-      }),
-    );
-    dispatch(
-      setStoreLink({
-        link: linkName(link),
-        store_id: id,
-      }),
-    );
   };
 
   const handleArrayOfSelected = (data) => {

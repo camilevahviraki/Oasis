@@ -7,7 +7,6 @@ const UploadProgress = (props) => {
     uploaded,
   } = props;
 
-  console.log('prog =>', progress);
   return (
     <div className="upload-progress-container">
       <div className={uploaded ? 'upload-progress-wrap green' : 'upload-progress-wrap'}>

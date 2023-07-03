@@ -3,6 +3,7 @@ import {
   useStripe,
   useElements,
 } from '@stripe/react-stripe-js';
+import postPayementIntent from '../postPayementIntent';
 import StatusMessages from './StatusMessages';
 
 const AcssDebitForm = () => {
@@ -28,20 +29,13 @@ const AcssDebitForm = () => {
       return;
     }
 
-    const { error: backendError, clientSecret } = await fetch(
-      '/create-payment-intent',
-      {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({
-          paymentMethodType: 'acss_debit',
-          currency: 'cad',
-        }),
-      },
-    ).then((r) => r.json());
+    const data = {
+      paymentMethodType: 'acss_debit',
+      currency: 'cad',
+    };
 
+    const response = await postPayementIntent({ data });
+    const { error: backendError, clientSecret } = response;
     if (backendError) {
       addMessage(backendError.message);
       return;

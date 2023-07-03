@@ -1,13 +1,10 @@
 import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import Loader from '../../../../../reusable/loader/Loader';
 import { getCategories } from '../../../../../redux/stores_categories/stores_categories_reducer';
 import { deleteStoreCategory, addNewStoreCategory, resetStoreFieldToUpdate } from '../../../../../redux/stores/updateStoreReducer';
 import { getCategoriesForAStore } from '../../../../../redux/stores/getStoreCategories';
 import FormR from '../../../../../reusable/form/FormR';
-import Countries from '../../../../../components/countries/countries';
 import PopUpAlert from '../../../../../reusable/pop-up-alert/PopUpAlert';
-import checkMark from '../../../../../images/icons/check-mark.png';
 import removeMark from '../../../../../images/icons/remove-mark.png';
 import './css/updateCategories.css';
 
@@ -48,7 +45,6 @@ const UpdateCategories = (props) => {
   };
 
   const showPopUpAlert = (state, category) => {
-    console.log(showAlert);
     if (state) {
       setShowAlert({ id: category.id, state });
       setAllertMessage(`
@@ -96,7 +92,7 @@ const UpdateCategories = (props) => {
         </div>
         <div className="update-store-categories-wrapper">
           Selected
-          {storeCategories.map((category, index) => (
+          {storeCategories.map((category) => (
             <div key={category.id} className="create-store-selected-type-wrap">
               <h4>{category.name}</h4>
               <img
@@ -105,7 +101,7 @@ const UpdateCategories = (props) => {
                 className="icon absolut"
                 onClick={() => showPopUpAlert(true, category)}
               />
-              {showAlert.state === true && category.id == showAlert.id ? (
+              {showAlert.state === true && category.id === showAlert.id ? (
                 <PopUpAlert
                   message={allertMessage}
                   cancelFunc={showPopUpAlert}

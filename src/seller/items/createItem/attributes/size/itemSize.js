@@ -109,7 +109,7 @@ const ItemSize = () => {
         <div className="selected-unit-wrapp">
           <h3>Added Sizes</h3>
           {itemSizes.map((size) => (
-            <div className="create-item-color-wrapp">
+            <div className="create-item-color-wrapp" key={size.id}>
               <div className="create-item-color-image-preview-wrapp">
                 {size.image_url ? (
                   <img

@@ -10,8 +10,12 @@ const ImageSilder = (props) => {
   const [imageShown, setImageShown] = useState(1);
   const [containerWidth, setContainerWidth] = useState(null);
   const [scrollTo, setScrollTo] = useState(1);
-  const videos = imagesArray.filter((image) => image.includes('video/upload'));
-  const images = imagesArray.filter((image) => image.includes('image/upload'));
+  let videos = [];
+  let images = [];
+  if (imagesArray) {
+    videos = imagesArray.filter((image) => image.includes('video/upload'));
+    images = imagesArray.filter((image) => image.includes('image/upload'));
+  }
 
   const arrangedImages = [...images, ...videos];
 
@@ -49,12 +53,12 @@ const ImageSilder = (props) => {
         className="images-slider-container"
         ref={imagesContainerRef}
       >
-        {imagesArray.length === 0 ? (
+        {arrangedImages.length === 0 ? (
           <img src={storeImage} alt="" className="my_store_image" />
         ) : (
           <>
             {arrangedImages.map((imageUrl) => (
-              <div className="image-slider-flex">
+              <div className="image-slider-flex" key={imageUrl}>
                 {imageUrl.includes('video/upload') ? (
                   <div className="image-slider-video-wrap">
                     <video width="100%" height="45%" controls>
@@ -84,7 +88,7 @@ const ImageSilder = (props) => {
           </>
         )}
       </div>
-      {!freeze && imagesArray.length !== 1 ? (
+      {!freeze && arrangedImages.length > 1 ? (
         <div className="image-slider-buttons-wrapper">
           <div>
             <button
@@ -102,10 +106,11 @@ const ImageSilder = (props) => {
         <></>
       )}
 
-      {!freeze && imagesArray.length > 1 ? (
+      {!freeze && arrangedImages.length > 1 ? (
         <div className="image-sliders-dots-wrap">
           {arrangedImages.map((image, id) => (
             <div
+              key={image}
               className={
                   id + 1 === imageShown
                     ? 'image-slider-dots current-dot'

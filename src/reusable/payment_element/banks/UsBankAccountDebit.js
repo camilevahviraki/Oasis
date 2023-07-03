@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { useStripe } from '@stripe/react-stripe-js';
 import StatusMessages from './StatusMessages';
+import postPayementIntent from '../postPayementIntent';
 
 const UsBankAccountDebitForm = () => {
   const stripe = useStripe();
@@ -27,19 +28,12 @@ const UsBankAccountDebitForm = () => {
       return;
     }
 
-    const { error: backendError, clientSecret } = await fetch(
-      '/create-payment-intent',
-      {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({
-          paymentMethodType: 'us_bank_account',
-          currency: 'usd',
-        }),
-      },
-    ).then((r) => r.json());
+    const data = {
+      paymentMethodType: 'us_bank_account',
+      currency: 'usd',
+    };
+    const response = await postPayementIntent({ data });
+    const { error: backendError, clientSecret } = response;
 
     if (backendError) {
       addMessage(backendError.message);

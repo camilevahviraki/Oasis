@@ -40,7 +40,6 @@ const authenticationReducer = (
     }
     default: {
       const savedData = JSON.parse(localStorage.getItem('userCredentials'));
-      console.log(savedData);
       if (savedData && savedData !== 'null') {
         return savedData;
       }

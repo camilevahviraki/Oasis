@@ -20,8 +20,6 @@ const StoreItems = (props) => {
     dispatch(getItems({ category, store_id }));
   }, []);
 
-  console.log('items =>', itemsList);
-
   return (
     <div className="store-items-container">
       <h2>{category}</h2>
@@ -42,7 +40,7 @@ const StoreItems = (props) => {
       <div className="store-items-list-wrap">
         {
           itemsList.map((item) => (
-            <MyItem itemData={item} />
+            <MyItem itemData={item} key={item.id} />
           ))
         }
       </div>

@@ -28,7 +28,6 @@ const NewStorePicture = () => {
     Upload({
       endPoint: `store/${storeData.id}/image`,
       data: formData,
-      dispatchResponse: (sent) => console.log(sent),
       sendData: (res) => {
         if (res.status === 404) {
           setLoader(false);

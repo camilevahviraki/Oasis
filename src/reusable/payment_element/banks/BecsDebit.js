@@ -5,6 +5,7 @@ import {
   useElements,
 } from '@stripe/react-stripe-js';
 import StatusMessages from './StatusMessages';
+import postPayementIntent from '../postPayementIntent';
 
 const BecsDebitForm = () => {
   const stripe = useStripe();
@@ -29,19 +30,13 @@ const BecsDebitForm = () => {
       return;
     }
 
-    const { error: backendError, clientSecret } = await fetch(
-      '/create-payment-intent',
-      {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({
-          paymentMethodType: 'au_becs_debit',
-          currency: 'aud',
-        }),
-      },
-    ).then((r) => r.json());
+    const data = {
+      paymentMethodType: 'au_becs_debit',
+      currency: 'aud',
+    };
+
+    const response = await postPayementIntent({ data });
+    const { error: backendError, clientSecret } = response;
 
     if (backendError) {
       addMessage(backendError.message);

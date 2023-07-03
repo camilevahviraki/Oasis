@@ -1,6 +1,7 @@
 import React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { Link } from 'react-router-dom';
+import { format } from 'date-fns';
 import { userLogout } from '../redux/authentication/signUpReducer';
 import CheckValidImage from '../reusable/check-image/checkValidImage';
 import defaultAvatar from '../images/user-show-icon.png';
@@ -12,7 +13,6 @@ const UserAccount = () => {
 
   const { user } = userData;
   const userNames = `${user.first_name}-${user.last_name}`;
-
   const {
     first_name,
     last_name,
@@ -22,12 +22,17 @@ const UserAccount = () => {
     id,
   } = user;
 
+  const transformDateFormat = (dateString) => {
+    const date = new Date(dateString);
+    return format(date, 'dd/MM/yyyy');
+  };
+
   const onLogout = () => {
     dispatch(userLogout());
   };
 
   return (
-    <div className="w-full flex flex-col center">
+    <div className="w-full flex flex-col center user-account-page" style={{ padding: '20px 0' }}>
       <div className="logout-button-wrap">
         <button
           type="button"
@@ -57,12 +62,12 @@ const UserAccount = () => {
           </h4>
         </Link>
         <p>
-          Email:
           <span>{email}</span>
         </p>
         <p>
-          Last Upated at:
-          <span>{updated_at}</span>
+          Upated on:
+          { ' ' }
+          <span>{ transformDateFormat(updated_at) }</span>
         </p>
 
         <Link to="">+ Add social media</Link>

@@ -14,8 +14,6 @@ const addedToCartIdList = (state = { data: [] }, action) => {
       const newState = {
         data: newData,
       };
-      console.log(newData);
-      console.log('================', action.data, '==================||||||||=================');
       localStorage.setItem('addedToCartIdList', JSON.stringify(newState));
       return newState;
     }

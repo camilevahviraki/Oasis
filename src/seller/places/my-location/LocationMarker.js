@@ -13,8 +13,8 @@ const LocationMarker = () => {
   const { user } = userData;
   const customIcon = L.icon({
     iconUrl: user.avatar_url ? user.avatar_url : locationIcon,
-    iconSize: [50, 50],
-    iconAnchor: [25, 25],
+    iconSize: [30, 30],
+    iconAnchor: [15, 15],
     className: 'leaflet-my-location-icon',
   });
 

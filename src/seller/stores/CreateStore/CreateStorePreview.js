@@ -30,8 +30,6 @@ const CreateStorePreview = (props) => {
     dispatch(setStoreLink({ link: linkName(link), store_id: id }));
   };
 
-  console.log(storeData);
-
   if (props.progress === 5) {
     return (
       <div

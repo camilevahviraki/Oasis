@@ -76,6 +76,7 @@ const ItemsList = (props) => {
           <div
             onMouseOver={() => setCartIcon(id)}
             onMouseOut={() => setCartIcon(null)}
+            key={id}
           >
             <div className="store-item-wrapp">
               <div className="store-item-image-wrapp">

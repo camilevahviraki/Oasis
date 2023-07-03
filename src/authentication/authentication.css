@@ -7,17 +7,22 @@
 }
 
 .user-authentication-form-input {
-    border: 1px solid rgba(128, 128, 128, 0.445);
-    padding: 8px;
+    padding: 6px;
     padding-left: 8px;
     width: 100%;
+    background-color: #cdcdcd;
+    border-radius: 8px;
+    font-size: 15px;
 }
 
 .user-authentication-form-button {
-    background-color: rgba(4, 97, 104, 0.74);
+    background-color: #046168e0;
     padding: 8px 20px;
     margin-top: 10px;
     margin-bottom: 30px;
+    color: #e1e0e0;
+    font-weight: 700;
+    border-radius: 8px;
 }
 
 .user-auth-image-wrap {
@@ -75,7 +80,7 @@
     position: relative;
     display: flex;
     align-items: center;
-    /* margin-top: 10px; */
+    margin: 10px 0;
 }
 
 .formR-input-wrap label {
@@ -84,6 +89,7 @@
     border-radius: 8px;
     margin-right: 12px;
     padding: 7px;
+    font-size: 14px;
 }
 
 .error-input-show {

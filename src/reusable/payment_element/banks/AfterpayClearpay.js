@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { useLocation } from 'react-router-dom';
 import { useStripe } from '@stripe/react-stripe-js';
 import StatusMessages, { useMessages } from './StatusMessages';
+import postPayementIntent from '../postPayementIntent';
 
 const AfterpayClearpayForm = () => {
   const [messages, addMessage] = useMessages();
@@ -30,17 +31,14 @@ const AfterpayClearpayForm = () => {
     e.preventDefault();
 
     // create payment intent on the server
-    const { error: backendError, clientSecret } = await fetch('/create-payment-intent', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify({
-        paymentMethodType: 'afterpay_clearpay',
-        currency: 'usd',
-      }),
-    })
-      .then((r) => r.json());
+
+    const data = {
+      paymentMethodType: 'afterpay_clearpay',
+      currency: 'usd',
+    };
+
+    const response = await postPayementIntent({ data });
+    const { error: backendError, clientSecret } = response;
 
     if (backendError) {
       addMessage(backendError.message);

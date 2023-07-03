@@ -37,7 +37,6 @@ const SignIn = () => {
     };
 
     setMessage(null);
-    console.log(formData);
     dispatch(loginUser(formData));
   };
 

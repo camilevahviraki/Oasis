@@ -20,7 +20,11 @@
     width: fit-content;
     height: fit-content;
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+}
+
+.create-item-selected-colors {
+    margin-left: 10%;
 }
 
 .create-item-color {

@@ -3,16 +3,20 @@
     min-height: 100vh;
     align-items: center;
     padding-bottom: 30px;
+    padding-top: 16px;
+    background-color: #f5f5f5;
 }
 
 .my-store-wrapper {
     width: 90%;
-    min-height: 300px;
-    border: 1px solid gray;
+    min-height: 240px;
     margin-top: 24px;
     display: flex;
     align-items: center;
     text-align: start;
+    box-shadow: 1px 2px 10px gray;
+    border-radius: 12px;
+    background-color: #fff;
 }
 
 .my-store-picture-container {
@@ -31,20 +35,37 @@
 
 .my-store-location {
     display: flex;
+    align-items: center;
+    margin-top: 16px;
 }
 
 .my-store-categories-wrapper {
-    display: flex;
+    display: inline-flex;
     position: absolute;
     bottom: 10px;
     overflow-x: auto;
     width: 90%;
+    height: 120px;
+    flex-direction: row;
+    flex-wrap: wrap;
 }
 
 .my-store-categories-wrapper p {
     padding: 8px;
-    background-color: gray;
-    margin-right: 10px;
+    background-color: #003e45fa;
+    margin: 10px;
+    color: #ffffffb8;
+    height: 40px;
+    width: fit-content;
+    border-radius: 8px;
+    box-shadow: 1px 2px 5px #5d5d5d;
+}
+
+.p {
+    font-size: 14px;
+    color: #001619e4;
+    margin-top: 16px;
+    width: 95%;
 }
 
 .my-store-create-new {
@@ -56,7 +77,14 @@
 .my-store-name {
     font-weight: 700;
     text-transform: capitalize;
-    font-size: 20px;
+    font-size: 22px;
+    margin-top: 16px;
+}
+
+.my-store-location p{
+    color: #001417e9;
+    font-size: 14px;
+    margin-left: 6px;
 }
 
 .my-store-image {
@@ -64,4 +92,16 @@
     max-height: 100%;
     width: auto;
     height: auto;
+}
+
+.stores-list-ananlysis-link {
+    position: absolute;
+    right: 20px;
+    top: 10px;
+    display: flex;
+    align-items: center;
+}
+
+.stores-list-ananlysis-link span {
+    margin-right: 8px;
 }

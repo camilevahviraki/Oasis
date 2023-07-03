@@ -41,7 +41,6 @@ const updateStoreReducer = (state = {
       saveToStorage(newState);
       return newState;
     } case DELETE_STORE_IMAGE: {
-      console.log(action.data);
       const newState = {
         field: state.field,
         fieldValue: state.fieldValue,
@@ -89,7 +88,7 @@ const saveToStorage = (data) => {
 };
 
 export const updateStorePlaces = (places, token) => (dispatch) => {
-  Upload({ data: places, endPoint: 'api_stores', dispatchResponse: (data) => dispatch(getStoreId(data), token) });
+  Upload({ data: places, endPoint: 'api_stores' });
   dispatch({
     type: UPDATE_STORE_PLACE,
     data: 'Updated coordinates',

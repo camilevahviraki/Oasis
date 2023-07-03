@@ -67,8 +67,8 @@ const CreateStorePictures = (props) => {
           { gallery.length === 0 ? (
             <img src={storeImage} alt="" />
           ) : (
-            Object.keys(gallery).map((keyName, i) => (
-              <div className="create-store-image-preview-container">
+            Object.keys(gallery).map((keyName) => (
+              <div className="create-store-image-preview-container" key={keyName}>
                 {
                     gallery[keyName].type.includes('image') ? (
                       <img

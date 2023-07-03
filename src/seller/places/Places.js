@@ -32,19 +32,17 @@ const Places = () => {
     className: 'leaflet-location-icon',
   });
 
-  console.log(stores);
-
   return (
     <div className="place-main-container">
+      <h2>Places</h2>
       <MapContainer
-        onClick={(e) => handleClick(e)}
         center={center}
         zoom={8}
         scrollWheelZoom={false}
         style={{
-          width: '100%',
+          width: '90%',
           position: 'relative',
-          height: '100%',
+          height: '90%',
           outline: 'none',
         }}
       >

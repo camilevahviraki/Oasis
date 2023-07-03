@@ -1,17 +1,21 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import {
-  setCurrentItem,
-} from '../../../../../redux/item/createItem';
+import { useParams } from 'react-router-dom';
+import { setCurrentItem } from '../../../../../redux/item/createItem';
 import FormR from '../../../../../reusable/form/FormR';
 import Upload from '../../../../../redux/upload';
 import Loader from '../../../../../reusable/loader/Loader';
 import UploadProgress from '../../../../../reusable/upload-progress/UploadProgress';
+import { getCategories } from '../../../../../redux/stores_categories/stores_categories_reducer';
 import inputFileIcon from '../../../../../images/input-file.png';
 
 const Details = () => {
   const dispatch = useDispatch();
-  const storeData = useSelector((state) => state.storeLinkReducer);
+  const params = useParams();
+
+  useEffect(() => {
+    dispatch(getCategories());
+  }, []);
   const currentStore = useSelector((state) => state.getStoreShowReducer);
   const [inputErrorArr, setInputErrorArr] = useState([0, 0, 0, 0, 0]);
   const [message, setMessage] = useState(null);
@@ -27,21 +31,22 @@ const Details = () => {
   const queryParameters = new URLSearchParams(window.location.search);
   const categoryParams = queryParameters.get('type');
   const [category, setCategory] = useState(categoryParams);
+  const storeCategories = useSelector((state) => state.storeCategoriesReducer);
 
   const inputsArray = [
     {
       type: 'text',
       name: 'mainName',
       classInput: 'user-authentication-form-input',
-      placeholder: 'Main Name',
-      label: 'Name',
+      placeholder: 'Nike Airforce 1',
+      label: 'Name:',
     },
     {
       type: 'text',
       name: 'names',
       classInput: 'user-authentication-form-input',
-      placeholder: '#name1, #name2, #name3',
-      label: 'Others Name',
+      placeholder: '#shoes, #clothes, #sneakers',
+      label: 'Others Name:',
     },
     {
       type: 'number',
@@ -49,20 +54,23 @@ const Details = () => {
       classInput: 'user-authentication-form-input',
       placeholder: '24',
       step: '0.0001',
-      label: `Price(${selectedCurrency.symbole})`,
+      label: `Price (${selectedCurrency.symbole}):`,
     },
     {
       type: 'number',
       name: 'quantity',
       classInput: 'user-authentication-form-input',
       placeholder: '14',
-      label: 'Quantity',
+      label: 'Quantity:',
     },
     {
       type: 'select-country',
       placeholder: category,
       classInput: 'user-authentication-form-input',
-      data: currentStore.categories,
+      data:
+        currentStore.categories.length > 0
+          ? currentStore.categories
+          : storeCategories,
       label: 'Item Category',
     },
     {
@@ -70,7 +78,7 @@ const Details = () => {
       name: 'description',
       classInput: 'user-authentication-form-input',
       placeholder: '...description',
-      label: 'Description',
+      label: 'Description:',
     },
   ];
 
@@ -83,7 +91,7 @@ const Details = () => {
     const mainName = e.target.mainName.value;
     const names = e.target.names.value;
     const priceR = e.target.price.value;
-    const price = priceR * 1000 / selectedCurrency.exchange;
+    const price = (priceR * 1000) / selectedCurrency.exchange;
     const description = e.target.description.value;
     const quantity = e.target.quantity.value;
 
@@ -113,15 +121,15 @@ const Details = () => {
       setLoader(true);
       Object.keys(gallery).forEach((key) => {
         formData.append('pictures[]', gallery[key]);
-        console.log('qwerty file =>', gallery[key].type);
       });
-      formData.append('store_id', storeData.link.store_id);
+      formData.append('store_id', queryParameters.get('key'));
       formData.append('mainName', mainName);
       formData.append('names', names);
       formData.append('price', price);
       formData.append('description', description);
       formData.append('quantity', quantity);
       formData.append('category', category);
+
       Upload({
         endPoint: 'api_stores/show/items',
         data: formData,
@@ -147,21 +155,17 @@ const Details = () => {
     <>
       {showLoader ? <Loader /> : <></>}
       <h2 className="create-item-title">
-        {
-        category !== 'all' ? (
+        {category !== 'all' ? (
           <>
             Create New Item in
-            {' '}
             {category}
           </>
-        )
-          : (<></>)
-       }
+        ) : <></>}
       </h2>
       <div className="cre-item-images-list">
         <div className="create-item-image-previews-container">
-          {Object.keys(gallery).map((keyName, i) => (
-            <div className="create-item-image-preview">
+          {Object.keys(gallery).map((keyName) => (
+            <div className="create-item-image-preview" key={keyName}>
               {gallery[keyName].type.includes('image') ? (
                 <img
                   src={URL.createObjectURL(gallery[keyName])}
