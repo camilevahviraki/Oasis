@@ -95,6 +95,8 @@
 .store-location-wrapper {
     display: flex;
     align-items: center;
+    font-size: 14px;
+    color: #00323b;
 }
 
 .store-categories-wrapper {

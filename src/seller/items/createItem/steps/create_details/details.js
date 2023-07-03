@@ -38,15 +38,15 @@ const Details = () => {
       type: 'text',
       name: 'mainName',
       classInput: 'user-authentication-form-input',
-      placeholder: 'Main Name',
-      label: 'Name',
+      placeholder: 'Nike Airforce 1',
+      label: 'Name:',
     },
     {
       type: 'text',
       name: 'names',
       classInput: 'user-authentication-form-input',
-      placeholder: '#name1, #name2, #name3',
-      label: 'Others Name',
+      placeholder: '#shoes, #clothes, #sneakers',
+      label: 'Others Name:',
     },
     {
       type: 'number',
@@ -54,14 +54,14 @@ const Details = () => {
       classInput: 'user-authentication-form-input',
       placeholder: '24',
       step: '0.0001',
-      label: `Price(${selectedCurrency.symbole})`,
+      label: `Price (${selectedCurrency.symbole}):`,
     },
     {
       type: 'number',
       name: 'quantity',
       classInput: 'user-authentication-form-input',
       placeholder: '14',
-      label: 'Quantity',
+      label: 'Quantity:',
     },
     {
       type: 'select-country',
@@ -78,7 +78,7 @@ const Details = () => {
       name: 'description',
       classInput: 'user-authentication-form-input',
       placeholder: '...description',
-      label: 'Description',
+      label: 'Description:',
     },
   ];
 

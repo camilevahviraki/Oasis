@@ -7,9 +7,13 @@
 }
 
 .create-item-input-capacity {
-    border: 1px solid gray;
     height: 40px;
     width: 68%;
+    font-size: 15px;
+    padding-left: 8px;
+    padding: 6px;
+    background-color: #efeded;
+    border-radius: 8px;
 }
 
 .create-item-capacity-form-wrapper {
@@ -37,17 +41,21 @@
     flex-direction: column;
     align-items: center;
     width: 70%;
+    color: #ebebeb;
     margin-left: 30%;
-    border: 1px solid gray;
     margin-bottom: 30px;
+    padding: 8px;
+    border-radius: 8px;
+    background-color: #0c323de3;
+
 }
 
 .create-item-capacity-form-wrapp label {
     width: 30%;
     margin-right: 2%;
     padding: 8px;
-    border: 1px solid gray;
     margin-right: 8px;
+    font-size: 14px;
 }
 
 .create-item-input-capacity-wrapp {
@@ -67,9 +75,12 @@
 .form-input-capacity-container {
     display: flex;
     flex-direction: column;
-    border: 1px solid gray;
     width: 70%;
     margin-left: 30%;
+    padding: 6px;
+    color: #ebebeb;
+    background-color: #0c323de3;
+    border-radius: 8px;
 }
 
 .form-input-capacity-wrapper{
@@ -80,7 +91,6 @@
 
 .form-input-capacity-wrapper label {
     padding: 8px;
-    border: 1px solid gray;
     margin-right: 12px;
     font-weight: 700;
 }
@@ -90,6 +100,8 @@
     border: 1px solid gray;
     margin-right: 12px;
     width: 60px;
+    font-size: 15px;
+    border-radius: 6px;
 }
 
 .form-input-capacity-wrapper span {
@@ -116,4 +128,8 @@
     background-color: #fff;
     color: #046168e0;
     border: 1px solid #046168e0;
+}
+
+.selected-unit-wrapp {
+    margin-left: 7%;
 }

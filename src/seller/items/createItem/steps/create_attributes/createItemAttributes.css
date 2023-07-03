@@ -1,10 +1,8 @@
 .create-item-attributes-container {
-    border: 3px solid #ff00f7;
     flex: 0 0 100%;
     display: flex;
     flex-direction: column;
     width: 100vw;
-    /* height: fit-content; */
     position: relative;
     padding-bottom: 60px;
 }
@@ -48,7 +46,8 @@
 }
 
 .got-to-attribute-button:hover {
-    background-color: #777777b8;
+    background-color: #046168e0;
+    border: none;
     color: #fff;
 }
 

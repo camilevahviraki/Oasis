@@ -2,20 +2,22 @@
     overflow-x: hidden;
     display: flex;
     flex-direction: row;
-    min-height: calc(100vh - 71px);
+    height: calc(100vh - 70px);
+    overflow-y: auto;
 }
 
 .create-item-input-wrapper{
     display: flex;
     align-items: center;
-    margin-bottom: 15px;
+    margin: 10px 0;
 }
 
 .create-item-input-wrapper label {
     width: 180px;
-    background-color: rgba(28, 33, 39, 0.658);
     margin-right: 12px;
     padding: 8px;
+    font-size: 14px;
+    text-align: start;
 }
 
 .create-item-container {
@@ -42,10 +44,13 @@
     cursor: pointer;
     margin: 12px;
     width: 70%;
-    border: 1px solid gray;
+    border: 1px solid #cdcdcd;
     display: flex;
-    flex-direction: column;
     align-items: center;
+    justify-content: center;
+    font-size: 15px;
+    border-radius: 8px;
+    color: #232323bd;
 }
 
 .input-file-icon {
@@ -76,11 +81,13 @@
 }
 
 .create-item-image-preview {
-    width: 200px;
-    height: 200px;
+    width: 150px;
+    height: 150px;
     margin: 1px 10px;
     overflow: hidden;
-    display: block;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .create-item-image {
@@ -104,13 +111,11 @@
     align-items: center;
 }
 
-/* //////////////////////////////////////////////////////////// */
-
 .item-progress-bar-container {
     width: 90%;
     margin-left: 5%;
     display: flex;
-    position: absolute;
+    position: fixed;
     z-index: 8;
     margin-top: 10px;
 }

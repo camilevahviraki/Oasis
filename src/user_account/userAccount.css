@@ -1,9 +1,13 @@
+.user-account-page {
+    min-height: calc(100vh - 50px);
+}
+
 .user-account-avatar-wrap {
-    width: 40vw;
-    height: 40vw;
+    width: 22vw;
+    height: 22vw;
     border-radius: 50%;
     overflow: hidden;
-    border: 1px solid gray;
+    border: 1px solid #b7b7b7;
     background-repeat: no-repeat;
 }
 
@@ -17,8 +21,9 @@
 }
 
 .user-account-name {
-    font-weight: 500;
-    font-size: 18px;
+    font-weight: 700;
+    font-size: 22px;
+    margin: 14px 0;
 }
 
 .user-account-edit-image-button {
