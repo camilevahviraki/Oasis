@@ -13,11 +13,12 @@ import Currency from './currencies/Currency';
 import CheckValidImage from '../reusable/check-image/checkValidImage';
 import userIcon from '../images/user-icon.png';
 import hamburger from '../images/icons/menu-hamburger.png';
-// import { ReactComponent as OasisLogo } from '../images/logos/oasis-logo4.svg';
+import CheckLogin from '../reusable/currentPageUrl/CurrentPageUrl';
+import RedirectToLogin from '../reusable/redirect-to-login/redirectToLogin';
+import { setCurrentLink } from '../redux/authentication/reusableAuthReducer';
 import './Header.css';
 
 const Header = () => {
-  const svgRef = useRef(null);
   const dispatch = useDispatch();
   const [showMenu, setShowMenu] = useState(false);
   const userData = useSelector((state) => state.authenticationReducer);
@@ -46,7 +47,12 @@ const Header = () => {
   const links = [
     { id: 1, icon: <GoHome style={iconsStyle} className="header-icons-r" />, link: '../home' },
     { id: 2, icon: <ImEarth style={iconsStyle} className="header-icons-r" />, link: '../places' },
-    { id: 3, icon: <MdOutlineStorefront style={iconsStyle} className="header-icons-r" />, link: '../my-stores' },
+    {
+      id: 3,
+      icon: <MdOutlineStorefront style={iconsStyle} className="header-icons-r" />,
+      link: CheckLogin({ path: '../my-stores' }),
+      checkLogin: true,
+    },
   ];
 
   const currenPath = window.location.pathname;
@@ -65,6 +71,7 @@ const Header = () => {
               currenPath.substring(1) === linkObj.link.replace(/(\.\.\/)/g, '')
                 ? 'header-current-link' : 'header-home-link'
             }
+            onClick={linkObj.checkLogin && RedirectToLogin() ? () => dispatch(setCurrentLink('../my-stores')) : null}
           >
             {linkObj.icon}
           </Link>
@@ -77,10 +84,10 @@ const Header = () => {
           <span className="header-cart-length">{cartData.length}</span>
           <HiOutlineShoppingCart className="user-Icon" />
         </Link>
-        <Link to="../chat">
+        <Link to={CheckLogin({ path: '../chat' })} onClick={RedirectToLogin() ? () => dispatch(setCurrentLink('../chat')) : null}>
           <RiMessengerLine className="user-Icon" />
         </Link>
-        <Link to={`../account/${linkName(userNames)}`}>
+        <Link to={userData.token ? `../account/${linkName(userNames)}` : '../login'}>
           <div className="user-Icon-wrap">
             <img src={CheckValidImage({ avartarUrl: userImage, defaultImg: userIcon })} alt="" className="user-Icon-r" />
           </div>
