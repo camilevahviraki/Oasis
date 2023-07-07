@@ -1,6 +1,7 @@
 .order-item-image-wrapp {
     width: 30%;
     height: 100%;
+    position: relative;
 }
 
 .order-pay-container {

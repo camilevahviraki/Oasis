@@ -58,13 +58,13 @@ const StoreName = (props) => {
       type: 'text',
       name: 'name',
       placeholder: 'name',
-      classInput: 'InputCreateStore',
+      classInput: 'user-authentication-form-input',
       label: 'Store Name',
     },
     {
       type: 'select-country',
       placeholder: 'input country',
-      classInput: 'InputCreateStore',
+      classInput: 'user-authentication-form-input',
       data: countriesList,
       label: 'Country',
     },
@@ -72,15 +72,15 @@ const StoreName = (props) => {
       type: 'text',
       name: 'city',
       placeholder: 'city',
-      classInput: 'InputCreateStore',
+      classInput: 'user-authentication-form-input',
       label: 'City',
     },
     {
       type: 'textarea',
       name: 'description',
       placeholder: 'description',
-      classInput: 'TextAreaCreateStore',
-      label: 'Store Description',
+      classInput: 'user-authentication-form-input',
+      label: 'Description',
     },
   ];
 
@@ -120,7 +120,7 @@ const StoreName = (props) => {
           inputsArray={formValues}
           submitFunction={submitStoreName}
           submitButton="Next"
-          submitClass="create-store-submit"
+          submitClass="user-authentication-form-button"
           getSelectedCountry={getSelectedCountry}
           errorMessage={message}
           inputErrorArr={inputErrorArr}

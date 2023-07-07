@@ -23,7 +23,7 @@ const ItemShowReusable = (props) => {
   useEffect(() => {
     const itemData = {
       id: itemId,
-      store_id: 'azerty',
+      store_id: '243',
     };
     dispatch(getItem(itemData));
   }, []);
@@ -52,6 +52,7 @@ const ItemShowReusable = (props) => {
     updated_at,
     item_attributes,
     token_id,
+    store_token,
   } = item;
 
   const showAttributeImage = (data) => {
@@ -141,7 +142,7 @@ const ItemShowReusable = (props) => {
         <div className="item-show-details">
           <Link
             className="item-store-link"
-            to={`../store/${store_id}`}
+            to={`../store/${store_token}`}
           >
             In this Store
           </Link>

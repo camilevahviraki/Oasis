@@ -2,6 +2,7 @@ import React, { useEffect, useState, useRef } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { AiOutlineSetting } from 'react-icons/ai';
 import { BsGraphUp, BsFilterLeft } from 'react-icons/bs';
+import { MdLocationOn } from 'react-icons/md';
 import { IoMdAdd } from 'react-icons/io';
 import { Link } from 'react-router-dom';
 import { useParams } from 'react-router';
@@ -20,7 +21,6 @@ import facebookIcon from '../../../images/icons/contacts/colored/facebook.png';
 import messageIcon from '../../../images/icons/contacts/colored/message.png';
 import twitterIcon from '../../../images/icons/contacts/colored/twitter.png';
 import whatsappIcon from '../../../images/icons/contacts/colored/whatsapp.png';
-
 import './StoreShow.css';
 
 const StoreShow = () => {
@@ -112,26 +112,30 @@ const StoreShow = () => {
           onMouseOut={() => setFreeze(true)}
         >
           <ImageSilder imagesArray={images_url} freeze={freeze} />
-          {user_id === userData.user.id ? (
-            <div className="store-settings">
-              <Link to={`../store/${token_id}/analysis`}>
-                <BsGraphUp />
-                <span>Insights</span>
-              </Link>
-              <Link
-                to={`../my-store/${token_id}/item/new?type=${categoryName}&&key=${storeData.id}`}
-              >
-                <IoMdAdd />
-                <span>New Item</span>
-              </Link>
-              <Link to={`../my-store/${token_id}/edit`}>
-                <AiOutlineSetting />
-                <span>Settings</span>
-              </Link>
-            </div>
-          ) : (
-            <></>
-          )}
+          <div className="store-settings">
+
+            {
+              user_id === userData.user.id ? (
+                <>
+                  <Link to={`../store/${token_id}/analysis`}>
+                    <BsGraphUp />
+                    <span>Insights</span>
+                  </Link>
+                  <Link
+                    to={`../my-store/${token_id}/item/new?type=${categoryName}&&key=${storeData.id}`}
+                  >
+                    <IoMdAdd />
+                    <span>New Item</span>
+                  </Link>
+                  <Link to={`../my-store/${token_id}/edit`}>
+                    <AiOutlineSetting />
+                    <span>Settings</span>
+                  </Link>
+
+                </>
+              ) : (<></>)
+            }
+          </div>
           <div className="store-contact-icons">
             {contactsIcons.map((icon) => (
               <Link to="" key={icon}>
@@ -149,9 +153,10 @@ const StoreShow = () => {
             </div>
             <div>
               <h4 className="store-name">{name}</h4>
-              <div className="store-location-wrapper">
+              <Link to={`../store/${token_id}/location`} className="store-location-wrapper">
+
                 <p>Location</p>
-                <img src={locationIcon} alt="" className="icon" />
+                <MdLocationOn />
                 <p>
                   :
                   {' '}
@@ -160,7 +165,8 @@ const StoreShow = () => {
                   {' '}
                   {country ? country.name : null}
                 </p>
-              </div>
+              </Link>
+
             </div>
           </div>
 

@@ -1,18 +1,23 @@
-import React, { useState } from 'react';
-import { useDispatch } from 'react-redux';
-import { Link } from 'react-router-dom';
+import React, { useState, useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { Link, useNavigate } from 'react-router-dom';
+import { FiLoader } from 'react-icons/fi';
 import FormR from '../reusable/form/FormR';
-import { signUpUser } from '../redux/authentication/signUpReducer';
+import { signUpUser, userLogout } from '../redux/authentication/signUpReducer';
 import './authentication.css';
 import userIcon from '../images/user-show-icon.png';
 
-const SignUp = () => {
+const SignUp = (props) => {
+  const navigate = useNavigate();
+  const { reusable } = props;
   const dispatch = useDispatch();
+  const userData = useSelector((state) => state.authenticationReducer);
   const [useImage, setUserImage] = useState(userIcon);
   const [profilePopUp, setProfilePopUp] = useState(false);
   const [userAvatarFile, setUserAvatarFile] = useState(null);
   const [message, setMessage] = useState(null);
   const [inputErrorArr, setInputErrorArr] = useState([0, 0, 0, 0, 0, 0]);
+  const [loader, setLoader] = useState(false);
   const inputsArray = [
     {
       type: 'text',
@@ -77,13 +82,19 @@ const SignUp = () => {
           avatar: userAvatarFile,
         },
       };
-
       dispatch(signUpUser(formData));
-
       setMessage(null);
+      setLoader(true);
       setInputErrorArr([0, 0, 0, 0, 0]);
     }
   };
+
+  useEffect(() => {
+    if (userData.token) {
+      setLoader(false);
+      navigate('../home');
+    }
+  }, [userData]);
 
   return (
     <div className="w-full flex flex-col items-center">
@@ -102,18 +113,22 @@ const SignUp = () => {
         }}
       />
       <FormR
-        classForm="user-authentication-form "
+        classForm={reusable ? 'authentication-pop-up-form' : 'user-authentication-form'}
         inputsArray={inputsArray}
         submitFunction={onSignup}
-        submitButton="Signup"
+        submitButton={!loader ? 'Signup' : <FiLoader className="button-loader white-loader" />}
         submitClass="user-authentication-form-button"
         errorMessage={message}
         inputErrorArr={inputErrorArr}
       />
-      <p>
-        Allready have an Account?
-        <Link to="../login">Login</Link>
-      </p>
+      {
+        !reusable ? (
+          <p>
+            Allready have an Account?
+            <Link to="../login">Login</Link>
+          </p>
+        ) : <></>
+      }
 
       <div className={profilePopUp ? 'image-pop-up-container' : 'hidden'}>
         <div className="w-full relative">

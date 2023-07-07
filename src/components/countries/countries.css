@@ -10,15 +10,15 @@
 }
 
 .countries-list {
-    height: 300px;
+    max-height: 300px;
     width: 80%;
-    /* border: 1px solid rgba(4, 54, 73, 0.925); */
     border-radius: 5px;
     background-color: rgb(255, 255, 255);
     overflow-y: scroll;
     position: absolute;
     top: 100%;
     right: 0;
+    font-size: 14px;
     z-index: 10;
     box-shadow: 1px 1px 10px #3f3f3f;
 }

@@ -129,6 +129,7 @@ const Details = () => {
       formData.append('description', description);
       formData.append('quantity', quantity);
       formData.append('category', category);
+      formData.append('store_token', params.token_id);
 
       Upload({
         endPoint: 'api_stores/show/items',
