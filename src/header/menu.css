@@ -1,41 +1,92 @@
 .Menu {
-    border: 1px solid gray;
     position: fixed;
     height: 90vh;
     top: 10vh;
     right: 0;
     z-index: 10;
-    background-color: #fff;
+    background-color: #011f23;
+    color: #ffffffdb;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 .menu-user-details {
-    border: 1px solid gray;
     height: 20%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    margin-top: 30px;
+    width: 90%;
+    border-radius: 16px;
+    background-color: #059aad42;
+}
+
+.menu-user-pic-wrap {
+    width: 9.53vw;
+    height: 9.53vw;
+    max-width: 105px;
+    max-height: 105px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    overflow: hidden;
+    border: 1px solid #ffffff54;
+    background-color: #ffffff72;
+}
+
+.menu-user-pic-wrap img {
+    height: auto;
+    width: auto;
+    max-width: 100%;
+    max-height: 100%;
 }
 
 .hide-menu {
     position: absolute;
     right: 20px;
+    top: 20px;
 }
 
-.menu-links-wrapper div {
+.menu-links-wrapper {
+    padding: 20px 0;
+    width: 100%;
+}
+
+.menu-links-wrapper a {
     width: 100%;
     display: flex;
     align-items: center;
     text-align: start;
+    padding: 10px;
+    color: #ffffffa0;
+    padding-left: 10%;
+    box-shadow: 1px 2px 6px #001113d2;
 }
 
-.menu-links-wrapper img {
-    margin: 8px 15px;
-    margin-left: 10%;
+.menu-links-wrapper a:hover {
+    color: #fff;
+    background-color: #001113da;
 }
 
-.menu-links-wrapper a {
-   width: 60%;
-   padding-top: 10px;
-   padding-bottom: 10px;
+.menu-links-wrapper span {
+   margin-right: 8px;
 }
 
 .menu-links-wrapper div:hover {
     background-color: rgba(31, 38, 43, 0.356);
+}
+
+.icon-close-big {
+    font-size: 25px;
+}
+
+.menu-user-name {
+    display: flex;
+    flex-direction: column;
+    text-align: start;
+    margin-left: 5%;
+    width: 50%;
 }

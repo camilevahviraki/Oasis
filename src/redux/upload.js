@@ -37,7 +37,7 @@ const Upload = (props) => {
       dispatchResponse(response.data);
     }
 
-    if (dispatcthAuthResponse && response.data.token) {
+    if (dispatcthAuthResponse) {
       dispatcthAuthResponse(response.data);
     }
 

@@ -38,6 +38,7 @@ import createStoreSaleReducer from './store_sales/createStoreSales';
 import storeSalesItemsReducer from './store_sales/getStoreSales';
 import storeGraphsReducer from './store_sales/getStoreGraphs';
 import updateItemQuantity from './item/updatedItemQuantity';
+import reusableAuth from './authentication/reusableAuthReducer';
 
 const rootReducer = combineReducers({
   createStoresReducer,
@@ -77,6 +78,7 @@ const rootReducer = combineReducers({
   storeSalesItemsReducer,
   storeGraphsReducer,
   updateItemQuantity,
+  reusableAuth,
 });
 
 const store = createStore(

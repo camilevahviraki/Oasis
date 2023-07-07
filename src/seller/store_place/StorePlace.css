@@ -1,0 +1,11 @@
+.icon-move {
+   animation: storeicon 1s linear 1ms infinite normal forwards;
+}
+
+@keyframes storeicon {
+    from{
+       transform: scaleX(1);
+    }to {
+       transform: scale(1.2);
+    }
+}

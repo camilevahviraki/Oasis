@@ -7,6 +7,7 @@ import AuthRoutes from '../authentication/AuthRoutes';
 import UserRoutes from '../user_account/userRoutes';
 import Header from '../header/Header';
 import UpdateAccount from '../authentication/updateAccount';
+import Authentication from '../reusable/authentication/Authentication';
 
 const MainRouter = () => {
   const user = useSelector((state) => state.authenticationReducer);
@@ -16,6 +17,8 @@ const MainRouter = () => {
       {user.token ? (
         <>
           <Header />
+          <Authentication />
+          <AuthRoutes />
           <ClientRouter />
           <SellerRouter />
           <UserRoutes />
@@ -25,9 +28,11 @@ const MainRouter = () => {
         </>
       ) : (
         <>
+          <Authentication />
           <Header />
           <AuthRoutes />
           <ClientRouter />
+          <SellerRouter />
         </>
       )}
     </BrowserRouter>

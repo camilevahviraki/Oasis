@@ -81,12 +81,7 @@ export const userUpdateAccount = (userData) => (dispatch) => {
   });
 };
 
-export const userLogout = (userData) => (dispatch) => {
-  // Upload({
-  //     data: userData,
-  //     endPoint: 'users/sign_out',
-  //     method: axios.delete,
-  //     dispatcthAuthResponse: (data) => dispatch({type: USER_LOGOUT, data})});
+export const userLogout = () => (dispatch) => {
   dispatch({ type: USER_LOGOUT });
 };
 

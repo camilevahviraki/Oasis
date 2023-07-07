@@ -1,58 +1,100 @@
 import React from 'react';
-import { useSelector } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
 import { Link } from 'react-router-dom';
+import { MdStorefront, MdOutlineShoppingCart, MdClose } from 'react-icons/md';
+import { FiSettings } from 'react-icons/fi';
+import { HiOutlineUserCircle } from 'react-icons/hi';
+import { setCurrentLink } from '../redux/authentication/reusableAuthReducer';
+import RedirectToLogin from '../reusable/redirect-to-login/redirectToLogin';
 import linkName from '../reusable/remove-blanck-space/linkName';
-import closeIcon from '../images/icons/close-icon.png';
-import userIcon from '../images/icons/account_circle_FILL0_wght400_GRAD0_opsz48.png';
-import settingIcon from '../images/icons/settings_FILL0_wght400_GRAD0_opsz48.png';
-import storesIcon from '../images/icons/storefront_FILL0_wght400_GRAD0_opsz48.png';
-import cartIcon from '../images/icons/shopping_cart_FILL0_wght400_GRAD0_opsz48.png';
 import orderIcon from '../images/icons/order-icon.png';
+import CheckLogin from '../reusable/currentPageUrl/CurrentPageUrl';
+import CheckValidImage from '../reusable/check-image/checkValidImage';
 import './menu.css';
 
 const Menu = (props) => {
+  const dispatch = useDispatch();
   const userData = useSelector((state) => state.authenticationReducer);
   const userNames = `${userData.user.first_name}-${userData.user.last_name}`;
+  const {
+    avatar_url, email, first_name, last_name,
+  } = userData.user;
 
   return (
     <div className="Menu sm:w-9/12 lg:w-6/12 xl:w-4/12">
       <div className="hide-menu" onClick={props.hideMenu}>
-        <img src={closeIcon} alt="" className="icon" />
+        <MdClose className="icon icon-close-big" color="#fff" />
       </div>
       <div className="menu-user-details w-full h-3/12">
-        <div className="menu-user-pic-wrap" />
+        <div className="menu-user-pic-wrap">
+          <img
+            src={CheckValidImage({ avartarUrl: avatar_url, defaultImg: orderIcon })}
+            alt=""
+          />
+        </div>
         <div className="menu-user-name">
-          <p>first-name last-name</p>
+          <p>
+            {first_name}
+            {' '}
+            {last_name}
+          </p>
         </div>
       </div>
       <div className="menu-links-wrapper flex flex-col">
-        <div>
-          <img src={storesIcon} alt="" className="icon" />
-          <Link to="my-stores" onClick={props.hideMenu}>My Stores</Link>
-        </div>
-        <div>
-          <img src={cartIcon} alt="" className="icon" />
-          <Link to="cart" onClick={props.hideMenu}>Cart</Link>
-        </div>
-        <div>
-          <img src={orderIcon} alt="" className="icon" />
-          <Link to="order" onClick={props.hideMenu}>Orders</Link>
-        </div>
-        <div>
-          <img src={userIcon} alt="" className="icon" />
-          {
-            userData.user ? (
-              <Link to={`../account/${linkName(userNames)}`} onClick={props.hideMenu}>My account</Link>
-            ) : (
-              <Link to="../login" onClick={props.hideMenu}>Login</Link>
-            )
-          }
+        <Link
+          to={CheckLogin({ path: '../my-stores' })}
+          onClick={
+            RedirectToLogin() ? () => {
+              dispatch(setCurrentLink('../my-stores')); props.hideMenu();
+            } : props.hideMenu
+}
+        >
+          <span><MdStorefront className="icon" /></span>
+          My Stores
+        </Link>
 
-        </div>
-        <div>
-          <img src={settingIcon} alt="" className="icon" />
-          <Link to="settings" onClick={props.hideMenu}>Settings</Link>
-        </div>
+        <Link
+          to={CheckLogin({ path: '../cart' })}
+          onClick={
+            RedirectToLogin() ? () => {
+              dispatch(setCurrentLink('../cart')); props.hideMenu();
+            }
+              : props.hideMenu
+}
+        >
+          <span><MdOutlineShoppingCart className="icon" /></span>
+          Cart
+        </Link>
+
+        <Link
+          to={CheckLogin({ path: '../order' })}
+          onClick={
+          RedirectToLogin() ? () => {
+            dispatch(setCurrentLink('../order')); props.hideMenu();
+          }
+            : props.hideMenu
+}
+        >
+          <span><img src={orderIcon} alt="" className="icon" /></span>
+          Orders
+        </Link>
+        {
+          userData.token ? (
+            <Link to={`../account/${linkName(userNames)}`} onClick={props.hideMenu}>
+              <span><HiOutlineUserCircle className="icon" /></span>
+              My account
+            </Link>
+          ) : (
+            <Link to="../login" onClick={props.hideMenu}>
+              <span><HiOutlineUserCircle className="icon" /></span>
+              Login
+            </Link>
+          )
+        }
+        <Link to="settings" onClick={props.hideMenu}>
+          <span><FiSettings className="icon" /></span>
+          Settings
+        </Link>
 
       </div>
     </div>

@@ -7,8 +7,6 @@ import {
 } from 'react-leaflet';
 import L from 'leaflet';
 import { useSelector, useDispatch } from 'react-redux';
-// import { MdRestaurant } from "react-icons/md";
-// import { IoFastFood } from "react-icons/io";
 import storeIcon from '../../images/location/store-icon.png';
 import LocationMarker from './my-location/LocationMarker';
 import { getStoresPlaces } from '../../redux/places/storesPlacesReducer';
