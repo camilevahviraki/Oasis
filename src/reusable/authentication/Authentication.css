@@ -1,0 +1,57 @@
+.authentication-reusable-container {
+    position: fixed;
+     width: 56vw;
+     height: 70vh;
+     z-index: 10;
+     top: 15vh;
+     background-color: #001723;
+     color: #eaeaea;
+     box-shadow: 1px 2px 10px #001723;
+     left: 22vw;
+     display: flex;
+     flex-direction: column;
+     align-items: center;
+     justify-content: center;
+     overflow-y: auto;
+}
+
+.authentication-form-container {
+    position: relative;
+    width: 80%;
+    height: 90%;
+    border-radius: 20px;
+    /* background-color: #7a7a7ab1; */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.close-authentication {
+   position: absolute;
+   right: -5%;
+   top: 0;
+   color: #e6e6e6;
+   font-size: 25px;
+   cursor: pointer;
+}
+
+.authentication-pop-up-form {
+    width: 90%;
+    max-width: 550px;
+}
+
+.authentication-title {
+    margin-bottom: 40px;
+}
+
+.redirect-phrases {
+    display: flex;
+    align-items: center;
+    color: #fcfcfc88;
+}
+
+.redirect-phrases button{
+   cursor: pointer;
+   color: #c98d00;
+}
