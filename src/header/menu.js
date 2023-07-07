@@ -21,7 +21,7 @@ const Menu = (props) => {
   } = userData.user;
 
   return (
-    <div className="Menu sm:w-9/12 lg:w-6/12 xl:w-4/12">
+    <div className="Menu">
       <div className="hide-menu" onClick={props.hideMenu}>
         <MdClose className="icon icon-close-big" color="#fff" />
       </div>
@@ -38,6 +38,7 @@ const Menu = (props) => {
             {' '}
             {last_name}
           </p>
+          <p className="menu-email">{email}</p>
         </div>
       </div>
       <div className="menu-links-wrapper flex flex-col">

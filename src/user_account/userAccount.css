@@ -9,6 +9,8 @@
     overflow: hidden;
     border: 1px solid #b7b7b7;
     background-repeat: no-repeat;
+    display: flex;
+    justify-content: center;
 }
 
 .user-account-details {

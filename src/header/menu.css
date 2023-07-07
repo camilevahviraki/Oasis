@@ -1,7 +1,7 @@
 .Menu {
     position: fixed;
-    height: 90vh;
-    top: 10vh;
+    height: calc(100vh - 50px);
+    top: 50px;
     right: 0;
     z-index: 10;
     background-color: #011f23;
@@ -9,6 +9,26 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+    width: 35vw;
+    animation: menu 0.3s ease-in 1ms 1 normal forwards;
+}
+
+@keyframes menu {
+    from {
+      right: -35vw;
+    }to {
+      right: 0;
+    }
+}
+
+.menu-email {
+    font-size: 13px;
+    color: #ffffff81;
+}
+
+.menu-user-name p {
+    font-size: 15px;
+    color: #ffffffba;
 }
 
 .menu-user-details {

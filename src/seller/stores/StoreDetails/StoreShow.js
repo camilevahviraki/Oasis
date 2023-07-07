@@ -21,7 +21,6 @@ import facebookIcon from '../../../images/icons/contacts/colored/facebook.png';
 import messageIcon from '../../../images/icons/contacts/colored/message.png';
 import twitterIcon from '../../../images/icons/contacts/colored/twitter.png';
 import whatsappIcon from '../../../images/icons/contacts/colored/whatsapp.png';
-
 import './StoreShow.css';
 
 const StoreShow = () => {
