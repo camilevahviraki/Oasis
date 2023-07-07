@@ -4,7 +4,8 @@ import { useDispatch } from 'react-redux';
 import { userResetPassword } from '../redux/authentication/signUpReducer';
 import FormR from '../reusable/form/FormR';
 
-const ForgotPassword = () => {
+const ForgotPassword = (props) => {
+  const { reusable } = props;
   const dispatch = useDispatch();
 
   const [message, setMessage] = useState(null);
@@ -36,20 +37,13 @@ const ForgotPassword = () => {
 
       dispatch(userResetPassword(formData));
     }
-
-    // const toChangePasswoed = {user:
-    //   {reset_password_token: "[FILTERED]",
-    //    password: "[FILTERED]",
-    //    password_confirmation: "[FILTERED]"
-    //   }
-    //   }
   };
 
   return (
     <div className="w-full flex flex-col items-center">
       <h2 className="authentication-title">Reset Password</h2>
       <FormR
-        classForm="user-authentication-form "
+        classForm={reusable ? 'authentication-pop-up-form' : 'user-authentication-form'}
         inputsArray={inputsArray}
         submitFunction={onSignup}
         submitButton="Send Me Reset Instructions"
@@ -57,10 +51,14 @@ const ForgotPassword = () => {
         errorMessage={message}
       />
 
-      <p>
-        Back to login page?
-        <Link to="../login">Sign In</Link>
-      </p>
+      {
+        !reusable ? (
+          <p>
+            Back to login page?
+            <Link to="../login">Sign In</Link>
+          </p>
+        ) : (<></>)
+      }
 
     </div>
   );
