@@ -38,11 +38,11 @@ const CreateStorePreview = (props) => {
         <MyStore storeData={storeData} />
         <div className="create-store-preview-submit-container row">
           <Link
-            to={`store/${linkName(storeData.name)}`}
+            to={`../store/${storeData.token_id}`}
             onClick={() => {
               dispatch(postStoreToServer());
-              saveStoreLink(storeData.name, storeData.id);
             }}
+            className="user-authentication-form-button"
           >
             Next
             {' '}

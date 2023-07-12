@@ -64,24 +64,24 @@ const CreateStorePictures = (props) => {
     return (
       <div className="create-store-pictures">
         <div className="create-store-images-preview">
-          { gallery.length === 0 ? (
+          {gallery.length === 0 ? (
             <img src={storeImage} alt="" />
           ) : (
             Object.keys(gallery).map((keyName) => (
               <div className="create-store-image-preview-container" key={keyName}>
                 {
-                    gallery[keyName].type.includes('image') ? (
-                      <img
-                        src={URL.createObjectURL(gallery[keyName])}
-                        alt=""
-                        className="create-store-image-preview"
-                      />
-                    ) : (
-                      <video width="400px" controls>
-                        <source src={URL.createObjectURL(gallery[keyName])} />
-                      </video>
-                    )
-                  }
+                  gallery[keyName].type.includes('image') ? (
+                    <img
+                      src={URL.createObjectURL(gallery[keyName])}
+                      alt=""
+                      className="create-store-image-preview"
+                    />
+                  ) : (
+                    <video width="400px" controls>
+                      <source src={URL.createObjectURL(gallery[keyName])} />
+                    </video>
+                  )
+                }
               </div>
             ))
           )}
@@ -100,31 +100,22 @@ const CreateStorePictures = (props) => {
 
         <form onSubmit={handleSubmit} className="form-create-store-pictures">
 
-          <label htmlFor="create-store-image" className="create-store-label-input-file">
+          <label htmlFor="item-image" className="create-item-label-input-file">
             Select Images or Video
             <img src={inputFileIcon} alt="" className="input-file-icon" />
             <input
+              id="item-image"
               type="file"
-              id="create-store-image"
-              name="gallery"
-              accept="image/*, video/*"
+              accept="image/*,video/*"
+              className="create-item-input-file"
               onChange={handlePreview}
-              className="create-store-image-input"
               multiple
             />
           </label>
 
-          <input
-            type="text"
-            name="pictures-description"
-            placeholder="short description"
-            onChange={(e) => setCurrentDescription(e.target.value)}
-            value={currentDescription}
-          />
-
           <div>
             <p>{message}</p>
-            <input type="submit" value="Next" className="create-store-submit" />
+            <input type="submit" value="Next" className="user-authentication-form-button" />
           </div>
         </form>
       </div>

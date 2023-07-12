@@ -7,17 +7,11 @@ const CLEAR_STORE_DATA = 'redux/store/getStoreShowReducer/CLEAR_STORE_DATA';
 const getStoreShowReducer = (state = {}, action) => {
   switch (action.type) {
     case GET_STORE_SHOW: {
-      localStorage.setItem('currentStoreData', JSON.stringify(action.data));
       return action.data;
     }
     case CLEAR_STORE_DATA: {
-      localStorage.removeItem('currentStoreData');
       return {};
     } default: {
-      const storeData = JSON.parse(localStorage.getItem('currentStoreData'));
-      if (storeData) {
-        return storeData;
-      }
       return state;
     }
   }

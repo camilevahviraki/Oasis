@@ -19,12 +19,12 @@ import bgImg7 from '../../images/welcome_page/img7.png';
 import bgImg8 from '../../images/welcome_page/img8.png';
 import bgImg9 from '../../images/welcome_page/img9.png';
 import bgImg10 from '../../images/welcome_page/img10.png';
+import eCommerceImg from '../../images/welcome_page/ECommerce-Fevad-2023-.jpg';
 import './WelcomePage.css';
 
 const WelcomePage = () => {
   const dispatch = useDispatch();
   useEffect(() => {
-    // dispatch(getCategories());
     dispatch(getWelcomItemsItems());
   }, []);
 
@@ -113,15 +113,26 @@ const WelcomePage = () => {
 
   return (
     <div className="welcome-page-container">
-
+      <div className="welcome-page-background" />
+      <div className="welcome-page-background-gradient" />
       <div ref={sliderRef} className="welcome-page-big-cards-container">
         <CardSlider data={cardsData} />
+      </div>
+      <div className="big-e-cormerce-img-wrapp">
+        <Link to="../" className="welcome-page-create-your-store">
+          Create your store
+          <span>{' >'}</span>
+        </Link>
+        <div className="welcome-page-cbackground-button" />
+        <img src={eCommerceImg} alt="" className="big-e-cormerce-img" />
       </div>
       <div className="welcome-page-small-cards-container">
         <CatgorySlider data={categoriesData} />
       </div>
       <div ref={searchRef} className="welcome-page-search-bar-container">
-        <SearchBar onSearch={(value) => handleSearch(value)} instantSearch homePage />
+        <div className="welcome-page-search-bar-invisible-wrapp">
+          <SearchBar onSearch={(value) => handleSearch(value)} instantSearch homePage />
+        </div>
       </div>
       {
         searchBarOnTop ? (

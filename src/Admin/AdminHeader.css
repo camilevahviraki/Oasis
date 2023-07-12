@@ -1,0 +1,25 @@
+.header-menue {
+    position: absolute;
+    right: 0;
+    z-index: 6;
+}
+
+.admin-hamburger-icon {
+    position: fixed;
+    top: 60x;
+    left: 10px;
+    color: #e7e7e7;
+    font-size: 30px;
+    display: flex;
+    align-items: center;
+    background-color: #003141;
+    border-radius: 20px;
+    padding: 5px;
+    cursor: pointer;
+    z-index: 10;
+}
+
+.admin-hamburger-icon span {
+    font-size: 13px;
+    margin-left: 5px;
+}
