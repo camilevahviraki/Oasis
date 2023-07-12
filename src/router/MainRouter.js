@@ -8,12 +8,14 @@ import UserRoutes from '../user_account/userRoutes';
 import Header from '../header/Header';
 import UpdateAccount from '../authentication/updateAccount';
 import Authentication from '../reusable/authentication/Authentication';
+import AdminRoutes from '../Admin/routes/AdminRoutes';
 
 const MainRouter = () => {
   const user = useSelector((state) => state.authenticationReducer);
 
   return (
     <BrowserRouter>
+      {user.user.admin ? <AdminRoutes /> : null}
       {user.token ? (
         <>
           <Header />
