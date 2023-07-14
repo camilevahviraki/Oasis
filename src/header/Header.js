@@ -16,6 +16,7 @@ import hamburger from '../images/icons/menu-hamburger.png';
 import CheckLogin from '../reusable/currentPageUrl/CurrentPageUrl';
 import RedirectToLogin from '../reusable/redirect-to-login/redirectToLogin';
 import { setCurrentLink } from '../redux/authentication/reusableAuthReducer';
+import oasisLogo from '../images/welcome_page/oasis-logo-orange.png';
 import './Header.css';
 
 const Header = () => {
@@ -60,7 +61,7 @@ const Header = () => {
   return (
     <header className="flex align-center w-full">
       <div className="logo-wrap">
-        <Link to="../">OASIS</Link>
+        <Link to="../"><img src={oasisLogo} alt="" style={{ height: '30px' }} /></Link>
       </div>
       <div className="flex align-center header-icons">
         {links.map((linkObj) => (

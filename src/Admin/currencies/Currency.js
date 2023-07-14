@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { AiFillPicture } from 'react-icons/ai';
 import { FiLoader } from 'react-icons/fi';
+import axios from 'axios';
 import FormR from '../../reusable/form/FormR';
 import Upload from '../../redux/upload';
 import { getCurrencies } from '../../redux/currencies/currenciesReducer';
@@ -79,6 +80,8 @@ const Currency = () => {
     if (data.message === 'Created Successfully') {
       setMessage(data.message);
       document.getElementById('create-item-form').reset();
+    } else if (data.message === 'Deleted Successfully') {
+      setMessage(data.message);
     } else {
       setMessage('Oops! Couldnt add country!');
     }
@@ -89,10 +92,16 @@ const Currency = () => {
   useEffect(() => {
     dispatch(getCurrencies());
   }, [gotResponse]);
-
-  const selectCountry = (country) => {};
-
   const currenciesList = useSelector((state) => state.currenciesReducer);
+
+  const deteteCurrency = (id) => {
+    Upload({
+      method: axios.delete,
+      endPoint: `currency/${id}`,
+      sendData: (sent) => afterSubmit(sent),
+    });
+  };
+
   return (
     <div className="admin-countries-page">
       <h2 className="admin-country-title">Currencies Management</h2>
@@ -128,6 +137,14 @@ const Currency = () => {
                 {' =>'}
                 {currency.country}
               </p>
+              <button
+                onClick={() => deteteCurrency(currency.id)}
+                style={{
+                  padding: '4px', background: 'orange', color: '#fff', fontSize: '13px',
+                }}
+              >
+                Delete
+              </button>
             </div>
           ))
         }

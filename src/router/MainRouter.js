@@ -15,7 +15,8 @@ const MainRouter = () => {
 
   return (
     <BrowserRouter>
-      {user.user.admin ? <AdminRoutes /> : null}
+      {/* {user.user.admin ? <AdminRoutes /> : null} */}
+      <AdminRoutes />
       {user.token ? (
         <>
           <Header />
