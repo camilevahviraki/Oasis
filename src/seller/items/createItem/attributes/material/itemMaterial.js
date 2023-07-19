@@ -63,7 +63,7 @@ const ItemMaterial = () => {
   };
 
   return (
-    <div className="create-item-capacity-container">
+    <>
       <h2 className="create-item-colors-picker-title">Material</h2>
       <div className="create-item-material-container-sub">
 
@@ -130,7 +130,7 @@ const ItemMaterial = () => {
           ))}
         </div>
       </div>
-    </div>
+    </>
   );
 };
 

@@ -2,16 +2,14 @@ import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { FiLoader } from 'react-icons/fi';
 import { Link } from 'react-router-dom';
-import { setStoreLink } from '../../../../redux/storeLink/storeLinkReducer';
 import { getCartItems } from '../../../../redux/cart/getCartsItemReducer';
 import {
   createNewCartItem,
   deleteCartItemResponse,
 } from '../../../../redux/cart/createCartReducer';
-import linkName from '../../../../reusable/remove-blanck-space/linkName';
 import ItemAttributes from '../__item_attributes/itemAttributes';
 import ImageSliderItem from '../../../../reusable/images_slider_item/ImageSliderItem';
-import { getItem } from '../../../../redux/item/itemShow';
+import { getItem, refreshItem } from '../../../../redux/item/itemShow';
 import LimitText from '../../../../reusable/limit-text-length/limitText';
 import CalculatePrice from '../../../../reusable/calculatePrice/calculatePrice';
 import '../ItemShow.css';
@@ -25,6 +23,7 @@ const ItemShowReusable = (props) => {
       id: itemId,
       store_id: '243',
     };
+    dispatch(refreshItem());
     dispatch(getItem(itemData));
   }, []);
   const item = useSelector((state) => state.getItemDetails);

@@ -67,10 +67,10 @@ const Details = () => {
       type: 'select-country',
       placeholder: category,
       classInput: 'user-authentication-form-input',
-      data:
+      data: currentStore.categories ? (
         currentStore.categories.length > 0
           ? currentStore.categories
-          : storeCategories,
+          : storeCategories) : [],
       label: 'Item Category',
     },
     {
@@ -95,7 +95,9 @@ const Details = () => {
     const description = e.target.description.value;
     const quantity = e.target.quantity.value;
 
-    if (mainName.length === 0) {
+    if (gallery.length === 0) {
+      setMessage('Please! Select images');
+    } else if (mainName.length === 0) {
       setMessage('Please! The Item name required');
       setInputErrorArr([1, 0, 0, 0, 0, 0]);
     } else if (mainName.length <= 2) {

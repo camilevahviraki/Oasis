@@ -62,10 +62,26 @@ const Attributes = () => {
         {'>'}
       </button>
       <div className="create-item-attributes" ref={attributesRef}>
-        <ItemColor />
-        <ItemCapacity />
-        <ItemSize />
-        <ItemMaterial />
+        <div className="item-color-container-main">
+          {
+            attributeStep === 1 ? <ItemColor /> : <></>
+          }
+        </div>
+        <div className="create-item-capacity-container">
+          {
+            attributeStep === 2 ? <ItemCapacity /> : <></>
+          }
+        </div>
+        <div className="create-item-capacity-container">
+          {
+            attributeStep === 3 ? <ItemSize /> : <></>
+          }
+        </div>
+        <div className="create-item-capacity-container">
+          {
+            attributeStep === 4 ? <ItemMaterial /> : <></>
+          }
+        </div>
       </div>
       <div className="create-item-attribute-dots-wrapp">
         {attributesPages.map((dot) => (

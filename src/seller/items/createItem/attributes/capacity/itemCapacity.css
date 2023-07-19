@@ -102,6 +102,7 @@
     width: 60px;
     font-size: 15px;
     border-radius: 6px;
+    color: black;
 }
 
 .form-input-capacity-wrapper span {

@@ -66,7 +66,7 @@ const ItemSize = () => {
   };
 
   return (
-    <div className="create-item-capacity-container">
+    <>
       <h2 className="create-item-colors-picker-title">Size</h2>
       <div className="create-item-capacity-container-sub">
         <div className="create-item-capacity-form-wrapper">
@@ -82,28 +82,32 @@ const ItemSize = () => {
               listClass="capacities-unit-list"
             />
           </div>
-          <form className="form-input-capacity-container">
-            <h3>Add capacity</h3>
-            <div className="form-input-capacity-wrapper">
-              <label htmlFor="capacity">Input size value</label>
-              <input
-                type="number"
-                name="capacity"
-                id="capacity"
-                value={sizeValue}
-                placeholder="120"
-                onChange={(e) => setSizeValue(e.target.value)}
-              />
-              {selectedUnitTilte ? <span>{selectedUnit.code}</span> : <></>}
-              <button
-                type="button"
-                onClick={AddSizeToItem}
-                className="create-item-add-capacity-button"
-              >
-                Add
-              </button>
-            </div>
-          </form>
+          {
+            selectedUnitTilte ? (
+              <form className="form-input-capacity-container">
+                <h3>Add capacity</h3>
+                <div className="form-input-capacity-wrapper">
+                  <label htmlFor="capacity">Input size value</label>
+                  <input
+                    type="number"
+                    name="capacity"
+                    id="capacity"
+                    value={sizeValue}
+                    placeholder="120"
+                    onChange={(e) => setSizeValue(e.target.value)}
+                  />
+                  {selectedUnitTilte ? <span>{selectedUnit.code}</span> : <></>}
+                  <button
+                    type="button"
+                    onClick={AddSizeToItem}
+                    className="create-item-add-capacity-button"
+                  >
+                    Add
+                  </button>
+                </div>
+              </form>
+            ) : (<></>)
+          }
         </div>
 
         <div className="selected-unit-wrapp">
@@ -155,9 +159,8 @@ const ItemSize = () => {
             </div>
           ))}
         </div>
-
       </div>
-    </div>
+    </>
   );
 };
 

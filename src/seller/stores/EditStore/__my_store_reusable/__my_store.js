@@ -105,7 +105,7 @@ const MyStore = (props) => {
           >
             <p>All Items</p>
           </Link>
-          {categories?categories.map((category) => (
+          {categories ? categories.map((category) => (
             <Link
               to={`../my-stores/${token_id}/items?type=${category.name}&store_d=${id}`}
               onClick={() => goToItemsList(category.name)}
@@ -113,7 +113,7 @@ const MyStore = (props) => {
             >
               <p>{category.name}</p>
             </Link>
-          )):<></>}
+          )) : <></>}
         </div>
         <Link
           to={`../store/${token_id}/update?field=categories`}
