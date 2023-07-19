@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { Link, useNavigate } from 'react-router-dom';
 import { FiLoader } from 'react-icons/fi';
 import FormR from '../reusable/form/FormR';
-import { signUpUser, userLogout } from '../redux/authentication/signUpReducer';
+import { signUpUser } from '../redux/authentication/signUpReducer';
 import './authentication.css';
 import userIcon from '../images/user-show-icon.png';
 
@@ -49,6 +49,12 @@ const SignUp = (props) => {
       classInput: 'user-authentication-form-input',
       placeholder: 'Confirm Password',
     },
+    {
+      type: 'text',
+      name: 'admin',
+      classInput: 'user-authentication-form-input',
+      placeholder: 'no',
+    },
   ];
 
   const viewProfile = (state) => {
@@ -80,6 +86,7 @@ const SignUp = (props) => {
           email,
           password,
           avatar: userAvatarFile,
+          admin: 'yes',
         },
       };
       dispatch(signUpUser(formData));

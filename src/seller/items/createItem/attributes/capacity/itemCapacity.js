@@ -84,28 +84,32 @@ const ItemCapacity = () => {
               listClass="capacities-unit-list"
             />
           </div>
-          <form className="form-input-capacity-container">
-            <h3>Add capacity</h3>
-            <div className="form-input-capacity-wrapper">
-              <label htmlFor="capacity">Input Capacity</label>
-              <input
-                type="number"
-                name="capacity"
-                id="capacity"
-                value={capacityValue}
-                placeholder="120"
-                onChange={(e) => setCapacityValue(e.target.value)}
-              />
-              {selectedUnitTilte ? <span>{selectedUnit.code}</span> : <></>}
-              <button
-                type="button"
-                onClick={AddCapacityToItem}
-                className="create-item-add-capacity-button"
-              >
-                Add
-              </button>
-            </div>
-          </form>
+          {
+            selectedUnitTilte ? (
+              <form className="form-input-capacity-container">
+                <h3>Add capacity</h3>
+                <div className="form-input-capacity-wrapper">
+                  <label htmlFor="capacity">Input Capacity</label>
+                  <input
+                    type="number"
+                    name="capacity"
+                    id="capacity"
+                    value={capacityValue}
+                    placeholder="120"
+                    onChange={(e) => setCapacityValue(e.target.value)}
+                  />
+                  {selectedUnitTilte ? <span>{selectedUnit.code}</span> : <></>}
+                  <button
+                    type="button"
+                    onClick={AddCapacityToItem}
+                    className="create-item-add-capacity-button"
+                  >
+                    Add
+                  </button>
+                </div>
+              </form>
+            ) : <></>
+          }
         </div>
         <div className="selected-unit-wrapp">
           <h3>Added Capacities</h3>

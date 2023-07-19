@@ -7,6 +7,9 @@ import CatgorySlider from './categories_slider/CatgorySlider';
 import { getCategories } from '../../redux/stores_categories/stores_categories_reducer';
 import { getWelcomItemsItems, welcomeSearchItem } from '../../redux/home/welcomePageReducer';
 import useIsInViewport from '../../reusable/checkInViewwPort/checkInViewPort';
+import RedirectToLogin from '../../reusable/redirect-to-login/redirectToLogin';
+import CheckLogin from '../../reusable/currentPageUrl/CurrentPageUrl';
+import { setCurrentLink } from '../../redux/authentication/reusableAuthReducer';
 import SearchBar from '../../reusable/serach-bar/SearchBar';
 import ItemsList from '../../seller/items/itemList/ItemIndex';
 import bgImg1 from '../../images/welcome_page/img1.png';
@@ -119,7 +122,11 @@ const WelcomePage = () => {
         <CardSlider data={cardsData} />
       </div>
       <div className="big-e-cormerce-img-wrapp">
-        <Link to="../" className="welcome-page-create-your-store">
+        <Link
+          to={CheckLogin({ path: '../create-store' })}
+          onClick={RedirectToLogin() ? () => dispatch(setCurrentLink('../my-stores')) : null}
+          className="welcome-page-create-your-store"
+        >
           Create your store
           <span>{' >'}</span>
         </Link>

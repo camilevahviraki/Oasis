@@ -1,16 +1,24 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useRef } from 'react';
 import CheckValidImage from '../check-image/checkValidImage';
 import itemImage from '../../images/item-splash-image.png';
 import './ImageSliderItem.css';
 
 const ImageSliderItem = (props) => {
-  const [imageShown, setImageShown] = useState(0);
+  const imagesContainerRef = useRef(null);
+  const [imageShown, setImageShown] = useState(1);
   const [scrollable, setScrollable] = useState(false);
+  const [containerWidth, setContainerWidth] = useState(null);
+  const [scrollTo, setScrollTo] = useState(1);
 
-  const { imagesArray, freeze, showAttributeImage } = props;
-  const videos = imagesArray.filter((image) => image.includes('video/upload'));
-  const images = imagesArray.filter((image) => image.includes('image/upload'));
-  const arrangedImages = [...images, ...videos];
+  const { imagesArray, showAttributeImage } = props;
+  let videos = [];
+  let images = [];
+  if (imagesArray) {
+    videos = imagesArray.filter((image) => image.includes('video/upload'));
+    images = imagesArray.filter((image) => image.includes('image/upload'));
+  }
+
+  let arrangedImages = [...images, ...videos];
 
   const makeScrollable = () => {
     if (imagesArray.length > 4) {
@@ -18,15 +26,26 @@ const ImageSliderItem = (props) => {
     }
   };
 
-  const [mainImage, setMainImage] = useState(arrangedImages[imageShown]);
-
   useEffect(() => {
-    setMainImage(arrangedImages[imageShown]);
-  }, [imageShown]);
+    setContainerWidth(imagesContainerRef.current.offsetWidth);
+  }, []);
+
+  if (scrollTo !== imageShown) {
+    if (imagesContainerRef.current) {
+      imagesContainerRef.current.scrollTo({
+        top: 0,
+        left: (imageShown - 1) * containerWidth,
+        behavior: 'smooth',
+      });
+      setScrollTo(imageShown);
+    }
+  }
 
   useEffect(() => {
     if (showAttributeImage) {
-      setMainImage(showAttributeImage);
+      // setMainImage(showAttributeImage);
+      arrangedImages = [...arrangedImages, showAttributeImage];
+      setImageShown(arrangedImages.length + 1);
     }
   }, [showAttributeImage]);
 
@@ -38,17 +57,17 @@ const ImageSliderItem = (props) => {
         onMouseOut={() => setScrollable(false)}
         className="image-slider-item-small-container"
       >
-        {imagesArray.map((image, key) => (
+        {arrangedImages.map((image, key) => (
           <div
             key={image}
             className={
-              key === imageShown
+              key + 1 === imageShown
                 ? 'image-slider-item-small-wrapp shown'
                 : 'image-slider-item-small-wrapp'
             }
-            onClick={() => { setImageShown(null); setImageShown(key); }}
+            onClick={() => { setImageShown(key + 1); }}
           >
-            {imagesArray.length === 0 ? (
+            {arrangedImages.length === 0 ? (
               <img src={itemImage} alt="" className="image-slider-main-image" />
             ) : (
               <>
@@ -56,20 +75,22 @@ const ImageSliderItem = (props) => {
                   <div className="image-slider-video-wrap">
                     <video width="100%" height="45%" controls>
                       <source
-                        src={CheckValidImage({
-                          avartarUrl: image,
-                          defaultImg: itemImage,
-                        })}
+                        // src={CheckValidImage({
+                        //   avartarUrl: image,
+                        //   defaultImg: itemImage,
+                        // })}
+                        src={image}
                         type="video/mp4"
                       />
                     </video>
                   </div>
                 ) : (
                   <img
-                    src={CheckValidImage({
-                      avartarUrl: image,
-                      defaultImg: itemImage,
-                    })}
+                    // src={CheckValidImage({
+                    //   avartarUrl: image,
+                    //   defaultImg: itemImage,
+                    // })}
+                    src={image}
                     alt=""
                     className="image-slider-main-image"
                   />
@@ -79,35 +100,43 @@ const ImageSliderItem = (props) => {
           </div>
         ))}
       </div>
-      <div className="image-slider-item-main-wrapper">
-        {imagesArray.length === 0 ? (
-          <img src={itemImage} alt="" className="image-slider-main-image" />
+      <div className="image-slider-item-main-wrapper" ref={imagesContainerRef}>
+
+        {arrangedImages.length === 0 ? (
+          <img src={itemImage} alt="" className="my_store_image" />
         ) : (
           <>
-            {mainImage.includes('video/upload') ? (
-              <div className="image-slider-video-wrap">
-                <video width="100%" height="45%" controls>
-                  <source
-                    src={CheckValidImage({
-                      avartarUrl: mainImage,
-                      defaultImg: itemImage,
-                    })}
-                    type="video/mp4"
+            {arrangedImages.map((imageUrl) => (
+              <div className="image-slider-flex" key={imageUrl}>
+                {imageUrl.includes('video/upload') ? (
+                  <div className="image-slider-video-wrap">
+                    <video width="100%" height="45%" controls>
+                      <source
+                          // src={CheckValidImage({
+                          //   avartarUrl: imageUrl,
+                          //   defaultImg: storeImage,
+                          // })}
+                        src={imageUrl}
+                        type="video/mp4"
+                      />
+                    </video>
+                  </div>
+                ) : (
+                  <img
+                      // src={CheckValidImage({
+                      //   avartarUrl: imageUrl,
+                      //   defaultImg: storeImage,
+                      // })}
+                    src={imageUrl}
+                    alt=""
+                    className="image-slider-main-image"
                   />
-                </video>
+                )}
               </div>
-            ) : (
-              <img
-                src={CheckValidImage({
-                  avartarUrl: mainImage,
-                  defaultImg: itemImage,
-                })}
-                alt=""
-                className="image-slider-main-image"
-              />
-            )}
+            ))}
           </>
         )}
+
       </div>
     </div>
   );

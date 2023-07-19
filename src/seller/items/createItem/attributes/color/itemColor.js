@@ -49,7 +49,7 @@ const ItemColor = () => {
   };
 
   return (
-    <div className="item-color-container-main">
+    <>
       <h2 className="create-item-colors-picker-title">Color</h2>
       <div className="item-color-container">
         <div className="create-item-colors-picker">
@@ -114,7 +114,7 @@ const ItemColor = () => {
           ))}
         </div>
       </div>
-    </div>
+    </>
   );
 };
 
