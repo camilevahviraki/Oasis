@@ -20,6 +20,7 @@
       "import/no-unresolved": "off",
       "no-shadow": "off",
       "camelcase": "off",
+      "no-nested-ternary": "off",
       "no-unused-vars": "off",
       "jsx-a11y/anchor-is-valid": "off",
       "jsx-a11y/click-events-have-key-events": "off",
