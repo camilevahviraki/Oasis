@@ -1,15 +1,20 @@
 import React, { useEffect, useState } from 'react';
 import { FiMail, FiPhone, FiLoader } from 'react-icons/fi';
+import { useParams } from 'react-router';
 import { SlLocationPin } from 'react-icons/sl';
 import { MdOutlineClose } from 'react-icons/md';
 import { useDispatch, useSelector } from 'react-redux';
+import { getOrderShow } from '../../../redux/orders/orderShowReducer';
 import CalculatePrice from '../../../reusable/calculatePrice/calculatePrice';
 import OrderItem from './OrderItem';
 import OrderStripeContainer from '../order_stripe_container/OrderStripeContainer';
 
 const OrderPay = () => {
   const dispatch = useDispatch();
-
+  const { token_id } = useParams();
+  useEffect(() => {
+    dispatch(getOrderShow(token_id));
+  }, []);
   const orderData = useSelector((state) => state.orderShowReducer);
   const [taxes, setTaxes] = useState(5.2);
   const [specialOffer, setSpecialOffer] = useState(2);
@@ -23,7 +28,6 @@ const OrderPay = () => {
     order_destination,
     order_items,
     paid,
-    token_id,
     updated_at,
     user_id,
   } = orderData;
