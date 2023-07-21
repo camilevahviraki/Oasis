@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
+import { useNavigate } from 'react-router';
 import { FiLoader } from 'react-icons/fi';
 import { getCartItems } from '../../redux/cart/getCartsItemReducer';
 import { deleteCartItem } from '../../redux/cart/createCartReducer';
@@ -11,6 +12,7 @@ import './cart.css';
 
 const Cart = () => {
   const dispatch = useDispatch();
+  const navigate = useNavigate();
   const userData = useSelector((state) => state.authenticationReducer);
   const createOrderData = useSelector((state) => state.createOrderReducer);
   const [showOptions, setShowOptions] = useState(null);
@@ -47,7 +49,7 @@ const Cart = () => {
       });
       dispatch(getCartItems(userData.user.id));
       setLoader(false);
-      window.location.href = `../order/${createOrderData.order_id}`;
+      navigate(`../order/${createOrderData.order_id}`);
     } else if (createOrderData.message === 'Error while creating order!') {
       setMessage('Error while purchasing Items');
       setLoader(false);
