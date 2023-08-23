@@ -58,77 +58,101 @@ const ItemsList = (props) => {
     }
   }, [createCartItemResponse]);
 
+  if (itemsData.length > 0) {
+    return (
+      <div className="store-items-list">
+        {itemsData.map((item) => {
+          const {
+            items_images,
+            main_name,
+            names,
+            price,
+            store_id,
+            description,
+            quantity,
+            id,
+            token_id,
+          } = item;
+          return (
+            <div
+              onMouseOver={() => setCartIcon(id)}
+              onMouseOut={() => setCartIcon(null)}
+              key={id}
+            >
+              <div className="store-item-wrapp">
+                <div className="store-item-image-wrapp">
+                  <Link
+                    to={
+                      storeData
+                        ? `../store/${linkName(storeData.name)}/item/${linkName(
+                          item.main_name,
+                        )}/id/${token_id}`
+                        : `../item/${linkName(item.main_name)}/id/${token_id}`
+                    }
+                  >
+                    <ImageSilder imagesArray={items_images} freeze />
+                  </Link>
+                </div>
+                <div className="store-item-description">
+                  <p className="store-item-price">
+                    <CalculatePrice price={price} />
+                  </p>
+                  <div className="store-item-text">
+                    <LimitText
+                      text={`${main_name.toUpperCase()}${' '}${description}`}
+                      limit={30}
+                      className="store-item-description-text"
+                    />
+                  </div>
+                </div>
+                {(showCartIcon === id && quantity > 0)
+                || addedToCartIdList.includes(id) ? (
+                  <div
+                    className="item-cart-button-wrapp"
+                    onClick={() => addToCart(item)}
+                  >
+                    {buttonLoader === id ? (
+                      <FiLoader className="button-loader white-loader" />
+                    ) : (
+                      <>
+                        {addedToCart === id || addedToCartIdList.includes(id) ? (
+                          <BsCartCheck color="green" />
+                        ) : (
+                          <BsCartPlus />
+                        )}
+                      </>
+                    )}
+                  </div>
+                  ) : (
+                    <></>
+                  )}
+              </div>
+            </div>
+          );
+        })}
+      </div>
+    );
+  }
+
   return (
     <div className="store-items-list">
-      {itemsData.map((item) => {
-        const {
-          items_images,
-          main_name,
-          names,
-          price,
-          store_id,
-          description,
-          quantity,
-          id,
-          token_id,
-        } = item;
-        return (
-          <div
-            onMouseOver={() => setCartIcon(id)}
-            onMouseOut={() => setCartIcon(null)}
-            key={id}
-          >
-            <div className="store-item-wrapp">
-              <div className="store-item-image-wrapp">
-                <Link
-                  to={
-                    storeData
-                      ? `../store/${linkName(storeData.name)}/item/${linkName(
-                        item.main_name,
-                      )}/id/${token_id}`
-                      : `../item/${linkName(item.main_name)}/id/${token_id}`
-                  }
-                >
-                  <ImageSilder imagesArray={items_images} freeze />
-                </Link>
-              </div>
-              <div className="store-item-description">
-                <p className="store-item-price">
-                  <CalculatePrice price={price} />
-                </p>
-                <div className="store-item-text">
-                  <LimitText
-                    text={`${main_name.toUpperCase()}${' '}${description}`}
-                    limit={30}
-                    className="store-item-description-text"
-                  />
-                </div>
-              </div>
-              {(showCartIcon === id && quantity > 0)
-              || addedToCartIdList.includes(id) ? (
-                <div
-                  className="item-cart-button-wrapp"
-                  onClick={() => addToCart(item)}
-                >
-                  {buttonLoader === id ? (
-                    <FiLoader className="button-loader white-loader" />
-                  ) : (
-                    <>
-                      {addedToCart === id || addedToCartIdList.includes(id) ? (
-                        <BsCartCheck color="green" />
-                      ) : (
-                        <BsCartPlus />
-                      )}
-                    </>
-                  )}
-                </div>
-                ) : (
-                  <></>
-                )}
+      {[1, 2, 3, 4, 5, 6, 7, 8].map((item) => (
+        <div
+          key={item}
+        >
+          <div className="store-item-wrapp">
+            <div className="store-item-image-wrapp loading-store-item-image-wrapp">
+              <div className="animated-gradient" />
             </div>
+            <div className="store-item-description loading-store-item-description">
+              <div className="store-item-description-init-loading">
+                <div className="animated-gradient" />
+              </div>
+            </div>
+
           </div>
-        );
-      })}
+        </div>
+      ))}
     </div>
   );
 };
