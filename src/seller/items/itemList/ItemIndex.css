@@ -65,3 +65,42 @@
     font-size: 20px;
     cursor: pointer;
 }
+
+.loading-store-item-image-wrapp {
+  background-color: rgb(192, 192, 192);
+  position: relative;
+  overflow: hidden;
+}
+
+.animated-gradient {
+  background-image: linear-gradient(to right ,  rgb(192, 192, 192), rgb(173, 171, 171) , rgb(192, 192, 192));
+  animation: loading 3s ease-in-out 1ms infinite normal forwards;
+  height: 100%;
+  width: 60%;
+  /* left: -20%; */
+  position: absolute;
+}
+
+.store-item-description-init-loading {
+    height: 40px;
+    width: 80%;
+    border-radius: 20px;
+    background-color: rgb(192, 192, 192);
+    position: relative;
+    overflow: hidden;
+}
+
+.loading-store-item-description {
+    height: 50px;
+    width: 100%;
+}
+
+@keyframes loading {
+   0%{
+    left: -20%;
+   }50% {
+    left: 80%;
+   }100%{
+    left: -20%;
+   }
+}
