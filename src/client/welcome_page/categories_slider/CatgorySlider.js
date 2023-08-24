@@ -98,21 +98,43 @@ const CatgorySlider = (props) => {
   return (
     <div className="big-card-slider-container">
       <div className="big-cards-lister-wrapper" ref={containerRef}>
-        {data.map((card, key) => {
-          const { id, name } = card;
-          if (name !== 'Others') {
-            return (
-              <div
-                className="welcome-page-small-card"
-                key={id}
-                // style={{ backgroundImage: `url(${assignImage(card)})` }}
-              >
-                {name}
-              </div>
-            );
-          }
-          return <></>;
-        })}
+        {
+          data.length === 0 ? (
+            <>
+              {
+                [1, 2, 3, 4, 5, 6, 7, 8].map((card) => (
+                  <div
+                    className="welcome-page-small-card loading-store-item-image-wrapp"
+                    key={card}
+                  >
+                    <div className="animated-gradient" />
+                  </div>
+                ))
+}
+            </>
+          ) : (
+            <>
+              {
+              data.map((card) => {
+                const { id, name } = card;
+                if (name !== 'Others') {
+                  return (
+                    <div
+                      className="welcome-page-small-card"
+                      key={id}
+                    // style={{ backgroundImage: `url(${assignImage(card)})` }}
+                    >
+                      {name}
+                    </div>
+                  );
+                }
+                return <></>;
+              })
+}
+
+            </>
+          )
+        }
       </div>
 
       <div className="image-slider-buttons-wrapper">
