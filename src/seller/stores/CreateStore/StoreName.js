@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+import { useTranslation } from 'react-i18next';
 import { AiFillPicture } from 'react-icons/ai';
 import { addStoreNames } from '../../../redux/stores/createStoreReducer';
 import { getCountries } from '../../../redux/countries/countriesReducer';
@@ -9,6 +10,7 @@ import FormR from '../../../reusable/form/FormR';
 import './css/CreateStoreNames.css';
 
 const StoreName = (props) => {
+  const { t } = useTranslation();
   const dispatch = useDispatch();
   const userData = useSelector((state) => state.authenticationReducer);
   const { token } = userData;
@@ -31,7 +33,7 @@ const StoreName = (props) => {
     const city = e.target.city.value;
 
     if (name === '' || description === '' || city === '' || !country.name) {
-      setMessage('Please! Complete all fields to go to the next step.');
+      setMessage(t('pages.seller.complete_all_fields'));
       setInputErrorArr([1, 1, 1, 1]);
     } else {
       const storeNameData = {
@@ -57,30 +59,30 @@ const StoreName = (props) => {
     {
       type: 'text',
       name: 'name',
-      placeholder: 'name',
+      placeholder: t('inputs.search'),
       classInput: 'user-authentication-form-input',
-      label: 'Store Name',
+      label: t('pages.seller.store_name'),
     },
     {
       type: 'select-country',
-      placeholder: 'input country',
+      placeholder: t('inputs.search'),
       classInput: 'user-authentication-form-input',
       data: countriesList,
-      label: 'Country',
+      label: t('pages.seller.country'),
     },
     {
       type: 'text',
       name: 'city',
-      placeholder: 'city',
+      placeholder: t('inputs.search'),
       classInput: 'user-authentication-form-input',
-      label: 'City',
+      label: t('pages.seller.city'),
     },
     {
       type: 'textarea',
       name: 'description',
-      placeholder: 'description',
+      placeholder: t('inputs.search'),
       classInput: 'user-authentication-form-input',
-      label: 'Description',
+      label: t('pages.seller.store_description'),
     },
   ];
 
@@ -119,7 +121,7 @@ const StoreName = (props) => {
           classForm={classForm}
           inputsArray={formValues}
           submitFunction={submitStoreName}
-          submitButton="Next"
+          submitButton={t('buttons.next')}
           submitClass="user-authentication-form-button"
           getSelectedCountry={getSelectedCountry}
           errorMessage={message}

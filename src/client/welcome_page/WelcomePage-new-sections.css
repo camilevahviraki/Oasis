@@ -1,0 +1,416 @@
+@import '../../styles/theme-variables.css';
+
+/* Buyer's Journey Section */
+.welcome-page-buyers-journey-container {
+    width: 90%;
+    margin: 40px auto;
+    padding: 40px 20px;
+    background: linear-gradient(135deg, #ffffff 0%, #f8f9fa 100%);
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+.welcome-page-buyers-journey-container h2 {
+    font-size: 28px;
+    font-weight: 700;
+    color: var(--oasis-dark);
+    margin-bottom: 30px;
+    text-align: center;
+}
+
+.welcome-page-journey-steps {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 20px;
+}
+
+.journey-step {
+    padding: 20px;
+    text-align: center;
+    border-radius: 8px;
+    background-color: #fff;
+    border: 1px solid var(--gray-light);
+    transition: all 0.3s ease;
+}
+
+.journey-step:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(255, 107, 53, 0.15);
+    border-color: var(--oasis-orange);
+}
+
+.journey-step-icon {
+    font-size: 28px;
+    font-weight: 700;
+    margin-bottom: 15px;
+    display: inline-block;
+    width: 50px;
+    height: 50px;
+    line-height: 50px;
+    border-radius: 50%;
+    background-color: #ffe4d5;
+}
+
+.journey-step h3 {
+    font-size: 16px;
+    font-weight: 600;
+    color: var(--oasis-dark);
+    margin: 10px 0;
+}
+
+.journey-step p {
+    font-size: 13px;
+    color: var(--gray-medium);
+    line-height: 1.5;
+}
+
+/* Safety & Trust Section */
+.welcome-page-safety-trust-container {
+    width: 90%;
+    margin: 40px auto;
+    padding: 40px 20px;
+    background-color: #f5f5f5;
+    border-radius: 12px;
+}
+
+.welcome-page-safety-trust-container h2 {
+    font-size: 28px;
+    font-weight: 700;
+    color: var(--oasis-dark);
+    margin-bottom: 30px;
+    text-align: center;
+}
+
+.welcome-page-trust-cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 25px;
+}
+
+.trust-card {
+    padding: 30px 20px;
+    background: #fff;
+    border-radius: 10px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
+    text-align: center;
+    transition: all 0.3s ease;
+}
+
+.trust-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 12px 25px rgba(255, 107, 53, 0.2);
+}
+
+.trust-card-icon {
+    font-size: 40px;
+    margin-bottom: 15px;
+    display: inline-block;
+}
+
+.trust-card h3 {
+    font-size: 18px;
+    font-weight: 600;
+    color: #041014;
+    margin: 15px 0;
+}
+
+.trust-card p {
+    font-size: 14px;
+    color: #666;
+    line-height: 1.6;
+}
+
+/* Messaging Feature Section */
+.welcome-page-messaging-container {
+    width: 90%;
+    margin: 40px auto;
+    padding: 40px;
+    background: linear-gradient(135deg, #041014 0%, #063740 100%);
+    border-radius: 12px;
+    color: #fff;
+}
+
+.messaging-content {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.messaging-text {
+    flex: 1;
+}
+
+.messaging-text h2 {
+    font-size: 28px;
+    font-weight: 700;
+    margin-bottom: 15px;
+    color: #fff;
+}
+
+.messaging-text p {
+    font-size: 16px;
+    color: #ccc;
+    margin-bottom: 25px;
+    line-height: 1.6;
+}
+
+.messaging-benefits {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+}
+
+.benefit-item {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.benefit-item span {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 50px;
+    height: 50px;
+    background-color: rgba(255, 107, 53, 0.2);
+    border-radius: 50%;
+    flex-shrink: 0;
+}
+
+.benefit-item p {
+    font-size: 14px;
+    color: #ddd;
+}
+
+/* Help & Support Section */
+.welcome-page-help-support-container {
+    width: 90%;
+    margin: 40px auto;
+    padding: 40px 20px;
+    background-color: #fff;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+}
+
+.welcome-page-help-support-container h2 {
+    font-size: 28px;
+    font-weight: 700;
+    color: var(--oasis-dark);
+    margin-bottom: 30px;
+    text-align: center;
+}
+
+.welcome-page-support-links {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 20px;
+}
+
+.support-link-item {
+    padding: 20px;
+    background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+    border-radius: 8px;
+    text-align: center;
+    text-decoration: none;
+    color: #041014;
+    transition: all 0.3s ease;
+    border: 2px solid transparent;
+}
+
+.support-link-item:hover {
+    border-color: #FF6B35;
+    background: linear-gradient(135deg, #fff 0%, #ffe4d5 100%);
+    transform: translateY(-4px);
+}
+
+.support-link-item span {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 50px;
+    margin-bottom: 10px;
+}
+
+.support-link-item p {
+    font-size: 14px;
+    font-weight: 600;
+    color: #041014;
+}
+
+/* Top Sellers Section */
+.welcome-page-top-sellers-container {
+    width: 90%;
+    margin: 40px auto;
+    padding: 40px 20px;
+    background: linear-gradient(135deg, #f0f0f0 0%, #fafafa 100%);
+    border-radius: 12px;
+}
+
+.welcome-page-top-sellers-container h2 {
+    font-size: 28px;
+    font-weight: 700;
+    color: var(--oasis-dark);
+    margin-bottom: 10px;
+    text-align: center;
+}
+
+.top-sellers-subtitle {
+    font-size: 14px;
+    color: var(--gray-medium);
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.welcome-page-top-sellers-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 25px;
+}
+
+.seller-card {
+    background: #fff;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.08);
+    transition: all 0.3s ease;
+}
+
+.seller-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 12px 30px rgba(255, 107, 53, 0.2);
+}
+
+.seller-card-header {
+    padding: 15px;
+    background: linear-gradient(135deg, #041014 0%, #063740 100%);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.seller-badge {
+    display: inline-flex;
+    align-items: center;
+    padding: 5px 10px;
+    background-color: #FFD700;
+    color: #041014;
+    border-radius: 20px;
+    font-size: 13px;
+    font-weight: 600;
+}
+
+.seller-card-content {
+    padding: 20px;
+}
+
+.seller-card-content h3 {
+    font-size: 16px;
+    font-weight: 600;
+    color: var(--oasis-dark);
+    margin: 0 0 10px 0;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.seller-rating {
+    font-size: 13px;
+    color: var(--gray-medium);
+    margin: 8px 0;
+}
+
+.seller-feedback {
+    font-size: 13px;
+    color: var(--gray-dark);
+    margin: 8px 0 15px 0;
+}
+
+.view-store-btn {
+    display: inline-block;
+    padding: 8px 15px;
+    background-color: var(--oasis-orange);
+    color: #fff;
+    border-radius: 6px;
+    text-decoration: none;
+    font-size: 13px;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    width: 100%;
+    text-align: center;
+}
+
+.view-store-btn:hover {
+    background-color: #e55a25;
+    transform: scale(1.02);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .welcome-page-buyers-journey-container,
+    .welcome-page-safety-trust-container,
+    .welcome-page-messaging-container,
+    .welcome-page-help-support-container,
+    .welcome-page-top-sellers-container {
+        width: 95%;
+        padding: 30px 15px;
+        margin: 30px auto;
+    }
+
+    .welcome-page-buyers-journey-container h2,
+    .welcome-page-safety-trust-container h2,
+    .welcome-page-help-support-container h2,
+    .welcome-page-top-sellers-container h2 {
+        font-size: 22px;
+        margin-bottom: 20px;
+    }
+
+    .welcome-page-journey-steps,
+    .welcome-page-trust-cards,
+    .welcome-page-support-links,
+    .welcome-page-top-sellers-grid {
+        grid-template-columns: 1fr;
+        gap: 15px;
+    }
+
+    .messaging-benefits {
+        grid-template-columns: 1fr;
+    }
+
+    .welcome-page-messaging-container {
+        padding: 25px 15px;
+    }
+
+    .messaging-text h2 {
+        font-size: 22px;
+    }
+
+    .messaging-text p {
+        font-size: 14px;
+    }
+}
+
+@media (max-width: 480px) {
+    .welcome-page-buyers-journey-container,
+    .welcome-page-safety-trust-container,
+    .welcome-page-messaging-container,
+    .welcome-page-help-support-container,
+    .welcome-page-top-sellers-container {
+        width: 100%;
+        padding: 20px 10px;
+        margin: 20px 0;
+        border-radius: 0;
+    }
+
+    .trust-card,
+    .journey-step,
+    .seller-card {
+        padding: 15px;
+    }
+
+    .journey-step-icon {
+        width: 40px;
+        height: 40px;
+        line-height: 40px;
+        font-size: 20px;
+    }
+}

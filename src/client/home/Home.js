@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { Link } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
 import { setItemLink } from '../../redux/itemLink/itemLinkreducer';
 import { getHomeItems, homeSearchItem } from '../../redux/home/homeReducer';
 import { clearStoreData } from '../../redux/stores/getStoreShowReducer';
@@ -9,6 +10,7 @@ import SearchBar from '../../reusable/serach-bar/SearchBar';
 import './Home.css';
 
 const Home = () => {
+  const { t } = useTranslation();
   const dispatch = useDispatch();
   const userData = useSelector((state) => state.authenticationReducer);
   useEffect(() => {
@@ -45,15 +47,14 @@ const Home = () => {
 
   return (
     <div className="home-container">
-      <div
-        className="welcome-page-search-bar-container"
-        style={{ position: 'fixed', top: '50px', zIndex: 8 }}
-      >
-        <h2 className="store-name" style={{ fontSize: '24px', marginRight: '60px' }}>Home</h2>
-        <SearchBar onSearch={handleSearch} instantSearch={false} homePage />
+      <div className="home-search-bar-container fixed top-[50px] z-[8] w-full bg-white shadow-md py-4 px-6 flex items-center gap-8">
+        <h2 className="home-title text-2xl font-bold text-[var(--oasis-dark)] whitespace-nowrap">{t('common.home')}</h2>
+        <div className="flex-1">
+          <SearchBar onSearch={handleSearch} instantSearch={false} homePage />
+        </div>
       </div>
       {data.length === 0 && searchedData ? (
-        <div className="oops-cooldnt-find-a-match">Oops! Could'nt find a match</div>
+        <div className="oops-cooldnt-find-a-match">{t('common.no_results_found')}</div>
       ) : (
         <ItemsList itemsData={data} />
       )}

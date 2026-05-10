@@ -1,10 +1,12 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
 import FormR from '../reusable/form/FormR';
 import './authentication.css';
 import userIcon from '../images/user-show-icon.png';
 
 const UpdateAccount = (props) => {
+  const { t } = useTranslation();
   const [useImage, setUserImage] = useState(userIcon);
   const [profilePopUp, setProfilePopUp] = useState(false);
   const [userAvatarFile, setUserAvatarFile] = useState(null);
@@ -15,21 +17,21 @@ const UpdateAccount = (props) => {
     type: 'text',
     name: 'first_name',
     classInput: 'user-authentication-form-input',
-    placeholder: 'First name',
+    placeholder: t('inputs.first_name'),
   }];
 
   const inputLastName = [{
     type: 'text',
     name: 'last_name',
     classInput: 'user-authentication-form-input',
-    placeholder: 'Last name',
+    placeholder: t('inputs.last_name'),
   }];
 
   const inputEmail = [{
     type: 'mail',
     name: 'email',
     classInput: 'user-authentication-form-input',
-    placeholder: 'Email',
+    placeholder: t('inputs.email'),
   }];
 
   const inputPassword = [
@@ -37,13 +39,13 @@ const UpdateAccount = (props) => {
       type: 'password',
       name: 'password',
       classInput: 'user-authentication-form-input',
-      placeholder: 'Password',
+      placeholder: t('inputs.password'),
     },
     {
       type: 'password',
       name: 'confirm_password',
       classInput: 'user-authentication-form-input',
-      placeholder: 'Confirm Password',
+      placeholder: t('inputs.confirm_password'),
     },
   ];
 
@@ -62,13 +64,13 @@ const UpdateAccount = (props) => {
     const confirmPassword = e.target.confirm_password.value;
 
     if (firstName.length === 0 || lastName.length === 0 || email.length === 0 || password.length === 0) {
-      setMessage('Please! These marked fields are required');
+      setMessage(t('validation.required_field'));
       setInputErrorArr([1, 1, 1, 1, 1]);
     } else if (!/\S+@\S+\.\S+/.test(email)) {
-      setMessage('Please! Enter a valid email');
+      setMessage(t('validation.invalid_email'));
       setInputErrorArr([0, 0, 1, 0, 0]);
     } else if (password !== confirmPassword) {
-      setMessage('Password confirmation do not Match');
+      setMessage(t('pages.signup.passwords_mismatch'));
       setInputErrorArr([0, 0, 0, 1, 1]);
     } else {
       const formData = {
@@ -88,7 +90,7 @@ const UpdateAccount = (props) => {
 
   return (
     <div className="w-full flex flex-col items-center">
-      <h2 className="authentication-title">UserName Account</h2>
+      <h2 className="authentication-title">{t('pages.account.title')}</h2>
       <div className="user-auth-image-wrap" onClick={() => viewProfile(true)}>
         <img src={useImage} alt="" className="user-image-preview" />
       </div>
@@ -106,7 +108,7 @@ const UpdateAccount = (props) => {
         classForm="user-authentication-form "
         inputsArray={inputToUpdate}
         submitFunction={onSignup}
-        submitButton="Update Account"
+        submitButton={t('buttons.save_changes')}
         submitClass="user-authentication-form-button"
         errorMessage={message}
         inputErrorArr={inputErrorArr}
@@ -115,7 +117,7 @@ const UpdateAccount = (props) => {
       <div className={profilePopUp ? 'image-pop-up-container' : 'hidden'}>
         <div className="w-full relative">
           <button type="button" onClick={() => setProfilePopUp(false)}>
-            X
+            {t('buttons.close')}
           </button>
         </div>
 

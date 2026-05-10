@@ -12,6 +12,7 @@ import storeImage from '../../../images/store-image-holder.png';
 import './css/CreateStorePictures.css';
 
 const CreateStorePictures = (props) => {
+  const { t } = useTranslation();
   const [currentDescription, setCurrentDescription] = useState('');
   const [gallery, setGallery] = useState([]);
   const [progress, setProgress] = useState(0);
@@ -26,7 +27,7 @@ const CreateStorePictures = (props) => {
   const getUploadResponse = (res) => {
     if (!res.store_id) {
       setLoader(false);
-      setMessage('Error while uploading images!Please reupload again.');
+      setMessage(t('pages.seller.error_uploading_images'));
     }
   };
 

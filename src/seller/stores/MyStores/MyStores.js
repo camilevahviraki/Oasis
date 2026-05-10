@@ -1,5 +1,6 @@
 import React, { useEffect } from 'react';
 import { Link } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
 import { BsGraphUp } from 'react-icons/bs';
 import { useSelector, useDispatch } from 'react-redux';
 import { getStoresList } from '../../../redux/stores/getStoresReducer';
@@ -10,6 +11,7 @@ import ImageSilder from '../../../reusable/images_slider/ImageSilder';
 import './MyStores.css';
 
 const MyStores = () => {
+  const { t } = useTranslation();
   const dispatch = useDispatch();
   const userData = useSelector((state) => state.authenticationReducer);
   const storesList = useSelector((state) => state.getStoresReducer);
@@ -20,10 +22,10 @@ const MyStores = () => {
 
   return (
     <div className="my-stores-container flex flex-col">
-      <h2>My Stores</h2>
+      <h2>{t('pages.seller.my_stores')}</h2>
       <Link to="../create-store" className="my-store-create-new flex">
         <img src={createNewIcon} alt="" className="icon" />
-        <p>New store</p>
+        <p>{t('pages.seller.new_store')}</p>
       </Link>
 
       {storesList.map((store) => {

@@ -1,5 +1,6 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+import { useTranslation } from 'react-i18next';
 import StoreName from './StoreName';
 import CreateStoreCategories from './CreateStoreCategories';
 import CreateStorePlaces from './CreateStorePlaces';
@@ -10,14 +11,15 @@ import { createStoreSetProgress } from '../../../redux/stores/createStoreReducer
 import './css/CreateStore.css';
 
 function CreateStore() {
+  const { t } = useTranslation();
   const dispatch = useDispatch();
   const createStoreData = useSelector((state) => state.createStoresReducer);
   const stepsProgress = [
-    'Description',
-    'Categories',
-    'Views',
-    'Places',
-    'Preview',
+    t('pages.seller.step_description'),
+    t('pages.seller.step_categories'),
+    t('pages.seller.step_views'),
+    t('pages.seller.step_places'),
+    t('pages.seller.step_preview'),
   ];
 
   const setProgress = (progress) => {
@@ -28,7 +30,7 @@ function CreateStore() {
 
   return (
     <div className="flex flex-col w-screen create_store_main_container">
-      <h3 className="create-store-title-main">{step === 5 ? 'Store Preview' : 'New Store'}</h3>
+      <h3 className="create-store-title-main">{step === 5 ? t('pages.seller.store_preview') : t('pages.seller.new_store')}</h3>
       <ProgressBar
         steps={stepsProgress}
         currentStep={step}

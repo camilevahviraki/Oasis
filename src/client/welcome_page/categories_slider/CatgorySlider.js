@@ -1,5 +1,6 @@
 import React, { useState, useRef, useEffect } from 'react';
-import { FaAngleRight, FaAngleLeft, GiRunningShoe } from 'react-icons/fa';
+import { FaAngleRight, FaAngleLeft } from 'react-icons/fa';
+import { getIconComponent } from '../../../utils/iconMapper';
 import './CatgorySlider.css';
 
 const CatgorySlider = (props) => {
@@ -116,15 +117,22 @@ const CatgorySlider = (props) => {
             <>
               {
               data.map((card) => {
-                const { id, name } = card;
-                if (name !== 'Others') {
+                const { id, name, icon_name, icon_color, key } = card;
+                const IconComponent = getIconComponent(icon_name);
+                
+                if (name !== 'Others' && key !== 'others') {
                   return (
                     <div
-                      className="welcome-page-small-card"
+                      className="welcome-page-small-card category-card"
                       key={id}
-                    // style={{ backgroundImage: `url(${assignImage(card)})` }}
+                      title={name}
                     >
-                      {name}
+                      {IconComponent && (
+                        <div className="category-icon" style={{ color: icon_color || '#FF6B35', marginBottom: '8px' }}>
+                          <IconComponent size={32} />
+                        </div>
+                      )}
+                      <div className="category-name">{name}</div>
                     </div>
                   );
                 }

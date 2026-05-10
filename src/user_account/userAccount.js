@@ -1,5 +1,6 @@
 import React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
+import { useTranslation } from 'react-i18next';
 import { Link } from 'react-router-dom';
 import { format } from 'date-fns';
 import { userLogout } from '../redux/authentication/signUpReducer';
@@ -8,6 +9,7 @@ import defaultAvatar from '../images/user-show-icon.png';
 import './userAccount.css';
 
 const UserAccount = () => {
+  const { t } = useTranslation();
   const dispatch = useDispatch();
   const userData = useSelector((state) => state.authenticationReducer);
 
@@ -39,7 +41,7 @@ const UserAccount = () => {
           className="logout-button"
           onClick={onLogout}
         >
-          LogOut
+          {t('buttons.logout')}
         </button>
       </div>
       <div className="user-account-avatar-wrap">
@@ -51,7 +53,7 @@ const UserAccount = () => {
         />
       </div>
       <div className="user-account-edit-image">
-        <Link to={`../${userNames}/edit-image`}>Edit image</Link>
+        <Link to={`../${userNames}/edit-image`}>{t('pages.account.edit_image')}</Link>
       </div>
       <div className="user-account-details">
         <Link to={`../${userNames}/edit-names`}>
@@ -65,12 +67,12 @@ const UserAccount = () => {
           <span>{email}</span>
         </p>
         <p>
-          Upated on:
+          {t('pages.account.updated_on')}:
           { ' ' }
           <span>{ transformDateFormat(updated_at) }</span>
         </p>
 
-        <Link to="">+ Add social media</Link>
+        <Link to="">+ {t('pages.account.add_social_media')}</Link>
       </div>
 
     </div>

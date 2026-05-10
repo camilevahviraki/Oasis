@@ -9,6 +9,7 @@ import { setStoreLink } from '../../../redux/storeLink/storeLinkReducer';
 import './css/CreateStorePreview.css';
 
 const CreateStorePreview = (props) => {
+  const { t } = useTranslation();
   const dispatch = useDispatch();
   const createStoreData = useSelector((state) => state.createStoresReducer);
   const userData = useSelector((state) => state.authenticationReducer);
@@ -44,7 +45,7 @@ const CreateStorePreview = (props) => {
             }}
             className="user-authentication-form-button"
           >
-            Next
+            {t('buttons.next')}
             {' '}
             {'>'}
           </Link>

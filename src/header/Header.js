@@ -11,6 +11,7 @@ import Menu from './menu';
 import linkName from '../reusable/remove-blanck-space/linkName';
 import Currency from './currencies/Currency';
 import CheckValidImage from '../reusable/check-image/checkValidImage';
+import LanguageSwitcher from '../components/LanguageSwitcher/LanguageSwitcher.jsx';
 import userIcon from '../images/user-icon.png';
 import hamburger from '../images/icons/menu-hamburger.png';
 import CheckLogin from '../reusable/currentPageUrl/CurrentPageUrl';
@@ -79,6 +80,7 @@ const Header = () => {
         ))}
       </div>
       <div className="right-icons-wrap flex align-center">
+        <LanguageSwitcher />
         <Currency />
 
         <Link to="../cart" className="cart-icon">

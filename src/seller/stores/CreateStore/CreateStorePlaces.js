@@ -39,12 +39,13 @@ const LocationClicked = () => {
 
   return position === null ? null : (
     <Marker position={position} icon={customIcon}>
-      <Popup>Choosen Location</Popup>
+      <Popup>{t('pages.seller.location_chosen')}</Popup>
     </Marker>
   );
 };
 
 const CreateStorePlaces = (props) => {
+  const { t } = useTranslation();
   const dispatch = useDispatch();
   let functionToDispatch = addStorePlaces;
   const storeData = useSelector((state) => state.createStoresReducer);
@@ -57,7 +58,7 @@ const CreateStorePlaces = (props) => {
     functionToDispatch = updateStorePlaces;
   }
   const [message, setMessage] = useState(
-    'Choose a location for your store by clicking on the Map or use your current Location',
+    t('pages.seller.choose_location'),
   );
   const [showLoader, setLoader] = useState(false);
   const [showLoader2, setLoader2] = useState(false);

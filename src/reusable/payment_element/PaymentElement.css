@@ -1,10 +1,5 @@
 @import url('https://fonts.googleapis.com/css?family=Raleway&display=swap');
-:root {
-  --light-grey: #F6F9FC;
-  --dark-terminal-color: #0A2540;
-  --accent-color: #635BFF;
-  --radius: 3px;
-}
+@import '../../styles/theme-variables.css';
 /* 
 
 body {
@@ -31,7 +26,7 @@ main {
   cursor: pointer;
   transition: all 0.2s ease;
   width: 260px;
-  background-color: #006280;
+  background-color: var(--oasis-teal);
   color: #fff;
   padding: 10px;
   border-radius: 6px;

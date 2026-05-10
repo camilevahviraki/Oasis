@@ -1,0 +1,87 @@
+/**
+ * RTL (Right-to-Left) Support
+ * Add this to your Button.css and Input.css to support RTL languages
+ * Automatically applied when language is Arabic, Hebrew, Farsi, or Urdu
+ */
+
+/* Apply RTL styles when document direction is RTL */
+[dir='rtl'] {
+  direction: rtl;
+  text-align: right;
+}
+
+[dir='rtl'] .btn {
+  flex-direction: row-reverse;
+}
+
+[dir='rtl'] .btn__icon--left {
+  margin-left: -0.25rem;
+  margin-right: 0;
+}
+
+[dir='rtl'] .btn__icon--right {
+  margin-right: -0.25rem;
+  margin-left: 0;
+}
+
+[dir='rtl'] .input-wrapper {
+  direction: rtl;
+}
+
+[dir='rtl'] .input-label {
+  justify-content: flex-end;
+}
+
+[dir='rtl'] .input-container {
+  flex-direction: row-reverse;
+}
+
+[dir='rtl'] .input {
+  text-align: right;
+  padding-left: 0.75rem;
+  padding-right: 2.5rem;
+}
+
+[dir='rtl'] .input--with-icon {
+  padding-right: 2.5rem;
+  padding-left: 0.75rem;
+}
+
+[dir='rtl'] .input-icon--left {
+  right: 0.75rem;
+  left: auto;
+}
+
+[dir='rtl'] .input-icon--right {
+  right: auto;
+  left: 0.75rem;
+}
+
+[dir='rtl'] .input-error,
+[dir='rtl'] .input-hint {
+  text-align: right;
+}
+
+[dir='rtl'] .input-error::before {
+  margin-left: 0.25rem;
+  margin-right: 0;
+}
+
+[dir='rtl'] .form-field {
+  direction: rtl;
+}
+
+[dir='rtl'] .select {
+  text-align: right;
+  background-position: left 0.75rem center;
+  padding-left: 2.5rem;
+  padding-right: 0.75rem;
+}
+
+[dir='rtl'] .form--horizontal .form-field {
+  grid-template-columns: 1fr 150px;
+}
+
+[dir='rtl'] .form--horizontal label {
+  text-align: left;
+}

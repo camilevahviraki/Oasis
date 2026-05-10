@@ -1,12 +1,14 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
+import { useTranslation } from 'react-i18next';
 import { userResetPassword } from '../redux/authentication/signUpReducer';
 import FormR from '../reusable/form/FormR';
 
 const ForgotPassword = (props) => {
   const { reusable } = props;
   const dispatch = useDispatch();
+  const { t } = useTranslation();
 
   const [message, setMessage] = useState(null);
 
@@ -15,7 +17,7 @@ const ForgotPassword = (props) => {
       type: 'mail',
       name: 'email',
       classInput: 'user-authentication-form-input',
-      placeholder: 'Email',
+      placeholder: t('inputs.email'),
     },
   ];
 
@@ -24,7 +26,7 @@ const ForgotPassword = (props) => {
     const email = e.target.email.value;
 
     if (!/\S+@\S+\.\S+/.test(email)) {
-      setMessage('Please! Enter a valid email');
+      setMessage(t('validation.invalid_email'));
     } else {
       const formData = {
         user: {
@@ -41,12 +43,12 @@ const ForgotPassword = (props) => {
 
   return (
     <div className="w-full flex flex-col items-center">
-      <h2 className="authentication-title">Reset Password</h2>
+      <h2 className="authentication-title">{t('pages.forgot_password.title')}</h2>
       <FormR
         classForm={reusable ? 'authentication-pop-up-form' : 'user-authentication-form'}
         inputsArray={inputsArray}
         submitFunction={onSignup}
-        submitButton="Send Me Reset Instructions"
+        submitButton={t('buttons.send_reset_instructions')}
         submitClass="user-authentication-form-button"
         errorMessage={message}
       />
@@ -54,8 +56,8 @@ const ForgotPassword = (props) => {
       {
         !reusable ? (
           <p>
-            Back to login page?
-            <Link to="../login">Sign In</Link>
+            {t('pages.signin.no_account')}
+            <Link to="../login">{t('buttons.login')}</Link>
           </p>
         ) : (<></>)
       }

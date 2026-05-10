@@ -1,0 +1,177 @@
+/**
+ * Global Theme CSS Variables
+ * Add this to your main CSS file or index.css
+ * These are the base CSS variables that components use
+ *
+ * Each variable has a fallback default value
+ * Themes override these by setting new values
+ */
+
+:root {
+  /* ============================================
+     COLORS - BRAND (OASIS)
+     ============================================ */
+  --oasis-orange: #FF6B35;
+  --oasis-gold: #FFD700;
+  --oasis-teal: #006280;
+  --oasis-dark: #041014;
+  --oasis-light-bg: #f8f9fa;
+
+  /* ============================================
+     COLORS - PRIMARY
+     ============================================ */
+  --color-primary: #046168;
+  --color-primary-hover: #035258;
+  --color-primary-active: #024448;
+  --color-primary-10: rgba(4, 97, 104, 0.1);
+  --color-primary-20: rgba(4, 97, 104, 0.2);
+
+  --color-secondary: #FFB627;
+  --color-secondary-hover: #FFC555;
+  --color-secondary-active: #FFA500;
+
+  /* ============================================
+     COLORS - STATUS
+     ============================================ */
+  --color-danger: #EF4444;
+  --color-danger-light: #FCA5A5;
+  --color-success: #10B981;
+  --color-success-light: #A7F3D0;
+  --color-warning: #F59E0B;
+  --color-warning-light: #FCD34D;
+  --color-info: #3B82F6;
+  --color-info-light: #BFDBFE;
+
+  /* ============================================
+     COLORS - TEXT
+     ============================================ */
+  --color-text-primary: #111827;
+  --color-text-secondary: #6b7280;
+  --color-text-tertiary: #9ca3af;
+  --color-text-light: #d1d5db;
+  --color-text-inverse: #ffffff;
+
+  /* ============================================
+     COLORS - GRAYSCALE
+     ============================================ */
+  --gray-light: #e0e0e0;
+  --gray-medium: #666;
+  --gray-dark: #999;
+
+  /* ============================================
+     COLORS - BACKGROUNDS
+     ============================================ */
+  --color-bg-primary: #ffffff;
+  --color-bg-secondary: #f9fafb;
+  --color-bg-tertiary: #f3f4f6;
+
+  /* ============================================
+     COLORS - BORDERS
+     ============================================ */
+  --color-border: #d1d5db;
+  --color-border-light: #e5e7eb;
+  --color-border-dark: #9ca3af;
+
+  /* ============================================
+     COMPONENT COLORS - BUTTONS
+     ============================================ */
+  --color-button-primary: #046168;
+  --color-button-primary-hover: #035258;
+  --color-button-primary-active: #024448;
+  --color-button-secondary: #FFB627;
+  --color-button-danger: #EF4444;
+  --color-button-success: #10B981;
+
+  /* ============================================
+     COMPONENT COLORS - INPUTS
+     ============================================ */
+  --color-input-bg: #ffffff;
+  --color-input-border: #d1d5db;
+  --color-input-border-focus: #046168;
+
+  /* ============================================
+     COMPONENT COLORS - CARDS
+     ============================================ */
+  --color-card-bg: #ffffff;
+  --color-card-border: #e5e7eb;
+  --color-card-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+
+  /* ============================================
+     COMPONENT COLORS - PAYMENT
+     ============================================ */
+  --payment-light-grey: #F6F9FC;
+  --payment-dark-terminal: #0A2540;
+  --payment-accent: #635BFF;
+
+  /* ============================================
+     SPACING SCALE (4px baseline)
+     ============================================ */
+  --spacing-xs: 4px;
+  --spacing-sm: 8px;
+  --spacing-md: 16px;
+  --spacing-lg: 24px;
+  --spacing-xl: 32px;
+  --spacing-xxl: 48px;
+  --spacing-xxxl: 64px;
+
+  /* ============================================
+     BORDER RADIUS
+     ============================================ */
+  --radius-none: 0px;
+  --radius-xs: 2px;
+  --radius-sm: 4px;
+  --radius-md: 8px;
+  --radius-lg: 12px;
+  --radius-xl: 16px;
+  --radius-full: 9999px;
+
+  /* ============================================
+     SHADOWS
+     ============================================ */
+  --shadow-none: none;
+  --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+  --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+  --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+  --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+  --shadow-xxl: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+
+  /* ============================================
+     TRANSITIONS
+     ============================================ */
+  --transition-fast: 150ms ease-in-out;
+  --transition-default: 200ms ease-in-out;
+  --transition-slow: 300ms ease-in-out;
+
+  /* ============================================
+     SELLER THEME OVERRIDES
+     ============================================ */
+  --seller-primary: var(--color-primary);
+  --seller-secondary: var(--color-secondary);
+  --seller-logo: none;
+  --seller-font-family: inherit;
+
+  /* ============================================
+     Z-INDEX SCALE
+     ============================================ */
+  --z-index-hide: -1;
+  --z-index-base: 0;
+  --z-index-dropdown: 1000;
+  --z-index-sticky: 1100;
+  --z-index-fixed: 1200;
+  --z-index-modal-backdrop: 1300;
+  --z-index-modal: 1400;
+  --z-index-popover: 1500;
+  --z-index-tooltip: 1600;
+}
+
+/* Dark theme variant (optional) */
+[data-theme='dark'] {
+  --color-text-primary: #f9fafb;
+  --color-text-secondary: #d1d5db;
+  --color-text-tertiary: #9ca3af;
+  --color-bg-primary: #111827;
+  --color-bg-secondary: #1f2937;
+  --color-bg-tertiary: #374151;
+  --color-border: #4b5563;
+  --color-card-bg: #1f2937;
+}

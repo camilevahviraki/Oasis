@@ -2,11 +2,14 @@ import React, { useEffect, useState } from 'react';
 import { FiLoader } from 'react-icons/fi';
 import { Link, useNavigate } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
+import { useTranslation } from 'react-i18next';
 import { showAuthPopUp } from '../redux/authentication/reusableAuthReducer';
 import FormR from '../reusable/form/FormR';
 import { loginUser, userLogout } from '../redux/authentication/signUpReducer';
+import './authentication.css';
 
 const SignIn = (props) => {
+  const { t } = useTranslation();
   const { reusable } = props;
   const navigate = useNavigate();
   const dispatch = useDispatch();
@@ -21,13 +24,13 @@ const SignIn = (props) => {
       type: 'mail',
       name: 'email',
       classInput: 'user-authentication-form-input',
-      placeholder: 'Email',
+      placeholder: t('inputs.email'),
     },
     {
       type: 'password',
       name: 'password',
       classInput: 'user-authentication-form-input',
-      placeholder: 'Password',
+      placeholder: t('inputs.password'),
     },
   ];
 

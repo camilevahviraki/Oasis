@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
 import { BiColor } from 'react-icons/bi';
 import { TbReportMoney } from 'react-icons/tb';
 import { SlGraph } from 'react-icons/sl';
@@ -12,16 +13,17 @@ import { RxSize } from 'react-icons/rx';
 import './AdminHeader.css';
 
 const AdminHeader = () => {
+  const { t } = useTranslation();
   const [showMenu, setShowMenu] = useState(false);
 
   const links = [
-    { name: 'Currencies', icon: <TbReportMoney />, path: '../admin/currency' },
-    { name: 'Countries', icon: <ImLocation />, path: '../admin/country' },
-    { name: 'Store Types', icon: <MdStorefront />, path: '../admin/store/categories' },
-    { name: 'Item color', icon: <BiColor />, path: '../admin/item/color' },
-    { name: 'Item size', icon: <RxSize />, path: '../admin/item/size' },
-    { name: 'Item material', icon: <GiMaterialsScience />, path: '../admin/item/material' },
-    { name: 'Item capacity', icon: <GrCapacity />, path: '../admin/item/capacity' },
+    { name: t('pages.admin.currencies'), icon: <TbReportMoney />, path: '../admin/currency' },
+    { name: t('pages.admin.countries'), icon: <ImLocation />, path: '../admin/country' },
+    { name: t('pages.admin.store_types'), icon: <MdStorefront />, path: '../admin/store/categories' },
+    { name: t('pages.admin.item_colors'), icon: <BiColor />, path: '../admin/item/color' },
+    { name: t('pages.admin.item_sizes'), icon: <RxSize />, path: '../admin/item/size' },
+    { name: t('pages.admin.item_materials'), icon: <GiMaterialsScience />, path: '../admin/item/material' },
+    { name: t('pages.admin.item_capacity'), icon: <GrCapacity />, path: '../admin/item/capacity' },
   ];
   const currenPath = window.location.pathname;
   return (
@@ -31,13 +33,13 @@ const AdminHeader = () => {
           ? (
             <>
               <SiAdminer className="user-Icon" />
-              <span>App Administration</span>
+              <span>{t('common.app_administration')}</span>
             </>
           )
           : (
             <>
               <MdClose cclassName="user-Icon" />
-              <span>Close menu</span>
+              <span>{t('common.close_menu')}</span>
             </>
           )}
       </button>
@@ -47,7 +49,7 @@ const AdminHeader = () => {
           <div className="insight-data-header header-menue">
             <div className="insight-data-header-store-desc">
               <h2 style={{ marginTop: '40px' }}>
-                Administration
+                {t('common.administration')}
               </h2>
             </div>
             <div className="insight-data-header-links">
